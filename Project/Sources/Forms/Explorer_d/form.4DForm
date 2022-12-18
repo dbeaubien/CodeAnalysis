@@ -178,13 +178,8 @@
 					"width": 799,
 					"height": 24,
 					"sizingX": "grow",
-					"dataSource": "TabControl",
-					"dataSourceTypeHint": "arrayText",
-					"labels": [
-						":xliff:TabLabel_Methods",
-						":xliff:TabLabel_Structure",
-						"Summary"
-					],
+					"dataSource": "Form:C1466.tabControl",
+					"dataSourceTypeHint": "object",
 					"action": "gotoPage",
 					"method": "ObjectMethods/TabControl_main.4dm",
 					"events": [
@@ -959,13 +954,16 @@
 				"Text14": {
 					"type": "text",
 					"top": 76,
-					"left": 2,
-					"width": 152,
+					"left": 22,
+					"width": 132,
 					"height": 16,
 					"textAlign": "right",
-					"text": "Table/Field Starts With:"
+					"text": "Field Starts With:"
 				}
 			}
+		},
+		{
+			"objects": {}
 		},
 		{
 			"objects": {
@@ -1472,14 +1470,24 @@
 				"Text24",
 				"Text25"
 			],
-			"Group8": [
-				"Text26",
-				"Text27"
-			],
 			"Group7": [
 				"Text22",
 				"Text23"
+			],
+			"Group8": [
+				"Text26",
+				"Text27"
 			]
+		},
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
 		}
+	},
+	"geometryStamp": 9,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
 	}
 }

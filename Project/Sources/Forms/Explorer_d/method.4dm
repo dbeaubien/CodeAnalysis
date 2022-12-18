@@ -10,6 +10,15 @@ Case of
 	: (Form event code:C388=On Load:K2:1)
 		Form:C1466.currentTab:=1
 		
+		Form:C1466.tabControl:=New object:C1471
+		Form:C1466.tabControl.values:=New collection:C1472()
+		Form:C1466.tabControl.values.push(":xliff:TabLabel_Methods")
+		Form:C1466.tabControl.values.push(":xliff:TabLabel_FieldStructure")
+		Form:C1466.tabControl.values.push(":xliff:TabLabel_TableStructure")
+		Form:C1466.tabControl.values.push("Summary")
+		Form:C1466.tabControl.index:=0  //start on page 1
+		
+		
 		C_OBJECT:C1216(selectedMethodObj)
 		C_LONGINT:C283(selectedMethodPos)
 		
