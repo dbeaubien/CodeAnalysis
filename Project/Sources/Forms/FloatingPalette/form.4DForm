@@ -1,0 +1,157 @@
+{
+	"destination": "detailScreen",
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"width": 97,
+	"height": 90,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onOutsideCall"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"BTN_SaveToText": {
+					"type": "button",
+					"top": 3,
+					"left": 5,
+					"width": 69,
+					"height": 17,
+					"dataSource": "BTN_SaveToText",
+					"text": "Export",
+					"class": "Buttons_11",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_SaveToText.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button": {
+					"type": "button",
+					"top": 67,
+					"left": 5,
+					"width": 86,
+					"height": 17,
+					"dataSource": "Button",
+					"text": "Open Main",
+					"class": "Buttons_11",
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 47,
+					"left": 5,
+					"width": 86,
+					"height": 17,
+					"dataSource": "Button",
+					"text": "Explorer",
+					"class": "Buttons_11",
+					"focusable": false,
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Flder1": {
+					"type": "pictureButton",
+					"top": 7,
+					"left": 80,
+					"width": 12,
+					"height": 12,
+					"dataSource": "BTN_Flder",
+					"tooltip": {
+						"$ref": "/SOURCES/tips.json#/ORD_OpenExpFldr"
+					},
+					"rowCount": 4,
+					"picture": "/RESOURCES/Images/folder-Outline.svg_20_4d.png",
+					"switchBackWhenReleased": true,
+					"useLastFrameAsDisabled": true,
+					"method": "ObjectMethods/BTN_Flder1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button2": {
+					"type": "button",
+					"top": 4,
+					"left": 104,
+					"width": 61,
+					"height": 23,
+					"dataSource": "Button",
+					"shortcutKey": "[Esc]",
+					"text": "ESC",
+					"class": "Buttons_11",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"Button4": {
+					"type": "button",
+					"top": 33,
+					"left": 104,
+					"width": 61,
+					"height": 23,
+					"dataSource": "Button",
+					"shortcutKey": "[Enter]",
+					"text": "Enter",
+					"class": "Buttons_11",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"vt_lastExportDateTimeStr": {
+					"type": "input",
+					"top": 23,
+					"left": 1,
+					"width": 95,
+					"height": 24,
+					"dataSource": "vt_lastExportDateTimeStr",
+					"class": "Text_-_Very_Small",
+					"textAlign": "center",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		}
+	],
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"View 2": {},
+			"View 3": {},
+			"View 4": {},
+			"View 5": {},
+			"View 6": {},
+			"View 7": {},
+			"View 8": {},
+			"View 9": {}
+		}
+	}
+}

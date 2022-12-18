@@ -1,0 +1,1485 @@
+{
+	"destination": "detailScreen",
+	"windowMinWidth": 800,
+	"windowMinHeight": 450,
+	"width": 840,
+	"height": 450,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onOutsideCall",
+		"onActivate",
+		"onTimer"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"TMP_Button2": {
+					"type": "button",
+					"top": 1,
+					"left": 844,
+					"width": 87,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Enter]",
+					"text": "Handle Enter",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button1": {
+					"type": "button",
+					"top": 24,
+					"left": 844,
+					"width": 87,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Esc]",
+					"text": "Handle ESC",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_CmdW": {
+					"type": "button",
+					"top": 50,
+					"left": 844,
+					"width": 67,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_CmdW",
+					"action": "cancel",
+					"shortcutKey": "w",
+					"shortcutAccel": true,
+					"text": "Cmd-W",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Cmd1": {
+					"type": "button",
+					"top": 158,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd1",
+					"shortcutKey": "1",
+					"shortcutAccel": true,
+					"text": "Cmd 1",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Cmd2": {
+					"type": "button",
+					"top": 180,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd2",
+					"shortcutKey": "2",
+					"shortcutAccel": true,
+					"text": "Cmd 2",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Cmd3": {
+					"type": "button",
+					"top": 202,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd3",
+					"shortcutKey": "3",
+					"shortcutAccel": true,
+					"text": "Cmd 3",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd3.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text11": {
+					"type": "text",
+					"top": 6,
+					"left": 7,
+					"width": 244,
+					"height": 16,
+					"class": "Buttons_13",
+					"text": "Code Analysis <<>SYS_Version>"
+				},
+				"Text12": {
+					"type": "text",
+					"top": 23,
+					"left": 7,
+					"width": 354,
+					"height": 13,
+					"stroke": "#666666",
+					"class": "Buttons_10",
+					"text": "A component to aid 4D developers to manage their code"
+				},
+				"Text": {
+					"type": "text",
+					"top": 465,
+					"left": 108,
+					"width": 151,
+					"height": 61,
+					"sizingY": "move",
+					"fontFamily": ".AppleSystemUIFont",
+					"fontSize": 12,
+					"text": "⬇ ⬆ ☝ ☟ ☇ \r⬎ ⬉ ⬊ ⬋ ⮕\r⬄ ⬌ 🉁\r"
+				},
+				"Line2": {
+					"type": "line",
+					"top": 54,
+					"left": 0,
+					"width": 839,
+					"sizingX": "grow"
+				},
+				"TabControl_main": {
+					"type": "tab",
+					"top": 40,
+					"left": 20,
+					"width": 799,
+					"height": 24,
+					"sizingX": "grow",
+					"dataSource": "TabControl",
+					"dataSourceTypeHint": "arrayText",
+					"labels": [
+						":xliff:TabLabel_Methods",
+						":xliff:TabLabel_Structure",
+						"Summary"
+					],
+					"action": "gotoPage",
+					"method": "ObjectMethods/TabControl_main.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 67,
+					"left": 632,
+					"width": 202,
+					"height": 32,
+					"visibility": "hidden",
+					"fill": "#F3F4DD",
+					"stroke": "#C0C0C0"
+				},
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 73,
+					"left": 12,
+					"width": 372,
+					"height": 22,
+					"visibility": "hidden",
+					"fill": "#F3F4DD",
+					"stroke": "#C0C0C0"
+				},
+				"Rectangle2": {
+					"type": "rectangle",
+					"top": 104,
+					"left": 0,
+					"width": 839,
+					"height": 321,
+					"visibility": "hidden",
+					"fill": "#F3F4DD",
+					"stroke": "#C0C0C0"
+				}
+			}
+		},
+		{
+			"objects": {
+				"MethodSearchPicker": {
+					"type": "subform",
+					"top": 69,
+					"left": 145,
+					"width": 205,
+					"height": 30,
+					"dataSource": "vSearch",
+					"dataSourceTypeHint": "text",
+					"detailForm": "SearchPicker",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"method": "ObjectMethods/MethodSearchPicker.4dm",
+					"events": [
+						"onLoad",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"BTN_UpArrow": {
+					"type": "button",
+					"top": 80,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_UpArrow",
+					"shortcutKey": "[up arrow]",
+					"text": "Up Arrw",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_UpArrow.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"methodList": {
+					"type": "listbox",
+					"top": 104,
+					"left": 0,
+					"width": 839,
+					"height": 321,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"listboxType": "collection",
+					"focusable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"headerHeight": "2em",
+					"showFooters": true,
+					"dataSource": "Form:C1466.filteredList",
+					"currentItemSource": "selectedMethodObj",
+					"currentItemPositionSource": "selectedMethodPos",
+					"metaSource": "Explorer_MetaInfoFunction_Mthd()",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "automatic",
+					"alternateFill": "#EEEEEE",
+					"method": "ObjectMethods/methodList.4dm",
+					"events": [
+						"onClick",
+						"onDoubleClick"
+					],
+					"columns": [
+						{
+							"name": "Column1",
+							"dataSource": "This:C1470.name",
+							"width": 354,
+							"minWidth": 200,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header1",
+								"text": " Method Name",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer1",
+								"dataSource": "ftrText1",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "right",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column2",
+							"dataSource": "This:C1470.numCodeLines",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 50,
+							"maxWidth": 50,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "#####; ;-",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header2",
+								"text": "<..>",
+								"tooltip": "Number of Lines with Code",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer2",
+								"dataSource": "ftrText2",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column3",
+							"dataSource": "This:C1470.numCommentLines",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 50,
+							"maxWidth": 50,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "#####; ;-",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header3",
+								"text": "/*",
+								"tooltip": "Number of Comment Lines",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer3",
+								"dataSource": "ftrText3",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column4",
+							"dataSource": "This:C1470.numBlankLines",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 50,
+							"maxWidth": 50,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "#####; ;-",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header4",
+								"text": "\" \"",
+								"tooltip": "Number of Blank Lines",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer4",
+								"dataSource": "ftrText4",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column5",
+							"dataSource": "This:C1470.codeComplexity",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 50,
+							"maxWidth": 50,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "#####; ;-",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header5",
+								"text": "CC",
+								"tooltip": "Cyclomatic Complexity",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer5",
+								"dataSource": "ftrText5",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column6",
+							"dataSource": "This:C1470.nestedLevels",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 50,
+							"maxWidth": 50,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "#####; ;-",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header6",
+								"text": "NL",
+								"tooltip": "# Nested Levels",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer6",
+								"dataSource": "ftrText6",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column7",
+							"dataSource": "This:C1470.numTimesCalled",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 50,
+							"maxWidth": 50,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "#####; ;-",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header7",
+								"text": "⬆",
+								"tooltip": "Upsteam Methods",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer7",
+								"dataSource": "ftrText7",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column8",
+							"dataSource": "This:C1470.lastSavedStr",
+							"width": 170,
+							"minWidth": 170,
+							"maxWidth": 170,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header8",
+								"text": " Last Saved",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer8",
+								"dataSource": "ftrText8",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"BTN_DwnArrow": {
+					"type": "button",
+					"top": 102,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_DwnArrow",
+					"shortcutKey": "[down arrow]",
+					"text": "Dwn Arrw",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_DwnArrow.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Return": {
+					"type": "button",
+					"top": 124,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Return",
+					"shortcutKey": "[Return]",
+					"text": "Return",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Return.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_TEST2": {
+					"type": "radio",
+					"top": 72,
+					"left": 805,
+					"width": 27,
+					"height": 23,
+					"sizingX": "move",
+					"dataSource": "BTN_TEST",
+					"focusable": false,
+					"icon": "/RESOURCES/Images/cog.svg_18_4d.png",
+					"iconFrames": 4,
+					"popupPlacement": "linked",
+					"style": "custom",
+					"method": "ObjectMethods/BTN_TEST2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Analysis": {
+					"type": "button",
+					"top": 67,
+					"left": 730,
+					"width": 32,
+					"height": 32,
+					"sizingX": "move",
+					"dataSource": "BTN_Analysis",
+					"tooltip": ":xliff:Btn_AnalyseCode",
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"focusable": false,
+					"icon": "/RESOURCES/Images/refresh.svg_20_4d.png",
+					"iconFrames": 4,
+					"style": "bevel",
+					"method": "ObjectMethods/BTN_Analysis.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"SaveResults": {
+					"type": "button",
+					"top": 67,
+					"left": 761,
+					"width": 32,
+					"height": 32,
+					"sizingX": "move",
+					"dataSource": "SaveResults",
+					"tooltip": ":xliff:Btn_SaveResults",
+					"focusable": false,
+					"icon": "/RESOURCES/Images/download.svg_18_4d.png",
+					"iconFrames": 4,
+					"textPlacement": "right",
+					"style": "bevel",
+					"method": "ObjectMethods/SaveResults.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"ViewGraphs1": {
+					"type": "button",
+					"top": 67,
+					"left": 699,
+					"width": 32,
+					"height": 32,
+					"sizingX": "move",
+					"dataSource": "ViewGraphs",
+					"tooltip": "Show Graph Window",
+					"focusable": false,
+					"icon": "/RESOURCES/Images/chart-bar.svg_20_4d.png",
+					"iconFrames": 4,
+					"style": "bevel",
+					"method": "ObjectMethods/ViewGraphs1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text3": {
+					"type": "text",
+					"top": 429,
+					"left": 9,
+					"width": 324,
+					"height": 13,
+					"sizingY": "move",
+					"class": "Buttons_10",
+					"textAlign": "left",
+					"text": "Right click a row for more options"
+				},
+				"Text1": {
+					"type": "text",
+					"top": 76,
+					"left": 6,
+					"width": 134,
+					"height": 16,
+					"textAlign": "right",
+					"text": "Method Starts With:"
+				},
+				"Text6": {
+					"type": "text",
+					"top": 429,
+					"left": 450,
+					"width": 384,
+					"height": 16,
+					"sizingX": "move",
+					"sizingY": "move",
+					"class": "Buttons_13",
+					"textAlign": "right",
+					"text": "Last Refreshed: <vt_LastRefreshStr>"
+				}
+			}
+		},
+		{
+			"objects": {
+				"StructureFilterThingy": {
+					"type": "subform",
+					"top": 69,
+					"left": 159,
+					"width": 235,
+					"height": 30,
+					"dataSource": "vStructureFilter",
+					"dataSourceTypeHint": "text",
+					"detailForm": "SearchPicker",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"method": "ObjectMethods/StructureFilterThingy.4dm",
+					"events": [
+						"onLoad",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"BTN_Analysis3": {
+					"type": "button",
+					"top": 67,
+					"left": 651,
+					"width": 137,
+					"height": 32,
+					"sizingX": "move",
+					"dataSource": "BTN_Analysis",
+					"text": ":xliff:Btn_AnalyseIndexes",
+					"class": "Buttons_13",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Analysis3.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"structureList": {
+					"type": "listbox",
+					"top": 104,
+					"left": 0,
+					"width": 839,
+					"height": 321,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"focusable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"headerHeight": "2em",
+					"dataSource": "Form:C1466.filteredStructureList",
+					"metaSource": "Explorer_MetaInfoFunction_Struc()",
+					"selectionMode": "none",
+					"scrollbarHorizontal": "hidden",
+					"alternateFill": "#EEEEEE",
+					"events": [
+						"onClick",
+						"onDoubleClick"
+					],
+					"columns": [
+						{
+							"name": "ColumnName",
+							"dataSource": "This:C1470.name",
+							"width": 400,
+							"minWidth": 400,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "DIFF_HdrExtras2",
+								"text": "Name",
+								"dataSource": "DIFF_HdrExtras",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer11",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "Column24",
+							"dataSource": "This:C1470.type",
+							"width": 110,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "left",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header9",
+								"text": "Type",
+								"dataSource": "Header7",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer24",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "ColumnIndexType",
+							"dataSource": "This:C1470.indexType",
+							"width": 110,
+							"minWidth": 100,
+							"maxWidth": 32000,
+							"resizable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "left",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header10",
+								"text": "Index Type",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer9",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "Column12",
+							"dataSource": "This:C1470.notes",
+							"width": 204,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header11",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer12",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"BTN_Analysis7": {
+					"type": "button",
+					"top": 67,
+					"left": 802,
+					"width": 32,
+					"height": 32,
+					"sizingX": "move",
+					"dataSource": "BTN_Analysis",
+					"tooltip": ":xliff:Btn_AnalyseCode",
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"focusable": false,
+					"icon": "/RESOURCES/Images/refresh.svg_20_4d.png",
+					"iconFrames": 4,
+					"style": "bevel",
+					"method": "ObjectMethods/BTN_Analysis7.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text14": {
+					"type": "text",
+					"top": 76,
+					"left": 2,
+					"width": 152,
+					"height": 16,
+					"textAlign": "right",
+					"text": "Table/Field Starts With:"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Group Box": {
+					"type": "groupBox",
+					"top": 79,
+					"left": 352,
+					"width": 313,
+					"height": 143,
+					"class": "default",
+					"fontWeight": "bold",
+					"text": "Line Count Totals"
+				},
+				"Field3": {
+					"type": "input",
+					"top": 107,
+					"left": 550,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numCodeLines",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Field2": {
+					"type": "input",
+					"top": 129,
+					"left": 550,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numCommentLines",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Field1": {
+					"type": "input",
+					"top": 151,
+					"left": 550,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numBlankLines",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Field": {
+					"type": "input",
+					"top": 181,
+					"left": 550,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numLines",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text2": {
+					"type": "text",
+					"top": 107,
+					"left": 386,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Code Only Lines:"
+				},
+				"Text4": {
+					"type": "text",
+					"top": 129,
+					"left": 386,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Comment Only Lines:"
+				},
+				"Text5": {
+					"type": "text",
+					"top": 151,
+					"left": 386,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Blank Lines:"
+				},
+				"Text7": {
+					"type": "text",
+					"top": 181,
+					"left": 386,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Total Lines:"
+				},
+				"Line": {
+					"type": "line",
+					"top": 174,
+					"left": 362,
+					"width": 292,
+					"stroke": "#808080"
+				},
+				"Group Box1": {
+					"type": "groupBox",
+					"top": 79,
+					"left": 19,
+					"width": 313,
+					"height": 190,
+					"class": "default",
+					"fontWeight": "bold",
+					"text": "Method Breakdown"
+				},
+				"Field4": {
+					"type": "input",
+					"top": 108,
+					"left": 216,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numDatabaseMethods",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Field5": {
+					"type": "input",
+					"top": 130,
+					"left": 216,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numTriggerMethods",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Field6": {
+					"type": "input",
+					"top": 152,
+					"left": 216,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numProjectMethods",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Field7": {
+					"type": "input",
+					"top": 174,
+					"left": 216,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numProjectFormMethods",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text8": {
+					"type": "text",
+					"top": 108,
+					"left": 52,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Database Methods:"
+				},
+				"Text9": {
+					"type": "text",
+					"top": 130,
+					"left": 52,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Trigger Methods:"
+				},
+				"Text10": {
+					"type": "text",
+					"top": 152,
+					"left": 52,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Project Methods:"
+				},
+				"Text13": {
+					"type": "text",
+					"top": 174,
+					"left": 52,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Project Form Methods:"
+				},
+				"Field8": {
+					"type": "input",
+					"top": 196,
+					"left": 216,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numTableFormMethods",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text15": {
+					"type": "text",
+					"top": 196,
+					"left": 52,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Table Form Methods:"
+				},
+				"Field9": {
+					"type": "input",
+					"top": 226,
+					"left": 216,
+					"width": 91,
+					"height": 17,
+					"dataSource": "Storage:C1525.methodStatsSummary.numMethods",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"numberFormat": "###,###,###,##0",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text16": {
+					"type": "text",
+					"top": 226,
+					"left": 52,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "right",
+					"text": "Total Methods:"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 220,
+					"left": 29,
+					"width": 292,
+					"stroke": "#808080"
+				},
+				"Group Box2": {
+					"type": "groupBox",
+					"top": 279,
+					"left": 19,
+					"width": 646,
+					"height": 130,
+					"class": "default",
+					"fontWeight": "bold",
+					"text": "Legend"
+				},
+				"CodeLinesLegend": {
+					"type": "text",
+					"top": 307,
+					"left": 76,
+					"width": 24,
+					"height": 20,
+					"class": "default_-_large1",
+					"textAlign": "right",
+					"fontWeight": "bold",
+					"text": "<"
+				},
+				"Text17": {
+					"type": "text",
+					"top": 309,
+					"left": 127,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "left",
+					"text": "Code Only Lines"
+				},
+				"CodeLinesLegend2": {
+					"type": "text",
+					"top": 307,
+					"left": 100,
+					"width": 22,
+					"height": 20,
+					"class": "default_-_large1",
+					"textAlign": "left",
+					"fontWeight": "bold",
+					"text": "..>"
+				},
+				"Text18": {
+					"type": "text",
+					"top": 341,
+					"left": 82,
+					"width": 44,
+					"height": 20,
+					"class": "default_-_large1",
+					"textAlign": "center",
+					"fontWeight": "bold",
+					"text": "/*"
+				},
+				"Text19": {
+					"type": "text",
+					"top": 343,
+					"left": 127,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "left",
+					"text": "Comment Only Lines"
+				},
+				"Text20": {
+					"type": "text",
+					"top": 375,
+					"left": 82,
+					"width": 44,
+					"height": 20,
+					"class": "default_-_large1",
+					"textAlign": "center",
+					"fontWeight": "bold",
+					"text": "\" \""
+				},
+				"Text21": {
+					"type": "text",
+					"top": 377,
+					"left": 127,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "left",
+					"text": "Blank Lines"
+				},
+				"Text24": {
+					"type": "text",
+					"top": 341,
+					"left": 372,
+					"width": 44,
+					"height": 20,
+					"class": "default_-_large1",
+					"textAlign": "center",
+					"fontWeight": "bold",
+					"text": "NL"
+				},
+				"Text25": {
+					"type": "text",
+					"top": 343,
+					"left": 417,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "left",
+					"text": "Nested Levels"
+				},
+				"Text26": {
+					"type": "text",
+					"top": 375,
+					"left": 372,
+					"width": 44,
+					"height": 20,
+					"class": "default_-_large1",
+					"textAlign": "center",
+					"fontWeight": "bold",
+					"text": "⬆"
+				},
+				"Text27": {
+					"type": "text",
+					"top": 377,
+					"left": 417,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "left",
+					"text": "Upstream Methods"
+				},
+				"Text22": {
+					"type": "text",
+					"top": 307,
+					"left": 372,
+					"width": 44,
+					"height": 20,
+					"class": "default_-_large1",
+					"textAlign": "center",
+					"fontWeight": "bold",
+					"text": "CC"
+				},
+				"Text23": {
+					"type": "text",
+					"top": 309,
+					"left": 417,
+					"width": 154,
+					"height": 17,
+					"class": "default",
+					"textAlign": "left",
+					"text": "Cyclomatic Complexity"
+				}
+			}
+		}
+	],
+	"editor": {
+		"groups": {
+			"Group3": [
+				"CodeLinesLegend",
+				"Text17",
+				"CodeLinesLegend2"
+			],
+			"Group4": [
+				"Text18",
+				"Text19"
+			],
+			"Group5": [
+				"Text20",
+				"Text21"
+			],
+			"Group6": [
+				"Text24",
+				"Text25"
+			],
+			"Group8": [
+				"Text26",
+				"Text27"
+			],
+			"Group7": [
+				"Text22",
+				"Text23"
+			]
+		}
+	}
+}

@@ -1,0 +1,1 @@
+SET TIMER:C645(1)  // trigger the "on timer" form event

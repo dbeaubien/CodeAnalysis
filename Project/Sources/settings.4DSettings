@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="28">
+	<com.4d>
+		<compiler>
+			<options compilation_path="3" fat_binary="true" symbol_file="false" target="all"/>
+			<typage default_for_button="2"/>
+		</compiler>
+		<database>
+			<cache adaptative="true"/>
+			<misc standard_xpath="false"/>
+		</database>
+		<web>
+			<standalone_server>
+				<misc/>
+				<configuration automatic_session_management="true" session_mode="3"/>
+				<options>
+					<cache use_4d_web_cache="false"/>
+				</options>
+			</standalone_server>
+			<remote>
+				<misc/>
+				<configuration automatic_session_management="true" session_mode="3"/>
+				<options>
+					<cache use_4d_web_cache="false"/>
+				</options>
+			</remote>
+		</web>
+		<interface>
+			<user display_toolbar="false"/>
+			<developper display_toolbar="true"/>
+		</interface>
+		<server>
+			<network>
+				<options use_legacy_network_layer="false"/>
+				<client_server use_encryption="false"/>
+			</network>
+		</server>
+		<deployment>
+			<options/>
+		</deployment>
+	</com.4d>
+</preferences>

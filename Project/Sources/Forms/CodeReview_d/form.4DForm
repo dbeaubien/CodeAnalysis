@@ -1,0 +1,539 @@
+{
+	"destination": "detailScreen",
+	"windowMinWidth": 600,
+	"windowMinHeight": 480,
+	"width": 830,
+	"height": 480,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onResize"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"BTN_Rescan": {
+					"type": "button",
+					"top": 7,
+					"left": 8,
+					"width": 107,
+					"height": 22,
+					"dataSource": "BTN_Rescan",
+					"shortcutKey": "r",
+					"shortcutAccel": true,
+					"text": "Reload Method",
+					"class": "Buttons_10",
+					"focusable": false
+				},
+				"BTN_OpenMthd": {
+					"type": "button",
+					"top": 7,
+					"left": 121,
+					"width": 107,
+					"height": 22,
+					"dataSource": "BTN_OpenMthd",
+					"text": "Open Method",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_OpenMthd.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"TMP_Button2": {
+					"type": "button",
+					"top": 1,
+					"left": 834,
+					"width": 87,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Enter]",
+					"text": "Handle Enter",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_SpellCheck": {
+					"type": "button",
+					"top": 7,
+					"left": 435,
+					"width": 87,
+					"height": 22,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"dataSource": "BTN_SpellCheck",
+					"text": "Spell Check",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_NextPage": {
+					"type": "button",
+					"top": 7,
+					"left": 733,
+					"width": 87,
+					"height": 22,
+					"sizingX": "move",
+					"dataSource": "BTN_NextPage",
+					"action": "nextPage",
+					"text": "See Tokens",
+					"class": "Buttons_10",
+					"focusable": false
+				},
+				"TMP_Button1": {
+					"type": "button",
+					"top": 27,
+					"left": 834,
+					"width": 87,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Esc]",
+					"text": "Handle ESC",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"DEMO_FileDiff_lb": {
+					"type": "listbox",
+					"top": 34,
+					"left": 10,
+					"width": 512,
+					"height": 436,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"dataSource": "DEMO_FileDiff_lb",
+					"focusable": false,
+					"sortable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"staticColumnCount": 1,
+					"selectionMode": "none",
+					"horizontalLineStroke": "transparent",
+					"verticalLineStroke": "#AAAAAA",
+					"fill": "#FFFFFF",
+					"rowStrokeSource": "DEMO_FontColors_al",
+					"rowFillSource": "DEMO_BackColors_al",
+					"rowStyleSource": "DEMO_Styles_al",
+					"class": "Mono_11",
+					"method": "ObjectMethods/DEMO_FileDiff_lb.4dm",
+					"events": [
+						"onClick"
+					],
+					"columns": [
+						{
+							"name": "Column1",
+							"dataSource": "DEMO_File1LineNo_al",
+							"dataSourceTypeHint": "number",
+							"width": 41,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "###,##0; ; ",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header1",
+								"text": "Line",
+								"dataSource": "DEMO_LineNo1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "1",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column2",
+							"dataSource": "DEMO_File1_at",
+							"width": 554,
+							"minWidth": 100,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"styledText": true,
+							"contextMenu": "none",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header2",
+								"text": "Method",
+								"dataSource": "DEMO_File1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "2",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						}
+					]
+				},
+				"LocalVars_lb": {
+					"type": "listbox",
+					"top": 34,
+					"left": 533,
+					"width": 287,
+					"height": 356,
+					"sizingX": "move",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"dataSource": "LocalVars_lb",
+					"focusable": false,
+					"sortable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"staticColumnCount": 1,
+					"selectionMode": "single",
+					"horizontalLineStroke": "#AAAAAA",
+					"verticalLineStroke": "#AAAAAA",
+					"fill": "#FFFFFF",
+					"class": "Mono_11",
+					"method": "ObjectMethods/LocalVars_lb.4dm",
+					"events": [
+						"onClick"
+					],
+					"columns": [
+						{
+							"name": "Column3",
+							"dataSource": "at_LocalVarsUsed",
+							"width": 180,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "###,##0; ; ",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "left",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header3",
+								"text": "Variables",
+								"dataSource": "Header3",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "3",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column4",
+							"dataSource": "at_LocalVarsType",
+							"width": 92,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header4",
+								"text": "Type",
+								"dataSource": "Header4",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer1",
+								"stroke": "automatic",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column5",
+							"dataSource": "at_LocalVarsPositions",
+							"width": 120,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"visibility": "hidden",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header5",
+								"text": "Header5",
+								"dataSource": "Header5",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							},
+							"footer": {
+								"name": "Footer2",
+								"stroke": "automatic",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						}
+					]
+				},
+				"TMP_Button3": {
+					"type": "button",
+					"top": 53,
+					"left": 834,
+					"width": 87,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"action": "cancel",
+					"shortcutKey": "w",
+					"shortcutAccel": true,
+					"text": "Cmd-W",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"Text3": {
+					"type": "text",
+					"top": 394,
+					"left": 533,
+					"width": 277,
+					"height": 74,
+					"sizingX": "move",
+					"sizingY": "move",
+					"class": "Buttons_10",
+					"textAlign": "left",
+					"text": "Click a variable to see the rows that the variable is used on.\r\rIf the variable is missing a type then it is not defined in the method."
+				}
+			}
+		},
+		{
+			"objects": {
+				"BTN_PrevPage": {
+					"type": "button",
+					"top": 7,
+					"left": 733,
+					"width": 87,
+					"height": 22,
+					"sizingX": "move",
+					"dataSource": "BTN_PrevPage",
+					"action": "previousPage",
+					"text": "See Vars",
+					"class": "Buttons_10",
+					"focusable": false
+				},
+				"DEMO_tokens_lb": {
+					"type": "listbox",
+					"top": 34,
+					"left": 10,
+					"width": 806,
+					"height": 436,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"dataSource": "DEMO_tokens_lb",
+					"focusable": false,
+					"sortable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"staticColumnCount": 1,
+					"selectionMode": "none",
+					"horizontalLineStroke": "transparent",
+					"verticalLineStroke": "#AAAAAA",
+					"fill": "#FFFFFF",
+					"rowStrokeSource": "DEMO_FontColors_al",
+					"rowFillSource": "DEMO_BackColors_al",
+					"rowStyleSource": "DEMO_Styles_al",
+					"class": "Mono_11",
+					"columns": [
+						{
+							"name": "Column6",
+							"dataSource": "DEMO_File1LineNo_al",
+							"dataSourceTypeHint": "number",
+							"width": 41,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "###,##0; ; ",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header6",
+								"text": "Line",
+								"dataSource": "DEMO_LineNo1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "4",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column7",
+							"dataSource": "DEMO_tokens_at",
+							"width": 750,
+							"minWidth": 100,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"styledText": true,
+							"contextMenu": "none",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header7",
+								"text": "Tokens",
+								"dataSource": "DEMO_File1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "5",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"View 2": {},
+			"View 3": {},
+			"View 4": {},
+			"View 5": {},
+			"View 6": {},
+			"View 7": {},
+			"View 8": {},
+			"View 9": {}
+		}
+	}
+}

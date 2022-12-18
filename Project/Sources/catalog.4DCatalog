@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="ORD - Code Analysis" uuid="B761099490B14FDA95ADBE6114D68789" collation_locale="en">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Table_1" uuid="17D3A55CDD584089B4A6FAE712217636" id="1" hide_in_REST="true">
+		<field name="Field_1" uuid="7FDF1D39D08848488A654256E4669571" type="10" limiting_length="255" not_null="true" never_null="true" id="1">
+			<field_extra position="2"/>
+		</field>
+		<field name="Field_2" uuid="E439F7B40107464CA10A6E63557C92D3" type="10" limiting_length="255" never_null="true" id="2">
+			<field_extra position="3"/>
+		</field>
+		<field name="Field_3_Real" uuid="D3DE63B862D04B5A8B6D420F3F49C8EB" type="6" never_null="true" id="3">
+			<field_extra position="4"/>
+		</field>
+		<field name="Field_4_Float" uuid="B1CFB63DD51F458D943BB9716C418482" type="6" never_null="true" id="4">
+			<field_extra position="5"/>
+		</field>
+		<field name="Field_5_Boolean" uuid="CFCF946970FE43CD8B2F893BC2FE7073" type="1" never_null="true" id="5">
+			<field_extra position="6"/>
+		</field>
+		<field name="Field_6_Blob" uuid="710160C425EC48A1B2C1B522BA157906" type="18" never_null="true" id="6">
+			<field_extra position="7"/>
+		</field>
+		<field name="Field_7_Picture" uuid="1C9A1267A737447C90B329E019E7583C" type="12" never_null="true" id="7">
+			<field_extra position="8"/>
+		</field>
+		<field name="Field_8_LongInt" uuid="ACCFB00F203D48B8B9BD93C8FAF1F25B" type="4" never_null="true" id="8">
+			<field_extra position="9"/>
+		</field>
+		<field name="Field_9_Bit" uuid="3F8B52BA9CEA4B46A5FD5FA153229C3D" type="1" id="9">
+			<field_extra position="10"/>
+		</field>
+		<field name="Field_10_BitVaring" uuid="D92A36275E5344FF9A280F2B38050AA5" type="18" id="10">
+			<field_extra position="11"/>
+		</field>
+		<field name="Field_11_Clob" uuid="AA6DAA3618C546E6A649BC2739124505" type="14" text_switch_size="1" id="11">
+			<field_extra position="12"/>
+		</field>
+		<field name="Field_12_Duration" uuid="41C82F7062B346F586CFEDE11CF217DE" type="9" id="12">
+			<field_extra position="13"/>
+		</field>
+		<field name="Field_13_Interval" uuid="9B5CB522157D40F78221BD3486D0F813" type="9" id="13">
+			<field_extra position="14"/>
+		</field>
+		<field name="GUID" uuid="983FAC3079AE42A89361794E18667B14" type="10" unique="true" autogenerate="true" store_as_UUID="true" never_null="true" id="14">
+			<field_extra position="1"/>
+		</field>
+		<field name="Field_14_Object" uuid="0DB8CAD42BCA4F6AAF420C510BD6C095" type="21" never_null="true" id="15"/>
+		<field name="Field_15_Int64" uuid="B465B602732E42A4A892BAF80A218910" type="5" never_null="true" id="16"/>
+		<primary_key field_name="GUID" field_uuid="983FAC3079AE42A89361794E18667B14"/>
+		<table_extra input_form="Input" output_form="Output">
+			<editor_table_info displayable_fields_count="16">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="16.9296875" top="14.6953125" width="161.70703125" height="393.67578125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Table_2" uuid="B487BC56BA7D4CB0B60036560F59EB05" id="2">
+		<field name="Field_1" uuid="6DCDDF9304154E5FAEFD0E571F846FFB" type="10" limiting_length="255" never_null="true" id="1" hide_in_REST="true">
+			<field_extra position="2"/>
+		</field>
+		<field name="Field_2_Invisible" uuid="AB531F0A73134BA39513134CDC515577" type="8" never_null="true" id="2">
+			<field_extra visible="false" position="3"/>
+		</field>
+		<field name="Field_4_Index_BTree" uuid="71F6E742B2B649EBA2B82B27A01C41C2" type="10" limiting_length="255" never_null="true" id="3">
+			<field_extra position="4"/>
+		</field>
+		<field name="Field_4_Index_Auto" uuid="14AC5D46ABDA4EEB80919997609E2BF5" type="3" never_null="true" id="4">
+			<field_extra position="5"/>
+		</field>
+		<field name="Field_5_Index_ClusterBTree" uuid="4127C6D5A92C40EE95E9FE806F979E1C" type="10" limiting_length="255" never_null="true" id="5">
+			<field_extra position="6"/>
+		</field>
+		<field name="Field_6_Index_KeywordBTree" uuid="437BEF1520C3499FA6C3D39E33AF7A5F" type="10" limiting_length="10" never_null="true" id="6">
+			<field_extra position="7"/>
+		</field>
+		<field name="GUID" uuid="C866E141770B4D319CD6AA6108804757" type="10" unique="true" autogenerate="true" store_as_UUID="true" never_null="true" id="7">
+			<field_extra position="1"/>
+		</field>
+		<field name="Field_8" uuid="CA53DE1D072F4CB9B4C73A2426E2FF5B" type="10" limiting_length="255" never_null="true" id="8"/>
+		<primary_key field_name="GUID" field_uuid="C866E141770B4D319CD6AA6108804757"/>
+		<table_extra trigger_update="true" input_form="Input" output_form="Output">
+			<editor_table_info displayable_fields_count="9">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="225.4296875" top="85.984375" width="193.4296875" height="240.79296875"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Table_4" uuid="52F56DE5CB2641A5A7FFCE4BB1500155" id="4">
+		<field name="Field_1" uuid="B7B8E32482F3446DAB4EFE732816B8AF" type="10" limiting_length="255" never_null="true" id="1">
+			<field_extra position="2"/>
+		</field>
+		<field name="Field_2_Unique" uuid="4BA5390B655342E2A8865B8D31C37D49" type="5" unique="true" never_null="true" id="2">
+			<field_extra position="3"/>
+		</field>
+		<field name="Field_3" uuid="D7CF6553782846BAAC841625AC53442C" type="10" limiting_length="255" never_null="true" id="3">
+			<field_extra position="4"/>
+		</field>
+		<field name="Field_4_UUID" uuid="F12054C2A98E46C98E51744891596EFC" type="10" store_as_UUID="true" never_null="true" id="4">
+			<field_extra multi_line="false" position="5">
+				<editor_field_info>
+					<color red="255" green="255" blue="255" alpha="0"/>
+				</editor_field_info>
+			</field_extra>
+		</field>
+		<field name="Filed_6_IndexPart1" uuid="26DB53B1419248F7A0F8E4D90CCF2C20" type="10" limiting_length="20" never_null="true" id="6">
+			<field_extra position="7"/>
+		</field>
+		<field name="Field_6_IndexPart2" uuid="3889F7C51D7548C8A2ED0AAAA9526F38" type="10" limiting_length="20" never_null="true" id="7">
+			<field_extra position="8"/>
+		</field>
+		<field name="GUID" uuid="F536980BC2F448A092DE1BE2A2595785" type="10" unique="true" autogenerate="true" store_as_UUID="true" never_null="true" id="8">
+			<field_extra position="1"/>
+		</field>
+		<primary_key field_name="GUID" field_uuid="F536980BC2F448A092DE1BE2A2595785"/>
+		<table_extra input_form="Input" output_form="Output">
+			<editor_table_info fields_ordering="2" displayable_fields_count="9">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="476.91796875" top="48.6640625" width="222.65234375" height="234.51171875"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<index kind="regular" unique_keys="true" uuid="2C7FE70D0AAD461694B48C8A9E918287" type="7">
+		<field_ref uuid="C866E141770B4D319CD6AA6108804757" name="GUID">
+			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="360D4D2A7554449D87D69287588CAD9A" type="3">
+		<field_ref uuid="4127C6D5A92C40EE95E9FE806F979E1C" name="Field_5_Index_ClusterBTree">
+			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="6633B3034D934183A4DF6282B702157C" type="1">
+		<field_ref uuid="4BA5390B655342E2A8865B8D31C37D49" name="Field_2_Unique">
+			<table_ref uuid="52F56DE5CB2641A5A7FFCE4BB1500155" name="Table_4"/>
+		</field_ref>
+	</index>
+	<index kind="keywords" uuid="715426CA9A6B4648847D2A0DACEBEC55" type="3">
+		<field_ref uuid="437BEF1520C3499FA6C3D39E33AF7A5F" name="Field_6_Index_KeywordBTree">
+			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
+		</field_ref>
+	</index>
+	<index kind="regular" name="Field1_NamedIndex" uuid="7CF99348F2B24443BEF0259ADCEE911C" type="1">
+		<field_ref uuid="7FDF1D39D08848488A654256E4669571" name="Field_1">
+			<table_ref uuid="17D3A55CDD584089B4A6FAE712217636" name="Table_1"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="83BE5491A84D4446B55DC56B2A29C2B9" type="7">
+		<field_ref uuid="983FAC3079AE42A89361794E18667B14" name="GUID">
+			<table_ref uuid="17D3A55CDD584089B4A6FAE712217636" name="Table_1"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="8891974A2A9941A0A278BF058E94199B" type="7">
+		<field_ref uuid="F536980BC2F448A092DE1BE2A2595785" name="GUID">
+			<table_ref uuid="52F56DE5CB2641A5A7FFCE4BB1500155" name="Table_4"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="9F5F01D40C844CF79AB3E185374CEC76" type="1">
+		<field_ref uuid="437BEF1520C3499FA6C3D39E33AF7A5F" name="Field_6_Index_KeywordBTree">
+			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
+		</field_ref>
+	</index>
+	<index kind="regular" name="MyName" uuid="C1EC0A3795FA472B8357FAE9AF346085" type="7">
+		<field_ref uuid="14AC5D46ABDA4EEB80919997609E2BF5" name="Field_4_Index_Auto">
+			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C739C5E933AB4468896179EA765C524F" type="1">
+		<field_ref uuid="26DB53B1419248F7A0F8E4D90CCF2C20" name="Filed_6_IndexPart1">
+			<table_ref uuid="52F56DE5CB2641A5A7FFCE4BB1500155" name="Table_4"/>
+		</field_ref>
+	</index>
+	<index kind="regular" name="MyCompositeIndex" uuid="D1E2E4BFFDFF437FA5F146D19C74C980" type="1">
+		<field_ref uuid="26DB53B1419248F7A0F8E4D90CCF2C20" name="Filed_6_IndexPart1">
+			<table_ref uuid="52F56DE5CB2641A5A7FFCE4BB1500155" name="Table_4"/>
+		</field_ref>
+		<field_ref uuid="3889F7C51D7548C8A2ED0AAAA9526F38" name="Field_6_IndexPart2">
+			<table_ref uuid="52F56DE5CB2641A5A7FFCE4BB1500155" name="Table_4"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="FD9AC3CAF73E426496F238206FD3C7A9" type="1">
+		<field_ref uuid="71F6E742B2B649EBA2B82B27A01C41C2" name="Field_4_Index_BTree">
+			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
+		</field_ref>
+	</index>
+	<base_extra package_name="Code Analysis DEV" structure_file_name="Code Analysis" data_file_path=":Data:Code Analysis.4DD" __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0">
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>

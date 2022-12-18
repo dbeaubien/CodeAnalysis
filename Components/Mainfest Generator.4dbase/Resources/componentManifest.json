@@ -1,0 +1,20 @@
+﻿{
+	"author": "Dani Beaubien",
+	"copyrights": "Copyright 2020, Open Road Development Inc. All rights reserved.",
+	"version": "1.1.0",
+	"buildDate": "2022-11-01",
+	"url": "http://openroaddevelopment.com",
+	"manifestFormatVersion": "1.0",
+	"buildWith4DVersion": "v19.4 final (build 282375)",
+	"methodList": [
+		"Manifest_GetComponentManifests",
+		"Manifest_GetPluginManifests",
+		"Manifest_RefreshLocalFile",
+		"Manifest_SetAuthor",
+		"Manifest_SetBuildDate",
+		"Manifest_SetCopyright",
+		"Manifest_SetURL",
+		"Manifest_SetVersion",
+		"Manifest_ShowAttributeEditor"
+	]
+}

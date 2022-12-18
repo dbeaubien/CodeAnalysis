@@ -1,0 +1,709 @@
+{
+	"destination": "detailScreen",
+	"windowTitle": "Unit Test",
+	"windowMinWidth": 770,
+	"windowMinHeight": 440,
+	"width": 770,
+	"height": 440,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onActivate",
+		"onUnload"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Tab Control1": {
+					"type": "tab",
+					"top": 20,
+					"left": 20,
+					"width": 730,
+					"height": 400,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "UnitTest_TabControl",
+					"dataSourceTypeHint": "arrayText",
+					"labels": [
+						"Setup",
+						"Log",
+						"Stats"
+					],
+					"class": "default",
+					"action": "gotoPage",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button2": {
+					"type": "button",
+					"top": 380,
+					"left": 660,
+					"width": 70,
+					"height": 20,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "UnitTest_RunButton",
+					"text": "Run",
+					"class": "default",
+					"defaultButton": true,
+					"method": "ObjectMethods/Button2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Cmd1": {
+					"type": "button",
+					"top": 5,
+					"left": 781,
+					"width": 80,
+					"height": 20,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "Cmd1",
+					"shortcutKey": "1",
+					"shortcutAccel": true,
+					"text": "Cmd1",
+					"class": "default",
+					"method": "ObjectMethods/Cmd1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Cmd2": {
+					"type": "button",
+					"top": 35,
+					"left": 781,
+					"width": 80,
+					"height": 20,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "Cmd2",
+					"shortcutKey": "2",
+					"shortcutAccel": true,
+					"text": "Cmd2",
+					"class": "default",
+					"method": "ObjectMethods/Cmd2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Cmd3": {
+					"type": "button",
+					"top": 65,
+					"left": 781,
+					"width": 80,
+					"height": 20,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "Cmd3",
+					"shortcutKey": "3",
+					"shortcutAccel": true,
+					"text": "Cmd3",
+					"class": "default",
+					"method": "ObjectMethods/Cmd3.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button1": {
+					"type": "button",
+					"top": 95,
+					"left": 781,
+					"width": 97,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"action": "cancel",
+					"shortcutKey": "[Esc]",
+					"text": "Handle ESC",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_CmdW": {
+					"type": "button",
+					"top": 123,
+					"left": 781,
+					"width": 67,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_CmdW",
+					"action": "cancel",
+					"shortcutKey": "w",
+					"shortcutAccel": true,
+					"text": "Cmd-W",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"List Box1": {
+					"type": "listbox",
+					"top": 70,
+					"left": 40,
+					"width": 690,
+					"height": 300,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"dataSource": "UnitTest_ListBoxTestCases",
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"scrollbarHorizontal": "hidden",
+					"horizontalLineStroke": "#AAAAAA",
+					"verticalLineStroke": "#AAAAAA",
+					"stroke": "#000000",
+					"fill": "#FFFFFF",
+					"fontFamily": "Lucida Grande",
+					"fontSize": 12,
+					"columns": [
+						{
+							"name": "Column9",
+							"dataSource": "UnitTest_TestCaseEnabled",
+							"dataSourceTypeHint": "boolean",
+							"width": 20,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"controlType": "checkbox",
+							"controlTitle": " ",
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header9",
+								"dataSource": "Header9",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer1",
+								"dataSource": "Footer1",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						},
+						{
+							"name": "Column1",
+							"dataSource": "UnitTest_TestCases",
+							"width": 655,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header1",
+								"text": "Testcases",
+								"dataSource": "Header1",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer2",
+								"dataSource": "Footer2",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						}
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"Variable1": {
+					"type": "input",
+					"top": 70,
+					"left": 40,
+					"width": 675,
+					"height": 300,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "UnitTest_Log",
+					"class": "default",
+					"focusable": false,
+					"enterable": false,
+					"contextMenu": "none",
+					"scrollbarVertical": "visible",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 380,
+					"left": 570,
+					"width": 80,
+					"height": 20,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "UnitTest_SaveButton",
+					"text": "Save",
+					"class": "default",
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"List Box2": {
+					"type": "listbox",
+					"top": 70,
+					"left": 40,
+					"width": 690,
+					"height": 240,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"dataSource": "UnitTest_ListBoxStats",
+					"movableRows": false,
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"scrollbarHorizontal": "hidden",
+					"horizontalLineStroke": "#AAAAAA",
+					"verticalLineStroke": "#AAAAAA",
+					"stroke": "#000000",
+					"fill": "#FFFFFF",
+					"fontFamily": "Lucida Grande",
+					"fontSize": 12,
+					"columns": [
+						{
+							"name": "Column2",
+							"dataSource": "UnitTest_StatsTestCase",
+							"width": 160,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header2",
+								"text": "Testcase",
+								"dataSource": "Header2",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer3",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						},
+						{
+							"name": "Column3",
+							"dataSource": "UnitTest_StatsTestName",
+							"width": 259,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header3",
+								"text": "Test",
+								"dataSource": "Header3",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer4",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						},
+						{
+							"name": "Column4",
+							"dataSource": "UnitTest_StatsDuration",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header4",
+								"text": "Duration",
+								"dataSource": "Header4",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer5",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						},
+						{
+							"name": "Column5",
+							"dataSource": "UnitTest_StatsPercentage",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header5",
+								"text": "%",
+								"dataSource": "Header5",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer6",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						},
+						{
+							"name": "Column6",
+							"dataSource": "UnitTest_StatsTotal",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header6",
+								"text": "Total",
+								"dataSource": "Header6",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer7",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						},
+						{
+							"name": "Column7",
+							"dataSource": "UnitTest_StatsPassed",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"numberFormat": "####;####;",
+							"stroke": "#009900",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header7",
+								"text": "Passed",
+								"dataSource": "Header7",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer8",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						},
+						{
+							"name": "Column8",
+							"dataSource": "UnitTest_StatsFailed",
+							"dataSourceTypeHint": "number",
+							"width": 56,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"numberFormat": "###;###;",
+							"stroke": "#EE0000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "default",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header8",
+								"text": "Failed",
+								"dataSource": "Header8",
+								"stroke": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 11
+							},
+							"footer": {
+								"name": "Footer9",
+								"stroke": "#000000",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"fontFamily": "Lucida Grande",
+								"fontSize": 12
+							}
+						}
+					]
+				},
+				"Button3": {
+					"type": "button",
+					"top": 380,
+					"left": 570,
+					"width": 80,
+					"height": 20,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "UnitTest_SaveButton",
+					"text": "Save",
+					"class": "default",
+					"method": "ObjectMethods/Button3.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"top": 320,
+					"left": 40,
+					"width": 100,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"textAlign": "right",
+					"text": "Duration :"
+				},
+				"Text2": {
+					"type": "text",
+					"top": 340,
+					"left": 40,
+					"width": 100,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"textAlign": "right",
+					"text": "Total tests :"
+				},
+				"Text3": {
+					"type": "text",
+					"top": 360,
+					"left": 40,
+					"width": 100,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"textAlign": "right",
+					"text": "Tests passed :"
+				},
+				"Text4": {
+					"type": "text",
+					"top": 380,
+					"left": 40,
+					"width": 100,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"textAlign": "right",
+					"text": "Tests failed :"
+				},
+				"Text5": {
+					"type": "text",
+					"top": 320,
+					"left": 150,
+					"width": 200,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"text": "<UnitTest_TotalDuration> seconds"
+				},
+				"Text6": {
+					"type": "text",
+					"top": 340,
+					"left": 150,
+					"width": 200,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"text": "<UnitTest_TotalTests>"
+				},
+				"Text7": {
+					"type": "text",
+					"top": 360,
+					"left": 150,
+					"width": 200,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"text": "<UnitTest_TotalPassed>"
+				},
+				"Text8": {
+					"type": "text",
+					"top": 380,
+					"left": 150,
+					"width": 200,
+					"height": 16,
+					"sizingY": "move",
+					"class": "default",
+					"text": "<UnitTest_TotalFailed>"
+				}
+			}
+		}
+	],
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"View 2": {},
+			"View 3": {},
+			"View 4": {},
+			"View 5": {},
+			"View 6": {},
+			"View 7": {},
+			"View 8": {},
+			"View 9": {}
+		}
+	}
+}

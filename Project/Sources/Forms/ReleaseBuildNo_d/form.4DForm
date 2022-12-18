@@ -1,0 +1,290 @@
+{
+	"destination": "detailScreen",
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"width": 420,
+	"height": 200,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onUnload"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Group Box": {
+					"type": "groupBox",
+					"top": 49,
+					"left": 15,
+					"width": 210,
+					"height": 105,
+					"fontFamily": "Lucida Grande Bold",
+					"fontSize": 13,
+					"fontWeight": "bold",
+					"text": "Release"
+				},
+				"Group Box1": {
+					"type": "groupBox",
+					"top": 49,
+					"left": 238,
+					"width": 170,
+					"height": 105,
+					"fontFamily": "Lucida Grande Bold",
+					"fontSize": 13,
+					"fontWeight": "bold",
+					"text": "Build No"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 420,
+					"height": 38,
+					"fill": "#808080",
+					"stroke": "#808080"
+				}
+			}
+		},
+		{
+			"objects": {
+				"string_year": {
+					"type": "input",
+					"top": 91,
+					"left": 30,
+					"width": 77,
+					"height": 17,
+					"class": "default",
+					"focusable": false,
+					"fill": "transparent",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Button6": {
+					"type": "button",
+					"top": 115,
+					"left": 30,
+					"width": 28,
+					"height": 24,
+					"dataSource": "Button",
+					"shortcutKey": "_",
+					"shortcutShift": true,
+					"text": "-",
+					"class": "default",
+					"focusable": false,
+					"method": "ObjectMethods/Button6.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button2": {
+					"type": "button",
+					"top": 115,
+					"left": 62,
+					"width": 28,
+					"height": 24,
+					"dataSource": "Button",
+					"shortcutKey": "+",
+					"shortcutShift": true,
+					"text": "+",
+					"class": "default",
+					"focusable": false,
+					"method": "ObjectMethods/Button2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button3": {
+					"type": "button",
+					"top": 115,
+					"left": 131,
+					"width": 28,
+					"height": 24,
+					"dataSource": "Button",
+					"shortcutKey": "-",
+					"text": "-",
+					"class": "default",
+					"focusable": false,
+					"method": "ObjectMethods/Button3.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button5": {
+					"type": "button",
+					"top": 115,
+					"left": 163,
+					"width": 28,
+					"height": 24,
+					"dataSource": "Button",
+					"shortcutKey": "=",
+					"text": "+",
+					"class": "default",
+					"focusable": false,
+					"method": "ObjectMethods/Button5.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button4": {
+					"type": "button",
+					"top": 115,
+					"left": 260,
+					"width": 58,
+					"height": 24,
+					"dataSource": "Button",
+					"shortcutKey": "t",
+					"shortcutAccel": true,
+					"text": "Today",
+					"class": "default",
+					"focusable": false,
+					"method": "ObjectMethods/Button4.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"top": 166,
+					"left": 18,
+					"width": 78,
+					"height": 21,
+					"dataSource": "Button",
+					"text": "Revert",
+					"class": "default",
+					"focusable": false,
+					"method": "ObjectMethods/Button1.4dm",
+					"events": [
+						"onLoad",
+						"onClick"
+					]
+				},
+				"Button7": {
+					"type": "button",
+					"top": 166,
+					"left": 318,
+					"width": 88,
+					"height": 21,
+					"dataSource": "Button",
+					"action": "cancel",
+					"shortcutKey": "[Return]",
+					"text": "Continue",
+					"class": "default",
+					"focusable": false,
+					"defaultButton": true,
+					"events": [
+						"onClick"
+					]
+				},
+				"Text": {
+					"type": "text",
+					"top": 72,
+					"left": 260,
+					"width": 105,
+					"height": 16,
+					"stroke": "#000000",
+					"class": "default",
+					"textAlign": "left",
+					"text": "Current Value"
+				},
+				"string_buildNo": {
+					"type": "input",
+					"top": 91,
+					"left": 260,
+					"width": 127,
+					"height": 17,
+					"class": "default",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "sunken",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"top": 72,
+					"left": 30,
+					"width": 75,
+					"height": 16,
+					"stroke": "#000000",
+					"class": "default",
+					"textAlign": "left",
+					"text": "Year"
+				},
+				"string_releaseNo": {
+					"type": "input",
+					"top": 91,
+					"left": 131,
+					"width": 77,
+					"height": 17,
+					"class": "default",
+					"focusable": false,
+					"fill": "transparent",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text2": {
+					"type": "text",
+					"top": 72,
+					"left": 131,
+					"width": 85,
+					"height": 16,
+					"stroke": "#000000",
+					"class": "default",
+					"textAlign": "left",
+					"text": "Release No"
+				},
+				"Text3": {
+					"type": "text",
+					"top": 9,
+					"left": 8,
+					"width": 315,
+					"height": 20,
+					"stroke": "#FFFFFF",
+					"class": "default_-_large1",
+					"textAlign": "left",
+					"fontWeight": "bold",
+					"text": "Code Analsyis Version Setter"
+				}
+			}
+		}
+	],
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"View 2": {},
+			"View 3": {},
+			"View 4": {},
+			"View 5": {},
+			"View 6": {},
+			"View 7": {},
+			"View 8": {},
+			"View 9": {}
+		}
+	}
+}

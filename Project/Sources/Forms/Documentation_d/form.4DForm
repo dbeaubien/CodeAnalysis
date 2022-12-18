@@ -1,0 +1,201 @@
+{
+	"destination": "detailScreen",
+	"windowMinWidth": 500,
+	"windowMinHeight": 500,
+	"width": 500,
+	"height": 500,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onOutsideCall",
+		"onActivate"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"TabControl": {
+					"type": "tab",
+					"top": 6,
+					"left": -10,
+					"width": 520,
+					"height": 502,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "TabControl",
+					"dataSourceTypeHint": "arrayText",
+					"labels": [
+						"Release Notes",
+						"Component Docs"
+					],
+					"action": "gotoPage",
+					"method": "ObjectMethods/TabControl.4dm",
+					"events": [
+						"onLoad",
+						"onClick"
+					]
+				},
+				"myWebArea": {
+					"type": "webArea",
+					"top": 38,
+					"left": 0,
+					"width": 500,
+					"height": 462,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "myWebArea",
+					"urlSource": "myWebArea_url",
+					"progressSource": "myWebArea_progress",
+					"webEngine": "embedded",
+					"contextMenu": "none",
+					"borderStyle": "none",
+					"events": [
+						"onBeginURLLoading",
+						"onOpenExternalLink"
+					]
+				},
+				"Line": {
+					"type": "line",
+					"top": 37,
+					"left": 0,
+					"width": 500,
+					"sizingX": "grow"
+				},
+				"BTN_DEV": {
+					"type": "button",
+					"top": 9,
+					"left": 424,
+					"width": 70,
+					"height": 19,
+					"visibility": "hidden",
+					"sizingX": "move",
+					"dataSource": "BTN_DEV",
+					"text": "Show...",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_DEV.4dm",
+					"events": [
+						"onLoad",
+						"onClick"
+					]
+				},
+				"BTN_Cmd1": {
+					"type": "button",
+					"top": 50,
+					"left": 520,
+					"width": 67,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd1",
+					"shortcutKey": "1",
+					"shortcutAccel": true,
+					"text": "Cmd 1",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Cmd2": {
+					"type": "button",
+					"top": 72,
+					"left": 520,
+					"width": 67,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd2",
+					"shortcutKey": "2",
+					"shortcutAccel": true,
+					"text": "Cmd 2",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button3": {
+					"type": "button",
+					"top": 1,
+					"left": 520,
+					"width": 87,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Enter]",
+					"text": "Handle Enter",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button4": {
+					"type": "button",
+					"top": 24,
+					"left": 520,
+					"width": 87,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Esc]",
+					"text": "Handle ESC",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_CmdW1": {
+					"type": "button",
+					"top": 158,
+					"left": 520,
+					"width": 67,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_CmdW",
+					"action": "cancel",
+					"shortcutKey": "w",
+					"shortcutAccel": true,
+					"text": "Cmd-W",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		null,
+		null
+	],
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"View 2": {},
+			"View 3": {},
+			"View 4": {},
+			"View 5": {},
+			"View 6": {},
+			"View 7": {},
+			"View 8": {},
+			"View 9": {}
+		}
+	}
+}

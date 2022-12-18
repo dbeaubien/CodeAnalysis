@@ -1,0 +1,92 @@
+{
+	"destination": "detailScreen",
+	"rightMargin": 19,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onValidate",
+		"onClick",
+		"onOutsideCall",
+		"onDoubleClick",
+		"onDrop",
+		"onMenuSelect",
+		"onPluginArea",
+		"onDataChange",
+		"onDragOver",
+		"onTimer",
+		"onAfterKeystroke",
+		"onAfterEdit",
+		"onBeginDragOver",
+		"onBoundVariableChange",
+		"onPageChange"
+	],
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"myWebArea": {
+					"type": "webArea",
+					"top": 38,
+					"left": 0,
+					"width": 640,
+					"height": 462,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "myWebArea",
+					"urlSource": "myWebArea_url",
+					"progressSource": "myWebArea_progress",
+					"webEngine": "embedded",
+					"contextMenu": "none",
+					"borderStyle": "none",
+					"events": [
+						"onBeginURLLoading",
+						"onOpenExternalLink"
+					]
+				},
+				"BTN_DEV1": {
+					"type": "button",
+					"top": 9,
+					"left": 454,
+					"width": 100,
+					"height": 19,
+					"sizingX": "move",
+					"dataSource": "BTN_DEV",
+					"text": "Load Resource",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_DEV1.4dm",
+					"events": [
+						"onLoad",
+						"onClick"
+					]
+				},
+				"BTN_DEV": {
+					"type": "button",
+					"top": 9,
+					"left": 564,
+					"width": 70,
+					"height": 19,
+					"sizingX": "move",
+					"dataSource": "BTN_DEV",
+					"text": "Load File",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_DEV.4dm",
+					"events": [
+						"onLoad",
+						"onClick"
+					]
+				}
+			}
+		}
+	]
+}

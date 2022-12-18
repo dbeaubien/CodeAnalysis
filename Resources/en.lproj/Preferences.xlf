@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+   <!--
+Translation file.
+This file is distributed under the same license as the product package.-->
+
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+
+<xliff version="1.0">
+   <file datatype="x-STR#" original="undefined" product-version="v11" source-language="en-US" target-language="en">
+      <header>
+         <prop-group name="Xliff-Editor.4dbase">
+            <prop prop-type="version">1.0</prop>
+         </prop-group>
+      </header>
+      <body>
+         <group id="15000" resname="Common">
+            <trans-unit id="3" resname="Label_RootFolder">
+               <source>Root Folder for all Generated Files:</source>
+               <target>Root Folder for all Generated Files:</target>
+            </trans-unit>
+            <trans-unit id="9" resname="Msg_SelectFolder">
+               <source>Select the destination folder</source>
+               <target>Select the destination folder</target>
+            </trans-unit>
+         </group>
+         <group id="15001" resname="TabComplexity">
+            <trans-unit id="16" resname="Btn_ShowUserDict">
+               <source>Show User Dictionary...</source>
+               <target>Show User Dictionary...</target>
+            </trans-unit>
+            <trans-unit id="17" resname="CB_COMP_IncCompMthds">
+               <source>Include Compiled Methods in Analysis</source>
+               <target>Include Compiled Methods in Analysis</target>
+            </trans-unit>
+            <trans-unit id="18" resname="CB_COMP_IsFloating">
+               <source>Is Floating Palette</source>
+               <target>Is Floating Palette</target>
+            </trans-unit>
+            <trans-unit id="10" resname="Label_COMP_Thresholds">
+               <source>Cyclomatic Complexity Thresholds:</source>
+               <target>Cyclomatic Complexity Thresholds:</target>
+            </trans-unit>
+            <trans-unit id="11" resname="Label_COMP_Settings">
+               <source>Code Analysis Settings:</source>
+               <target>Code Analysis Settings:</target>
+            </trans-unit>
+            <trans-unit id="12" resname="Label_COMP_QLaunch">
+               <source>Quick Launcher:</source>
+               <target>Quick Launcher:</target>
+            </trans-unit>
+            <trans-unit id="13" resname="Label_COMP_To">
+               <source>to</source>
+               <target>to</target>
+            </trans-unit>
+            <trans-unit id="18" resname="Label_COMP_LowRisk">
+               <source>Low Risk</source>
+               <target>Low Risk</target>
+            </trans-unit>
+            <trans-unit id="19" resname="Label_COMP_MedRisk">
+               <source>Med Risk</source>
+               <target>Med Risk</target>
+            </trans-unit>
+            <trans-unit id="20" resname="Label_COMP_HighRisk">
+               <source>High Risk</source>
+               <target>High Risk</target>
+            </trans-unit>
+            <trans-unit id="21" resname="Msg_COMP_ResetConfirm">
+               <source>Please confirm that you want to reset the medium risk to start at 11 and high risk to start at 25.</source>
+               <target>Please confirm that you want to reset the medium risk to start at 11 and high risk to start at 25.</target>
+            </trans-unit>
+            <trans-unit id="22" resname="Msg_COMP_UserDictAlert">
+               <source>A User Dictionary has not been created yet.</source>
+               <target>A User Dictionary has not been created yet.</target>
+            </trans-unit>
+            <trans-unit id="24" resname="Msg_COMP_MedRisk_ToLow">
+               <source>The medium risk threshold must be 2 or higher.</source>
+               <target>The medium risk threshold must be 2 or higher.</target>
+            </trans-unit>
+            <trans-unit id="25" resname="Msg_COMP_MedRisk_ToHigh">
+               <source>The medium risk threshold must be be lower than the high risk threshold.</source>
+               <target>The medium risk threshold must be be lower than the high risk threshold.</target>
+            </trans-unit>
+            <trans-unit id="26" resname="Msg_COMP_HighRisk_ToLow">
+               <source>The high risk threshold must be be greater than the medium risk threshold.</source>
+               <target>The high risk threshold must be be greater than the medium risk threshold.</target>
+            </trans-unit>
+         </group>
+         <group id="15002" resname="TabMethods">
+            <trans-unit id="27" resname="CB_MTHD_IgnoreMultSpcs">
+               <source>Ignore Multiple Spaces</source>
+               <target>Ignore Multiple Spaces</target>
+            </trans-unit>
+            <trans-unit id="28" resname="CB_MTHD_IgnoreCase">
+               <source>Ignore Case</source>
+               <target>Ignore Case</target>
+            </trans-unit>
+            <trans-unit id="29" resname="RB_MTHD_ApndNothing">
+               <source>Append Nothing</source>
+               <target>Append Nothing</target>
+            </trans-unit>
+            <trans-unit id="30" resname="RB_MTHD_ApndDate">
+               <source>Append Date</source>
+               <target>Append Date</target>
+            </trans-unit>
+            <trans-unit id="31" resname="RB_MTHD_ApndDateTime">
+               <source>Append Date &amp; Time</source>
+               <target>Append Date &amp; Time</target>
+            </trans-unit>
+            <trans-unit id="33" resname="Label_MTHD_DfltRootFldNameSection">
+               <source>Default Root Folder Name</source>
+               <target>Default Root Folder Name</target>
+            </trans-unit>
+            <trans-unit id="34" resname="Label_MTHD_ForExptMthds">
+               <source>For Exported Methods:</source>
+               <target>For Exported Methods:</target>
+            </trans-unit>
+            <trans-unit id="35" resname="Label_MTHD_ForExptHTML">
+               <source>For Exported HTML Docs:</source>
+               <target>For Exported HTML Docs:</target>
+            </trans-unit>
+            <trans-unit id="36" resname="Label_MTHD_EOLCharSection">
+               <source>End-of-Line Character</source>
+               <target>End-of-Line Character</target>
+            </trans-unit>
+            <trans-unit id="38" resname="Label_MTHD_AllExptUseEOL">
+               <source>All exported text will use the following as the EOL:</source>
+               <target>All exported text will use the following as the EOL:</target>
+            </trans-unit>
+            <trans-unit id="39" resname="Msg_MTHD_DfltFldNeeded">
+               <source>A default folder name must be specified.</source>
+               <target>A default folder name must be specified.</target>
+            </trans-unit>
+            <trans-unit id="40" resname="Msg_MTHD_DfltFldBadChar">
+               <source>The default name cannot contain the folder separator "%1".</source>
+               <target>The default name cannot contain the folder separator "%1".</target>
+            </trans-unit>
+            <trans-unit id="41" resname="Msg_MTHD_MinIndent">
+               <source>The minimum indent must be 1 or higher.</source>
+               <target>The minimum indent must be 1 or higher.</target>
+            </trans-unit>
+            <trans-unit id="42" resname="Msg_MTHD_MaxIndent">
+               <source>The maximum indent must be 10 or less.</source>
+               <target>The maximum indent must be 10 or less.</target>
+            </trans-unit>
+            <trans-unit id="67" resname="CB_MTHD_ExportFlat">
+               <source>Do Not Nest Exported Methods</source>
+               <target>Do Not Nest Exported Methods</target>
+            </trans-unit>
+         </group>
+         <group id="15003" resname="TabFolders">
+            <trans-unit id="43" resname="Label_FLDR_SelectedFolder">
+               <source>Details on Selected Folder:</source>
+               <target>Details on Selected Folder:</target>
+            </trans-unit>
+            <trans-unit id="44" resname="Label_FLDR_ExtraToCopy">
+               <source>Extra Folders to Copy:</source>
+               <target>Extra Folders to Copy:</target>
+            </trans-unit>
+            <trans-unit id="48" resname="Label_FLDR_AppendToName">
+               <source>Append the following to the copied folder names:</source>
+               <target>Append the following to the copied folder names:</target>
+            </trans-unit>
+            <trans-unit id="49" resname="RB_FLDR_AppNothing">
+               <source>Append Nothing</source>
+               <target>Append Nothing</target>
+            </trans-unit>
+            <trans-unit id="50" resname="RB_FLDR_AppDate">
+               <source>Append Date</source>
+               <target>Append Date</target>
+            </trans-unit>
+            <trans-unit id="51" resname="RB_FLDR_AppDateTime">
+               <source>Append Date &amp; Time</source>
+               <target>Append Date &amp; Time</target>
+            </trans-unit>
+            <trans-unit id="53" resname="Msg_FLDR_AlreadyAdded">
+               <source>"%1" has already been added.</source>
+               <target>"%1" has already been added.</target>
+            </trans-unit>
+            <trans-unit id="54" resname="Msg_FLDR_ConfirmDelete">
+               <source>Please confirm that you want to remove "%1" from the list of folders to copy.</source>
+               <target>Please confirm that you want to remove "%1" from the list of folders to copy.</target>
+            </trans-unit>
+            <trans-unit id="55" resname="MSg_FLDR_DoesNotExist">
+               <source>"%1" does not exist on the disk.</source>
+               <target>"%1" does not exist on the disk.</target>
+            </trans-unit>
+            <trans-unit id="66" resname="Label_FLDR_ActualPath">
+               <source>Actual Path of Folder Relative to Structure:</source>
+               <target>Actual Path of Folder Relative to Structure:</target>
+            </trans-unit>
+         </group>
+         <group id="15004" resname="TabStructure">
+            <trans-unit id="56" resname="Label_STRCT_DfltFolder">
+               <source>Default Folder Name to Contain Exported Form Properties:</source>
+               <target>Default Folder Name to Contain Exported Form Properties:</target>
+            </trans-unit>
+            <trans-unit id="57" resname="CB_STRCT_AppDateTime">
+               <source>Append Date/Time to Folder Name at Time of Export</source>
+               <target>Append Date/Time to Folder Name at Time of Export</target>
+            </trans-unit>
+            <trans-unit id="58" resname="Msg_STRCT_DfltFldBadChar">
+               <source>The default name cannot contain the folder separator "%1".</source>
+               <target>The default name cannot contain the folder separator "%1".</target>
+            </trans-unit>
+            <trans-unit id="59" resname="Msg_STRCT_DfltFldNeeded" translate="no">
+               <source>A default folder name must be specified.</source>
+            </trans-unit>
+         </group>
+         <group id="15005" resname="TabAbout">
+            <trans-unit id="62" resname="Label_ABT_DevBy">
+               <source>developed by Dani Beaubien of Open Road Development</source>
+               <target>developed by Dani Beaubien of Open Road Development</target>
+            </trans-unit>
+            <trans-unit id="63" resname="Label_ABT_Desc">
+               <source>This component provides some basic tools that allows 4D Developers to manage their code in ways that have not been easy historically.
+
+The ability to get useful statistics, indicators of complexity, code changes and the ability to easily produce documentation is invaluable to a busy developer.</source>
+               <target>This component provides some basic tools that allows 4D Developers to manage their code in ways that have not been easy historically.
+
+The ability to get useful statistics, indicators of complexity, code changes and the ability to easily produce documentation is invaluable to a busy developer.</target>
+            </trans-unit>
+            <trans-unit id="64" resname="Label_ABT_Copyright">
+               <source>Copyright ©2012-2021 Open Road Development Inc. All rights reserved.</source>
+               <target>Copyright ©2012-2021 Open Road Development Inc. All rights reserved.</target>
+            </trans-unit>
+            <trans-unit id="65" resname="CB_ABT_EnableLogging">
+               <source>Enable Debug Logging</source>
+               <target>Enable Debug Logging</target>
+            </trans-unit>
+            <trans-unit id="54" resname="Label_ABT_SpecialThanks">
+               <source>Special Thanks</source>
+               <target>Special Thanks</target>
+            </trans-unit>
+            <trans-unit id="55" resname="Txt_ABT_SpecialThanks">
+               <source>Bertrand Soubeyrand for localization to French.
+
+David Dancy for conversion of Matthias Hertel's DIFF C# code to 4D</source>
+               <target>Bertrand Soubeyrand for localization to French.
+
+David Dancy for conversion of Matthias Hertel's DIFF C# code to 4D</target>
+            </trans-unit>
+         </group>
+         <group resname="TabDifferences" id="15006">
+            <trans-unit id="37" resname="Label_MTHD_DiffAnalSection">
+               <source>Method DIFF Analysis</source>
+               <target>Method DIFF Analysis</target>
+            </trans-unit>
+            <trans-unit id="41" resname="Label_MTHD_NbrSpcsToIndent">
+               <source>Number of spaces to indent on code view</source>
+               <target>Number of spaces to indent on code view</target>
+            </trans-unit>
+            <trans-unit id="40" resname="Explain_MTHD_DiffIgnoreNames">
+               <source>Any file/folder that has one of these names will be ignored when looking at method differences.</source>
+               <target>Any file/folder that has one of these names will be ignored when looking at method differences.</target>
+            </trans-unit>
+            <trans-unit id="42" resname="Label_MTHD_DiffIgnoreNames">
+               <source>File/Folder Names to Ignore</source>
+               <target>File/Folder Names to Ignore</target>
+            </trans-unit>
+            <trans-unit id="52" resname="Msg_MTHD_AddNameToList">
+               <source>Enter the file/folder name to ignore:</source>
+               <target>Enter the file/folder name to ignore:</target>
+            </trans-unit>
+            <trans-unit id="54" resname="Msg_MTHD_ConfirmDelete">
+               <source>Please confirm that you want to remove "%1" from the list of file/folder names to ignore.</source>
+               <target>Please confirm that you want to remove "%1" from the list of file/folder names to ignore.</target>
+            </trans-unit>
+         </group>
+      </body>
+   </file>
+</xliff>

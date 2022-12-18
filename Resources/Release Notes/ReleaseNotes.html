@@ -1,0 +1,851 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="keywords" content="Code Analysis, 4D, Open Road Development"/>
+		<meta name="title" content="Code Analysis -- Release Notes"/>
+		<meta name="author" content="Dani Beaubien"/>
+		<meta name="copyright" content="Copyright 2012 Open Road Development, Inc. All rights reserved."/>
+		<meta name="description" content="Release Notes for Code Analaysis Component for 4D v13+."/>
+
+		<title>Code Analysis Component -- Release Notes</title>
+
+		<link href="style.css" type="text/css" rel="stylesheet" media="all"/>
+	</head>
+
+	<body ondragover="return false;" ondrop="return false;">
+
+		<!--
+			Code Analysis Window
+			<li class=todo>Differences>Methods tab always shows the methods that differ from the last export to disk and is updated dynamically as code changes are made to the host database.</li>
+			<li class=todo>Differences>Methods tab will refresh itself automatically after changed methods are exported.</li>
+		-->
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis FUTURE RELEASE</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Upcoming changes</h2>
+					<ul>
+						<li>Convert Code Analysis to project mode rather than binary mode.</li>
+						<li>Formally release Code Analysis as open source on GitHub.</li>
+						<li>Improved support for client/server.</li>
+						<li>Parser supports variable definitions using the <code>#DECLARE</code> command.</li>
+						<li>Parser supports variable definitions using the <code>var</code> command.</li>
+						<li>Parser supports project mode.</li>
+						<li>Parser supports classes.</li>						
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis 2021.r1 - June 2021 (4Dv18)</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>General</h2>
+					<ul>
+						<li>Converted to 4D v18.</li>
+						<li>Major re-write moving away from process arrays to objects.</li>
+						<li>Removed all previous references to the internal arrays that were used.</li>
+						<li>Reworked the UI on the two main windows.</li>
+						<li>Recongnize /* ... */ as comments.</li>
+					</ul>
+
+					<h2>Code Analysis Window</h2>
+					<ul>
+						<li>Analysis tab removed since that information is available on the Explorer Window.</li>
+						<li>When exporting the methods as text, the structure is also exported.</li>
+						<li>Added a button to diff save the results on the Difference tab.</li>
+					</ul>
+
+					<h2>Explorer Window</h2>
+					<ul>
+						<li>
+							Reworked the UI by using tabs on the explorer window:
+							<ul>
+								<li>"Methods" tab - provides a quick way to find methods as well as see some basic static analysis statistics on each one</li>
+								<li>"Structure" tab - provides a list of all the tables, fields, types of indexes as well as the abiltiy to get the ratio of unique values</li>
+								<li>"Summary" tab - provided statistics from the host structure</li>
+							</ul>							
+						</li>
+						<li>User can right click a method on the Methods tab to view the methods that call the method. Selecting the caller will open in the code editor.</li>
+					</ul>
+
+					<h2>Miscellaneous</h2>
+					<ul>
+						<li>
+							Added <code>componentManifest.json</code> file.
+							<br/>See <code>https://github.com/dbeaubien/Manifest-Generator-4D-Component</code> for more details.
+						</li>
+					</ul>
+
+					<h2>Preferences</h2>
+					<ul>
+						<li>Reworked the layout of across all the tabs. Added a new tab called "General".</li>
+						<li>Added preferences on the General tab to configure what happens when the "<code>CA_OnStartup</code>" method is called.</li>
+					</ul>
+
+					<h2>Components Methods Shared to the Host</h2>
+					<ul>
+						<li>Added "<code>CA_OnStartup</code>". This function is meant to be added to the host database's "<code>On Startup</code>" method. It will perform the startup actions defined in the preferences.</li>
+						<li>Added "<code>CA_SaveStructureDetails</code>". This function exports the structure to the optionally specified folder. If no folder is specifed then the structure is exports to the folder defined in the preferences.</li>
+						<li>Added "<code>Structure_GetFieldIndexRatio</code>". This function returns the uniqueness ratio for the specified field. The returned ratio is range between 1.00 (100% unique) to 0 (1 value for every record).</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis 2020.r1 - March 2020</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Code Analysis Window: Exporting Structure</h2>
+					<ul>
+						<li>Massive speed improvement. Indexes have been moved from within each field to the table level.</li>
+					</ul>
+					<h2>Code Analysis Window: Structure Analysis</h2>
+					<ul>
+						<li>Added ability to filter the list.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis 2018.r3 - October 31, 2018</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Code Analysis Window: Exporting Structure</h2>
+					<ul>
+						<li>Corrected label on the progress dialog, when exporting. It now reflects what it is actually doing.</li>
+					</ul>
+					<h2>Code Analysis Window: Exporting Folders</h2>
+					<ul>
+						<li>Fixed a bug that would cause a runtime error when exporting folders.</li>
+					</ul>
+					<h2>Method DIFF Window</h2>
+					<ul>
+						<li>Fixed an issue where the change highlighting was not accurate if only the last line of the method was modified.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis 2018.r2 - July 9, 2018</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Code Analysis Window: Exporting Folders</h2>
+					<ul>
+						<li>Added the ability skip over subfolders in a folder that has been identified to export. I need to be able to skip over a "node_modules" folder when exporting since there was not point in exporting something that is dynamically generated by "npm".</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis 2018.r1 - July 7, 2018</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Code Analysis Window: Form and Object Properties</h2>
+					<ul>
+						<li>Able to detect dynamic form variables when running in 4D v17.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis 2017.r3 - October 9, 2017</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Code Analysis Window: Folder Differences</h2>
+					<ul>
+						<li>Improved the algorithm that is used to compare files in the identified folders. Properly identifies files that confirmed to be different regardless of file modification dates. No more false positives when doing a checkout from git.</li>
+					</ul>
+					<h2>Code Analysis Window: Structure Analysis</h2>
+					<ul>
+						<li>Added a new tab that shows the fields and tables that are directy referenced in code. This tab can be used to indicate the structure elements that are not used.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis 2017.r2 - Jul 23, 2017 (4Dv16)</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>General</h2>
+					<ul>
+						<li>Converted to 4D v16.</li>
+					</ul>
+					<h2>Code Analysis Window: Exporting All as Text</h2>
+					<ul>
+						<li>Modified the code that is used to detect when a file in an included folder should be copied to the destination.
+							Only files that have truely changed will be copied.
+							A file that has an updated modification date but has no changes within the file will not be copied.</li>
+					</ul>
+					<h2>Explorer Window</h2>
+					<ul>
+						<li>Added ability to hide methods that are preemtive capable, incapable or indifferent.</li>
+					</ul>
+					<h2>Components Methods Shared to the Host</h2>
+					<ul>
+						<li>Added "<code>BuildNo_GetBuildNo_CodeAnalysis</code>". The method will return an C_OBJECT that contains the version information for the component.
+						<br/><em>For example: {"releaseYear":"2017", "releaseNo":"r1", "buildNo":"20170529", "versionShort":"2017.r1", "versionLong":"2017.r1 (build 20170529)"}</em></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v2.0.1 - Not Released</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>General</h2>
+					<ul>
+						<li>Reimplemented code that parses and tokenizes the 4d methods that the Code Analysis uses for statistics. Slight improvement in speed and fixes a number of parsing bugs.</li>
+						<Li>Added UI for unit tests that have been implemented within the component.</li>
+					</ul>
+					<h2>Code Analysis Window: Index Analysis</h2>
+					<ul>
+						<li>Optimized the code used for doing the index count analysis. Performance significantly improved.</li>
+					</ul>
+					<h2>Components Methods Shared to the Host</h2>
+					<ul>
+						<li>Added "<code>CA_Pref_SetExportFolder</code>". The method will set the root folder where the component will export all of it's files and folders to.</li>
+						<li>Added "<code>CA_Pref_SetEOL</code>". The method sets the end-of-line character that is used when exporting methods. Possible values are: "\r", "\n", "\r\n", or "".</li>
+						<li>Added "<code>CA_Pref_GetStructureKey</code>". The method will return the unique key that is attributed to the host structure.</li>
+						<li>Added "<code>CA_Pref_SetStructureKey</code>". The method allows the caller to specify the unique key that is attributed to the host structure.</li>
+						<li>Added "<code>CA_Pref_GetPreferencesFolder</code>". The method returns the path to where the component stores all of it's structure specific preferences.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v2.0 - Mar 7, 2017</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>General</h2>
+					<ul>
+						<li>Minor adjustments to the user interface. Some buttons converted to icons to condense the amount of space that the UI takes on the various pages.</li>
+						<li>Optimized the code used for doing the analysis. Performance improved by 20-30% when testing against my own code.</li>
+						<li>Added menu items for the main analysis window and the new explorer window.</li>
+						<li>Fixed bug that caused the Quick launcher window to ignore the floating preference setting.</li>
+					</ul>
+					<h2>Explorer Window</h2>
+					<ul>
+						<li>Created a new explorer window that shows all the information that the component has on the methods in the structure. From this window a user can open a method, filter visible methods and export the information shown in the grid.</li>
+						<li>Exposed a new shared "<code>CA_ShowExplorer</code>" method that opens the explorer.</li>
+						<li>Added a new <strong>Code Review</strong> window that is accessible from right clicking a method in the explorer window. The code review window parses the method and for variables that are used. You can select a particular variable and easily see all the lines of code that use the variable.</li>
+					</ul>
+					<h2>Code Analysis Window: Complexity Analysis</h2>
+					<ul>
+						<li>Complexity analysis no longer counts "<code>If (True)</code>" and "<code>If (False)</code>" as a point of complexity since there is only one way to execute that decision point.</li>
+						<li>Added a new graph under the "<i>View Graphs</i>" button that provides a break down of the methods by the maximum number of nested levels of control (if, for, case, while) statements.</li>
+						<li>Added a button to open the explorer window.</li>
+					</ul>
+					<h2>Code Analysis Window: Index Analysis</h2>
+					<ul>
+						<li>Fixed a range error bug that could occasionally occurs when exporting detailed reports on the indexes.</li>
+						<li>Made some internal optimizations that make the detection of field and table usage easier.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.8.1 - May 2, 2016</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Code Analysis Window: Exporting Methods as HTML</h2>
+					<ul>
+						<li>Fixed bug that caused comments to not export properly from the method.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.8.0 - Apr 27, 2016</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Preferences: Differences</h2>
+					<ul>
+						<li>Created a new tab called "Difference" and moved the difference specific preferences from the "Methods" tab.</li>
+						<li>Added the ability to specify file and folder names that will be ignored when checking for differences between the structure and a copy previously saved to disk. This is useful if you use an external source code control for the files.</li>
+					</ul>
+					<h2>Code Analysis Window: Complexity Analysis</h2>
+					<ul>
+						<li>Added a search field to help locate method names that start with what have typed.</li>
+					</ul>
+					<h2>Code Analysis Window: Index Analysis</h2>
+					<ul>
+						<li>The "Analyse Indexes" button now offers you a choice to avoid doing a full index analysis and be able to quickly get the counts on the field usage. You can still do a full analysis by making that 2nd choice.</li>
+						<li>Implemented a <b>massive</b> optimization. The analysis for determing which fields are used is now part of the persisted stats for each method. This analysis occurs only when a method has been updated since the last time analysis was done.</li>
+						<li>Using the "Detailed Reports" button has been optimized. The reports are produced very quickly now. Almost immediately.</li>
+						<li>Added "Sum", "Min" and "Max" to the commands that are considered during analysis of field usage. <em>Feature request by Thomas Maul.</em></li>
+					</ul>
+					<h2>Code Analysis Window: Method Differences</h2>
+					<ul>
+						<li>Added a new option for the DIFF engine to ignore blank lines. Essentially all blank lines will be removed from the methods prior to comparison.</li>
+						<li>Move the configuration options into a gear dropdown menu. Also moved some of the options from the method preferences to here.</li>
+						<li>Any file or folder names specified in the preferences will not be considered when checking for differences.</li>
+					</ul>
+					<h2>Code Analysis Window: Folder Differences</h2>
+					<ul>
+						<li>Fixed a bug where the text displayed in the "Compare Against Remote Folder" was not accurate after selecting which folder to compare.</li>
+					</ul>
+					<h2>Code Analysis Window: Exporting Methods as HTML</h2>
+					<ul>
+						<li>The 4D Project Method Comments take precedence over the comments within the method. If there are 4D Project Method Comments, then only those will appear in the HTML documenation.</li>
+						<li>The export will output any parameters that take the form of "${n}" where "n" is a number. <em>Feature request by Lutz Epperlein.</em></li>
+						<li>Fixed issue where the $0 would not be outputed on the blue header line of the method's html.</li>
+					</ul>
+					<h2>Code Analysis Window: Exporting Structure</h2>
+					<ul>
+						<li>When exporting the table and field information, the setting for appending date and time on the form properties is recognized.</li>
+					</ul>
+					<h2>Code Analysis Window: Method Comments</h2>
+					<ul>
+						<li>Added a new "Method Commments" tab. This tab allows you to update the 4D "Method Comment" on project methods and have it based on comments from the top of the method. This is useful if you are compiling a component and are wanting useful tips to appear on the shared methods.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.7.2 - Dec 2, 2015</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>4D v15 Support</h2>
+					<ul>
+						<li>Produced a beta version of the component for 4D v15.</li>
+					</ul>
+					<h2>Development Dropped for 4D v13</h2>
+					<ul>
+						<li>No longer doing active development of the Code Analysis component for 4D v13.</li>
+					</ul>
+					<h2>Code Analysis Window: Complexity Analysis</h2>
+					<ul>
+						<li>Added a button called "#s" that gives some stats from the last method analysis.</li>
+					</ul>
+					<h2>Code Analysis Window: Exporting Table / Field Info</h2>
+					<ul>
+						<li>Export code has been rewritten to use 4D C_OBJECTs rather than custom JSON generation code.</li>
+						<li>Added flag indicating if the table/field is available via REST.</li>
+						<li>Added flag indicating if the field has autogenerate enabled.</li>
+						<li>Added flag indicating if the field has autoincrement enabled.</li>
+					</ul>
+					<h2>Code Analysis Window: Exporting Form Properties</h2>
+					<ul>
+						<li>Form scanning code rewritten to no longer rely on a project form being installed in the host database.</li>
+						<li>Improved speed that forms are scanned.</li>
+						<li>Export code has been rewritten to use 4D C_OBJECTs rather than custom JSON generation code.</li>
+					</ul>
+					<h2>Preferences: Structure</h2>
+					<ul>
+						<li>Expanded preference to append date and time to the default folder name that contain the exported form properties. The preferene allows appending the date only as an additional option.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.7.1 - May 23, 2015</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Localization</h2>
+					<ul>
+						<li>The preferences dialog now has French localized strings.</li>
+						<li>Converted all the buttons on the main window to use localized strings. Currently English and French are supported.</li>
+					</ul>
+					<h2>Code Analysis Window</h2>
+					<ul>
+						<li>Modified the tab control to a two-tier tab control to ensure that the tabs will always appear uncollapsed on the screen.</li>
+						<li>Added short cuts to the tab navigation. Cmd/Ctrl 1/2/3 will change the main tab. Cmd/Crtl left/right will navigate the 2nd level tab.</li>
+					</ul>
+					<h2>Code Analysis Window: Complexity Analysis</h2>
+					<ul>
+						<li>Updated the graphs that appear when using the "<i>View Graphs</i>" button to be a bar graph. The information is grouped to present the information in a more meaningful way.</li>
+					</ul>
+					<h2>Code Analysis Window: Index Analysis</h2>
+					<ul>
+						<li>Updated the Index Type column to show the type of index that the field has been configured to.</li>
+						<li>Added a new column called "% Unique" that gives the percentage of the values in that field that are unique. This can be used to determine the optimal index type to set the field to be.</li>
+					</ul>
+					<h2>Method DIFF Window</h2>
+					<ul>
+						<li>Enhanced how the method difference appear in when showing the differences vertically. In the situation where there is a single line change, the actual text changes in the line will be coloured in the change colour to allow you to see the specific change. Multi-line changes and single line additions/removals do not have any additional highlighting than the background colour.</li>
+					</ul>
+					<h2>Code Analysis Window: Method Export</h2>
+					<ul>
+						<li>Fixed sorting issue that could cause the exported methods as HTML to be grouped randomly and out of alphabetical order.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.7.0 - Apr 27, 2015</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Localization</h2>
+					<ul>
+						<li>Converted the preferences dialog to use localized strings. Currently only English is supported.</li>
+					</ul>
+					<h2>Preferences: Methods</h2>
+					<ul>
+						<li>Added a new preference called "Do Not Nest Exported Methods" that, when set, will have the project methods exported in the root of the exported method folder rather than gathering and nesting in module folders. This preference only applies to the text version of the exported methods</li>
+					</ul>
+					<h2>Code Analysis Window: Index Analysis</h2>
+					<ul>
+						<li>Added a new tab to the main analysis window that provides a GUI to the index scanning that was added in v1.6.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.6.2 - Apr 5, 2015</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Method Export</h2>
+					<ul>
+						<li>Added <code>&lt;meta charset="UTF-8"&gt;</code> to the html templates used when generating the HTML method documentation.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.6.1 - Mar 24, 2015</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Method Export</h2>
+					<ul>
+						<li>C_OBJECT is recognized as a parameter data type when exporting methods as HTML.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.6 - Mar 11, 2015</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Method Analysis Engine</h2>
+					<ul>
+						<li>Completely refactored the code that does all the analysis of the methods reducing complexity and removing duplication.</li>
+						<li>The results of the analysis is now persisted to the local disk along with the other Code Analysis component preferences.</li>
+						<li>Refreshing the analysis only performs updates on the methods that have been updates since the last time the analysis was run. This is determined by using the modification data and time as reported by 4D.</li>
+						<li>Exposed "<code>MethodStats_RecalculateAll</code>" to the host database. Calling this method does a full recalculation of the method statistics in the host database.</li>
+						<li>Exposed "<code>MethodStats_RecalculateModified</code>" to the host database. Calling this method does a recalculation of the method statistics of the methods in the host database that have been modified since the last recalculation.</li>
+						<li>Improved detection algorithm used to determine if the required project form has been copied to the host database prior to exporting the properties. The message displayed to the user is improved as well.</li>
+					</ul>
+					<h2>Complexity</h2>
+					<ul>
+						<li>Added a "<i>View Graphs</i>" button that is enabled once the code has been analysed. Pressing this button will open a dialog that will allow you to view a graph of the # of methods by lines of code and # of methods by complexity. These graphs can be used to have a higher level view of some metrics of your code.</li>
+						<li>The results of the last analysis is persisted and restored when the main Code Analysis window is opened.</li>
+						<li>Holding down the option or alt key and pressing the "Analyse Code" button will bring up a prompt that will allow you to select if only the update methods or all the methods will be analysed.</li>
+					</ul>
+					<h2>Method DIFF</h2>
+					<ul>
+						<li>Fixed bug where a method diff window would not open if the method name matched an already running process. The process name is prepended with "diff:".</li>
+					</ul>
+					<h2>Method Export</h2>
+					<ul>
+						<li>Altered how methods are exported. The component will not do a full replace of the contents of the export folder. Only the method files that differ will be exported. The change has been made to improve the workflow when using external code repositories.</li>
+						<li>Added a check to ensure that the folder the methods are being exported to is writable. An error is displayed if it is not.</li>
+					</ul>
+					<h2>Structure Export</h2>
+					<ul>
+						<li>Added a "Index Field Stats". Using this button will perform a code scan of they entire code base and will save two reports to the default export folder. One report contains a full listing of the fields that are used in query statements along with a count and if the field is indexed or not. The 2nd report shows the methods (and line) that each field query is performed in.</li>
+						<li>Fixed bug that caused no index information to be exported in the table/field info export file.</li>
+					</ul>
+
+					<h2>Methods That Are Shared With Host Database</h2>
+					<ul>
+						<li>"<code>Structure_SaveStructDefn2Folder</code>" is now shared with the host database. This method will export the structure definition to a file. See the Component API Docs for more information.</li>
+						<li>"<code>Structure_ScanIndexedFieldUsage</code>" is a new method that is shared with the host database. This method will scan the host database for where fields are used in queries and produce a report that shows usage and if they are indexed or not. See the Component API Docs for more information.</li>
+						<li>"<code>MethodStats_RecalculateAll</code>" is a new method that is shared with the host database. This method will recalculate all the method metrics that the component captures. The results are stored back to disk for future usage. See the Component API Docs for more information.</li>
+						<li>"<code>MethodStats_RecalculateModified</code>" is a new method that is shared with the host database. This method will loads the previously method metrics and updates the metrics on the methods that have been updated since the last time the calculations where performed. See the Component API Docs for more information.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.5.1 - Aug 16, 2014</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>4D v14 Support</h2>
+					<ul>
+						<li>A v14 version of the component was released.</li>
+					</ul>
+					<h2>Structure Export</h2>
+					<ul>
+						<li>Fixed odd bug that could cause the structure exports to have empty json file.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.5 - May 16, 2014</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Preferences</h2>
+					<ul>
+						<li>Renamed the tabs and added "folders" tab.</li>
+						<li>Combined the "Difference" tab into the "Methods" tab.</li>
+						<li>Added ability to specify one or more extra folders to be included as part of the method export. This is set from the "Folders" tab on the preferences dialog.</li>
+					</ul>
+					<h2>Code Analysis Window</h2>
+					<ul>
+						<li>Renamed the "Differences" tab to "Method DIFF".</li>
+						<li>Added "Folder DIFF" tab that shows the differences between the local copy of the extra folder(s) and the remotely exported copy.</li>
+						<li>Extended the exporting of methods as text to also copy any specified extra folders.</li>
+					</ul>
+					<h2>Code Analysis Window</h2>
+					<ul>
+						<li>Added a 2nd view of the method differences.
+						The differences can now be viewed so that they appear vertically one after another (like shown on github) or horizontally.
+						Use Command 1 and 2 to switch the views (control 1/2 on windows). The view is persisted in the preferences.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.4 - Apr 4, 2014</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+
+					<h2>Quick Launcher</h2>
+					<ul>
+						<li>Added a quick launcher window that can be set as floating or just a plain palette. From this quick launcher window you can export the methods to text files as well as open the main window for the component or the preferences.
+						The window can be opened by calling the "<code>CA_ShowQuickLauncher</code>" method.</li>
+					</ul>
+					<h2>Preferences</h2>
+					<ul>
+						<li>Split the preference on what to append to the folder containing the exported methods. The options are nothing, date only, date & time.</li>
+						<li>Added a preference to control which line endings to use for the exports. CR, LF and CRLF are the options.</li>
+					</ul>
+					<h2>Method Difference Viewer</h2>
+					<ul>
+						<li>Made some slight UI updates to the screen.</li>
+						<li>Added ability to copy, using an Apply button, the method from disk into the 4D method. Note: Form methods can only be updated. They cannot be created this way.</li>
+						<li>Fixed issue where the changes within a line would not be highlighted if the that line of the method contained a &lt;, &gt; or &amp;.</li>
+						<li>Fixed issue where any html embedded in a line would be hidden if the that line of the method contained a &lt;, &gt; or &amp;.</li>
+						<li>The DIFF parser will normalize the end-of-line character(s) before performing the DIFF. The result is that two files of identical content but with different EOLs will not show as having differences. This also applies to the differences tab as well.</li>
+					</ul>
+					<h2>Complexity Tab</h2>
+					<ul>
+						<li>Added "Called" column that shows the number of times that method is called directly in 4D Code.</li>
+					</ul>
+					<h2>Differences Tab</h2>
+					<ul>
+						<li>The folder that was used to check for differences against is stored in the local structure preferences. The next time the Code Analysis window is opened, that last folder is restored so that a quick "Re-Check" button can be done.</li>
+						<li>Fixed a bug in the "Create Method From File" so that the BOM in the UTF8 file is not imported as part of the code. The option to create a method from a file is part of the contextual menu when clicking on a method in the list of differences.</li>
+						<li>Fixed a bug that caused the "Show File on Disk" pop-up menu option to not work. This option is part of the contextual menu when clicking on a method in the list of differences.</li>
+					</ul>
+					<h2>Structure Export Tab</h2>
+					<ul>
+						<li>Fixed runtime errors that would occur when Exporting Properties. Apparently using pointers to local vars as parms to an EXECUTE METHOD is not a good idea.</li>
+					</ul>
+					<h2>Internal Changes</h2>
+					<ul>
+						<li>Window locations are stored in a global preference file rather one preference file per structure that the CodeAnlysis component is installed in.</li>
+						<li>The Preference dialog preference values are now tied to an internal project name that is generated the first time the CodeAnaysis component is used.
+						This means that the preferences will persist if the host structure changes it's name. The internal project name is stored in the host structure's resource folder.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.3.1 DEV - Dec 21, 2013</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Method Export as HTML</h2>
+					<ul>
+						<li>The method parameters are now sorted numerically rather than an alpha string. $10 will appear after $9 rather than after $1. <br/><i>Thanks to Bruno Legay for reporting the issue.</i></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.3 - Sep 28, 2013</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>General</h2>
+					<ul>
+						<li>Adjusted the layout of the Preferences and API Docs buttons on the window.</li>
+						<li>Enhanced the format used in the internal xml preference files. A preference label attribute is part of each preference.</li>
+						<li>Worked around an issue with the "folder separator" constant with a hotfix version of 4D.</li>
+						<li>Fixed issue that allowed html files to be dragged onto the webarea on the documentation/release notes window.</li>
+						<li>Fixed issue where object names had special characters. The objects are display properly rather than encoded characters. The issue was fixed on screen and in the exported HTML docs.</li>
+					</ul>
+					<h2>Complexity Tab</h2>
+					<ul>
+						<li>Column header gives an indication of how many rows are in the table on the Code and Diff Analysis tabs.</li>
+					</ul>
+					<h2>Differences Tab</h2>
+					<ul>
+						<li>Added the ability to repeat the last DIFF without having to reselect the folder to diff against.</li>
+						<li>Added the ability to save the list of differences to a csv file.</li>
+						<li>Column header gives an indication of how many rows are in the table on the Code and Diff Analysis tabs.</li>
+						<li>Fixed the issue that was causing deleted form elements with methods to not display properly in the list of differences.</li>
+					</ul>
+					<h2>Method Export Tab</h2>
+					<ul>
+						<li>Reorganized the layout of the "Method Export" to better support the various export options.</li>
+						<li>Added the ability to export the "shared" methods as a docset that is viewable by a docset viewer like Dash (http://kapeli.com/dash). There are also iOS docset viewers as well.</li>
+					</ul>
+					<h2>Structure Export Tab</h2>
+					<ul>
+						<li>Renamed the tab from "Form Properties Export" to "Structure Export".</li>
+						<li>Added the ability to export the table and field definitions as a timestamped json file.</li>
+					</ul>
+					<h2>Method Difference Viewer</h2>
+					<ul>
+						<li>Updated how the line numbers are displayed. The "//%attribute" line no longe has a line #.</li>
+						<li>Clicking on "Strip Attribute Line before DIFF" will redo the DIFF automatically.</li>
+						<li>Clicking on "Strip All Comments before DIFF" will redo the DIFF automatically.</li>
+						<li>Clicking on "Strip All Blank Lines before DIFF" will redo the DIFF automatically.</li>
+						<li>Support up and down arrow keys to move the code one line at a time.</li>
+						<li>Support Cmd/Crtl up and down arrow keys to jump to the next/prev difference in the code.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.2 - Nov 14, 2012</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>General</h2>
+					<ul>
+						<li>Component API documentation is visible from within the component.</li>
+						<li>Release Notes dialog expanded to be a documentation dialog. There is now a tab for release notes and a 2nd tab for the component API documentation.</li>
+						<li>Changed all progress bars to be the native 4D v13 Progress Bar.</li>
+					</ul>
+					<h2>Form Object Property Export</h2>
+					<ul>
+						<li>Added ability to export a summary of each project and table form that is in the structure to a file. The properties are exported as a JSON object.</li>
+						<li>Added a preference for the default folder name that the form properties are exported to.</li>
+						<li>Added a preference to indicate if the date and time should be appended to the form properties default folder name when exported.</li>
+					</ul>
+					<h2>Component API</h2>
+					<ul>
+						<li>"<code>CA_SaveFormProperties</code>": component method added. Used internally to export the form properties to a JSON disk file.</li>
+						<li>"<code>CA_SaveMethodsToTextFiles</code>": component method added. Used to export the method code to a text disk file.</li>
+						<li>"<code>CA_ShowAnalysisWindow</code>": component method renamed. Used to be called "<code>CodeAnalysis_GeneratorDialog</code>".</li>
+					</ul>
+					<h2>Methods Automatically Added to Host Database</h2>
+					<ul>
+						<li>"<code>CodeAnalysis_FormObjectStub</code>": used to intercept any form events when exporting the form properties.</li>
+						<li>
+							"<code>CodeAnalysis_FormScannerDialog</code>": the method that controls the dialog to extract form properties.
+							<br/><u>NOTE</u>: The corresponding form must be added copied from the supplied "CodeAnalysis Extra Layout.4dbase" structure.
+						</li>
+						<li>"<code>CodeAnalysis_GetFormNames</code>": method to retrieve the form names from the host database.</li>
+						<li>"<code>CodeAnalysis_GetFormProperties</code>": method to retrieve specific form properties from the host database.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.1 - Oct 31, 2012</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Presentation of Method Difference details</h2>
+					<ul>
+						<li>Show the count of the number of differences when looking at the method difference details.</li>
+						<li>The differences are more compact with the inserts and deletes showing overlapping where appropriate.</li>
+						<li>
+							Show the changes on each line, the inserts are green, bold and underlined. The deletes are red, bold and underline.
+							<br/><u>NOTE</u>: This is done line by line. A future version will look at a change block as a unit rather than a single line.
+						</li>
+					</ul>
+					<h2>Preferences</h2>
+					<ul>
+						<li>
+							Fixed a bug on how the default folder is set.
+							It defaults to beside the structure file or beside the 4D Remote app.
+							<i>The default folder is reset with this version</i>.
+						</li>
+						<li>Added a preference to have the DIFF algorithm to ignore multiple spaces.</li>
+						<li>Added a preference to have the DIFF algorithm to ignore case.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.0.1 - Oct 14, 2012</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>General</h2>
+					<ul>
+						<li>Added a warning alert if the component is opened directly.</li>
+						<li>Added support for French in the cyclomatic complexity analysis.</li>
+						<li>Improved the HTML support for IE8.</li>
+						<li>Fixed folder creation startup error on Windows 7.</li>
+						<li>The preference files where the window locations is stored has been moved to be with the rest of the preferences.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+
+		<table class="release-header" width="100%" border="0">
+			<tr><td><h1>Code Analysis v1.0 - Oct 5, 2012</h1></td></tr>
+		</table>
+		<table class="release-body" width="100%" border="0">
+			<tr>
+				<td valign="top">
+					<h2>Code Analysis</h2>
+					<ul>
+						<li>Allow developer to gather statistics (# of code lines, # of comment lines, # of blank lines, Cyclomatic Complexity) of every project, form, object, trigger and database method in the structure.</li>
+						<li>Allow developer to save gathered statistics to a csv file.</li>
+						<li>Allow developer to open methods directly from the list of methods by double clicking or hitting the return key.</li>
+						<li>Navigation keys are supported to navigate the list of methods (e.g up/down arrow, page up/down).
+						<li>Allow developer to set the thresholds for the Cyclomatic Complexity via preferences.</li>
+						<li>Allow developer to set to include the Compiler methods in the analysis via preferences.</li>
+					</ul>
+					<h2>DIFF Analysis</h2>
+					<ul>
+						<li>Allow developer to compare the methods in the current structure against code files that have been saved to disk. Methods are matched based on file name with an extension of ".txt".</li>
+						<li>Allow developer to not report on methods that are only in the structure and not on the disk.</li>
+						<li>Allow developer to not report on methods that are on the disk and not in the structure.</li>
+						<li>Allow developer to exclude the "attribute" line when looking for changes against the files stored on disk.</li>
+						<li>Allow developer to examine each method's differences from the file stored on disk. There are options to ignore blank lines, comment lines and the attribute line.</li>
+						<li>Allow developer to open the method in the structure and/or open the stored method on disk when examining the difference details.</li>
+						<li>Allow developer to set a preference for the # of spaces to use for indentation when viewing the details of the method differences.</li>
+					</ul>
+					<h2>Exporting Code</h2>
+					<ul>
+						<li>Allow developer to export all the methods of every project, form, object, trigger and database method in the structure to disk.</li>
+						<li>Allow developer to export HTML documentation of the methods of every project, form, object, trigger and database method in the structure to disk.</li>
+						<li>Allow developer to export HTML documentation of the project methods that have been marked as "shared by components and host database" to disk.</li>
+						<li>Allow developer to specify a preference for the root folder where all exported files are to be placed.</li>
+						<li>Allow developer to specify a preference for the folder (within the root folder) that the exported methods will be contained.</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<br/>
+
+	</body>
+</html>

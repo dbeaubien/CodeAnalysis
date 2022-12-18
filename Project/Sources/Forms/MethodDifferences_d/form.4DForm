@@ -1,0 +1,743 @@
+{
+	"destination": "detailScreen",
+	"windowMinWidth": 800,
+	"windowMinHeight": 480,
+	"width": 830,
+	"height": 480,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onClick",
+		"onResize"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "US Letter",
+		"paperWidth": "612pt",
+		"paperHeight": "792pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"TMP_Button2": {
+					"type": "button",
+					"top": 1,
+					"left": 834,
+					"width": 107,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Enter]",
+					"text": "Handle Enter",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_OpenMthd": {
+					"type": "button",
+					"top": 30,
+					"left": 10,
+					"width": 107,
+					"height": 22,
+					"dataSource": "BTN_OpenMthd",
+					"text": "Open Method",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_OpenMthd.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_CopyToMethod": {
+					"type": "button",
+					"top": 30,
+					"left": 309,
+					"width": 97,
+					"height": 22,
+					"dataSource": "BTN_CopyToMethod",
+					"text": "<-- Apply",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_CopyToMethod.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_CopyToDisk": {
+					"type": "button",
+					"top": 30,
+					"left": 445,
+					"width": 97,
+					"height": 22,
+					"dataSource": "BTN_CopyToDisk",
+					"text": "Apply -->",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_OpenFile": {
+					"type": "button",
+					"top": 30,
+					"left": 693,
+					"width": 127,
+					"height": 22,
+					"sizingX": "move",
+					"dataSource": "BTN_OpenFile",
+					"text": "Show File On Disk",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_OpenFile.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button1": {
+					"type": "button",
+					"top": 27,
+					"left": 834,
+					"width": 107,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button2",
+					"shortcutKey": "[Esc]",
+					"text": "Handle ESC",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button3": {
+					"type": "button",
+					"top": 53,
+					"left": 834,
+					"width": 87,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"action": "cancel",
+					"shortcutKey": "w",
+					"shortcutAccel": true,
+					"text": "Cmd-W",
+					"class": "Buttons_10",
+					"focusable": false,
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Cmd1": {
+					"type": "button",
+					"top": 95,
+					"left": 834,
+					"width": 67,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd1",
+					"shortcutKey": "1",
+					"shortcutAccel": true,
+					"text": "Cmd 1",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Cmd2": {
+					"type": "button",
+					"top": 117,
+					"left": 834,
+					"width": 67,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd2",
+					"shortcutKey": "2",
+					"shortcutAccel": true,
+					"text": "Cmd 2",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"BTN_Rescan": {
+					"type": "button",
+					"top": 28,
+					"left": 409,
+					"width": 32,
+					"height": 25,
+					"dataSource": "BTN_Rescan",
+					"shortcutKey": "r",
+					"shortcutAccel": true,
+					"fontFamily": "Lucida Grande",
+					"fontSize": 11,
+					"focusable": false,
+					"icon": "/RESOURCES/Images/refresh.svg_20_4d.png",
+					"iconFrames": 4,
+					"style": "bevel"
+				},
+				"Text": {
+					"type": "text",
+					"top": 6,
+					"left": 12,
+					"width": 464,
+					"height": 16,
+					"sizingX": "grow",
+					"textDecoration": "underline",
+					"text": "\"<_DIFF_MethodName>\" - <_DIFF_NumDifferences> Differences:"
+				},
+				"BTN_TEST1": {
+					"type": "button",
+					"top": 4,
+					"left": 795,
+					"width": 27,
+					"height": 23,
+					"sizingX": "move",
+					"dataSource": "BTN_TEST",
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"focusable": false,
+					"icon": "/RESOURCES/Images/cog.svg_18_4d.png",
+					"iconFrames": 4,
+					"popupPlacement": "linked",
+					"style": "custom",
+					"method": "ObjectMethods/BTN_TEST1.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"top": 463,
+					"left": 5,
+					"width": 584,
+					"height": 13,
+					"sizingY": "move",
+					"class": "Buttons_10",
+					"text": "<_DIFF_NumDifferences> Difference(s) - Use Cmd/Crtl up & down arrows to jump between diffs"
+				},
+				"Text2": {
+					"type": "text",
+					"top": 463,
+					"left": 562,
+					"width": 247,
+					"height": 13,
+					"sizingX": "move",
+					"sizingY": "move",
+					"class": "Buttons_10",
+					"textAlign": "right",
+					"text": "Use Cmd/Crtl 1 or 2 to switch views"
+				}
+			}
+		},
+		{
+			"objects": {
+				"DEMO_FileDiff_lb": {
+					"type": "listbox",
+					"top": 58,
+					"left": 0,
+					"width": 830,
+					"height": 402,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"dataSource": "DEMO_FileDiff_lb",
+					"focusable": false,
+					"sortable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"staticColumnCount": 3,
+					"selectionMode": "none",
+					"scrollbarHorizontal": "hidden",
+					"horizontalLineStroke": "transparent",
+					"verticalLineStroke": "#AAAAAA",
+					"fill": "#FFFFFF",
+					"rowStrokeSource": "DEMO_FontColors_al",
+					"rowFillSource": "DEMO_BackColors_al",
+					"rowStyleSource": "DEMO_Styles_al",
+					"class": "Mono_11",
+					"columns": [
+						{
+							"name": "Column1",
+							"dataSource": "DEMO_File1LineNo_al",
+							"dataSourceTypeHint": "number",
+							"width": 41,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "###,##0; ; ",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header1",
+								"text": "Local",
+								"dataSource": "DEMO_LineNo1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "1",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column2",
+							"dataSource": "DEMO_File1_at",
+							"width": 365,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"styledText": true,
+							"contextMenu": "none",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header2",
+								"text": "Local Method",
+								"dataSource": "DEMO_File1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "2",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column3",
+							"dataSource": "DEMO_File2LineNo_al",
+							"dataSourceTypeHint": "number",
+							"width": 41,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "###,##0; ; ",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header4",
+								"text": "Remote",
+								"dataSource": "DEMO_LineNo2_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "3",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column4",
+							"dataSource": "DEMO_File2_at",
+							"width": 368,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"styledText": true,
+							"contextMenu": "none",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header3",
+								"text": "Remote Method File",
+								"dataSource": "DEMO_File2_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						}
+					]
+				},
+				"TMP_Button6": {
+					"type": "button",
+					"top": 148,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[up arrow]",
+					"text": "^",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button6.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button5": {
+					"type": "button",
+					"top": 171,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[up arrow]",
+					"shortcutAccel": true,
+					"text": "Cmd - ^",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button5.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button4": {
+					"type": "button",
+					"top": 194,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[down arrow]",
+					"shortcutAccel": true,
+					"text": "Cmd - v",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button4.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button7": {
+					"type": "button",
+					"top": 217,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[down arrow]",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button7.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"DEMO_FileDiff_ALT_lb": {
+					"type": "listbox",
+					"top": 54,
+					"left": 0,
+					"width": 830,
+					"height": 406,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"dataSource": "DEMO_FileDiff_ALT_lb",
+					"focusable": false,
+					"sortable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"rowHeightAutoMin": "20px",
+					"rowHeightAutoMax": "20px",
+					"staticColumnCount": 3,
+					"selectionMode": "none",
+					"scrollbarHorizontal": "hidden",
+					"horizontalLineStroke": "transparent",
+					"verticalLineStroke": "#AAAAAA",
+					"fill": "#FFFFFF",
+					"rowFillSource": "DEMO_BackColors_ALT_al",
+					"class": "Mono_11",
+					"columns": [
+						{
+							"name": "Column5",
+							"dataSource": "DEMO_ALT_File1LineNo_al",
+							"dataSourceTypeHint": "number",
+							"width": 41,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "###,##0; ; ",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header5",
+								"text": "Local",
+								"dataSource": "DEMO_LineNo1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "4",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column7",
+							"dataSource": "DEMO_ALT_File2LineNo_al",
+							"dataSourceTypeHint": "number",
+							"width": 41,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"numberFormat": "###,##0; ; ",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header7",
+								"text": "Remote",
+								"dataSource": "DEMO_LineNo2_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer1",
+								"stroke": "automatic",
+								"fill": "#FFFFFF",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						},
+						{
+							"name": "Column6",
+							"dataSource": "DEMO_ALT_MethodLines_at",
+							"width": 733,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"styledText": true,
+							"contextMenu": "none",
+							"stroke": "automatic",
+							"fill": "#FFFFFF",
+							"alternateFill": "#FFFFFF",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"class": "Mono_11",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header6",
+								"text": "Details",
+								"dataSource": "DEMO_File1_btn",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "5",
+								"stroke": "#000000",
+								"fill": "#000000",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "Mono_11"
+							}
+						}
+					]
+				},
+				"TMP_Button8": {
+					"type": "button",
+					"top": 248,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[up arrow]",
+					"text": "^",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button8.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button9": {
+					"type": "button",
+					"top": 271,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[up arrow]",
+					"shortcutAccel": true,
+					"text": "Cmd - ^",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button9.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button10": {
+					"type": "button",
+					"top": 294,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[down arrow]",
+					"shortcutAccel": true,
+					"text": "Cmd - v",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button10.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"TMP_Button11": {
+					"type": "button",
+					"top": 317,
+					"left": 834,
+					"width": 82,
+					"height": 22,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "TMP_Button3",
+					"shortcutKey": "[down arrow]",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/TMP_Button11.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		}
+	],
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"View 2": {},
+			"View 3": {},
+			"View 4": {},
+			"View 5": {},
+			"View 6": {},
+			"View 7": {},
+			"View 8": {},
+			"View 9": {}
+		}
+	}
+}

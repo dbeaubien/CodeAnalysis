@@ -1,0 +1,138 @@
+body, table {
+	margin:0;
+	padding:0;
+
+	color:#000;
+	font-family:Tahoma, Verdana, Helvetica, Arial, sans-serif;
+	font-size:12px;
+}
+
+body.method {
+	background-color:#f6f6f6;
+}
+	
+th {
+	background-color:lightgrey;
+	font-weight:bold;
+}
+
+.parmLine {
+	background-color:#dfdfdf;
+}
+
+.methodLabel {
+	width: auto;
+	border: 0px;
+	background: darkblue;
+	color: white;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.methodHeader {
+	font-family:monospace; width:auto; white-space:nowrap;
+}
+
+.methodCalls {
+	font-family:monospace; White-space:pre; border:1px solid lightgrey; padding:10px; border-radius: 10px;
+}
+
+.header {
+	padding:5px;
+	height:24px;
+	width:100%;
+
+	position:fixed;
+	top:0;
+	z-index:900;
+	
+	background-color:lightgrey;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	
+	border-bottom: 1px solid black;
+}
+
+.navigation {
+	position: fixed;
+	top: 25px;
+	bottom: 0;
+	left: 0;
+	padding-left: 10px;
+	padding-top: 1em;
+	width: 250px;
+	overflow: auto;
+	border-right: 1px solid black;
+}
+
+.content {
+	position: fixed;
+	top: 25px;
+	bottom: 0;
+	margin-left: 60px;
+	margin-right: 0;
+	/*\*/
+	left: 260px;
+	right: 0;
+	margin: 0;
+	/* */
+	overflow: auto;
+}
+
+a { 
+	text-decoration: none;
+}
+
+a:link {
+	color: #00F;
+	background-color: transparent;
+}     /* unvisited link */
+
+a:visited {
+	color: #00F;
+	background-color: transparent;
+}  /* visited link */
+
+a:hover {
+	text-decoration: underline;
+	color: #0000FF;
+	background-color: transparent;
+}   /* mouse over link */
+
+
+
+
+UL.jqueryFileTree {
+	font-family: Verdana, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	padding: 0px;
+	margin: 0px;
+}
+
+UL.jqueryFileTree LI {
+	list-style: none;
+	padding: 0px;
+	padding-left: 20px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+UL.jqueryFileTree A {
+	color: #333;
+	text-decoration: none;
+	display: block;
+	padding: 0px 2px;
+}
+
+UL.jqueryFileTree A:hover {
+	background: #BDF;
+}
+
+.jqueryFileTree LI.directory { background: url(../images/folder.png) left top no-repeat; }
+.jqueryFileTree LI.expanded { background: url(../images/folder_open.png) left top no-repeat; }
+.jqueryFileTree LI.file { background: url(../images/file.png) left top no-repeat; }
+.jqueryFileTree LI.ext_txt { background: url(../images/txt.png) left top no-repeat; }
+

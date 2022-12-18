@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+   <!--
+Translation file.
+This file is distributed under the same license as the product package.-->
+
+<xliff version="1.0">
+   <file datatype="x-STR#" original="undefined" product-version="v11" source-language="en-US" target-language="en">
+      <header>
+         <prop-group name="Xliff-Editor.4dbase">
+            <prop prop-type="version">1.0</prop>
+         </prop-group>
+      </header>
+      <body>
+         <group id="16000" resname="Tabs">
+            <trans-unit id="16" resname="TabLabel_About">
+               <source>About</source>
+               <target>About</target>
+            </trans-unit>
+            <trans-unit id="15" resname="TabLabel_Analysis">
+               <source>Analysis</source>
+               <target>Analysis</target>
+            </trans-unit>
+            <trans-unit id="6" resname="TabLabel_Complexity">
+               <source>Complexity</source>
+               <target>Complexity</target>
+            </trans-unit>
+            <trans-unit id="16" resname="TabLabel_Differences">
+               <source>Differences</source>
+               <target>Differences</target>
+            </trans-unit>
+            <trans-unit id="17" resname="TabLabel_Exporting">
+               <source>Exporting</source>
+               <target>Exporting</target>
+            </trans-unit>
+            <trans-unit id="8" resname="TabLabel_Folders">
+               <source>Folders</source>
+               <target>Folders</target>
+            </trans-unit>
+            <trans-unit id="19" resname="TabLabel_FormProperties">
+               <source>Form Properties</source>
+               <target>Form Properties</target>
+            </trans-unit>
+            <trans-unit id="18" resname="TabLabel_Indexes">
+               <source>Indexes</source>
+               <target>Indexes</target>
+            </trans-unit>
+            <trans-unit id="7" resname="TabLabel_Methods">
+               <source>Methods</source>
+               <target>Methods</target>
+            </trans-unit>
+            <trans-unit id="9" resname="TabLabel_Structure">
+               <source>Structure</source>
+               <target>Structure</target>
+            </trans-unit>
+            <trans-unit id="39" resname="TabLabel_MethodComments">
+               <source>Method Comments</source>
+               <target>Method Comments</target>
+            </trans-unit>
+         </group>
+         <group id="16001" resname="Buttons">
+            <trans-unit id="45" resname="Btn_Add">
+               <source>Add</source>
+               <target>Add</target>
+            </trans-unit>
+            <trans-unit id="30" resname="Btn_AllAsHTML">
+               <source>All as HTML</source>
+               <target>All as HTML</target>
+            </trans-unit>
+            <trans-unit id="29" resname="Btn_AllAsText">
+               <source>All as Text</source>
+               <target>All as Text</target>
+            </trans-unit>
+            <trans-unit id="21" resname="Btn_AnalyseCode">
+               <source>Analyse Code</source>
+               <target>Analyse Code</target>
+            </trans-unit>
+            <trans-unit id="23" resname="Btn_AnalyseIndexes">
+               <source>Analyse Indexes</source>
+               <target>Analyse Indexes</target>
+            </trans-unit>
+            <trans-unit id="32" resname="Btn_AsDocSet">
+               <source>As DocSet</source>
+               <target>As DocSet</target>
+            </trans-unit>
+            <trans-unit id="3" resname="Btn_Cancel">
+               <source>Cancel</source>
+               <target>Cancel</target>
+            </trans-unit>
+            <trans-unit id="26" resname="Btn_CheckForDiffs">
+               <source>Check for Differences...</source>
+               <target>Check for Differences...</target>
+            </trans-unit>
+            <trans-unit id="27" resname="Btn_CompareFolders">
+               <source>Compare Folders</source>
+               <target>Compare Folders</target>
+            </trans-unit>
+            <trans-unit id="46" resname="Btn_Delete">
+               <source>Delete</source>
+               <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="34" resname="Btn_ExportProperties">
+               <source>Export Properties</source>
+               <target>Export Properties</target>
+            </trans-unit>
+            <trans-unit id="36" resname="Btn_Preferences">
+               <source>Preferences...</source>
+               <target>Preferences...</target>
+            </trans-unit>
+            <trans-unit id="25" resname="Btn_ReCheck">
+               <source>Re-Check</source>
+               <target>Re-Check</target>
+            </trans-unit>
+            <trans-unit id="37" resname="Btn_ReleaseNotes">
+               <source>Release Notes...</source>
+               <target>Release Notes...</target>
+            </trans-unit>
+            <trans-unit id="35" resname="Btn_RemoveCodeStub">
+               <source>Remove Code Stub</source>
+               <target>Remove Code Stub</target>
+            </trans-unit>
+            <trans-unit id="14" resname="Btn_Reset">
+               <source>Reset</source>
+               <target>Reset</target>
+            </trans-unit>
+            <trans-unit id="22" resname="Btn_SaveResults">
+               <source>Save Results</source>
+               <target>Save Results</target>
+            </trans-unit>
+            <trans-unit id="1" resname="Btn_Set">
+               <source>Set...</source>
+               <target>Set...</target>
+            </trans-unit>
+            <trans-unit id="28" resname="Btn_SetCompareFolder">
+               <source>Folder to Compare...</source>
+               <target>Folder to Compare...</target>
+            </trans-unit>
+            <trans-unit id="31" resname="Btn_SharedAsHTML">
+               <source>"Shared" as HTML</source>
+               <target>"Shared" as HTML</target>
+            </trans-unit>
+            <trans-unit id="2" resname="Btn_Show">
+               <source>Show</source>
+               <target>Show</target>
+            </trans-unit>
+            <trans-unit id="btnShowCache" resname="Btn_ShowCache">
+               <source>Show Cache</source>
+               <target>Show Cache</target>
+            </trans-unit>
+            <trans-unit id="60" resname="Btn_ShowLogs">
+               <source>Show Logs</source>
+               <target>Show Logs</target>
+            </trans-unit>
+            <trans-unit id="47" resname="Btn_ShowOnDisk">
+               <source>Show on Disk</source>
+               <target>Show on Disk</target>
+            </trans-unit>
+            <trans-unit id="61" resname="Btn_ShowReleaseNotes">
+               <source>Show Release Notes</source>
+               <target>Show Release Notes</target>
+            </trans-unit>
+            <trans-unit id="33" resname="Btn_TableFieldInfo">
+               <source>Table/Field Info</source>
+               <target>Table/Field Info</target>
+            </trans-unit>
+            <trans-unit id="20" resname="Btn_ViewGraphs">
+               <source>View Graphs</source>
+               <target>View Graphs</target>
+            </trans-unit>
+            <trans-unit id="24" resname="Btn_WhichCmdsAreAnalyzed">
+               <source>Which Commands are Analyzed...</source>
+               <target>Which Commands are Analyzed...</target>
+            </trans-unit>
+            <trans-unit id="38" resname="Btn_DetailedReports">
+               <source>Detailed Reports</source>
+               <target>Detailed Reports</target>
+            </trans-unit>
+            <trans-unit id="40" resname="Btn_ClearAll">
+               <source>Clear All</source>
+               <target>Clear All</target>
+            </trans-unit>
+            <trans-unit id="41" resname="Btn_UpdateFromMethod">
+               <source>Update From Methods</source>
+               <target>Update From Methods</target>
+            </trans-unit>
+         </group>
+      </body>
+   </file>
+</xliff>

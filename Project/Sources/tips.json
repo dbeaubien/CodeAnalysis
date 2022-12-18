@@ -1,0 +1,11 @@
+{
+	"First Record": "First Record",
+	"Previous Record": "Previous Record",
+	"Next Record": "Next Record",
+	"Last Record": "Last Record",
+	"Delete Record": "Delete Record",
+	"Cancel": "Cancel",
+	"OK": "Accept",
+	"Record Number": "Record Position within Selection",
+	"ORD_OpenExpFldr": "Open the folder that CodeAnalysis is configured to export methods and properties to."
+}
