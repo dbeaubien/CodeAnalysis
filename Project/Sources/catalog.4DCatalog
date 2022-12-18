@@ -184,6 +184,6 @@
 		</field_ref>
 	</index>
 	<base_extra package_name="Code Analysis DEV" structure_file_name="Code Analysis" data_file_path=":Data:Code Analysis.4DD" __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0">
-		<journal_file journal_file_enabled="true"/>
+		<journal_file journal_file_enabled="false"/>
 	</base_extra>
 </base>
