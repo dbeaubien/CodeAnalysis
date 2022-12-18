@@ -1,1 +1,19 @@
-#
+# No user preferences
+userPreferences.*/
+
+# No Trash
+project/Trash/*
+
+# No derived data
+project/DerivedData/*
+
+# No data
+data/*
+
+# No logs
+logs/*
+
+Settings/buildApp.4DSettings
+Libraries/lib4d-arm64.dylib
+Resources/Code Analysis/InternalProjectName.txt
+.DS_Store
