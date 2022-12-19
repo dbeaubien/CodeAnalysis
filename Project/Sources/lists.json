@@ -1,31 +1,10 @@
 {
-	"TestList": {
-		"lineHeight": 18,
-		"editable": false,
-		"items": [
-			{
-				"text": "New Item # 1",
-				"ref": 1,
-				"editable": true
-			},
-			{
-				"text": "New Item # 2",
-				"ref": 2,
-				"editable": true
-			},
-			{
-				"text": "New Item # 3",
-				"ref": 3,
-				"editable": true
-			}
-		]
-	},
 	"BuildNo": {
 		"lineHeight": 18,
 		"editable": false,
 		"items": [
 			{
-				"text": "{\"releaseYear\":\"2022\",\"releaseNo\":\"r1\",\"buildNo\":\"20221217\",\"versionShort\":\"2022.r1\",\"versionLong\":\"2022.r1 (build 20221217)\"}",
+				"text": "{\"releaseYear\":\"2022\",\"releaseNo\":\"r1\",\"buildNo\":\"20221218\",\"versionShort\":\"2022.r1\",\"versionLong\":\"2022.r1 (build 20221218)\"}",
 				"ref": 1,
 				"editable": true,
 				"collapsed": true
