@@ -1358,9 +1358,6 @@ C_OBJECT:C1216(Explorer__MethodStatsToExlprRow; $2)
 //FocusOnObject
 C_TEXT:C284(FocusOnObject; $1)
 
-//Explorer_FocusOnSearchField
-C_LONGINT:C283(Explorer_FocusOnSearchField; $1)
-
 //Tokenize_LineOfCode
 C_OBJECT:C1216(Tokenize_LineOfCode; $0)
 C_OBJECT:C1216(Tokenize_LineOfCode; $3)

@@ -155,14 +155,14 @@
 				},
 				"Text": {
 					"type": "text",
-					"top": 465,
-					"left": 108,
-					"width": 151,
-					"height": 61,
+					"top": 471,
+					"left": 31,
+					"width": 353,
+					"height": 29,
 					"sizingY": "move",
 					"fontFamily": ".AppleSystemUIFont",
-					"fontSize": 12,
-					"text": "⬇ ⬆ ☝ ☟ ☇ \r⬎ ⬉ ⬊ ⬋ ⮕\r⬄ ⬌ 🉁\r"
+					"fontSize": 24,
+					"text": "⬇ ⬆ ☝ ☟ ☇ ⬎ ⬉ ⬊ ⬋ ⮕ ⬄ ⬌ 🉁"
 				},
 				"Line2": {
 					"type": "line",
@@ -178,13 +178,8 @@
 					"width": 799,
 					"height": 24,
 					"sizingX": "grow",
-					"dataSource": "TabControl",
-					"dataSourceTypeHint": "arrayText",
-					"labels": [
-						":xliff:TabLabel_Methods",
-						":xliff:TabLabel_Structure",
-						"Summary"
-					],
+					"dataSource": "Form:C1466.tabControl",
+					"dataSourceTypeHint": "object",
 					"action": "gotoPage",
 					"method": "ObjectMethods/TabControl_main.4dm",
 					"events": [
@@ -220,6 +215,28 @@
 					"visibility": "hidden",
 					"fill": "#F3F4DD",
 					"stroke": "#C0C0C0"
+				},
+				"BTN_Cmd4": {
+					"type": "button",
+					"top": 224,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd4",
+					"shortcutKey": "4",
+					"shortcutAccel": true,
+					"text": "Cmd 4",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd4.4dm",
+					"events": [
+						"onClick"
+					],
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false
 				}
 			}
 		},
@@ -228,7 +245,7 @@
 				"MethodSearchPicker": {
 					"type": "subform",
 					"top": 69,
-					"left": 145,
+					"left": 159,
 					"width": 205,
 					"height": 30,
 					"dataSource": "vSearch",
@@ -722,7 +739,7 @@
 				"Text1": {
 					"type": "text",
 					"top": 76,
-					"left": 6,
+					"left": 20,
 					"width": 134,
 					"height": 16,
 					"textAlign": "right",
@@ -827,7 +844,7 @@
 								"text": "Name",
 								"dataSource": "DIFF_HdrExtras",
 								"stroke": "automatic",
-								"textAlign": "automatic",
+								"textAlign": "left",
 								"verticalAlign": "automatic",
 								"fontWeight": "bold"
 							},
@@ -959,11 +976,327 @@
 				"Text14": {
 					"type": "text",
 					"top": 76,
-					"left": 2,
-					"width": 152,
+					"left": 22,
+					"width": 132,
 					"height": 16,
 					"textAlign": "right",
-					"text": "Table/Field Starts With:"
+					"text": "Field Starts With:"
+				}
+			}
+		},
+		{
+			"objects": {
+				"structureList1": {
+					"type": "listbox",
+					"top": 104,
+					"left": 0,
+					"width": 839,
+					"height": 321,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"focusable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"headerHeight": "2em",
+					"dataSource": "Form:C1466.filteredTableList",
+					"metaSource": "This:C1470.meta",
+					"selectionMode": "none",
+					"scrollbarHorizontal": "hidden",
+					"alternateFill": "#EEEEEE",
+					"events": [
+						"onClick",
+						"onDoubleClick"
+					],
+					"columns": [
+						{
+							"header": {
+								"name": "Header15",
+								"text": "#",
+								"fontWeight": "bold"
+							},
+							"name": "Column11",
+							"dataSource": "This:C1470.tableNumber",
+							"dataSourceTypeHint": "number",
+							"width": 35,
+							"textAlign": "center",
+							"footer": {
+								"name": "Footer16"
+							},
+							"enterable": false,
+							"resizable": false
+						},
+						{
+							"name": "table",
+							"dataSource": "This:C1470.table",
+							"width": 210,
+							"minWidth": 200,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "DIFF_HdrExtras1",
+								"text": "Table",
+								"dataSource": "DIFF_HdrExtras",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer10",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"truncateMode": "none"
+						},
+						{
+							"header": {
+								"name": "Header20",
+								"text": "On\\New",
+								"fontWeight": "bold",
+								"textAlign": "center"
+							},
+							"name": "Column15",
+							"footer": {
+								"name": "Footer21"
+							},
+							"dataSource": "This:C1470.on_new_trigger",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header19",
+								"text": "On\\Save",
+								"fontWeight": "bold",
+								"textAlign": "center"
+							},
+							"name": "Column10",
+							"footer": {
+								"name": "Footer20"
+							},
+							"dataSource": "This:C1470.on_save_trigger",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header18",
+								"text": "On\\DEL",
+								"fontWeight": "bold",
+								"textAlign": "center"
+							},
+							"name": "Column9",
+							"footer": {
+								"name": "Footer19"
+							},
+							"dataSource": "This:C1470.on_delete_trigger",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"name": "is_logged",
+							"dataSource": "This:C1470.logged_asText",
+							"width": 45,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header12",
+								"text": "In\\Log",
+								"dataSource": "Header7",
+								"stroke": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer13",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"dataSourceTypeHint": "text",
+							"controlType": "checkbox"
+						},
+						{
+							"name": "exposed_to_REST",
+							"dataSource": "This:C1470.rest_asText",
+							"width": 45,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header13",
+								"text": "REST",
+								"stroke": "automatic",
+								"textAlign": "center",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer14",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"dataSourceTypeHint": "text",
+							"enterable": false
+						},
+						{
+							"name": "primaryKey_field_name",
+							"dataSource": "This:C1470.primaryKey_field_name",
+							"width": 195,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header14",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"text": "Primary Key Field Name",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer15",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"enterable": false,
+							"resizable": false
+						},
+						{
+							"header": {
+								"name": "Header16",
+								"text": "# Records",
+								"fontWeight": "bold",
+								"textAlign": "right"
+							},
+							"name": "Column13",
+							"resizable": false,
+							"enterable": false,
+							"dataSourceTypeHint": "number",
+							"dataSource": "This:C1470.num_records",
+							"footer": {
+								"name": "Footer17"
+							},
+							"width": 80,
+							"numberFormat": "###,###,###,##0; ;-"
+						},
+						{
+							"header": {
+								"name": "Header17",
+								"text": "# Deleted",
+								"fontWeight": "bold",
+								"textAlign": "right"
+							},
+							"name": "Column14",
+							"width": 80,
+							"resizable": false,
+							"enterable": false,
+							"dataSourceTypeHint": "number",
+							"dataSource": "This:C1470.num_deleted",
+							"footer": {
+								"name": "Footer18"
+							},
+							"numberFormat": "###,###,###,##0; ;-"
+						}
+					]
+				},
+				"TableFilterThingy": {
+					"type": "subform",
+					"top": 69,
+					"left": 159,
+					"width": 235,
+					"height": 30,
+					"dataSource": "vTableFilter",
+					"dataSourceTypeHint": "text",
+					"detailForm": "SearchPicker",
+					"deletableInList": false,
+					"doubleClickInRowAction": "editSubrecord",
+					"doubleClickInEmptyAreaAction": "addSubrecord",
+					"selectionMode": "multiple",
+					"printFrame": "variable",
+					"method": "ObjectMethods/TableFilterThingy.4dm",
+					"events": [
+						"onLoad",
+						"onGettingFocus",
+						"onDataChange"
+					]
+				},
+				"Text28": {
+					"type": "text",
+					"top": 76,
+					"left": 22,
+					"width": 132,
+					"height": 16,
+					"textAlign": "right",
+					"text": "Table Starts With:"
+				},
+				"BTN_Analysis1": {
+					"type": "button",
+					"top": 67,
+					"left": 802,
+					"width": 32,
+					"height": 32,
+					"sizingX": "move",
+					"dataSource": "BTN_Analysis",
+					"tooltip": ":xliff:Btn_AnalyseCode",
+					"fontFamily": "System Font Regular",
+					"fontSize": 13,
+					"focusable": false,
+					"icon": "/RESOURCES/Images/refresh.svg_20_4d.png",
+					"iconFrames": 4,
+					"style": "bevel",
+					"method": "ObjectMethods/BTN_Analysis1.4dm",
+					"events": [
+						"onClick"
+					]
 				}
 			}
 		},
@@ -1472,14 +1805,25 @@
 				"Text24",
 				"Text25"
 			],
-			"Group8": [
-				"Text26",
-				"Text27"
-			],
 			"Group7": [
 				"Text22",
 				"Text23"
+			],
+			"Group8": [
+				"Text26",
+				"Text27"
 			]
+		},
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
 		}
-	}
+	},
+	"geometryStamp": 65,
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed"
 }

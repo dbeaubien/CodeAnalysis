@@ -17,3 +17,6 @@ Settings/buildApp.4DSettings
 Libraries/lib4d-arm64.dylib
 Resources/Code Analysis/InternalProjectName.txt
 .DS_Store
+Components/4DPop.4dbase
+Components/4DPop XLIFF.4dbase
+Components/4DPop XLIFF Pro.4dbase
