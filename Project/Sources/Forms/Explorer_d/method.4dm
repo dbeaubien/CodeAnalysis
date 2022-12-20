@@ -9,6 +9,9 @@ Case of
 		
 	: (Form event code:C388=On Load:K2:1)
 		Form:C1466.controller:=cs:C1710.form_Explorer.new(Form:C1466)
+		Form:C1466.controller.FilterTableList("")
+		
+		// Explorer_MetaInfoFunction_Struc
 		
 		Form:C1466.currentTab:=1
 		
