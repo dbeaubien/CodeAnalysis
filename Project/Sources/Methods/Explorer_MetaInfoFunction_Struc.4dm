@@ -11,7 +11,7 @@ C_OBJECT:C1216($0; $metaInfo)
 // ----------------------------------------------------
 
 
-// Reference: https://developer.4d.com/docs/18/en/FormObjects/propertiesText.html#meta-info-expression
+// Reference: https://developer.4d.com/docs/18/FormObjects/propertiesText/#meta-info-expression
 
 $metaInfo:=New object:C1471
 If (This:C1470.isIndexed) | (This:C1470.isPrimaryKey)

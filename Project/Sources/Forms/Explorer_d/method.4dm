@@ -8,16 +8,12 @@ C_BOOLEAN:C305($refreshFooter)
 Case of 
 		
 	: (Form event code:C388=On Load:K2:1)
+		Form:C1466.controller:=cs:C1710.form_Explorer.new(Form:C1466)
+		Form:C1466.controller.FilterTableList("")
+		
+		// Explorer_MetaInfoFunction_Struc
+		
 		Form:C1466.currentTab:=1
-		
-		Form:C1466.tabControl:=New object:C1471
-		Form:C1466.tabControl.values:=New collection:C1472()
-		Form:C1466.tabControl.values.push(":xliff:TabLabel_Methods")
-		Form:C1466.tabControl.values.push(":xliff:TabLabel_FieldStructure")
-		Form:C1466.tabControl.values.push(":xliff:TabLabel_TableStructure")
-		Form:C1466.tabControl.values.push("Summary")
-		Form:C1466.tabControl.index:=0  //start on page 1
-		
 		
 		C_OBJECT:C1216(selectedMethodObj)
 		C_LONGINT:C283(selectedMethodPos)
@@ -39,17 +35,17 @@ Case of
 		Use (Storage:C1525.explorerWindow)
 			Storage:C1525.explorerWindow.windowRef:=Current form window:C827
 		End use 
-		Explorer_FocusOnSearchField(1)
+		Form:C1466.controller.FocusOnSearchFieldOnPageNo(1)
 		
 		
 	: (Form event code:C388=On Activate:K2:9)
 		$refreshFooter:=True:C214
 		Component_SetMenuBar
-		Explorer_FocusOnSearchField(FORM Get current page:C276)
+		Form:C1466.controller.FocusOnSearchFieldOnPageNo(FORM Get current page:C276)
 		
 		
 	: (Form event code:C388=On Timer:K2:25)
-		Explorer_FocusOnSearchField(FORM Get current page:C276)
+		Form:C1466.controller.FocusOnSearchFieldOnPageNo(FORM Get current page:C276)
 		SET TIMER:C645(0)  // clear timer
 		
 		
