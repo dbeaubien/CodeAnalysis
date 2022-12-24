@@ -60,7 +60,24 @@ Function FilterTableList($starts_with : Text)
 	
 Function FilterFieldList($starts_with : Text)
 	This:C1470._form.filteredFieldList:=This:C1470._model_tableInfo.GetFieldFilteredList($starts_with)
-	
+	var $field_detail : Object
+	For each ($field_detail; This:C1470._form.filteredFieldList)
+		$field_detail.unique_asText:=Choose:C955($field_detail.isUnique; "Yes"; "-")
+		$field_detail.invisible_asText:=Choose:C955($field_detail.isInvisible; "Yes"; "-")
+		
+		
+		$field_detail.meta:=New object:C1471
+		$field_detail.meta.cell:=New object:C1471
+		
+		If ($field_detail.isPrimaryKey) | ($field_detail.isIndexed)
+			$field_detail.meta.cell.name:=New object:C1471
+			$field_detail.meta.cell.name.fontWeight:="bold"
+			If ($field_detail.isPrimaryKey)
+				$field_detail.meta.cell.name.textDecoration:="underline"
+			End if 
+		End if 
+		
+	End for each 
 	
 /****** PRIVATE FUNCTIONS ******/
 Function _setup_tabControl()
