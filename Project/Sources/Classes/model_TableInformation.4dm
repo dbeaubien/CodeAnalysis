@@ -21,11 +21,11 @@ Function GetTableFilteredList($name : Text)->$table_list : Collection
 	End if 
 	
 	
-Function GetFieldFilteredList($name : Text)->$table_list : Collection
+Function GetFieldFilteredList($name : Text)->$field_list : Collection
 	If ($name="")
-		$table_list:=This:C1470._field_model.copy()
+		$field_list:=This:C1470._field_model.copy()
 	Else 
-		$table_list:=This:C1470._field_model.query("name=:1"; $name+"@")
+		$field_list:=This:C1470._field_model.query("table=:1 OR field=:1"; $name+"@")
 	End if 
 	
 	
@@ -59,29 +59,35 @@ Function _load_field_model()
 	This:C1470._field_model:=This:C1470._field_model.orderBy("table asc, field asc")
 	
 	
-Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field_details : Object
+Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field_detail : Object
 	var $table_detail : Object
 	var $type; $length : Integer
 	var $isIndexed; $isUnique; $isInvisible : Boolean
 	GET FIELD PROPERTIES:C258($table_no; $field_no; $type; $length; $isIndexed; $isUnique; $isInvisible)
 	$table_detail:=This:C1470._table_model.query("tableNumber=:1"; $table_no)[0]
 	
-	$field_details:=New object:C1471
-	$field_details.field:=Field name:C257($table_no; $field_no)
-	$field_details.name:="["+$table_detail.table+"]"+$field_details.field
-	$field_details.table:=$table_detail.table
-	$field_details.tableNumber:=$table_no
-	$field_details.fieldNumber:=$field_no
+	$field_detail:=New object:C1471
+	$field_detail.field:=Field name:C257($table_no; $field_no)
+	$field_detail.name:="["+$table_detail.table+"]"+$field_detail.field
+	$field_detail.table:=$table_detail.table
+	$field_detail.tableNumber:=$table_no
+	$field_detail.fieldNumber:=$field_no
 	If ($table_detail.primaryKey_field_name#"")  // can use orda
-		$field_details.isPrimaryKey:=($table_detail.primaryKey_field_name=$field_details.field)
+		$field_detail.isPrimaryKey:=($table_detail.primaryKey_field_name=$field_detail.field)
 	Else 
-		$field_details.isPrimaryKey:=False:C215
+		$field_detail.isPrimaryKey:=False:C215
 	End if 
-	$field_details.isIndexed:=$isIndexed
-	$field_details.isUnique:=$isIndexed
-	$field_details.isInvisible:=$isInvisible
-	$field_details.type:=This:C1470._field_type_to_text($type; $length)
-	$field_details.notes:=""
+	$field_detail.isIndexed:=$isIndexed
+	$field_detail.isUnique:=$isIndexed
+	$field_detail.isInvisible:=$isInvisible
+	$field_detail.type:=This:C1470._field_type_to_text($type; $length)
+	If ($field_detail.isIndexed)
+		$field_detail.indexType:=Structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
+		//$field_detail.indexType:="T:"+String($table_no)+" F:"+String($field_no)+" INDX:"+String(Structure_GetFieldIndexType($table_no; $field_no))
+	Else 
+		$field_detail.indexType:="none"
+	End if 
+	$field_detail.notes:=""
 	
 	
 Function _get_detail_for_table($table_no : Integer)->$table_details : Object
@@ -150,43 +156,43 @@ Function _get_table_deleted_count($table_no : Integer)->$num_deleted : Integer
 Function _field_type_to_text($type : Integer; $length : Integer)->$type_as_text : Text
 	Case of 
 		: ($type=Is text:K8:3)
-			$type_as_text:="Text"
+			$type_as_text:="TEXT"
 			
 		: ($type=Is alpha field:K8:1) & ($length>0)
-			$type_as_text:="Alpha ("+String:C10($length)+")"
+			$type_as_text:="A"+String:C10($length)
 			
 		: ($type=Is alpha field:K8:1)
-			$type_as_text:="Alpha (UUID)"
+			$type_as_text:="UUID"
 			
 		: ($type=Is boolean:K8:9)
-			$type_as_text:="Boolean"
+			$type_as_text:="BOOL"
 			
 		: ($type=Is time:K8:8)
-			$type_as_text:="Time"
+			$type_as_text:="TIME"
 			
 		: ($type=Is date:K8:7)
-			$type_as_text:="Date"
+			$type_as_text:="DATE"
 			
 		: ($type=Is real:K8:4)
-			$type_as_text:="Real"
+			$type_as_text:="REAL"
 			
 		: ($type=Is longint:K8:6)
-			$type_as_text:="Longint"
+			$type_as_text:="INT 32bit"
 			
 		: ($type=Is integer:K8:5)
-			$type_as_text:="Integer"
+			$type_as_text:="INT 16bit"
 			
 		: ($type=Is BLOB:K8:12)
 			$type_as_text:="BLOB"
 			
 		: ($type=Is object:K8:27)
-			$type_as_text:="Object"
+			$type_as_text:="OBJ"
 			
 		: ($type=Is picture:K8:10)
-			$type_as_text:="Picture"
+			$type_as_text:="PICT"
 			
 		: ($type=Is integer 64 bits:K8:25)
-			$type_as_text:="Integer 64bit"
+			$type_as_text:="INT 64bit"
 			
 		Else 
 			$type_as_text:="** "+String:C10($type)

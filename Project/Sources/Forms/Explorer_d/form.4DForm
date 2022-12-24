@@ -800,10 +800,10 @@
 				},
 				"structureList": {
 					"type": "listbox",
-					"top": 104,
+					"top": 264,
 					"left": 0,
 					"width": 839,
-					"height": 321,
+					"height": 161,
 					"sizingX": "grow",
 					"sizingY": "grow",
 					"resizingMode": "legacy",
@@ -981,6 +981,191 @@
 					"height": 16,
 					"textAlign": "right",
 					"text": "Field Starts With:"
+				},
+				"structureList2": {
+					"type": "listbox",
+					"top": 104,
+					"left": 0,
+					"width": 839,
+					"height": 141,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"focusable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"headerHeight": "2em",
+					"dataSource": "Form:C1466.filteredFieldList",
+					"metaSource": "This:C1470.meta",
+					"selectionMode": "none",
+					"scrollbarHorizontal": "hidden",
+					"alternateFill": "#EEEEEE",
+					"events": [
+						"onClick",
+						"onDoubleClick"
+					],
+					"columns": [
+						{
+							"name": "name",
+							"dataSource": "This:C1470.name",
+							"width": 210,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "DIFF_HdrExtras3",
+								"text": "Name",
+								"dataSource": "DIFF_HdrExtras",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer22",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "Column16",
+							"dataSource": "This:C1470.type",
+							"width": 65,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "left",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header21",
+								"text": "Type",
+								"dataSource": "Header7",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer23",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "ColumnIndexType1",
+							"dataSource": "This:C1470.indexType",
+							"width": 110,
+							"minWidth": 100,
+							"maxWidth": 32000,
+							"resizable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "left",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header22",
+								"text": "Index Type",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer25",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"header": {
+								"name": "Header25",
+								"text": "Is\\UNQ",
+								"textAlign": "center",
+								"fontWeight": "bold"
+							},
+							"name": "Column19",
+							"footer": {
+								"name": "Footer28"
+							},
+							"dataSource": "This:C1470.unique_asText",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header24",
+								"text": "Is\\INV",
+								"textAlign": "center",
+								"fontWeight": "bold"
+							},
+							"name": "Column18",
+							"footer": {
+								"name": "Footer27"
+							},
+							"dataSource": "This:C1470.invisible_asText",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"name": "Column17",
+							"dataSource": "This:C1470.notes",
+							"width": 204,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header23",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer26",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
 				}
 			}
 		},
@@ -1820,7 +2005,7 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 65,
+	"geometryStamp": 133,
 	"$4d": {
 		"version": "1",
 		"kind": "form"

@@ -116,7 +116,11 @@
 			<field_extra position="7"/>
 		</field>
 		<field name="Field_6_IndexPart2" uuid="3889F7C51D7548C8A2ED0AAAA9526F38" type="10" limiting_length="20" never_null="true" id="7">
-			<field_extra position="8"/>
+			<field_extra position="8" multi_line="false">
+				<editor_field_info>
+					<color red="255" green="255" blue="255" alpha="0"/>
+				</editor_field_info>
+			</field_extra>
 		</field>
 		<field name="GUID" uuid="F536980BC2F448A092DE1BE2A2595785" type="10" unique="true" autogenerate="true" store_as_UUID="true" never_null="true" id="8">
 			<field_extra position="1"/>
