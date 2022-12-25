@@ -81,6 +81,10 @@ Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field
 	$field_detail.isUnique:=$isIndexed
 	$field_detail.isInvisible:=$isInvisible
 	$field_detail.type:=This:C1470._field_type_to_text($type; $length)
+	$field_detail.exposed_to_REST:=This:C1470._is_field_REST_enabled($table_no; $field_no)
+	$field_detail.isAutoIncrement:=This:C1470._is_field_autoIncrement($table_no; $field_no)
+	$field_detail.isAutoGenerate:=This:C1470._is_field_autoGenerate($table_no; $field_no)
+	$field_detail.isNullable:=This:C1470._is_field_nullable($table_no; $field_no)
 	If ($field_detail.isIndexed)
 		$field_detail.indexType:=Structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
 		//$field_detail.indexType:="T:"+String($table_no)+" F:"+String($field_no)+" INDX:"+String(Structure_GetFieldIndexType($table_no; $field_no))
@@ -156,7 +160,7 @@ Function _get_table_deleted_count($table_no : Integer)->$num_deleted : Integer
 Function _field_type_to_text($type : Integer; $length : Integer)->$type_as_text : Text
 	Case of 
 		: ($type=Is text:K8:3)
-			$type_as_text:="TEXT"
+			$type_as_text:="Text"
 			
 		: ($type=Is alpha field:K8:1) & ($length>0)
 			$type_as_text:="A"+String:C10($length)
@@ -165,22 +169,22 @@ Function _field_type_to_text($type : Integer; $length : Integer)->$type_as_text 
 			$type_as_text:="UUID"
 			
 		: ($type=Is boolean:K8:9)
-			$type_as_text:="BOOL"
+			$type_as_text:="Bool"
 			
 		: ($type=Is time:K8:8)
-			$type_as_text:="TIME"
+			$type_as_text:="Time"
 			
 		: ($type=Is date:K8:7)
-			$type_as_text:="DATE"
+			$type_as_text:="Date"
 			
 		: ($type=Is real:K8:4)
-			$type_as_text:="REAL"
+			$type_as_text:="Real"
 			
 		: ($type=Is longint:K8:6)
-			$type_as_text:="INT 32bit"
+			$type_as_text:="Int32"
 			
 		: ($type=Is integer:K8:5)
-			$type_as_text:="INT 16bit"
+			$type_as_text:="Int16"
 			
 		: ($type=Is BLOB:K8:12)
 			$type_as_text:="BLOB"
@@ -189,12 +193,68 @@ Function _field_type_to_text($type : Integer; $length : Integer)->$type_as_text 
 			$type_as_text:="OBJ"
 			
 		: ($type=Is picture:K8:10)
-			$type_as_text:="PICT"
+			$type_as_text:="Pict"
 			
 		: ($type=Is integer 64 bits:K8:25)
-			$type_as_text:="INT 64bit"
+			$type_as_text:="Int64"
 			
 		Else 
 			$type_as_text:="** "+String:C10($type)
 	End case 
+	
+	
+Function _is_field_REST_enabled($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
+	var $table_no_for_sql; $field_no_for_sql : Integer
+	var $is_set : Boolean
+	$table_no_for_sql:=$table_no
+	$field_no_for_sql:=$field_no
+	Begin SQL
+		SELECT Rest_Available
+		FROM _USER_COLUMNS
+		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
+		INTO :$is_set;
+	End SQL
+	$is_enabled:=$is_set
+	
+	
+Function _is_field_autoIncrement($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
+	var $table_no_for_sql; $field_no_for_sql : Integer
+	var $is_set : Boolean
+	$table_no_for_sql:=$table_no
+	$field_no_for_sql:=$field_no
+	Begin SQL
+		SELECT AutoIncrement
+		FROM _USER_COLUMNS
+		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
+		INTO :$is_set;
+	End SQL
+	$is_enabled:=$is_set
+	
+	
+Function _is_field_autoGenerate($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
+	var $table_no_for_sql; $field_no_for_sql : Integer
+	var $is_set : Boolean
+	$table_no_for_sql:=$table_no
+	$field_no_for_sql:=$field_no
+	Begin SQL
+		SELECT AutoGenerate
+		FROM _USER_COLUMNS
+		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
+		INTO :$is_set;
+	End SQL
+	$is_enabled:=$is_set
+	
+	
+Function _is_field_nullable($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
+	var $table_no_for_sql; $field_no_for_sql : Integer
+	var $is_set : Boolean
+	$table_no_for_sql:=$table_no
+	$field_no_for_sql:=$field_no
+	Begin SQL
+		SELECT Nullable
+		FROM _USER_COLUMNS
+		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
+		INTO :$is_set;
+	End SQL
+	$is_enabled:=$is_set
 	

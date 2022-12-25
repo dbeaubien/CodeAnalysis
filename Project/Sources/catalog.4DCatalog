@@ -6,7 +6,7 @@
 		<field name="Field_1" uuid="7FDF1D39D08848488A654256E4669571" type="10" limiting_length="255" not_null="true" never_null="true" id="1">
 			<field_extra position="2"/>
 		</field>
-		<field name="Field_2" uuid="E439F7B40107464CA10A6E63557C92D3" type="10" limiting_length="255" never_null="true" id="2">
+		<field name="Field_2" uuid="E439F7B40107464CA10A6E63557C92D3" type="10" limiting_length="255" not_null="true" id="2">
 			<field_extra position="3"/>
 		</field>
 		<field name="Field_3_Real" uuid="D3DE63B862D04B5A8B6D420F3F49C8EB" type="6" never_null="true" id="3">
@@ -88,8 +88,9 @@
 	</table>
 	<table name="Table_3_NoPK" uuid="9CAEF19DDB5447DDA76B9A5205ACB8FD" id="3" prevent_journaling="true">
 		<field name="ID" uuid="717F5AB45385405D856E03BA73F5FC0C" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Field_2_No_REST" uuid="F4BCAFE843244442A8C245F3896B5CB7" type="10" limiting_length="255" never_null="true" id="2" hide_in_REST="true"/>
 		<table_extra visible="false">
-			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+			<editor_table_info displayable_fields_count="6">
 				<color red="255" green="255" blue="255" alpha="0"/>
 				<coordinates left="197.625" top="359.06640625" width="229.4609375" height="175.6328125"/>
 			</editor_table_info>
