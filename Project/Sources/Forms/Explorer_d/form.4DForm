@@ -1123,8 +1123,23 @@
 						},
 						{
 							"header": {
-								"name": "Header24",
+								"name": "Header26",
 								"text": "Is\\INV",
+								"textAlign": "center",
+								"fontWeight": "bold"
+							},
+							"name": "Column20",
+							"footer": {
+								"name": "Footer29"
+							},
+							"dataSource": "This:C1470.invisible_asText",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header24",
+								"text": "REST",
 								"textAlign": "center",
 								"fontWeight": "bold"
 							},
@@ -1132,7 +1147,7 @@
 							"footer": {
 								"name": "Footer27"
 							},
-							"dataSource": "This:C1470.invisible_asText",
+							"dataSource": "This:C1470.rest_asText",
 							"width": 45,
 							"textAlign": "center"
 						},

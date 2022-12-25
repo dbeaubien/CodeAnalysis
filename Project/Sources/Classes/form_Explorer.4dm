@@ -61,14 +61,27 @@ Function FilterTableList($starts_with : Text)
 Function FilterFieldList($starts_with : Text)
 	This:C1470._form.filteredFieldList:=This:C1470._model_tableInfo.GetFieldFilteredList($starts_with)
 	var $field_detail : Object
+	var $notes : Collection
+	$notes:=New collection:C1472()
 	For each ($field_detail; This:C1470._form.filteredFieldList)
 		$field_detail.unique_asText:=Choose:C955($field_detail.isUnique; "Yes"; "-")
 		$field_detail.invisible_asText:=Choose:C955($field_detail.isInvisible; "Yes"; "-")
+		$field_detail.rest_asText:=Choose:C955($field_detail.exposed_to_REST; "Yes"; "-")
 		
+		$notes.clear()
+		If ($field_detail.isAutoIncrement)
+			$notes.push("Auto Increment")
+		End if 
+		If ($field_detail.isAutoGenerate)
+			$notes.push("Auto Generate")
+		End if 
+		If (Not:C34($field_detail.isNullable))
+			$notes.push("Reject NULL")
+		End if 
+		$field_detail.notes:=$notes.join(", ")
 		
 		$field_detail.meta:=New object:C1471
 		$field_detail.meta.cell:=New object:C1471
-		
 		If ($field_detail.isPrimaryKey) | ($field_detail.isIndexed)
 			$field_detail.meta.cell.name:=New object:C1471
 			$field_detail.meta.cell.name.fontWeight:="bold"
