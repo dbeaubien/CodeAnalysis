@@ -237,6 +237,28 @@
 					"shortcutControl": false,
 					"shortcutShift": false,
 					"shortcutAlt": false
+				},
+				"BTN_Cmd5": {
+					"type": "button",
+					"top": 246,
+					"left": 844,
+					"width": 77,
+					"height": 21,
+					"sizingX": "move",
+					"sizingY": "move",
+					"dataSource": "BTN_Cmd5",
+					"shortcutKey": "5",
+					"shortcutAccel": true,
+					"text": "Cmd 5",
+					"class": "Buttons_10",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_Cmd5.4dm",
+					"events": [
+						"onClick"
+					],
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false
 				}
 			}
 		},
@@ -782,178 +804,7 @@
 						"onDataChange"
 					]
 				},
-				"BTN_Analysis3": {
-					"type": "button",
-					"top": 67,
-					"left": 651,
-					"width": 137,
-					"height": 32,
-					"sizingX": "move",
-					"dataSource": "BTN_Analysis",
-					"text": ":xliff:Btn_AnalyseIndexes",
-					"class": "Buttons_13",
-					"focusable": false,
-					"method": "ObjectMethods/BTN_Analysis3.4dm",
-					"events": [
-						"onClick"
-					]
-				},
-				"structureList": {
-					"type": "listbox",
-					"top": 264,
-					"left": 0,
-					"width": 839,
-					"height": 161,
-					"sizingX": "grow",
-					"sizingY": "grow",
-					"resizingMode": "legacy",
-					"listboxType": "collection",
-					"focusable": false,
-					"movableRows": false,
-					"rowHeight": "20px",
-					"headerHeight": "2em",
-					"dataSource": "Form:C1466.filteredStructureList",
-					"metaSource": "Explorer_MetaInfoFunction_Struc()",
-					"selectionMode": "none",
-					"scrollbarHorizontal": "hidden",
-					"alternateFill": "#EEEEEE",
-					"events": [
-						"onClick",
-						"onDoubleClick"
-					],
-					"columns": [
-						{
-							"name": "ColumnName",
-							"dataSource": "This:C1470.name",
-							"width": 400,
-							"minWidth": 400,
-							"maxWidth": 32000,
-							"resizable": false,
-							"enterable": false,
-							"stroke": "automatic",
-							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
-							"textAlign": "automatic",
-							"verticalAlign": "automatic",
-							"events": [
-								"onClick",
-								"onDataChange"
-							],
-							"header": {
-								"name": "DIFF_HdrExtras2",
-								"text": "Name",
-								"dataSource": "DIFF_HdrExtras",
-								"stroke": "automatic",
-								"textAlign": "left",
-								"verticalAlign": "automatic",
-								"fontWeight": "bold"
-							},
-							"footer": {
-								"name": "Footer11",
-								"stroke": "automatic",
-								"fill": "automatic",
-								"textAlign": "automatic",
-								"verticalAlign": "automatic"
-							}
-						},
-						{
-							"name": "Column24",
-							"dataSource": "This:C1470.type",
-							"width": 110,
-							"minWidth": 10,
-							"maxWidth": 32000,
-							"resizable": false,
-							"enterable": false,
-							"stroke": "automatic",
-							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
-							"textAlign": "left",
-							"verticalAlign": "automatic",
-							"events": [
-								"onClick",
-								"onDataChange"
-							],
-							"header": {
-								"name": "Header9",
-								"text": "Type",
-								"dataSource": "Header7",
-								"stroke": "automatic",
-								"textAlign": "left",
-								"verticalAlign": "automatic",
-								"fontWeight": "bold"
-							},
-							"footer": {
-								"name": "Footer24",
-								"stroke": "automatic",
-								"fill": "automatic",
-								"textAlign": "automatic",
-								"verticalAlign": "automatic"
-							}
-						},
-						{
-							"name": "ColumnIndexType",
-							"dataSource": "This:C1470.indexType",
-							"width": 110,
-							"minWidth": 100,
-							"maxWidth": 32000,
-							"resizable": false,
-							"stroke": "automatic",
-							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
-							"textAlign": "left",
-							"verticalAlign": "automatic",
-							"events": [
-								"onClick",
-								"onDataChange"
-							],
-							"header": {
-								"name": "Header10",
-								"text": "Index Type",
-								"stroke": "automatic",
-								"textAlign": "left",
-								"verticalAlign": "automatic",
-								"fontWeight": "bold"
-							},
-							"footer": {
-								"name": "Footer9",
-								"stroke": "automatic",
-								"fill": "automatic",
-								"textAlign": "automatic",
-								"verticalAlign": "automatic"
-							}
-						},
-						{
-							"name": "Column12",
-							"dataSource": "This:C1470.notes",
-							"width": 204,
-							"minWidth": 10,
-							"maxWidth": 32000,
-							"stroke": "automatic",
-							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
-							"textAlign": "automatic",
-							"verticalAlign": "automatic",
-							"events": [
-								"onClick",
-								"onDataChange"
-							],
-							"header": {
-								"name": "Header11",
-								"stroke": "automatic",
-								"textAlign": "automatic",
-								"verticalAlign": "automatic"
-							},
-							"footer": {
-								"name": "Footer12",
-								"stroke": "automatic",
-								"fill": "automatic",
-								"textAlign": "automatic",
-								"verticalAlign": "automatic"
-							}
-						}
-					]
-				},
-				"BTN_Analysis7": {
+				"BTN_RefreshFields": {
 					"type": "button",
 					"top": 67,
 					"left": 802,
@@ -968,7 +819,7 @@
 					"icon": "/RESOURCES/Images/refresh.svg_20_4d.png",
 					"iconFrames": 4,
 					"style": "bevel",
-					"method": "ObjectMethods/BTN_Analysis7.4dm",
+					"method": "ObjectMethods/BTN_RefreshFields.4dm",
 					"events": [
 						"onClick"
 					]
@@ -987,7 +838,7 @@
 					"top": 104,
 					"left": 0,
 					"width": 839,
-					"height": 141,
+					"height": 321,
 					"sizingX": "grow",
 					"sizingY": "grow",
 					"resizingMode": "legacy",
@@ -1009,7 +860,7 @@
 						{
 							"name": "name",
 							"dataSource": "This:C1470.name",
-							"width": 210,
+							"width": 320,
 							"minWidth": 10,
 							"maxWidth": 32000,
 							"resizable": false,
@@ -1213,7 +1064,7 @@
 						{
 							"header": {
 								"name": "Header15",
-								"text": "#",
+								"text": "T#",
 								"fontWeight": "bold"
 							},
 							"name": "Column11",
@@ -1478,7 +1329,7 @@
 					"textAlign": "right",
 					"text": "Table Starts With:"
 				},
-				"BTN_Analysis1": {
+				"BTN_RefreshTables": {
 					"type": "button",
 					"top": 67,
 					"left": 802,
@@ -1493,7 +1344,197 @@
 					"icon": "/RESOURCES/Images/refresh.svg_20_4d.png",
 					"iconFrames": 4,
 					"style": "bevel",
-					"method": "ObjectMethods/BTN_Analysis1.4dm",
+					"method": "ObjectMethods/BTN_RefreshTables.4dm",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"structureList3": {
+					"type": "listbox",
+					"top": 104,
+					"left": 0,
+					"width": 839,
+					"height": 321,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"focusable": false,
+					"movableRows": false,
+					"rowHeight": "20px",
+					"headerHeight": "2em",
+					"dataSource": "Form:C1466.filteredIndexedFieldList",
+					"metaSource": "This:C1470.meta",
+					"selectionMode": "none",
+					"scrollbarHorizontal": "hidden",
+					"alternateFill": "#EEEEEE",
+					"events": [
+						"onClick",
+						"onDoubleClick"
+					],
+					"columns": [
+						{
+							"name": "name1",
+							"dataSource": "This:C1470.name",
+							"width": 320,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "DIFF_HdrExtras2",
+								"text": "Name",
+								"dataSource": "DIFF_HdrExtras",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer9",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "Column12",
+							"dataSource": "This:C1470.type",
+							"width": 65,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"resizable": false,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "left",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header9",
+								"text": "Type",
+								"dataSource": "Header7",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer11",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "ColumnIndexType2",
+							"dataSource": "This:C1470.indexType",
+							"width": 110,
+							"minWidth": 100,
+							"maxWidth": 32000,
+							"resizable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "left",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header10",
+								"text": "Index Type",
+								"stroke": "automatic",
+								"textAlign": "left",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer12",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"header": {
+								"name": "Header11",
+								"text": "Is\\UNQ",
+								"textAlign": "center",
+								"fontWeight": "bold"
+							},
+							"name": "Column21",
+							"footer": {
+								"name": "Footer24"
+							},
+							"dataSource": "This:C1470.unique_asText",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"name": "Column24",
+							"dataSource": "This:C1470.index_analysis_notes",
+							"width": 204,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header29",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer32",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"BTN_AnalysisIndexes": {
+					"type": "button",
+					"top": 67,
+					"left": 697,
+					"width": 137,
+					"height": 32,
+					"sizingX": "move",
+					"dataSource": "BTN_Analysis",
+					"text": ":xliff:Btn_AnalyseIndexes",
+					"class": "Buttons_13",
+					"focusable": false,
+					"method": "ObjectMethods/BTN_AnalysisIndexes.4dm",
 					"events": [
 						"onClick"
 					]
@@ -2020,7 +2061,7 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 133,
+	"geometryStamp": 202,
 	"$4d": {
 		"version": "1",
 		"kind": "form"

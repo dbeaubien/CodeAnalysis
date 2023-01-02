@@ -61,6 +61,10 @@ This file is distributed under the same license as the product package.-->
                <source>Tables</source>
                <target>Tables</target>
             </trans-unit>
+            <trans-unit id="902" resname="TabLabel_Indexes">
+               <source>Indexes</source>
+               <target>Indexes</target>
+            </trans-unit>
             <trans-unit id="39" resname="TabLabel_MethodComments">
                <source>Method Comments</source>
                <target>Method Comments</target>

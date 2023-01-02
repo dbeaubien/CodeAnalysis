@@ -12,8 +12,6 @@ Case of
 		Form:C1466.controller.FilterTableList("")
 		Form:C1466.controller.FilterFieldList("")
 		
-		// Explorer_MetaInfoFunction_Struc
-		
 		Form:C1466.currentTab:=1
 		
 		C_OBJECT:C1216(selectedMethodObj)
@@ -25,9 +23,6 @@ Case of
 		
 		Explorer_UpdateMethodInfo(Form:C1466)
 		Explorer_ApplyMethodFilter(Form:C1466)
-		
-		Explorer_UpdateStructureInfo(Form:C1466)
-		Explorer_ApplyStructureFilter(Form:C1466)
 		
 		$refreshFooter:=True:C214
 		

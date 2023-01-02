@@ -1322,16 +1322,6 @@ C_OBJECT:C1216(Explorer_UpdateMethodInfo; $1)
 C_TEXT:C284(Explorer_UpdateMethodInfo; $2)
 C_TEXT:C284(Explorer_UpdateMethodInfo; $3)
 
-//Explorer_UpdateStructureInfo
-C_OBJECT:C1216(Explorer_UpdateStructureInfo; $1)
-C_BOOLEAN:C305(Explorer_UpdateStructureInfo; $2)
-
-//Explorer_ApplyStructureFilter
-C_OBJECT:C1216(Explorer_ApplyStructureFilter; $1)
-
-//Explorer_MetaInfoFunction_Struc
-C_OBJECT:C1216(Explorer_MetaInfoFunction_Struc; $0)
-
 //CA_SaveStructureDetails
 C_TEXT:C284(CA_SaveStructureDetails; $1)
 
