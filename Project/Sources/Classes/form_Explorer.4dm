@@ -4,12 +4,19 @@ Class constructor($form : Object)
 	This:C1470._form:=$form
 	This:C1470._setup_tabControl()
 	This:C1470._model_tableInfo:=cs:C1710.model_TableInformation.new()
-	This:C1470._model_tableInfo.Refresh()
+	This:C1470.RefreshStructureInfo()
+	This:C1470.RefreshIndexedFieldInfo()
 	
 	
 /****** PUBLIC FUNCTIONS ******/
 Function RefreshStructureInfo()
 	This:C1470._model_tableInfo.Refresh()
+	
+	
+Function RefreshIndexedFieldInfo()
+	This:C1470._form.filteredIndexedFieldList:=This:C1470._model_tableInfo.GetFieldFilteredList("")\
+		.query("isIndexed=:1"; True:C214)
+	This:C1470._enhance_field_model_collection(This:C1470._form.filteredIndexedFieldList; "1")
 	
 	
 Function FocusOnSearchFieldOnPageNo($page_no : Integer)
@@ -60,10 +67,27 @@ Function FilterTableList($starts_with : Text)
 	
 Function FilterFieldList($starts_with : Text)
 	This:C1470._form.filteredFieldList:=This:C1470._model_tableInfo.GetFieldFilteredList($starts_with)
-	var $field_detail : Object
+	This:C1470._enhance_field_model_collection(This:C1470._form.filteredFieldList; "")
+	
+	
+	
+/****** PRIVATE FUNCTIONS ******/
+Function _setup_tabControl()
+	This:C1470._form.tabControl:=New object:C1471
+	This:C1470._form.tabControl.values:=New collection:C1472()
+	This:C1470._form.tabControl.values.push(":xliff:TabLabel_Methods")
+	This:C1470._form.tabControl.values.push(":xliff:TabLabel_FieldStructure")
+	This:C1470._form.tabControl.values.push(":xliff:TabLabel_TableStructure")
+	This:C1470._form.tabControl.values.push(":xliff:TabLabel_Indexes")
+	This:C1470._form.tabControl.values.push("Summary")
+	This:C1470._form.tabControl.index:=0  //start on page 1
+	
+	
+Function _enhance_field_model_collection($field_collection : Collection; $suffix : Text)
+	var $field_detail; $name_meta : Object
 	var $notes : Collection
 	$notes:=New collection:C1472()
-	For each ($field_detail; This:C1470._form.filteredFieldList)
+	For each ($field_detail; $field_collection)
 		$field_detail.unique_asText:=Choose:C955($field_detail.isUnique; "Yes"; "-")
 		$field_detail.invisible_asText:=Choose:C955($field_detail.isInvisible; "Yes"; "-")
 		$field_detail.rest_asText:=Choose:C955($field_detail.exposed_to_REST; "Yes"; "-")
@@ -79,26 +103,17 @@ Function FilterFieldList($starts_with : Text)
 			$notes.push("Reject NULL")
 		End if 
 		$field_detail.notes:=$notes.join(", ")
+		$field_detail.index_analysis_notes:=" ** waiting for index analysis **"
 		
 		$field_detail.meta:=New object:C1471
 		$field_detail.meta.cell:=New object:C1471
 		If ($field_detail.isPrimaryKey) | ($field_detail.isIndexed)
-			$field_detail.meta.cell.name:=New object:C1471
-			$field_detail.meta.cell.name.fontWeight:="bold"
+			$name_meta:=New object:C1471
+			$field_detail.meta.cell["name"+$suffix]:=$name_meta
+			$name_meta.fontWeight:="bold"
 			If ($field_detail.isPrimaryKey)
-				$field_detail.meta.cell.name.textDecoration:="underline"
+				$name_meta.textDecoration:="underline"
 			End if 
 		End if 
 		
 	End for each 
-	
-/****** PRIVATE FUNCTIONS ******/
-Function _setup_tabControl()
-	This:C1470._form.tabControl:=New object:C1471
-	This:C1470._form.tabControl.values:=New collection:C1472()
-	This:C1470._form.tabControl.values.push(":xliff:TabLabel_Methods")
-	This:C1470._form.tabControl.values.push(":xliff:TabLabel_FieldStructure")
-	This:C1470._form.tabControl.values.push(":xliff:TabLabel_TableStructure")
-	This:C1470._form.tabControl.values.push("Summary")
-	This:C1470._form.tabControl.index:=0  //start on page 1
-	

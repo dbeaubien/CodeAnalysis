@@ -17,7 +17,7 @@ Function GetTableFilteredList($name : Text)->$table_list : Collection
 	If ($name="")
 		$table_list:=This:C1470._table_model.copy()
 	Else 
-		$table_list:=This:C1470._table_model.query("table=:1"; $name+"@")
+		$table_list:=This:C1470._table_model.query("table=:1"; $name+"@").copy()
 	End if 
 	
 	
@@ -25,7 +25,7 @@ Function GetFieldFilteredList($name : Text)->$field_list : Collection
 	If ($name="")
 		$field_list:=This:C1470._field_model.copy()
 	Else 
-		$field_list:=This:C1470._field_model.query("table=:1 OR field=:1"; $name+"@")
+		$field_list:=This:C1470._field_model.query("table=:1 OR field=:1"; $name+"@").copy()
 	End if 
 	
 	
@@ -89,7 +89,7 @@ Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field
 		$field_detail.indexType:=Structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
 		//$field_detail.indexType:="T:"+String($table_no)+" F:"+String($field_no)+" INDX:"+String(Structure_GetFieldIndexType($table_no; $field_no))
 	Else 
-		$field_detail.indexType:="none"
+		$field_detail.indexType:="-"
 	End if 
 	$field_detail.notes:=""
 	
