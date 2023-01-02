@@ -19,7 +19,6 @@ If (Count parameters:C259>=1)
 	_LogMethod_inited:=Not:C34($1)
 End if 
 
-C_BOOLEAN:C305(<>TrackPerformance)
 If (Not:C34(_LogMethod_inited))
 	_LogMethod_inited:=True:C214
 	C_LONGINT:C283(__incrementLevel)

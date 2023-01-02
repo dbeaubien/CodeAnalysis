@@ -87,7 +87,6 @@ Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field
 	$field_detail.isNullable:=This:C1470._is_field_nullable($table_no; $field_no)
 	If ($field_detail.isIndexed)
 		$field_detail.indexType:=Structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
-		//$field_detail.indexType:="T:"+String($table_no)+" F:"+String($field_no)+" INDX:"+String(Structure_GetFieldIndexType($table_no; $field_no))
 	Else 
 		$field_detail.indexType:="-"
 	End if 
