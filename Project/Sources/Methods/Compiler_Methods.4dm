@@ -1371,3 +1371,6 @@ C_TEXT:C284(Xml_ToObject; $1)
 //LibraryImage_GetPlatformPath
 C_TEXT:C284(LibraryImage_GetPlatformPath; $0)
 C_TEXT:C284(LibraryImage_GetPlatformPath; $1)
+
+//Explorer_MetaInfoFunction_Struc
+C_OBJECT:C1216(Explorer_MetaInfoFunction_Struc; $0)

@@ -17,6 +17,27 @@ Function RefreshIndexedFieldInfo()
 	This:C1470._form.filteredIndexedFieldList:=This:C1470._model_tableInfo.GetFieldFilteredList("")\
 		.query("isIndexed=:1"; True:C214)
 	This:C1470._enhance_field_model_collection(This:C1470._form.filteredIndexedFieldList; "1")
+	var $field_detail : Object
+	var $indexUsageRatio : Real
+	var $numberOfRecordsInTable : Integer
+	For each ($field_detail; This:C1470._form.filteredIndexedFieldList)
+		$numberOfRecordsInTable:=Records in table:C83(Table:C252($field_detail.tableNumber)->)
+		If ($numberOfRecordsInTable=0)
+			$field_detail.index_analysis_notes:="n/a - Table is empty"
+		Else 
+			$indexUsageRatio:=Structure_GetFieldIndexRatio($field_detail.tableNumber; $field_detail.fieldNumber)*100
+			Case of 
+				: ($indexUsageRatio>=100)
+					$field_detail.index_analysis_notes:="ALL values are unique"
+					
+				: ($indexUsageRatio<1)
+					$field_detail.index_analysis_notes:="Less than 1% of the values are unique"
+					
+				Else 
+					$field_detail.index_analysis_notes:=String:C10($indexUsageRatio; "#0.000")+"% of the values are unique"
+			End case 
+		End if 
+	End for each 
 	
 	
 Function FocusOnSearchFieldOnPageNo($page_no : Integer)
