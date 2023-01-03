@@ -6,7 +6,7 @@
 		<field name="Field_1" uuid="7FDF1D39D08848488A654256E4669571" type="10" limiting_length="255" not_null="true" never_null="true" id="1">
 			<field_extra position="2"/>
 		</field>
-		<field name="Field_2" uuid="E439F7B40107464CA10A6E63557C92D3" type="10" limiting_length="255" not_null="true" id="2">
+		<field name="Field_2_map_null_2_blank" uuid="E439F7B40107464CA10A6E63557C92D3" type="10" limiting_length="255" never_null="true" id="2">
 			<field_extra position="3"/>
 		</field>
 		<field name="Field_3_Real" uuid="D3DE63B862D04B5A8B6D420F3F49C8EB" type="6" never_null="true" id="3">
