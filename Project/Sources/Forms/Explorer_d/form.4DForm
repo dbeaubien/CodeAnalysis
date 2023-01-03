@@ -860,7 +860,7 @@
 						{
 							"name": "name",
 							"dataSource": "This:C1470.name",
-							"width": 320,
+							"width": 310,
 							"minWidth": 10,
 							"maxWidth": 32000,
 							"resizable": false,
@@ -894,7 +894,7 @@
 						{
 							"name": "Column16",
 							"dataSource": "This:C1470.type",
-							"width": 65,
+							"width": 45,
 							"minWidth": 10,
 							"maxWidth": 32000,
 							"resizable": false,
@@ -928,7 +928,7 @@
 						{
 							"name": "ColumnIndexType1",
 							"dataSource": "This:C1470.indexType",
-							"width": 110,
+							"width": 100,
 							"minWidth": 100,
 							"maxWidth": 32000,
 							"resizable": false,
@@ -974,8 +974,23 @@
 						},
 						{
 							"header": {
-								"name": "Header26",
+								"name": "Header27",
 								"text": "Is\\INV",
+								"textAlign": "center",
+								"fontWeight": "bold"
+							},
+							"name": "Column22",
+							"footer": {
+								"name": "Footer30"
+							},
+							"dataSource": "This:C1470.invisible_asText",
+							"width": 45,
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"name": "Header26",
+								"text": "Map\\NULL",
 								"textAlign": "center",
 								"fontWeight": "bold"
 							},
@@ -983,7 +998,7 @@
 							"footer": {
 								"name": "Footer29"
 							},
-							"dataSource": "This:C1470.invisible_asText",
+							"dataSource": "This:C1470.neverNullable_asText",
 							"width": 45,
 							"textAlign": "center"
 						},

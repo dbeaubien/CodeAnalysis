@@ -4,7 +4,7 @@
 		"editable": false,
 		"items": [
 			{
-				"text": "{\"releaseYear\":\"2023\",\"releaseNo\":\"r1\",\"buildNo\":\"20230102\",\"versionShort\":\"2023.r1\",\"versionLong\":\"2023.r1 (build 20230102)\"}",
+				"text": "{\"releaseYear\":\"2023\",\"releaseNo\":\"r1\",\"buildNo\":\"20230103\",\"versionShort\":\"2023.r1\",\"versionLong\":\"2023.r1 (build 20230103)\"}",
 				"ref": 1,
 				"editable": true,
 				"collapsed": true

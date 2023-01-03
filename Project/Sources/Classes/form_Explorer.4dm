@@ -17,6 +17,9 @@ Function RefreshIndexedFieldInfo()
 	This:C1470._form.filteredIndexedFieldList:=This:C1470._model_tableInfo.GetFieldFilteredList("")\
 		.query("isIndexed=:1"; True:C214)
 	This:C1470._enhance_field_model_collection(This:C1470._form.filteredIndexedFieldList; "1")
+	
+	
+Function PerformIndexAnalysis()
 	var $field_detail : Object
 	var $indexUsageRatio : Real
 	var $numberOfRecordsInTable : Integer
@@ -112,6 +115,7 @@ Function _enhance_field_model_collection($field_collection : Collection; $suffix
 		$field_detail.unique_asText:=Choose:C955($field_detail.isUnique; "Yes"; "-")
 		$field_detail.invisible_asText:=Choose:C955($field_detail.isInvisible; "Yes"; "-")
 		$field_detail.rest_asText:=Choose:C955($field_detail.exposed_to_REST; "Yes"; "-")
+		$field_detail.neverNullable_asText:=Choose:C955($field_detail.isNeverNullable; "Yes"; "-")
 		
 		$notes.clear()
 		If ($field_detail.isAutoIncrement)
@@ -123,6 +127,8 @@ Function _enhance_field_model_collection($field_collection : Collection; $suffix
 		If (Not:C34($field_detail.isNullable))
 			$notes.push("Reject NULL")
 		End if 
+		
+		
 		$field_detail.notes:=$notes.join(", ")
 		$field_detail.index_analysis_notes:=" ** waiting for index analysis **"
 		
