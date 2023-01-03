@@ -9,6 +9,7 @@ Class constructor
 /************ PUBLIC FUNCTIONS ************************/
 Function Refresh()
 	This:C1470._init()
+	This:C1470._load_catalog_info()
 	This:C1470._load_table_model()
 	This:C1470._load_field_model()
 	
@@ -33,6 +34,73 @@ Function GetFieldFilteredList($name : Text)->$field_list : Collection
 Function _init()
 	This:C1470._table_model:=New collection:C1472
 	This:C1470._field_model:=New collection:C1472
+	This:C1470._structure_catalog_model:=New collection:C1472
+	
+	
+Function _load_catalog_info()
+	var $structure_xml : Text
+	EXPORT STRUCTURE:C1311($structure_xml)
+	
+	var $xml_source; $xml_Child_Ref; $xml_field_Ref : Text
+	$xml_source:=DOM Parse XML variable:C720($structure_xml)
+	
+	var $i : Integer
+	var $abort; $abort_table : Boolean
+	var $childName; $childValue : Text
+	var $siblingElemName; $siblingElemValue : Text
+	This:C1470._structure_catalog_model:=New collection:C1472
+	$abort:=False:C215
+	Repeat 
+		$abort_table:=False:C215
+		$siblingElemName:=""
+		If ($childName="")
+			$xml_Child_Ref:=DOM Get first child XML element:C723($xml_source; $childName; $childValue)
+		Else 
+			$xml_Child_Ref:=DOM Get next sibling XML element:C724($xml_Child_Ref; $childName; $childValue)
+		End if 
+		
+		Case of 
+			: (OK=0)
+				$abort:=True:C214
+			: ($childName="Schema")  // ignore
+			: ($childName="Index")  // ignore
+			: ($childName="Base_extra")  // ignore
+			: ($childName="Table")
+				var $table_attributes : Object
+				$table_attributes:=New object:C1471
+				$table_attributes.fields:=New collection:C1472()
+				XML_AddAttributesToObject($xml_Child_Ref; $table_attributes)
+				This:C1470._structure_catalog_model.push($table_attributes)
+				
+				Repeat 
+					If ($siblingElemName="")
+						$xml_field_Ref:=DOM Get first child XML element:C723($xml_Child_Ref; $siblingElemName; $siblingElemValue)
+					Else 
+						$xml_field_Ref:=DOM Get next sibling XML element:C724($xml_field_Ref; $siblingElemName; $siblingElemValue)
+					End if 
+					
+					Case of 
+						: (OK=0)
+							$abort_table:=True:C214
+						: ($siblingElemName="Field")
+							var $field_attributes : Object
+							$field_attributes:=New object:C1471
+							XML_AddAttributesToObject($xml_field_Ref; $field_attributes)
+							$table_attributes.fields.push($field_attributes)
+							
+						: ($siblingElemName="primary_key")
+						: ($siblingElemName="table_extra")
+						Else 
+							
+					End case 
+				Until ($abort_table)
+				$xml_field_Ref:=""  // clear this
+				
+			Else 
+				
+		End case 
+	Until ($abort)
+	DOM CLOSE XML:C722($xml_source)
 	
 	
 Function _load_table_model()
@@ -85,6 +153,7 @@ Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field
 	$field_detail.isAutoIncrement:=This:C1470._is_field_autoIncrement($table_no; $field_no)
 	$field_detail.isAutoGenerate:=This:C1470._is_field_autoGenerate($table_no; $field_no)
 	$field_detail.isNullable:=This:C1470._is_field_nullable($table_no; $field_no)
+	$field_detail.isNeverNullable:=This:C1470._is_field_never_nullable($table_no; $field_no)
 	If ($field_detail.isIndexed)
 		$field_detail.indexType:=Structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
 	Else 
@@ -257,3 +326,13 @@ Function _is_field_nullable($table_no : Integer; $field_no : Integer)->$is_enabl
 	End SQL
 	$is_enabled:=$is_set
 	
+	
+Function _is_field_never_nullable($table_no : Integer; $field_no : Integer)->$is_never_null : Boolean
+	var $tables; $fields : Collection
+	$tables:=This:C1470._structure_catalog_model.query("id=:1"; String:C10($table_no))
+	If ($tables.length=1)
+		$fields:=$tables[0].fields.query("id=:1"; String:C10($field_no))
+	End if 
+	If ($fields.length=1)
+		$is_never_null:=(String:C10($fields[0]["never_null"])="true")
+	End if 
