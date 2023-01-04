@@ -128,11 +128,13 @@ Function _load_field_model()
 	
 	
 Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field_detail : Object
-	var $table_detail : Object
+	var $table_detail; $field_attributes : Object
 	var $type; $length : Integer
 	var $isIndexed; $isUnique; $isInvisible : Boolean
 	GET FIELD PROPERTIES:C258($table_no; $field_no; $type; $length; $isIndexed; $isUnique; $isInvisible)
 	$table_detail:=This:C1470._table_model.query("tableNumber=:1"; $table_no)[0]
+	
+	$field_attributes:=This:C1470._get_field_attributes_via_sql($table_no; $field_no)
 	
 	$field_detail:=New object:C1471
 	$field_detail.field:=Field name:C257($table_no; $field_no)
@@ -149,10 +151,10 @@ Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field
 	$field_detail.isUnique:=$isIndexed
 	$field_detail.isInvisible:=$isInvisible
 	$field_detail.type:=This:C1470._field_type_to_text($type; $length)
-	$field_detail.exposed_to_REST:=This:C1470._is_field_REST_enabled($table_no; $field_no)
-	$field_detail.isAutoIncrement:=This:C1470._is_field_autoIncrement($table_no; $field_no)
-	$field_detail.isAutoGenerate:=This:C1470._is_field_autoGenerate($table_no; $field_no)
-	$field_detail.isNullable:=This:C1470._is_field_nullable($table_no; $field_no)
+	$field_detail.exposed_to_REST:=$field_attributes.is_REST
+	$field_detail.isAutoIncrement:=$field_attributes.is_AutoIncrement
+	$field_detail.isAutoGenerate:=$field_attributes.is_AutoGenerate
+	$field_detail.isNullable:=$field_attributes.is_Nullable
 	$field_detail.isNeverNullable:=This:C1470._is_field_never_nullable($table_no; $field_no)
 	If ($field_detail.isIndexed)
 		$field_detail.indexType:=Structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
@@ -271,60 +273,22 @@ Function _field_type_to_text($type : Integer; $length : Integer)->$type_as_text 
 	End case 
 	
 	
-Function _is_field_REST_enabled($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
+Function _get_field_attributes_via_sql($table_no : Integer; $field_no : Integer)->$field_attributes : Object
 	var $table_no_for_sql; $field_no_for_sql : Integer
-	var $is_set : Boolean
+	var $is_REST; $is_AutoIncrement; $is_AutoGenerate; $is_Nullable : Boolean
 	$table_no_for_sql:=$table_no
 	$field_no_for_sql:=$field_no
 	Begin SQL
-		SELECT Rest_Available
+		SELECT Rest_Available, AutoIncrement, AutoGenerate, Nullable
 		FROM _USER_COLUMNS
 		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
-		INTO :$is_set;
+		INTO :$is_REST, :$is_AutoIncrement, :$is_AutoGenerate, :$is_Nullable;
 	End SQL
-	$is_enabled:=$is_set
-	
-	
-Function _is_field_autoIncrement($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
-	var $table_no_for_sql; $field_no_for_sql : Integer
-	var $is_set : Boolean
-	$table_no_for_sql:=$table_no
-	$field_no_for_sql:=$field_no
-	Begin SQL
-		SELECT AutoIncrement
-		FROM _USER_COLUMNS
-		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
-		INTO :$is_set;
-	End SQL
-	$is_enabled:=$is_set
-	
-	
-Function _is_field_autoGenerate($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
-	var $table_no_for_sql; $field_no_for_sql : Integer
-	var $is_set : Boolean
-	$table_no_for_sql:=$table_no
-	$field_no_for_sql:=$field_no
-	Begin SQL
-		SELECT AutoGenerate
-		FROM _USER_COLUMNS
-		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
-		INTO :$is_set;
-	End SQL
-	$is_enabled:=$is_set
-	
-	
-Function _is_field_nullable($table_no : Integer; $field_no : Integer)->$is_enabled : Boolean
-	var $table_no_for_sql; $field_no_for_sql : Integer
-	var $is_set : Boolean
-	$table_no_for_sql:=$table_no
-	$field_no_for_sql:=$field_no
-	Begin SQL
-		SELECT Nullable
-		FROM _USER_COLUMNS
-		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
-		INTO :$is_set;
-	End SQL
-	$is_enabled:=$is_set
+	$field_attributes:=New object:C1471
+	$field_attributes.is_REST:=$is_REST
+	$field_attributes.is_AutoIncrement:=$is_AutoIncrement
+	$field_attributes.is_AutoGenerate:=$is_AutoGenerate
+	$field_attributes.is_Nullable:=$is_Nullable
 	
 	
 Function _is_field_never_nullable($table_no : Integer; $field_no : Integer)->$is_never_null : Boolean
