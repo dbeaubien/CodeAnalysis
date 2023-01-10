@@ -86,6 +86,14 @@ Function _project_folder()->$folder_platformPath : Text
 Function _get_4D_method_path($git_file_path : Text)->$4D_method_path : Text
 	var $git_path_parts_collection : Collection
 	
+/*
+Need to handle file renames.
+	
+Examples:
+0 3 Project/Sources/Forms/Explorer_d/ObjectMethods/{BTN_Analysis7.4dm => BTN_RefreshFields.4dm}
+0 0 Project/Sources/Forms/Explorer_d/ObjectMethods/{BTN_Analysis1.4dm => BTN_RefreshTables.4dm}
+*/
+	
 	$git_file_path:=This:C1470._get_right_of($git_file_path; "Project/Sources/")
 	$git_path_parts_collection:=Split string:C1554($git_file_path; "/")
 	
@@ -99,7 +107,10 @@ Function _get_4D_method_path($git_file_path : Text)->$4D_method_path : Text
 			$4D_method_path:=$git_path_parts_collection.join("/")
 			
 		: ($git_file_path="Triggers/@")
+			var $table_no : Integer
 			$git_path_parts_collection[0]:="[trigger]"
+			$table_no:=Num:C11(Replace string:C233($git_path_parts_collection[1]; "Table_"; ""))
+			$git_path_parts_collection[1]:=Table name:C256($table_no)
 			$4D_method_path:=$git_path_parts_collection.join("/")
 			
 		: ($git_file_path="Methods/@")
@@ -108,6 +119,7 @@ Function _get_4D_method_path($git_file_path : Text)->$4D_method_path : Text
 		: ($git_file_path="TableForms/@/ObjectMethods/@")
 			$git_path_parts_collection[0]:="[tableForm]"
 			$git_path_parts_collection[1]:="Table_"+$git_path_parts_collection[1]
+			$git_path_parts_collection.remove(3; 1)
 			$4D_method_path:=$git_path_parts_collection.join("/")
 			
 		: ($git_file_path="TableForms/@/method.4dm")
@@ -116,7 +128,12 @@ Function _get_4D_method_path($git_file_path : Text)->$4D_method_path : Text
 			$git_path_parts_collection[$git_path_parts_collection.length-1]:="{formMethod}"
 			$4D_method_path:=$git_path_parts_collection.join("/")
 			
-		: ($git_file_path="Forms/@")
+		: ($git_file_path="Forms/@/method.4dm")
+			$git_path_parts_collection[0]:="[projectForm]"
+			$git_path_parts_collection[$git_path_parts_collection.length-1]:="{formMethod}"
+			$4D_method_path:=$git_path_parts_collection.join("/")
+			
+		: ($git_file_path="Forms/@/ObjectMethods/@")
 			$git_path_parts_collection[0]:="[projectForm]"
 			$git_path_parts_collection.remove(2; 1)
 			$4D_method_path:=$git_path_parts_collection.join("/")
