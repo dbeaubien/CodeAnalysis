@@ -18,6 +18,7 @@ $explorerRowObj:=$2
 If ($methodStatsObj#Null:C1517)
 	$explorerRowObj.path:=$methodStatsObj.path
 	$explorerRowObj.name:=$methodStatsObj.viewing_name
+	$explorerRowObj.numGitCommits:=0
 	$explorerRowObj.numCodeLines:=$methodStatsObj.line_counts.lines
 	$explorerRowObj.numCommentLines:=$methodStatsObj.line_counts.comments
 	$explorerRowObj.numBlankLines:=$methodStatsObj.line_counts.blank

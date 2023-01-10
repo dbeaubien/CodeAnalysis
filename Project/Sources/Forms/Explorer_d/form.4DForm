@@ -333,7 +333,7 @@
 						{
 							"name": "Column1",
 							"dataSource": "This:C1470.name",
-							"width": 354,
+							"width": 314,
 							"minWidth": 200,
 							"maxWidth": 32000,
 							"enterable": false,
@@ -361,6 +361,45 @@
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "right",
+								"verticalAlign": "automatic",
+								"fontWeight": "bold"
+							}
+						},
+						{
+							"name": "Column23",
+							"dataSource": "This:C1470.numGitCommits",
+							"dataSourceTypeHint": "number",
+							"width": 50,
+							"minWidth": 50,
+							"maxWidth": 50,
+							"resizable": false,
+							"enterable": false,
+							"numberFormat": "#####; ;-",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "#EEEEEE",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header28",
+								"text": "git",
+								"tooltip": "Number of Lines with Code",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic",
+								"class": "default",
+								"fontWeight": "bold"
+							},
+							"footer": {
+								"name": "Footer31",
+								"dataSource": "ftrText2",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "center",
 								"verticalAlign": "automatic",
 								"fontWeight": "bold"
 							}
@@ -602,9 +641,9 @@
 						{
 							"name": "Column8",
 							"dataSource": "This:C1470.lastSavedStr",
-							"width": 170,
-							"minWidth": 170,
-							"maxWidth": 170,
+							"width": 160,
+							"minWidth": 160,
+							"maxWidth": 160,
 							"resizable": false,
 							"enterable": false,
 							"stroke": "automatic",
@@ -778,6 +817,19 @@
 					"class": "Buttons_13",
 					"textAlign": "right",
 					"text": "Last Refreshed: <vt_LastRefreshStr>"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Git",
+					"top": 70,
+					"left": 591,
+					"width": 37,
+					"height": 25,
+					"events": [
+						"onClick"
+					],
+					"focusable": false,
+					"method": "ObjectMethods/Button.4dm"
 				}
 			}
 		},
@@ -2076,7 +2128,7 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 202,
+	"geometryStamp": 205,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
