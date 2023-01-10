@@ -14,6 +14,7 @@ C_OBJECT:C1216($statSummaryCounts)
 $statSummaryCounts:=New shared object:C1526
 
 Use ($statSummaryCounts)
+	$statSummaryCounts.numGitCommits:=0
 	$statSummaryCounts.numCodeLines:=0
 	$statSummaryCounts.numCommentLines:=0
 	$statSummaryCounts.numBlankLines:=0
