@@ -89,7 +89,7 @@
 	<table name="Table_3_NoPK" uuid="9CAEF19DDB5447DDA76B9A5205ACB8FD" id="3" prevent_journaling="true">
 		<field name="ID" uuid="717F5AB45385405D856E03BA73F5FC0C" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
 		<field name="Field_2_No_REST" uuid="F4BCAFE843244442A8C245F3896B5CB7" type="10" limiting_length="255" never_null="true" id="2" hide_in_REST="true"/>
-		<table_extra visible="false">
+		<table_extra visible="false" trigger_insert="true">
 			<editor_table_info displayable_fields_count="6">
 				<color red="255" green="255" blue="255" alpha="0"/>
 				<coordinates left="197.625" top="359.06640625" width="229.4609375" height="175.6328125"/>
@@ -141,7 +141,7 @@
 		<table_extra>
 			<editor_table_info displayable_fields_count="8">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="457.640625" top="327.8359375" width="333.12109375" height="222.140625"/>
+				<coordinates left="457.640625" top="327.8359375" width="368.05859375" height="225.00390625"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
