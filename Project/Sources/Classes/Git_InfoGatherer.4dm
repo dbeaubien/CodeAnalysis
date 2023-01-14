@@ -29,14 +29,48 @@ Function _process_line($line : Text; $parsed_log : Collection)
 	If ($line_parts.length=3)
 		$git_file_path:=$line_parts[2]
 		
+		var $first_part; $last_part; $actual_git_path : Text
+		var $git_path_parts_collection : Collection
+		$git_path_parts_collection:=Split string:C1554($git_file_path; "/")
+		$last_part:=$git_path_parts_collection[$git_path_parts_collection.length-1]
+		
+		If ($last_part="{@ => @}")
+/*
+Need to handle file renames.
+			
+Examples:
+0 3 Project/Sources/Forms/Explorer_d/ObjectMethods/{BTN_Analysis7.4dm => BTN_RefreshFields.4dm}
+0 0 Project/Sources/Forms/Explorer_d/ObjectMethods/{BTN_Analysis1.4dm => BTN_RefreshTables.4dm}
+*/
+			$last_part:=Substring:C12($last_part; 2; Length:C16($last_part)-2)  // Strip the "{" and "}"
+			
+			var $pos : Integer
+			$pos:=Position:C15(" => "; $last_part)
+			$first_part:=Substring:C12($last_part; 1; $pos-1)
+			$last_part:=Substring:C12($last_part; $pos+4)
+			
+			$git_path_parts_collection[$git_path_parts_collection.length-1]:=$first_part
+			$git_file_path:=$git_path_parts_collection.join("/")
+			
+			$git_path_parts_collection[$git_path_parts_collection.length-1]:=$last_part
+			$actual_git_path:=$git_path_parts_collection.join("/")
+		Else 
+			$actual_git_path:=$git_file_path
+		End if 
+		
 		If ($git_file_path="@/Project/Sources/@.4dm") | ($git_file_path="Project/Sources/@.4dm")
 			$matches:=$parsed_log.query("git_file_path=:1"; $git_file_path)
 			If ($matches.length>=1)
 				$parsed_line:=$matches[0]
+				If ($parsed_line.git_file_path#$actual_git_path)
+					$parsed_line.git_file_path:=$actual_git_path
+					$parsed_line.method_path:=This:C1470._get_4D_method_path($actual_git_path)
+				End if 
+				
 			Else 
 				$parsed_line:=New object:C1471
-				$parsed_line.git_file_path:=$git_file_path
-				$parsed_line.method_path:=This:C1470._get_4D_method_path($git_file_path)
+				$parsed_line.git_file_path:=$actual_git_path
+				$parsed_line.method_path:=This:C1470._get_4D_method_path($actual_git_path)
 				$parsed_line.num_lines_added:=0
 				$parsed_line.num_lines_removed:=0
 				$parsed_line.num_commits:=0
@@ -53,7 +87,7 @@ Function _process_line($line : Text; $parsed_log : Collection)
 Function _parse_git_log($raw_log : Text)->$parsed_log : Collection
 	var $line : Text
 	$parsed_log:=New collection:C1472
-	For each ($line; Split string:C1554($raw_log; "\n"))
+	For each ($line; Split string:C1554($raw_log; "\n").reverse())
 		Case of 
 			: ($line="")
 			: ($line="    @")
@@ -85,14 +119,6 @@ Function _project_folder()->$folder_platformPath : Text
 	
 Function _get_4D_method_path($git_file_path : Text)->$4D_method_path : Text
 	var $git_path_parts_collection : Collection
-	
-/*
-Need to handle file renames.
-	
-Examples:
-0 3 Project/Sources/Forms/Explorer_d/ObjectMethods/{BTN_Analysis7.4dm => BTN_RefreshFields.4dm}
-0 0 Project/Sources/Forms/Explorer_d/ObjectMethods/{BTN_Analysis1.4dm => BTN_RefreshTables.4dm}
-*/
 	
 	$git_file_path:=This:C1470._get_right_of($git_file_path; "Project/Sources/")
 	$git_path_parts_collection:=Split string:C1554($git_file_path; "/")
