@@ -5,7 +5,7 @@ Translation file.
 This file is distributed under the same license as the product package.-->
 
 <xliff version="1.0">
-   <file datatype="x-STR#" original="undefined" product-version="v11" source-language="en-US" target-language="en">
+   <file datatype="x-STR#" original="undefined" product-version="v11" source-language="en-US" target-language="en-US">
       <header>
          <prop-group name="Xliff-Editor.4dbase">
             <prop prop-type="version">1.0</prop>
@@ -49,9 +49,21 @@ This file is distributed under the same license as the product package.-->
                <source>Methods</source>
                <target>Methods</target>
             </trans-unit>
-            <trans-unit id="9" resname="TabLabel_Structure">
+            <trans-unit id="902" resname="TabLabel_Structure">
                <source>Structure</source>
                <target>Structure</target>
+            </trans-unit>
+            <trans-unit id="9" resname="TabLabel_FieldStructure">
+               <source>Fields</source>
+               <target>Fields</target>
+            </trans-unit>
+            <trans-unit id="901" resname="TabLabel_TableStructure">
+               <source>Tables</source>
+               <target>Tables</target>
+            </trans-unit>
+            <trans-unit id="902" resname="TabLabel_Indexes">
+               <source>Indexes</source>
+               <target>Indexes</target>
             </trans-unit>
             <trans-unit id="39" resname="TabLabel_MethodComments">
                <source>Method Comments</source>

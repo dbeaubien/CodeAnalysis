@@ -6,7 +6,7 @@
 		<field name="Field_1" uuid="7FDF1D39D08848488A654256E4669571" type="10" limiting_length="255" not_null="true" never_null="true" id="1">
 			<field_extra position="2"/>
 		</field>
-		<field name="Field_2" uuid="E439F7B40107464CA10A6E63557C92D3" type="10" limiting_length="255" never_null="true" id="2">
+		<field name="Field_2_map_null_2_blank" uuid="E439F7B40107464CA10A6E63557C92D3" type="10" limiting_length="255" never_null="true" id="2">
 			<field_extra position="3"/>
 		</field>
 		<field name="Field_3_Real" uuid="D3DE63B862D04B5A8B6D420F3F49C8EB" type="6" never_null="true" id="3">
@@ -48,7 +48,7 @@
 		<field name="Field_14_Object" uuid="0DB8CAD42BCA4F6AAF420C510BD6C095" type="21" never_null="true" id="15"/>
 		<field name="Field_15_Int64" uuid="B465B602732E42A4A892BAF80A218910" type="5" never_null="true" id="16"/>
 		<primary_key field_name="GUID" field_uuid="983FAC3079AE42A89361794E18667B14"/>
-		<table_extra input_form="Input" output_form="Output">
+		<table_extra input_form="Input" output_form="Output" trigger_insert="true" trigger_delete="true">
 			<editor_table_info displayable_fields_count="16">
 				<color red="255" green="255" blue="255" alpha="0"/>
 				<coordinates left="16.9296875" top="14.6953125" width="161.70703125" height="393.67578125"/>
@@ -79,10 +79,20 @@
 		</field>
 		<field name="Field_8" uuid="CA53DE1D072F4CB9B4C73A2426E2FF5B" type="10" limiting_length="255" never_null="true" id="8"/>
 		<primary_key field_name="GUID" field_uuid="C866E141770B4D319CD6AA6108804757"/>
-		<table_extra trigger_update="true" input_form="Input" output_form="Output">
+		<table_extra trigger_update="true" input_form="Input" output_form="Output" visible="false">
 			<editor_table_info displayable_fields_count="9">
 				<color red="255" green="255" blue="255" alpha="0"/>
 				<coordinates left="225.4296875" top="85.984375" width="193.4296875" height="240.79296875"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Table_3_NoPK" uuid="9CAEF19DDB5447DDA76B9A5205ACB8FD" id="3" prevent_journaling="true">
+		<field name="ID" uuid="717F5AB45385405D856E03BA73F5FC0C" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Field_2_No_REST" uuid="F4BCAFE843244442A8C245F3896B5CB7" type="10" limiting_length="255" never_null="true" id="2" hide_in_REST="true"/>
+		<table_extra visible="false" trigger_insert="true">
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="197.625" top="359.06640625" width="229.4609375" height="175.6328125"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -107,7 +117,11 @@
 			<field_extra position="7"/>
 		</field>
 		<field name="Field_6_IndexPart2" uuid="3889F7C51D7548C8A2ED0AAAA9526F38" type="10" limiting_length="20" never_null="true" id="7">
-			<field_extra position="8"/>
+			<field_extra position="8" multi_line="false">
+				<editor_field_info>
+					<color red="255" green="255" blue="255" alpha="0"/>
+				</editor_field_info>
+			</field_extra>
 		</field>
 		<field name="GUID" uuid="F536980BC2F448A092DE1BE2A2595785" type="10" unique="true" autogenerate="true" store_as_UUID="true" never_null="true" id="8">
 			<field_extra position="1"/>
@@ -117,6 +131,17 @@
 			<editor_table_info fields_ordering="2" displayable_fields_count="9">
 				<color red="255" green="255" blue="255" alpha="0"/>
 				<coordinates left="476.91796875" top="48.6640625" width="222.65234375" height="234.51171875"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="T23456789_123456789_123456789_1" uuid="A6A16B66B06C4FA395FC993D48D043A4" id="5" prevent_journaling="true">
+		<field name="ID" uuid="7F1C1AE15D1749B9A7279AAA5935AB03" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="F23456789_123456789_123456789_1" uuid="901C735BA85544D0A693524F7E099F1D" type="4" unique="true" autosequence="true" never_null="true" id="2"/>
+		<primary_key field_name="F23456789_123456789_123456789_1" field_uuid="901C735BA85544D0A693524F7E099F1D"/>
+		<table_extra>
+			<editor_table_info displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="457.640625" top="327.8359375" width="368.05859375" height="225.00390625"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -145,6 +170,11 @@
 			<table_ref uuid="17D3A55CDD584089B4A6FAE712217636" name="Table_1"/>
 		</field_ref>
 	</index>
+	<index kind="regular" unique_keys="true" uuid="8046CDA4B8D5400FB4E565198AA04CDD" type="1">
+		<field_ref uuid="901C735BA85544D0A693524F7E099F1D" name="F23456789_123456789_123456789_1">
+			<table_ref uuid="A6A16B66B06C4FA395FC993D48D043A4" name="T23456789_123456789_123456789_1"/>
+		</field_ref>
+	</index>
 	<index kind="regular" unique_keys="true" uuid="83BE5491A84D4446B55DC56B2A29C2B9" type="7">
 		<field_ref uuid="983FAC3079AE42A89361794E18667B14" name="GUID">
 			<table_ref uuid="17D3A55CDD584089B4A6FAE712217636" name="Table_1"/>
@@ -158,6 +188,16 @@
 	<index kind="regular" uuid="9F5F01D40C844CF79AB3E185374CEC76" type="1">
 		<field_ref uuid="437BEF1520C3499FA6C3D39E33AF7A5F" name="Field_6_Index_KeywordBTree">
 			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="B5EF65FD889D4F98AE9A8CC9DF409697" type="7">
+		<field_ref uuid="717F5AB45385405D856E03BA73F5FC0C" name="ID">
+			<table_ref uuid="9CAEF19DDB5447DDA76B9A5205ACB8FD" name="Table_3_NoPK"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="B8C082C1339040ADA8681DE0E2C327A4" type="7">
+		<field_ref uuid="7F1C1AE15D1749B9A7279AAA5935AB03" name="ID">
+			<table_ref uuid="A6A16B66B06C4FA395FC993D48D043A4" name="T23456789_123456789_123456789_1"/>
 		</field_ref>
 	</index>
 	<index kind="regular" name="MyName" uuid="C1EC0A3795FA472B8357FAE9AF346085" type="7">

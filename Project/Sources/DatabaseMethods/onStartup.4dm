@@ -2,7 +2,6 @@
 //   Mod: DB (03/26/2017) - Set up my default prefs
 CA_Pref_SetEOL(Char:C90(Line feed:K15:40))
 
-//Run 4DPop
 //This code is available even if the component is not present like in the final application.
 If (Not:C34(Is compiled mode:C492))
 	ARRAY TEXT:C222($at_components; 0)

@@ -10,6 +10,6 @@ Case of
 		
 		
 	: (Form event code:C388=On Data Change:K2:15)
-		Explorer_ApplyStructureFilter(Form:C1466)
+		Form:C1466.controller.FilterFieldList(vStructureFilter)
 		
 End case 

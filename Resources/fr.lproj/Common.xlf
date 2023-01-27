@@ -27,9 +27,21 @@ This file is distributed under the same license as the product package.-->
                <source>Folders</source>
                <target>Dossiers</target>
             </trans-unit>
-            <trans-unit id="9" resname="TabLabel_Structure">
+            <trans-unit id="9" resname="TabLabel_FieldStructure">
+               <source>Fields</source>
+               <target>Fields</target>
+            </trans-unit>
+            <trans-unit id="902" resname="TabLabel_Structure">
                <source>Structure</source>
                <target>Structure</target>
+            </trans-unit>
+            <trans-unit id="901" resname="TabLabel_TableStructure">
+               <source>Tables</source>
+               <target>Tables</target>
+            </trans-unit>
+            <trans-unit id="902" resname="TabLabel_Indexes">
+               <source>Indexes</source>
+               <target>Indexes</target>
             </trans-unit>
             <trans-unit id="16" resname="TabLabel_About">
                <source>About</source>

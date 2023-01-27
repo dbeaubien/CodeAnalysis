@@ -1322,16 +1322,6 @@ C_OBJECT:C1216(Explorer_UpdateMethodInfo; $1)
 C_TEXT:C284(Explorer_UpdateMethodInfo; $2)
 C_TEXT:C284(Explorer_UpdateMethodInfo; $3)
 
-//Explorer_UpdateStructureInfo
-C_OBJECT:C1216(Explorer_UpdateStructureInfo; $1)
-C_BOOLEAN:C305(Explorer_UpdateStructureInfo; $2)
-
-//Explorer_ApplyStructureFilter
-C_OBJECT:C1216(Explorer_ApplyStructureFilter; $1)
-
-//Explorer_MetaInfoFunction_Struc
-C_OBJECT:C1216(Explorer_MetaInfoFunction_Struc; $0)
-
 //CA_SaveStructureDetails
 C_TEXT:C284(CA_SaveStructureDetails; $1)
 
@@ -1358,9 +1348,6 @@ C_OBJECT:C1216(Explorer__MethodStatsToExlprRow; $2)
 //FocusOnObject
 C_TEXT:C284(FocusOnObject; $1)
 
-//Explorer_FocusOnSearchField
-C_LONGINT:C283(Explorer_FocusOnSearchField; $1)
-
 //Tokenize_LineOfCode
 C_OBJECT:C1216(Tokenize_LineOfCode; $0)
 C_OBJECT:C1216(Tokenize_LineOfCode; $3)
@@ -1384,3 +1371,13 @@ C_TEXT:C284(Xml_ToObject; $1)
 //LibraryImage_GetPlatformPath
 C_TEXT:C284(LibraryImage_GetPlatformPath; $0)
 C_TEXT:C284(LibraryImage_GetPlatformPath; $1)
+
+//Explorer_MetaInfoFunction_Struc
+C_OBJECT:C1216(Explorer_MetaInfoFunction_Struc; $0)
+
+//XML_AddAttributesToObject
+C_TEXT:C284(XML_AddAttributesToObject; $1)
+C_OBJECT:C1216(XML_AddAttributesToObject; $2)
+
+//Get_GetCommitNumbers
+C_COLLECTION:C1488(Get_GetCommitNumbers; $0)

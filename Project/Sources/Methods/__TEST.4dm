@@ -1,45 +1,38 @@
-//%attributes = {}
+//%attributes = {"preemptive":"capable"}
 //Progress QUIT (0)
 
 //_DIFF_ChangesText 
 
-C_LONGINT:C283($vs; $ve; $time1; $time2)
-//SHOW ON DISK(File_GetFolderName (Pref__GetFile2PrefFile ))
+var $timings : Collection
+$timings:=New collection:C1472()
 
-C_OBJECT:C1216(MethodStatsMasterObj)  // defined in MethodStats__Init
-/* MethodStats__Init */
+var $vs; $ve : Integer
+var $model : cs:C1710.model_TableInformation
+$model:=cs:C1710.model_TableInformation.new()
 
-//ON EVENT CALL("CA_EventHandler")
+$vs:=Milliseconds:C459
+$model._init()
+$ve:=Milliseconds:C459
+$timings.push("This._init() ->"+String:C10($ve-$vs)+"ms")
 
+$vs:=Milliseconds:C459
+$model._load_catalog_info()
+$ve:=Milliseconds:C459
+$timings.push("This._load_catalog_info() ->"+String:C10($ve-$vs)+"ms")
 
-ON EVENT CALL:C190(""/* test */)
-ALERT:C41("asdfasdf")/* test 
- test
-*/ALERT:C41("test2")
+$vs:=Milliseconds:C459
+$model._load_table_model()
+$ve:=Milliseconds:C459
+$timings.push("This._load_table_model() ->"+String:C10($ve-$vs)+"ms")
 
+$vs:=Milliseconds:C459
+$model._load_field_model()
+$ve:=Milliseconds:C459
+$timings.push("This._load_field_model() ->"+String:C10($ve-$vs)+"ms")
 
+$vs:=Milliseconds:C459
+$model.Refresh()
+$ve:=Milliseconds:C459
+$timings.push("This.Refresh() ->"+String:C10($ve-$vs)+"ms")
 
-//ALERT("Done")
-BEEP:C151
-ABORT:C156
-// Comment
-
-/* comment */
-
-C_OBJECT:C1216($obj)
-$obj:=New object:C1471
-$obj.var1:="hello"
-$obj.save()
-
-/* comment line 1
-comment line 2
-*/
-
-// TODO
-
-If (False:C215)
-	[Table_1:1]Field_1:1:=""
-	[Table_1:1]Field_15_Int64:16:=0
-	[Table_2:2]Field_1:1:=""
-	QUERY:C277([Table_4:4]; [Table_4:4]Field_1:1="afsd")
-End if 
+ALERT:C41($timings.join("\r"))

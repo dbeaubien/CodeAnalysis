@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // Logging_Method_START (methodName {;optionalText})
 // Logging_Method_START (text {;text})
 // 
