@@ -383,7 +383,7 @@
 							"enterable": false,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -417,7 +417,7 @@
 							"enterable": false,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -654,7 +654,7 @@
 					"rowHeightAutoMax": "20px",
 					"selectionMode": "single",
 					"scrollbarHorizontal": "hidden",
-					"alternateFill": "#EEEEEE",
+					"alternateFill": "automaticAlternate",
 					"method": "ObjectMethods/ListBox_Extras.4dm",
 					"events": [
 						"onLoad",
@@ -672,7 +672,7 @@
 							"enterable": false,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -705,7 +705,7 @@
 							"resizable": false,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "left",
 							"verticalAlign": "automatic",
 							"events": [
@@ -739,7 +739,7 @@
 							"visibility": "hidden",
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -844,7 +844,7 @@
 							"enterable": false,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -878,7 +878,7 @@
 							"enterable": false,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -912,7 +912,7 @@
 							"visibility": "hidden",
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -944,7 +944,7 @@
 							"visibility": "hidden",
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -1252,5 +1252,9 @@
 			"View 8": {},
 			"View 9": {}
 		}
+	},
+	"$4d": {
+		"version": "1",
+		"kind": "form"
 	}
 }

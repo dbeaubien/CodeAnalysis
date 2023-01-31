@@ -636,7 +636,7 @@
 					"showHeaders": false,
 					"selectionMode": "single",
 					"scrollbarHorizontal": "hidden",
-					"alternateFill": "#EEEEEE",
+					"alternateFill": "automaticAlternate",
 					"method": "ObjectMethods/ListBox_Extras2.4dm",
 					"events": [
 						"onLoad",
@@ -1011,7 +1011,7 @@
 							"enterable": false,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -1043,7 +1043,7 @@
 							"maxWidth": 32000,
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -1074,7 +1074,7 @@
 							"visibility": "hidden",
 							"stroke": "automatic",
 							"fill": "automatic",
-							"alternateFill": "#EEEEEE",
+							"alternateFill": "automaticAlternate",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"events": [
@@ -1479,24 +1479,24 @@
 	],
 	"editor": {
 		"groups": {
-			"Group2003660674": [
-				"CB_None",
-				"CB_DateOnly",
-				"CB_DateTime"
-			],
 			"Group2003660672": [
 				"CB_None_fldr",
 				"CB_DateOnly_fldr",
 				"CB_DateTime_fldr"
 			],
-			"Group2003660676": [
-				"BTN_XTRA_COPY",
-				"BTN_XTRA_SKIP"
-			],
 			"Group2003660673": [
 				"CB_None_form",
 				"CB_DateOnly_form",
 				"CB_DateTime_form"
+			],
+			"Group2003660674": [
+				"CB_None",
+				"CB_DateOnly",
+				"CB_DateTime"
+			],
+			"Group2003660676": [
+				"BTN_XTRA_COPY",
+				"BTN_XTRA_SKIP"
 			]
 		},
 		"activeView": "View 1",
@@ -1512,5 +1512,9 @@
 			"View 8": {},
 			"View 9": {}
 		}
+	},
+	"$4d": {
+		"version": "1",
+		"kind": "form"
 	}
 }
