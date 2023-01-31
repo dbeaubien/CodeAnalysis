@@ -283,8 +283,8 @@
 							"enterable": false,
 							"numberFormat": "###,##0; ; ",
 							"stroke": "automatic",
-							"fill": "#FFFFFF",
-							"alternateFill": "#FFFFFF",
+							"fill": "automatic",
+							"alternateFill": "automatic",
 							"textAlign": "center",
 							"verticalAlign": "automatic",
 							"class": "Mono_11",
@@ -322,8 +322,8 @@
 							"styledText": true,
 							"contextMenu": "none",
 							"stroke": "automatic",
-							"fill": "#FFFFFF",
-							"alternateFill": "#FFFFFF",
+							"fill": "automatic",
+							"alternateFill": "automatic",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"class": "Mono_11",
@@ -361,8 +361,8 @@
 							"enterable": false,
 							"numberFormat": "###,##0; ; ",
 							"stroke": "automatic",
-							"fill": "#FFFFFF",
-							"alternateFill": "#FFFFFF",
+							"fill": "automatic",
+							"alternateFill": "automatic",
 							"textAlign": "center",
 							"verticalAlign": "automatic",
 							"class": "Mono_11",
@@ -400,8 +400,8 @@
 							"styledText": true,
 							"contextMenu": "none",
 							"stroke": "automatic",
-							"fill": "#FFFFFF",
-							"alternateFill": "#FFFFFF",
+							"fill": "automatic",
+							"alternateFill": "automatic",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"class": "Mono_11",
@@ -424,7 +424,8 @@
 								"fill": "#000000",
 								"textAlign": "automatic",
 								"verticalAlign": "automatic",
-								"class": "Mono_11"
+								"class": "Mono_11",
+								"name": "Footer2"
 							}
 						}
 					]
@@ -542,8 +543,8 @@
 							"enterable": false,
 							"numberFormat": "###,##0; ; ",
 							"stroke": "automatic",
-							"fill": "#FFFFFF",
-							"alternateFill": "#FFFFFF",
+							"fill": "automatic",
+							"alternateFill": "automatic",
 							"textAlign": "center",
 							"verticalAlign": "automatic",
 							"class": "Mono_11",
@@ -580,8 +581,8 @@
 							"resizable": false,
 							"numberFormat": "###,##0; ; ",
 							"stroke": "automatic",
-							"fill": "#FFFFFF",
-							"alternateFill": "#FFFFFF",
+							"fill": "automatic",
+							"alternateFill": "automatic",
 							"textAlign": "center",
 							"verticalAlign": "automatic",
 							"class": "Mono_11",
@@ -619,8 +620,8 @@
 							"styledText": true,
 							"contextMenu": "none",
 							"stroke": "automatic",
-							"fill": "#FFFFFF",
-							"alternateFill": "#FFFFFF",
+							"fill": "automatic",
+							"alternateFill": "automatic",
 							"textAlign": "automatic",
 							"verticalAlign": "automatic",
 							"class": "Mono_11",
@@ -739,5 +740,9 @@
 			"View 8": {},
 			"View 9": {}
 		}
+	},
+	"$4d": {
+		"version": "1",
+		"kind": "form"
 	}
 }
