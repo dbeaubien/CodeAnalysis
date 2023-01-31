@@ -51,7 +51,7 @@ If (Not:C34(_structureInitd))
 	End for 
 	
 	
-	C_OBJECT:C1216(_STRUCT_ObjOfArrays; 0)
+	C_OBJECT:C1216(_STRUCT_ObjOfArrays)
 	_STRUCT_ObjOfArrays:=New object:C1471
 	OB SET ARRAY:C1227(_STRUCT_ObjOfArrays; "tableNames"; $at_TBL_tableNames)
 	OB SET ARRAY:C1227(_STRUCT_ObjOfArrays; "tableNos"; $al_TBL_tableNos)
