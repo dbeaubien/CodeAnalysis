@@ -11,7 +11,11 @@ Function Refresh()
 	This:C1470._init()
 	This:C1470._load_catalog_info()
 	This:C1470._load_table_model()
+	
+	var $ms : Integer
+	$ms:=Milliseconds:C459
 	This:C1470._load_field_model()
+	LogEvent_Write("*** cs.model_TableInformation._load_field_model() took "+String:C10(Milliseconds:C459-$ms))
 	
 	
 Function GetTableFilteredList($name : Text)->$table_list : Collection
@@ -119,7 +123,10 @@ Function _load_field_model()
 		If (Is table number valid:C999($table_no))
 			For ($field_no; 1; Get last field number:C255($table_no))  // use classic since only tables with PKs are known to orda
 				If (Is field number valid:C1000($table_no; $field_no))
+					var $ms : Integer
+					$ms:=Milliseconds:C459
 					This:C1470._field_model.push(This:C1470._get_detail_for_field($table_no; $field_no))
+					LogEvent_Write("***     This._get_detail_for_field("+String:C10($table_no)+"; "+String:C10($field_no)+") took "+String:C10(Milliseconds:C459-$ms))
 				End if 
 			End for 
 		End if 
