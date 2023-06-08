@@ -1381,3 +1381,14 @@ C_OBJECT:C1216(XML_AddAttributesToObject; $2)
 
 //Get_GetCommitNumbers
 C_COLLECTION:C1488(Get_GetCommitNumbers; $0)
+
+//UTL_structure2Object
+C_OBJECT:C1216(UTL_structure2Object; $0)
+C_TEXT:C284(UTL_structure2Object; $1)
+
+//XML__XPathNewSyntax
+C_BOOLEAN:C305(XML__XPathNewSyntax; $0)
+
+//UTL_lowerCamelCase
+C_TEXT:C284(UTL_lowerCamelCase; $0)
+C_TEXT:C284(UTL_lowerCamelCase; $1)

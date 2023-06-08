@@ -1,6 +1,19 @@
 //%attributes = {"preemptive":"capable"}
 //Progress QUIT (0)
 
+$ms:=Milliseconds:C459
+C_TEXT:C284($vt_xml)
+EXPORT STRUCTURE:C1311($vt_xml)
+
+C_OBJECT:C1216($vo_structure)
+$vo_structure:=UTL_structure2Object($vt_xml)
+ALERT:C41(String:C10(Milliseconds:C459-$ms))
+
+SET TEXT TO PASTEBOARD:C523(JSON Stringify:C1217($vo_structure; *))
+BEEP:C151
+ABORT:C156
+
+
 //_DIFF_ChangesText 
 
 var $timings : Collection
