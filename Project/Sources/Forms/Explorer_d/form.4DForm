@@ -329,6 +329,7 @@
 						"onClick",
 						"onDoubleClick"
 					],
+					"fill": "automatic",
 					"columns": [
 						{
 							"name": "Column1",
