@@ -7,13 +7,13 @@
 C_TEXT:C284($1; $methodPath)
 C_TEXT:C284($0; $typeOfMethod)
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (01/30/2021)
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
 $methodPath:=$1
 
 Case of 
+	: ($methodPath="[class]@")
+		$typeOfMethod:="class method"
+		
 	: ($methodPath="[projectForm]@")
 		$typeOfMethod:="project form method"
 		
