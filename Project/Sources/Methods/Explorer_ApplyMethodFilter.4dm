@@ -83,6 +83,7 @@ For each ($methodDetails; $formObj.fullList)
 			// Method attribute checks
 			C_OBJECT:C1216($vo_methodAttributes)
 			OnErr_ClearError
+			
 			If (Method_GetTypeFromPath($methodDetails.path)="project method")
 				METHOD GET ATTRIBUTES:C1334($methodDetails.path; $vo_methodAttributes; *)
 			Else   // define the object if no attributes
