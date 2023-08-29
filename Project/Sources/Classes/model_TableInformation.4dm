@@ -45,66 +45,73 @@ Function _load_catalog_info()
 	var $structure_xml : Text
 	EXPORT STRUCTURE:C1311($structure_xml)
 	
-	var $xml_source; $xml_Child_Ref; $xml_field_Ref : Text
-	$xml_source:=DOM Parse XML variable:C720($structure_xml)
+	This:C1470._structure_catalog_model:=UTL_structure2Object($structure_xml).tables
 	
-	var $i : Integer
-	var $abort; $abort_table : Boolean
-	var $childName; $childValue : Text
-	var $siblingElemName; $siblingElemValue : Text
-	This:C1470._structure_catalog_model:=New collection:C1472
-	$abort:=False:C215
-	Repeat 
-		$abort_table:=False:C215
-		$siblingElemName:=""
-		If ($childName="")
-			$xml_Child_Ref:=DOM Get first child XML element:C723($xml_source; $childName; $childValue)
-		Else 
-			$xml_Child_Ref:=DOM Get next sibling XML element:C724($xml_Child_Ref; $childName; $childValue)
-		End if 
+	If (False:C215)
+		var $xml_source; $xml_Child_Ref; $xml_field_Ref : Text
+		$xml_source:=DOM Parse XML variable:C720($structure_xml)
 		
-		Case of 
-			: (OK=0)
-				$abort:=True:C214
-			: ($childName="Schema")  // ignore
-			: ($childName="Index")  // ignore
-			: ($childName="Base_extra")  // ignore
-			: ($childName="Table")
-				var $table_attributes : Object
-				$table_attributes:=New object:C1471
-				$table_attributes.fields:=New collection:C1472()
-				XML_AddAttributesToObject($xml_Child_Ref; $table_attributes)
-				This:C1470._structure_catalog_model.push($table_attributes)
-				
-				Repeat 
-					If ($siblingElemName="")
-						$xml_field_Ref:=DOM Get first child XML element:C723($xml_Child_Ref; $siblingElemName; $siblingElemValue)
-					Else 
-						$xml_field_Ref:=DOM Get next sibling XML element:C724($xml_field_Ref; $siblingElemName; $siblingElemValue)
-					End if 
-					
-					Case of 
-						: (OK=0)
-							$abort_table:=True:C214
-						: ($siblingElemName="Field")
-							var $field_attributes : Object
-							$field_attributes:=New object:C1471
-							XML_AddAttributesToObject($xml_field_Ref; $field_attributes)
-							$table_attributes.fields.push($field_attributes)
-							
-						: ($siblingElemName="primary_key")
-						: ($siblingElemName="table_extra")
-						Else 
-							
-					End case 
-				Until ($abort_table)
-				$xml_field_Ref:=""  // clear this
-				
+		var $i : Integer
+		var $abort; $abort_table : Boolean
+		var $childName; $childValue : Text
+		var $siblingElemName; $siblingElemValue : Text
+		This:C1470._structure_catalog_model:=New collection:C1472
+		$abort:=False:C215
+		Repeat 
+			$abort_table:=False:C215
+			$siblingElemName:=""
+			If ($childName="")
+				$xml_Child_Ref:=DOM Get first child XML element:C723($xml_source; $childName; $childValue)
 			Else 
-				
-		End case 
-	Until ($abort)
-	DOM CLOSE XML:C722($xml_source)
+				$xml_Child_Ref:=DOM Get next sibling XML element:C724($xml_Child_Ref; $childName; $childValue)
+			End if 
+			
+			Case of 
+				: (OK=0)
+					$abort:=True:C214
+				: ($childName="Schema")  // ignore
+				: ($childName="Index")  // ignore
+				: ($childName="Base_extra")  // ignore
+				: ($childName="Table")
+					var $table_attributes : Object
+					$table_attributes:=New object:C1471
+					$table_attributes.fields:=New collection:C1472()
+					$table_attributes.triggers:=New collection:C1472()
+					XML_AddAttributesToObject($xml_Child_Ref; $table_attributes)
+					This:C1470._structure_catalog_model.push($table_attributes)
+					
+					Repeat 
+						If ($siblingElemName="")
+							$xml_field_Ref:=DOM Get first child XML element:C723($xml_Child_Ref; $siblingElemName; $siblingElemValue)
+						Else 
+							$xml_field_Ref:=DOM Get next sibling XML element:C724($xml_field_Ref; $siblingElemName; $siblingElemValue)
+						End if 
+						
+						Case of 
+							: (OK=0)
+								$abort_table:=True:C214
+								
+							: ($siblingElemName="Field")
+								var $field_attributes : Object
+								$field_attributes:=New object:C1471
+								XML_AddAttributesToObject($xml_field_Ref; $field_attributes)
+								$table_attributes.fields.push($field_attributes)
+								
+							: ($siblingElemName="primary_key")
+							: ($siblingElemName="table_extra")
+							Else 
+								
+						End case 
+					Until ($abort_table)
+					$xml_field_Ref:=""  // clear this
+					
+				Else 
+					
+			End case 
+		Until ($abort)
+		DOM CLOSE XML:C722($xml_source)
+	End if 
+	//SET TEXT TO PASTEBOARD(JSON Stringify(This._structure_catalog_model; *))
 	
 	
 Function _load_table_model()
@@ -126,7 +133,7 @@ Function _load_field_model()
 					var $ms : Integer
 					$ms:=Milliseconds:C459
 					This:C1470._field_model.push(This:C1470._get_detail_for_field($table_no; $field_no))
-					LogEvent_Write("***     This._get_detail_for_field("+String:C10($table_no)+"; "+String:C10($field_no)+") took "+String:C10(Milliseconds:C459-$ms))
+					//LogEvent_Write("***     This._get_detail_for_field("+String($table_no)+"; "+String($field_no)+") took "+String(Milliseconds-$ms))
 				End if 
 			End for 
 		End if 
@@ -198,29 +205,19 @@ Function _get_detail_for_table($table_no : Integer)->$table_details : Object
 	
 	
 Function _is_table_logged($table_no : Integer)->$table_is_logged : Boolean
-	var $table_no_for_sql : Integer
-	var $is_logged : Boolean
-	$table_no_for_sql:=$table_no
-	Begin SQL
-		SELECT LOGGED
-		FROM _USER_TABLES
-		WHERE TABLE_ID=:$table_no_for_sql
-		INTO :$is_logged;
-	End SQL
-	$table_is_logged:=$is_logged
+	var $tables : Collection
+	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
+	If ($tables.length=1)
+		$table_is_logged:=Not:C34(Bool:C1537($tables[0]["preventJournaling"])=True:C214)
+	End if 
 	
 	
 Function _is_table_REST_enabled($table_no : Integer)->$is_enabled : Boolean
-	var $table_no_for_sql : Integer
-	var $is_set : Boolean
-	$table_no_for_sql:=$table_no
-	Begin SQL
-		SELECT REST_AVAILABLE
-		FROM _USER_TABLES
-		WHERE TABLE_ID=:$table_no_for_sql
-		INTO :$is_set;
-	End SQL
-	$is_enabled:=$is_set
+	var $tables : Collection
+	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
+	If ($tables.length=1)
+		$is_enabled:=Not:C34(Bool:C1537($tables[0]["hideInRest"])=True:C214)
+	End if 
 	
 	
 Function _get_table_deleted_count($table_no : Integer)->$num_deleted : Integer
@@ -281,29 +278,26 @@ Function _field_type_to_text($type : Integer; $length : Integer)->$type_as_text 
 	
 	
 Function _get_field_attributes_via_sql($table_no : Integer; $field_no : Integer)->$field_attributes : Object
-	var $table_no_for_sql; $field_no_for_sql : Integer
-	var $is_REST; $is_AutoIncrement; $is_AutoGenerate; $is_Nullable : Boolean
-	$table_no_for_sql:=$table_no
-	$field_no_for_sql:=$field_no
-	Begin SQL
-		SELECT Rest_Available, AutoIncrement, AutoGenerate, Nullable
-		FROM _USER_COLUMNS
-		WHERE Table_ID=:$table_no_for_sql AND Column_ID=:$field_no_for_sql
-		INTO :$is_REST, :$is_AutoIncrement, :$is_AutoGenerate, :$is_Nullable;
-	End SQL
-	$field_attributes:=New object:C1471
-	$field_attributes.is_REST:=$is_REST
-	$field_attributes.is_AutoIncrement:=$is_AutoIncrement
-	$field_attributes.is_AutoGenerate:=$is_AutoGenerate
-	$field_attributes.is_Nullable:=$is_Nullable
+	var $tables; $fields : Collection
+	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
+	If ($tables.length=1)
+		$fields:=$tables[0].fields.query("id=:1"; $field_no)
+	End if 
+	If ($fields.length=1)
+		$field_attributes:=New object:C1471
+		$field_attributes.is_REST:=Not:C34(Bool:C1537($fields[0]["hideInRest"]))
+		$field_attributes.is_AutoIncrement:=Bool:C1537($fields[0]["autosequence"])
+		$field_attributes.is_AutoGenerate:=Bool:C1537($fields[0]["autogenerate"])
+		$field_attributes.is_Nullable:=Not:C34(Bool:C1537($fields[0]["notNull"]))
+	End if 
 	
 	
 Function _is_field_never_nullable($table_no : Integer; $field_no : Integer)->$is_never_null : Boolean
 	var $tables; $fields : Collection
-	$tables:=This:C1470._structure_catalog_model.query("id=:1"; String:C10($table_no))
+	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
 	If ($tables.length=1)
-		$fields:=$tables[0].fields.query("id=:1"; String:C10($field_no))
+		$fields:=$tables[0].fields.query("id=:1"; $field_no)
 	End if 
 	If ($fields.length=1)
-		$is_never_null:=(String:C10($fields[0]["never_null"])="true")
+		$is_never_null:=(String:C10($fields[0]["neverNull"])="true")
 	End if 
