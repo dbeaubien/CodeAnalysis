@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 //================================================================================
 //@xdoc-start : en
 //@name : UTL_structure2Object
@@ -172,11 +172,12 @@ If (ok=1)
 									: (($vt_format="rtf") | ($vt_comment="{\\rtf@}"))
 										OB SET:C1220($vo_table; "commentRtf"; $vt_comment)
 										
-										C_TEXT:C284($vt_commentBrut)
-										$vt_commentBrut:=ST Get plain text:C1092($vt_comment)
-										If (Length:C16($vt_commentBrut)>0)
-											OB SET:C1220($vo_table; "comment"; $vt_commentBrut)
-										End if 
+										//C_TEXT($vt_commentBrut)
+										//$vt_commentBrut:=ST Get plain text($vt_comment)
+										//If (Length($vt_commentBrut)>0)
+										//OB SET($vo_table; "comment"; $vt_commentBrut)
+										//End if 
+										OB SET:C1220($vo_table; "comment"; $vt_comment)
 										
 									: ($vt_format="text")
 										OB SET:C1220($vo_table; "comment"; $vt_comment)
@@ -409,14 +410,13 @@ If (ok=1)
 										
 										Case of 
 											: (($vt_format="rtf") | ($vt_comment="{\\rtf@}"))
-												
 												OB SET:C1220($vo_field; "commentRtf"; $vt_comment)
-												
-												C_TEXT:C284($vt_commentBrut)
-												$vt_commentBrut:=ST Get plain text:C1092($vt_comment)
-												If (Length:C16($vt_commentBrut)>0)
-													OB SET:C1220($vo_field; "comment"; $vt_commentBrut)
-												End if 
+												//C_TEXT($vt_commentBrut)
+												//$vt_commentBrut:=ST Get plain text($vt_comment)
+												//If (Length($vt_commentBrut)>0)
+												//OB SET($vo_field; "comment"; $vt_commentBrut)
+												//End if 
+												OB SET:C1220($vo_field; "comment"; $vt_comment)
 												
 											: ($vt_format="text")
 												OB SET:C1220($vo_field; "comment"; $vt_comment)
