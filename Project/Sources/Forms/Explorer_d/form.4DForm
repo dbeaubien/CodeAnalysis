@@ -1448,7 +1448,7 @@
 					"dataSource": "Form:C1466.filteredIndexedFieldList",
 					"metaSource": "This:C1470.meta",
 					"selectionMode": "none",
-					"scrollbarHorizontal": "hidden",
+					"scrollbarHorizontal": "automatic",
 					"alternateFill": "#EEEEEE",
 					"events": [
 						"onClick",
@@ -1458,7 +1458,7 @@
 						{
 							"name": "name1",
 							"dataSource": "This:C1470.name",
-							"width": 320,
+							"width": 280,
 							"minWidth": 10,
 							"maxWidth": 32000,
 							"resizable": false,
@@ -1572,9 +1572,45 @@
 							"alternateFill": "automaticAlternate"
 						},
 						{
+							"header": {
+								"name": "Header30",
+								"text": "Records",
+								"textAlign": "left",
+								"fontWeight": "bold"
+							},
+							"name": "Column25",
+							"width": 100,
+							"dataSource": "This:C1470.numberOfRecords",
+							"dataSourceTypeHint": "number",
+							"textAlign": "left",
+							"numberFormat": "###,###,###,###,###,###,###",
+							"footer": {
+								"name": "Footer33"
+							},
+							"alternateFill": "automaticAlternate"
+						},
+						{
+							"header": {
+								"name": "Header31",
+								"text": "Distinct\\Values",
+								"textAlign": "left",
+								"fontWeight": "bold"
+							},
+							"name": "Column26",
+							"numberFormat": "###,###,###,###,###,###,###",
+							"dataSourceTypeHint": "number",
+							"textAlign": "left",
+							"width": 75,
+							"footer": {
+								"name": "Footer34"
+							},
+							"dataSource": "This:C1470.distinctValues",
+							"alternateFill": "automaticAlternate"
+						},
+						{
 							"name": "Column24",
 							"dataSource": "This:C1470.index_analysis_notes",
-							"width": 204,
+							"width": 200,
 							"minWidth": 10,
 							"maxWidth": 32000,
 							"stroke": "automatic",
