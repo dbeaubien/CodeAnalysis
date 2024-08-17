@@ -436,7 +436,7 @@
 							},
 							"footer": {
 								"name": "Footer2",
-								"dataSource": "ftrText2",
+								"dataSource": "ftrText3",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "center",
@@ -475,7 +475,7 @@
 							},
 							"footer": {
 								"name": "Footer3",
-								"dataSource": "ftrText3",
+								"dataSource": "ftrText4",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "center",
@@ -514,7 +514,7 @@
 							},
 							"footer": {
 								"name": "Footer4",
-								"dataSource": "ftrText4",
+								"dataSource": "ftrText5",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "center",
@@ -553,7 +553,7 @@
 							},
 							"footer": {
 								"name": "Footer5",
-								"dataSource": "ftrText5",
+								"dataSource": "ftrText6",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "center",
@@ -592,7 +592,7 @@
 							},
 							"footer": {
 								"name": "Footer6",
-								"dataSource": "ftrText6",
+								"dataSource": "ftrText7",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "center",
@@ -631,7 +631,7 @@
 							},
 							"footer": {
 								"name": "Footer7",
-								"dataSource": "ftrText7",
+								"dataSource": "ftrText8",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "center",
@@ -667,7 +667,7 @@
 							},
 							"footer": {
 								"name": "Footer8",
-								"dataSource": "ftrText8",
+								"dataSource": "ftrText9",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "center",
@@ -2140,7 +2140,7 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 205,
+	"geometryStamp": 213,
 	"$4d": {
 		"version": "1",
 		"kind": "form"
