@@ -1,5 +1,6 @@
 //%attributes = {}
-
+Progress QUIT(0)
+ABORT:C156
 
 var $git : cs:C1710.Git_InfoGatherer
 $git:=cs:C1710.Git_InfoGatherer.new()
