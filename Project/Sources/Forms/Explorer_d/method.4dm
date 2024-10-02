@@ -54,24 +54,26 @@ Case of
 End case 
 
 If ($refreshFooter) & (Form:C1466.filteredList#Null:C1517)
-	C_REAL:C285($footerTotal2; $footerTotal3; $footerTotal4; $footerTotal5; $footerTotal6; $footerTotal7)
+	C_REAL:C285($footerTotal2; $footerTotal3; $footerTotal4; $footerTotal5; $footerTotal6; $footerTotal7; $footerTotal8)
 	$footerTotal2:=0
 	$footerTotal3:=0
 	$footerTotal4:=0
 	$footerTotal5:=0
 	$footerTotal6:=0
 	$footerTotal7:=0
+	$footerTotal8:=0
 	
 	C_OBJECT:C1216($methodDetails)
 	For each ($methodDetails; Form:C1466.filteredList)
-		$footerTotal2:=$footerTotal2+$methodDetails.numCodeLines
-		$footerTotal3:=$footerTotal3+$methodDetails.numCommentLines
-		$footerTotal4:=$footerTotal4+$methodDetails.numBlankLines
-		$footerTotal5:=$footerTotal5+$methodDetails.codeComplexity
-		$footerTotal6:=$footerTotal6+$methodDetails.nestedLevels
-		$footerTotal7:=$footerTotal7+$methodDetails.numTimesCalled
+		$footerTotal2+=$methodDetails.numGitCommits
+		$footerTotal3+=$methodDetails.numCodeLines
+		$footerTotal4+=$methodDetails.numCommentLines
+		$footerTotal5+=$methodDetails.numBlankLines
+		$footerTotal6+=$methodDetails.codeComplexity
+		$footerTotal7+=$methodDetails.nestedLevels
+		$footerTotal8+=$methodDetails.numTimesCalled
 	End for each 
-	C_TEXT:C284(ftrText1; ftrText2; ftrText3; ftrText4; ftrText5; ftrText6; ftrText7; ftrText8)
+	C_TEXT:C284(ftrText1; ftrText2; ftrText3; ftrText4; ftrText5; ftrText6; ftrText7; ftrText8; ftrText9)
 	If (Form:C1466.filteredList.length>0)
 		ftrText1:="Average"
 		ftrText2:=String:C10($footerTotal2/Form:C1466.filteredList.length; "#####0.0")
@@ -80,6 +82,7 @@ If ($refreshFooter) & (Form:C1466.filteredList#Null:C1517)
 		ftrText5:=String:C10($footerTotal5/Form:C1466.filteredList.length; "#####0.0")
 		ftrText6:=String:C10($footerTotal6/Form:C1466.filteredList.length; "#####0.0")
 		ftrText7:=String:C10($footerTotal7/Form:C1466.filteredList.length; "#####0.0")
+		ftrText8:=String:C10($footerTotal8/Form:C1466.filteredList.length; "#####0.0")
 	Else 
 		ftrText1:=""
 		ftrText2:=""
@@ -88,6 +91,7 @@ If ($refreshFooter) & (Form:C1466.filteredList#Null:C1517)
 		ftrText5:=""
 		ftrText6:=""
 		ftrText7:=""
+		ftrText8:=""
 	End if 
-	ftrText8:=""
+	ftrText9:=""
 End if 
