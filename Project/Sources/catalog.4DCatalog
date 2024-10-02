@@ -190,6 +190,14 @@
 			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
 		</field_ref>
 	</index>
+	<index kind="regular" uuid="A95E100B852A4649A9AECEDADD8B1B9F" type="1">
+		<field_ref uuid="7FDF1D39D08848488A654256E4669571" name="Field_1">
+			<table_ref uuid="17D3A55CDD584089B4A6FAE712217636" name="Table_1"/>
+		</field_ref>
+		<field_ref uuid="3F8B52BA9CEA4B46A5FD5FA153229C3D" name="Field_9_Bit">
+			<table_ref uuid="17D3A55CDD584089B4A6FAE712217636" name="Table_1"/>
+		</field_ref>
+	</index>
 	<index kind="regular" unique_keys="true" uuid="B5EF65FD889D4F98AE9A8CC9DF409697" type="7">
 		<field_ref uuid="717F5AB45385405D856E03BA73F5FC0C" name="ID">
 			<table_ref uuid="9CAEF19DDB5447DDA76B9A5205ACB8FD" name="Table_3_NoPK"/>
@@ -223,7 +231,7 @@
 			<table_ref uuid="B487BC56BA7D4CB0B60036560F59EB05" name="Table_2"/>
 		</field_ref>
 	</index>
-	<base_extra package_name="Code Analysis DEV" structure_file_name="Code Analysis" data_file_path=":Data:Code Analysis.4DD" __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0">
+	<base_extra package_name="Code Analysis DEV" structure_file_name="Code Analysis" data_file_path=":Data:Code Analysis.4DD">
 		<journal_file journal_file_enabled="false"/>
 	</base_extra>
 </base>

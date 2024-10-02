@@ -8,132 +8,96 @@ Class constructor
 	
 /************ PUBLIC FUNCTIONS ************************/
 Function Refresh()
+	This:C1470._log("starting "+Uppercase:C13(Current method name:C684))
 	This:C1470._init()
+	This:C1470._log("  after init()")
 	This:C1470._load_catalog_info()
+	This:C1470._log("  after _load_catalog_info()")
 	This:C1470._load_table_model()
+	This:C1470._log("  after _load_table_model()")
 	
 	var $ms : Integer
 	$ms:=Milliseconds:C459
 	This:C1470._load_field_model()
-	LogEvent_Write("*** cs.model_TableInformation._load_field_model() took "+String:C10(Milliseconds:C459-$ms))
+	This:C1470._log("  after _load_field_model()")
+	
+	//Log_INFO("*** cs.model_TableInformation._load_field_model() took "+String(Milliseconds-$ms; "###,###,###,##0")+"ms")
+	This:C1470._log("  cs.model_TableInformation._load_field_model() took "+String:C10(Milliseconds:C459-$ms; "###,###,###,##0")+"ms")
+	This:C1470._log("completed "+Uppercase:C13(Current method name:C684))
 	
 	
 Function GetTableFilteredList($name : Text)->$table_list : Collection
+	This:C1470._log("starting "+Uppercase:C13(Current method name:C684))
 	If ($name="")
 		$table_list:=This:C1470._table_model.copy()
 	Else 
 		$table_list:=This:C1470._table_model.query("table=:1"; $name+"@").copy()
 	End if 
+	This:C1470._log("completed "+Uppercase:C13(Current method name:C684))
 	
 	
 Function GetFieldFilteredList($name : Text)->$field_list : Collection
+	This:C1470._log("starting "+Uppercase:C13(Current method name:C684))
 	If ($name="")
 		$field_list:=This:C1470._field_model.copy()
 	Else 
 		$field_list:=This:C1470._field_model.query("table=:1 OR field=:1"; $name+"@").copy()
 	End if 
+	This:C1470._log("completed "+Uppercase:C13(Current method name:C684))
+	
+	
+Function GetNotMappedToBlankValues()->$field_list : Collection
+	This:C1470._log("starting "+Uppercase:C13(Current method name:C684))
+	$field_list:=This:C1470._field_model.query("isMappedToBlankValues=:1"; False:C215).copy()
+	This:C1470._log("completed "+Uppercase:C13(Current method name:C684))
 	
 	
 /************ PRIVATE FUNCTIONS ************************/
 Function _init()
 	This:C1470._table_model:=New collection:C1472
 	This:C1470._field_model:=New collection:C1472
+	This:C1470._structure_catalog_full_model:={}
 	This:C1470._structure_catalog_model:=New collection:C1472
+	This:C1470._structure_catalog_tables_by_no:={}
 	
 	
 Function _load_catalog_info()
 	var $structure_xml : Text
-	EXPORT STRUCTURE:C1311($structure_xml)
-	
-	This:C1470._structure_catalog_model:=UTL_structure2Object($structure_xml).tables
-	
-	If (False:C215)
-		var $xml_source; $xml_Child_Ref; $xml_field_Ref : Text
-		$xml_source:=DOM Parse XML variable:C720($structure_xml)
-		
-		var $i : Integer
-		var $abort; $abort_table : Boolean
-		var $childName; $childValue : Text
-		var $siblingElemName; $siblingElemValue : Text
-		This:C1470._structure_catalog_model:=New collection:C1472
-		$abort:=False:C215
-		Repeat 
-			$abort_table:=False:C215
-			$siblingElemName:=""
-			If ($childName="")
-				$xml_Child_Ref:=DOM Get first child XML element:C723($xml_source; $childName; $childValue)
-			Else 
-				$xml_Child_Ref:=DOM Get next sibling XML element:C724($xml_Child_Ref; $childName; $childValue)
-			End if 
-			
-			Case of 
-				: (OK=0)
-					$abort:=True:C214
-				: ($childName="Schema")  // ignore
-				: ($childName="Index")  // ignore
-				: ($childName="Base_extra")  // ignore
-				: ($childName="Table")
-					var $table_attributes : Object
-					$table_attributes:=New object:C1471
-					$table_attributes.fields:=New collection:C1472()
-					$table_attributes.triggers:=New collection:C1472()
-					XML_AddAttributesToObject($xml_Child_Ref; $table_attributes)
-					This:C1470._structure_catalog_model.push($table_attributes)
-					
-					Repeat 
-						If ($siblingElemName="")
-							$xml_field_Ref:=DOM Get first child XML element:C723($xml_Child_Ref; $siblingElemName; $siblingElemValue)
-						Else 
-							$xml_field_Ref:=DOM Get next sibling XML element:C724($xml_field_Ref; $siblingElemName; $siblingElemValue)
-						End if 
-						
-						Case of 
-							: (OK=0)
-								$abort_table:=True:C214
-								
-							: ($siblingElemName="Field")
-								var $field_attributes : Object
-								$field_attributes:=New object:C1471
-								XML_AddAttributesToObject($xml_field_Ref; $field_attributes)
-								$table_attributes.fields.push($field_attributes)
-								
-							: ($siblingElemName="primary_key")
-							: ($siblingElemName="table_extra")
-							Else 
-								
-						End case 
-					Until ($abort_table)
-					$xml_field_Ref:=""  // clear this
-					
-				Else 
-					
-			End case 
-		Until ($abort)
-		DOM CLOSE XML:C722($xml_source)
+	If (Folder:C1567("/PROJECT").folder("Sources").file("catalog.4DCatalog").exists)
+		$structure_xml:=Folder:C1567("/PROJECT").folder("Sources").file("catalog.4DCatalog").getText()
+	Else 
+		EXPORT STRUCTURE:C1311($structure_xml)
 	End if 
-	//SET TEXT TO PASTEBOARD(JSON Stringify(This._structure_catalog_model; *))
+	
+	This:C1470._structure_catalog_full_model:=UTL_structure2Object($structure_xml)
+	This:C1470._structure_catalog_model:=This:C1470._structure_catalog_full_model.tables
+	This:C1470._structure_catalog_tables_by_no:=This:C1470._structure_catalog_full_model.tables_by_no
 	
 	
 Function _load_table_model()
+	var $table : Object
 	var $table_no : Integer
 	For ($table_no; 1; Get last table number:C254)  // use classic since only tables with PKs are known to orda
 		If (Is table number valid:C999($table_no))
-			This:C1470._table_model.push(This:C1470._get_detail_for_table($table_no))
+			$table:=This:C1470._structure_catalog_tables_by_no[String:C10($table_no)]
+			This:C1470._table_model.push(This:C1470._get_detail_for_table($table; $table_no))
 		End if 
 	End for 
 	This:C1470._table_model:=This:C1470._table_model.orderBy("table asc")
 	
 	
 Function _load_field_model()
+	var $table : Object
+	var $table_model : Object
 	var $table_no; $field_no : Integer
 	For ($table_no; 1; Get last table number:C254)  // use classic since only tables with PKs are known to orda
 		If (Is table number valid:C999($table_no))
+			$table:=This:C1470._structure_catalog_tables_by_no[String:C10($table_no)]
+			$table_model:=This:C1470._table_model.query("tableNumber=:1"; $table_no)[0]
+			
 			For ($field_no; 1; Get last field number:C255($table_no))  // use classic since only tables with PKs are known to orda
 				If (Is field number valid:C1000($table_no; $field_no))
-					var $ms : Integer
-					$ms:=Milliseconds:C459
-					This:C1470._field_model.push(This:C1470._get_detail_for_field($table_no; $field_no))
-					//LogEvent_Write("***     This._get_detail_for_field("+String($table_no)+"; "+String($field_no)+") took "+String(Milliseconds-$ms))
+					This:C1470._field_model.push(This:C1470._get_detail_for_field($table_model; $table; $table_no; $field_no))
 				End if 
 			End for 
 		End if 
@@ -141,23 +105,29 @@ Function _load_field_model()
 	This:C1470._field_model:=This:C1470._field_model.orderBy("table asc, field asc")
 	
 	
-Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field_detail : Object
-	var $table_detail; $field_attributes : Object
+Function _get_detail_for_field($table_model : Object; $table : Object; $table_no : Integer; $field_no : Integer)->$field_detail : Object
+	If ($table=Null:C1517) || ($table_model=Null:C1517)
+		return 
+	End if 
+	
+	var $field_attributes : Object
 	var $type; $length : Integer
 	var $isIndexed; $isUnique; $isInvisible : Boolean
 	GET FIELD PROPERTIES:C258($table_no; $field_no; $type; $length; $isIndexed; $isUnique; $isInvisible)
-	$table_detail:=This:C1470._table_model.query("tableNumber=:1"; $table_no)[0]
 	
-	$field_attributes:=This:C1470._get_field_attributes_via_sql($table_no; $field_no)
+	var $field : Object
+	$field:=$table.fields.query("id=:1"; $field_no).at(0)
+	
+	$field_attributes:=This:C1470._get_field_attributes_via_sql($field)
 	
 	$field_detail:=New object:C1471
 	$field_detail.field:=Field name:C257($table_no; $field_no)
-	$field_detail.name:="["+$table_detail.table+"]"+$field_detail.field
-	$field_detail.table:=$table_detail.table
+	$field_detail.name:="["+$table_model.table+"]"+$field_detail.field
+	$field_detail.table:=$table_model.table
 	$field_detail.tableNumber:=$table_no
 	$field_detail.fieldNumber:=$field_no
-	If ($table_detail.primaryKey_field_name#"")  // can use orda
-		$field_detail.isPrimaryKey:=($table_detail.primaryKey_field_name=$field_detail.field)
+	If ($table_model.primaryKey_field_name#"")  // can use orda
+		$field_detail.isPrimaryKey:=($table_model.primaryKey_field_name=$field_detail.field)
 	Else 
 		$field_detail.isPrimaryKey:=False:C215
 	End if 
@@ -169,28 +139,32 @@ Function _get_detail_for_field($table_no : Integer; $field_no : Integer)->$field
 	$field_detail.isAutoIncrement:=$field_attributes.is_AutoIncrement
 	$field_detail.isAutoGenerate:=$field_attributes.is_AutoGenerate
 	$field_detail.isNullable:=$field_attributes.is_Nullable
-	$field_detail.isNeverNullable:=This:C1470._is_field_never_nullable($table_no; $field_no)
+	$field_detail.isNeverNullable:=($field=Null:C1517) ? False:C215 : (String:C10($field.neverNull)="true")
+	$field_detail.isMappedToBlankValues:=($field=Null:C1517) ? False:C215 : (String:C10($field.neverNull)="true")
 	If ($field_detail.isIndexed)
-		$field_detail.indexType:=Structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
+		$field_detail.indexType:=This:C1470._structure_IndexType2Name(Structure_GetFieldIndexType($table_no; $field_no))
 	Else 
 		$field_detail.indexType:="-"
 	End if 
 	$field_detail.notes:=""
 	
 	
-Function _get_detail_for_table($table_no : Integer)->$table_details : Object
+Function _get_detail_for_table($table : Object; $table_no : Integer)->$table_details : Object
+	If ($table=Null:C1517)
+		return 
+	End if 
 	var $isInvisible; $trigger_SaveNew; $trigger_SaveRec; $trigger_DelRec : Boolean
 	GET TABLE PROPERTIES:C687($table_no; $isInvisible; $trigger_SaveNew; $trigger_SaveRec; $trigger_DelRec)
 	$table_details:=New object:C1471
 	$table_details.table:=Table name:C256($table_no)
 	$table_details.tableNumber:=$table_no
-	$table_details.is_logged:=This:C1470._is_table_logged($table_no)
+	$table_details.is_logged:=Not:C34(Bool:C1537($table.preventJournaling)=True:C214)
 	$table_details.is_invisible:=$isInvisible
 	$table_details.triggers:=New object:C1471
 	$table_details.triggers.on_saving_new:=$trigger_SaveNew
 	$table_details.triggers.on_saving_existing:=$trigger_SaveRec
 	$table_details.triggers.on_deleting:=$trigger_DelRec
-	$table_details.exposed_to_REST:=This:C1470._is_table_REST_enabled($table_no)
+	$table_details.exposed_to_REST:=Not:C34(Bool:C1537($table.hideInRest)=True:C214)
 	If (ds:C1482[$table_details.table]#Null:C1517)  // orda only knows about tables with PKs
 		$table_details.primaryKey_field_name:=String:C10(ds:C1482[$table_details.table].getInfo().primaryKey)
 	Else 
@@ -201,22 +175,6 @@ Function _get_detail_for_table($table_no : Integer)->$table_details : Object
 		$table_details.num_deleted:=This:C1470._get_table_deleted_count($table_no)
 	Else 
 		$table_details.num_deleted:=0
-	End if 
-	
-	
-Function _is_table_logged($table_no : Integer)->$table_is_logged : Boolean
-	var $tables : Collection
-	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
-	If ($tables.length=1)
-		$table_is_logged:=Not:C34(Bool:C1537($tables[0]["preventJournaling"])=True:C214)
-	End if 
-	
-	
-Function _is_table_REST_enabled($table_no : Integer)->$is_enabled : Boolean
-	var $tables : Collection
-	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
-	If ($tables.length=1)
-		$is_enabled:=Not:C34(Bool:C1537($tables[0]["hideInRest"])=True:C214)
 	End if 
 	
 	
@@ -277,27 +235,36 @@ Function _field_type_to_text($type : Integer; $length : Integer)->$type_as_text 
 	End case 
 	
 	
-Function _get_field_attributes_via_sql($table_no : Integer; $field_no : Integer)->$field_attributes : Object
-	var $tables; $fields : Collection
-	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
-	If ($tables.length=1)
-		$fields:=$tables[0].fields.query("id=:1"; $field_no)
-	End if 
-	If ($fields.length=1)
+Function _get_field_attributes_via_sql($field : Object)->$field_attributes : Object
+	If ($field#Null:C1517)
 		$field_attributes:=New object:C1471
-		$field_attributes.is_REST:=Not:C34(Bool:C1537($fields[0]["hideInRest"]))
-		$field_attributes.is_AutoIncrement:=Bool:C1537($fields[0]["autosequence"])
-		$field_attributes.is_AutoGenerate:=Bool:C1537($fields[0]["autogenerate"])
-		$field_attributes.is_Nullable:=Not:C34(Bool:C1537($fields[0]["notNull"]))
+		$field_attributes.is_REST:=Not:C34(Bool:C1537($field.hideInRest))
+		$field_attributes.is_AutoIncrement:=Bool:C1537($field.autosequence)
+		$field_attributes.is_AutoGenerate:=Bool:C1537($field.autogenerate)
+		$field_attributes.is_Nullable:=Not:C34(Bool:C1537($field.notNull))
 	End if 
 	
 	
-Function _is_field_never_nullable($table_no : Integer; $field_no : Integer)->$is_never_null : Boolean
-	var $tables; $fields : Collection
-	$tables:=This:C1470._structure_catalog_model.query("id=:1"; $table_no)
-	If ($tables.length=1)
-		$fields:=$tables[0].fields.query("id=:1"; $field_no)
-	End if 
-	If ($fields.length=1)
-		$is_never_null:=(String:C10($fields[0]["neverNull"])="true")
-	End if 
+Function _structure_IndexType2Name($index_type : Integer)->$index_type_name : Text
+	ASSERT:C1129(Count parameters:C259=1)
+	Case of 
+		: ($index_type=-1)
+			$index_type_name:="Multi"
+			
+		: ($index_type=1)
+			$index_type_name:="B-tree"
+			
+		: ($index_type=3)
+			$index_type_name:="Cluster B-tree"
+			
+		: ($index_type=7)
+			$index_type_name:="Automatic"
+			
+		Else 
+			$index_type_name:="Unknown Index Type #"+String:C10($index_type)
+	End case 
+	
+	
+Function _log($message : Text)
+	//LogNamed_AppendToFile("cs.model_TableInformation"; Timestamp+": "+$message)
+	
