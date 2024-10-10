@@ -1392,3 +1392,6 @@ C_BOOLEAN:C305(XML__XPathNewSyntax; $0)
 //UTL_lowerCamelCase
 C_TEXT:C284(UTL_lowerCamelCase; $0)
 C_TEXT:C284(UTL_lowerCamelCase; $1)
+
+//CA_Get_StructureName
+C_TEXT:C284(CA_Get_StructureName; $0)

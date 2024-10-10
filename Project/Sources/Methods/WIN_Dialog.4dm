@@ -112,7 +112,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:
 	End if 
 	
 	If ($RefWindow#0)
-		SET WINDOW TITLE:C213($WIN_vT_WindowTitle)  // Added by: john.craig (9/4/03 @ 11:13:33)
+		SET WINDOW TITLE:C213(CA_Get_StructureName+": "+$WIN_vT_WindowTitle)
 		WIN_EnsureOnScreen($RefWindow)
 		
 		//OT_Window_Set($WIN_vl_processObjID;$WIN_vl_tablePtr;$RefWindow;$WIN_vt_layoutName;$WIN_vT_WindowTitle)

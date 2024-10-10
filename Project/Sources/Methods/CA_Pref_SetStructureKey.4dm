@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 // CA_Pref_SetStructureKey (uniqueStructureKey)
-// CA_Pref_SetStructureKey (text)
 // 
 // DESCRIPTION
 //   This method will allows teh caller to set the unique key
