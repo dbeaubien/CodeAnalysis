@@ -34,7 +34,7 @@ Else
 		
 		MethodStats_RecalculateModified
 		
-		C_POINTER:C301($NIL_p)
+		var $NIL_p : Pointer
 		WIN_Dialog($NIL_p; "Explorer_d"; Plain window:K34:13; "Code Analysis Explorer"; On the left:K39:2; At the top:K39:5)
 		
 		Use (Storage:C1525.explorerWindow)

@@ -1,20 +1,14 @@
 //%attributes = {"invisible":true}
 // Method_FixSpecialCharacters (MethodNameArray)
-// Method_FixSpecialCharacters (Pointer to Text Array) 
 //
 // DESCRIPTION
 //   This method scans the passed array and converts any %xx
 //   encoded characters back to their "correct" value.
 //
-C_POINTER:C301($1; $ap_methodNamesArrPtr)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (01/25/2013)
+#DECLARE($ap_methodNamesArrPtr : Pointer)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$ap_methodNamesArrPtr:=$1
-	
 	var $vt_buffer; $vt_theChar : Text
 	var $start; $pos; $len; $index : Integer
 	var $i : Integer

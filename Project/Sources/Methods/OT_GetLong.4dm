@@ -6,8 +6,8 @@
 //   Get the Long number from the mock object under tag
 //
 C_TEXT:C284($1; $xml_Ref)
-C_TEXT:C284($2; $vt_tag)
-C_LONGINT:C283($0; $vr_longNumber)
+var $2; $vt_tag : Text
+var $0; $vr_longNumber : Integer
 // ----------------------------------------------------
 // HISTORY
 //   Created by: DB (11/11/2014)

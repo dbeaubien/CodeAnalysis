@@ -1,6 +1,6 @@
 //%attributes = {"invisible":true}
 
-C_TEXT:C284($vt_filePath)
+var $vt_filePath : Text
 $vt_filePath:=CodeAnalysis__GetDestFolder+"Test File.txt"
 ARRAY TEXT:C222($vt_array1; 0)
 ARRAY LONGINT:C221($vl_array2; 0)
@@ -37,7 +37,7 @@ ALL RECORDS:C47([Table_1:1])
 //%attributes = {"lang":"en","invisible":true} comment added and reserved by 4D.
 
 var $someValue : Boolean
-C_LONGINT:C283($i)
+var $i : Integer
 If ($someValue)  // IF
 	BEEP:C151
 Else   // ELSE

@@ -2,17 +2,18 @@
 // (PM) UnitTest_SaveStats
 // Saves the statistics of the unittest to a disk file
 // $1 = Filename
+//
+#DECLARE($filename : Text)
+// ----------------------------------------------------
 
-C_TEXT:C284($1; $filename)
-C_TIME:C306($doc)
-C_LONGINT:C283($index)
-
+var $doc : Time
 $doc:=Create document:C266($filename)
 
 If (OK=1)
 	
 	SAX OPEN XML ELEMENT:C853($doc; "unittest"; "date"; Substring:C12(String:C10(Current date:C33; 8); 1; 11)+String:C10(Current time:C178; HH MM SS:K7:1))
 	
+	var $index : Integer
 	For ($index; 1; Size of array:C274(UnitTest_StatsTestCase))
 		
 		SAX OPEN XML ELEMENT:C853($doc; "test")

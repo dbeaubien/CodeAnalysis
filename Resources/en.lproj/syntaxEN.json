@@ -1,0 +1,479 @@
+{
+	"_method_": {
+		"CA_GetMethodsCallingTheMethod": {
+			"Syntax": "**CA_GetMethodsCallingTheMethod**( *methodPath* : Text )->calledByMethodsObj : Object",
+			"Params": [
+				[
+					"methodPath",
+					"Text",
+					"->"
+				],
+				[
+					"calledByMethodsObj",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_GetMethodsCalledByMethod": {
+			"Syntax": "**CA_GetMethodsCalledByMethod**( *methodName* : Text )->methodsCalledObj : Object",
+			"Params": [
+				[
+					"methodName",
+					"Text",
+					"->"
+				],
+				[
+					"methodsCalledObj",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Structure_GetFieldIndexRatio": {
+			"Syntax": "**Structure_GetFieldIndexRatio**( *tableNo* : Integer; *fieldNo* : Integer )->indexUsageRatio : Real",
+			"Params": [
+				[
+					"tableNo",
+					"Integer",
+					"->"
+				],
+				[
+					"fieldNo",
+					"Integer",
+					"->"
+				],
+				[
+					"indexUsageRatio",
+					"Real",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_Pref_GetStructureKey": {
+			"Syntax": "**CA_Pref_GetStructureKey**()->structureInternalName : Text",
+			"Params": [
+				[
+					"structureInternalName",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_OnStartup": {
+			"Syntax": "**CA_OnStartup**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_ShowExplorer": {
+			"Syntax": "**CA_ShowExplorer**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Structure_SaveStructDefn2Folder": {
+			"Syntax": "**Structure_SaveStructDefn2Folder**( *vt_diskFilePath* : Text )",
+			"Params": [
+				[
+					"vt_diskFilePath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"ExportDocs_SaveAsDocSet": {
+			"Syntax": "**ExportDocs_SaveAsDocSet**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"BuildNo_GetBuildNo_CodeAnalysis": {
+			"Syntax": "**BuildNo_GetBuildNo_CodeAnalysis**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_ShowQuickLauncher": {
+			"Syntax": "**CA_ShowQuickLauncher**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"ExportDocs_SaveAsHtml": {
+			"Syntax": "**ExportDocs_SaveAsHtml**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_SaveStructureDetails": {
+			"Syntax": "**CA_SaveStructureDetails**( *p1* : Text ) : Variant",
+			"Params": [
+				[
+					"p1",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_SaveMethodsToTextFiles": {
+			"Syntax": "**CA_SaveMethodsToTextFiles**( *p1* : Text ) : Variant",
+			"Params": [
+				[
+					"p1",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_Pref_SetStructureKey": {
+			"Syntax": "**CA_Pref_SetStructureKey**( *p1* : Text ) : Variant",
+			"Params": [
+				[
+					"p1",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_Pref_SetEOL": {
+			"Syntax": "**CA_Pref_SetEOL**( *p1* : Text ) : Variant",
+			"Params": [
+				[
+					"p1",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_SaveExtraFolders": {
+			"Syntax": "**CA_SaveExtraFolders**( *p1* : Text ) : Variant",
+			"Params": [
+				[
+					"p1",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"MethodStats_RecalculateAll": {
+			"Syntax": "**MethodStats_RecalculateAll**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_SaveFormProperties": {
+			"Syntax": "**CA_SaveFormProperties**( *p1* : Integer; *p2* : Text; *p3* : Text ) : Boolean",
+			"Params": [
+				[
+					"p1",
+					"Integer",
+					"->"
+				],
+				[
+					"p2",
+					"Text",
+					"->"
+				],
+				[
+					"p3",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_ShowAnalysisWindow": {
+			"Syntax": "**CA_ShowAnalysisWindow**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_Pref_GetPreferencesFolder": {
+			"Syntax": "**CA_Pref_GetPreferencesFolder**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_EventHandler": {
+			"Syntax": "**CA_EventHandler**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"CA_Pref_SetExportFolder": {
+			"Syntax": "**CA_Pref_SetExportFolder**( *p1* : Text ) : Variant",
+			"Params": [
+				[
+					"p1",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"MethodStats_RecalculateModified": {
+			"Syntax": "**MethodStats_RecalculateModified**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	},
+	"cs.CodeAnalysis": {
+		"form_Explorer": {
+			"new()": {
+				"Syntax": "**.new**( *form* : Object )",
+				"Params": [
+					[
+						"form",
+						"Object",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"model_TableInformation": {
+			"new()": {
+				"Syntax": "**.new**()",
+				"Params": [],
+				"Summary": ""
+			}
+		},
+		"Git_InfoGatherer": {
+			"new()": {
+				"Syntax": "**.new**()",
+				"Params": [],
+				"Summary": ""
+			}
+		}
+	},
+	"form_Explorer": {
+		"FilterFieldList()": {
+			"Syntax": "**.FilterFieldList**( *starts_with* : Text )",
+			"Params": [
+				[
+					"starts_with",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"FilterTableList()": {
+			"Syntax": "**.FilterTableList**( *starts_with* : Text )",
+			"Params": [
+				[
+					"starts_with",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"FocusOnSearchFieldOnPageNo()": {
+			"Syntax": "**.FocusOnSearchFieldOnPageNo**( *page_no* : Integer )",
+			"Params": [
+				[
+					"page_no",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"RefreshStructureInfo()": {
+			"Syntax": "**.RefreshStructureInfo**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"PerformIndexAnalysis()": {
+			"Syntax": "**.PerformIndexAnalysis**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"RefreshIndexedFieldInfo()": {
+			"Syntax": "**.RefreshIndexedFieldInfo**()",
+			"Params": [],
+			"Summary": ""
+		}
+	},
+	"model_TableInformation": {
+		"GetTableFilteredList()": {
+			"Syntax": "**.GetTableFilteredList**( *name* : Text )->table_list : Collection",
+			"Params": [
+				[
+					"name",
+					"Text",
+					"->"
+				],
+				[
+					"table_list",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"GetNotMappedToBlankValues()": {
+			"Syntax": "**.GetNotMappedToBlankValues**()->field_list : Collection",
+			"Params": [
+				[
+					"field_list",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"GetFieldFilteredList()": {
+			"Syntax": "**.GetFieldFilteredList**( *name* : Text )->field_list : Collection",
+			"Params": [
+				[
+					"name",
+					"Text",
+					"->"
+				],
+				[
+					"field_list",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Refresh()": {
+			"Syntax": "**.Refresh**()",
+			"Params": [],
+			"Summary": ""
+		}
+	},
+	"Git_InfoGatherer": {
+		"Get_Commit_Count()": {
+			"Syntax": "**.Get_Commit_Count**( *4D_method_path* : Text )->num_git_commits : Integer",
+			"Params": [
+				[
+					"4D_method_path",
+					"Text",
+					"->"
+				],
+				[
+					"num_git_commits",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Parse_Log()": {
+			"Syntax": "**.Parse_Log**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"Ask_Git_for_Log()": {
+			"Syntax": "**.Ask_Git_for_Log**()",
+			"Params": [],
+			"Summary": ""
+		}
+	}
+}

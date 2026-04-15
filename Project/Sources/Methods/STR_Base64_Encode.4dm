@@ -1,18 +1,13 @@
 //%attributes = {"invisible":true}
 // Method: STR_Base64_Encode (text) : text
-
+//
 // Convert an ascii string into a base64 string
 // Based on RFC 1521 (http://www.freesoft.org/Connected/RFC/1521/7.html)
-
-// 2000/11/12 modified it so that is much more efficient.
-
-
+//
 // • must convert all CR to CRLF
-
-
-var $0; $encoded : Text  //$0 contains a base64 encoded string
-var $1; $input : Text  //$1 contains an ascii string string
-$input:=$1
+//
+#DECLARE($input : Text)->$encoded : Text
+// ----------------------------------------------------
 
 var $codedCharacters : Text
 $codedCharacters:="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
@@ -59,5 +54,3 @@ For ($i; 1; Length:C16($input); 3)
 	$encoded:=$encoded+$codedCharacters[[$group3+1]]
 	$encoded:=$encoded+$codedCharacters[[$group4+1]]
 End for 
-
-$0:=$encoded

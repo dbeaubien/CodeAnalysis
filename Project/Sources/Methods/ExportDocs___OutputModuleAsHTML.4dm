@@ -1,20 +1,13 @@
 //%attributes = {"invisible":true}
 // ExportDocs___OutputModuleAsHTML (root Folder; progressBarID)
-// ExportDocs___OutputModuleAsHTML (text; longint)
 //
 // DESCRIPTION
 //   Outputs the modules to HTML files.
 //
-var $1; $rootFolder : Text
-var $2; $progHdl : Integer
-// ----------------------------------------------------
-//   Created by: Dani Beaubien (08/06/2013)
+#DECLARE($rootFolder : Text; $progHdl : Integer)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
-	$rootFolder:=$1
-	$progHdl:=$2
-	
 	var $moduleRootFolder : Text
 	$moduleRootFolder:=$rootFolder+"Modules"+Folder separator:K24:12
 	Folder_VerifyExistance($moduleRootFolder)

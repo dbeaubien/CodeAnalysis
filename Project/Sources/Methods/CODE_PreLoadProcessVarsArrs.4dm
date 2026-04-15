@@ -6,11 +6,6 @@
 //   process variables are.
 //   Also gets a full list of declared inter-process vars.
 //
-C_LONGINT:C283($1)
-var $0 : Text
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (12/21/2015)
 // ----------------------------------------------------
 
 Logging_Method_START(Current method name:C684)

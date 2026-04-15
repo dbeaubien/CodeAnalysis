@@ -22,7 +22,6 @@ $fileName2:=Get 4D folder:C485(Current resources folder:K5:16)+"images"+Folder s
 
 
 If (File_DoesExist($fileName))
-	var buttonPicture : Picture
 	READ PICTURE FILE:C678($fileName; $srcPicture; *)
 	SET PICTURE TO PASTEBOARD:C521($srcPicture)
 	

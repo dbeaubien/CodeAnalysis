@@ -1,42 +1,35 @@
 //%attributes = {"invisible":true}
 // Folder_MakePathRelativeToStruct (FilePath) : FilePathReleativeToStructure
-// Folder_MakePathRelativeToStruct (text) : text
 //
 // DESCRIPTION
 //   Converts the passed path into one that is relative
 //   to the structure.
 //
-var $1; $vt_filePath : Text
-var $0; $vt_relativePath : Text
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (04/12/2014)
+#DECLARE($file_platformPath : Text)->$relative_path : Text
 // ----------------------------------------------------
 
-$vt_relativePath:=""
+$relative_path:=""
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vt_filePath:=$1
 	
-	var $vt_pathToStructureFolder : Text
-	$vt_pathToStructureFolder:=Folder_ParentName(Structure file:C489(*))
+	var $structureFldr_platformPath : Text
+	$structureFldr_platformPath:=Folder_ParentName(Structure file:C489(*))
 	
 	// Does the path a subfolder of the structure's folder
-	If ($vt_filePath=($vt_pathToStructureFolder+"@"))
-		$vt_relativePath:=Folder separator:K24:12+Substring:C12($vt_filePath; Length:C16($vt_pathToStructureFolder)+1)  // Remove the structure's path
+	If ($file_platformPath=($structureFldr_platformPath+"@"))
+		$relative_path:=Folder separator:K24:12+Substring:C12($file_platformPath; Length:C16($structureFldr_platformPath)+1)  // Remove the structure's path
 	Else 
-		$vt_relativePath:=""  // Needs to be within the structure folder
+		$relative_path:=""  // Needs to be within the structure folder
 	End if 
 	
-	If ($vt_relativePath#"") & ($vt_relativePath#Folder separator:K24:12)
-		$vt_relativePath:="{StructFldr}"+$vt_relativePath
+	If ($relative_path#"") & ($relative_path#Folder separator:K24:12)
+		$relative_path:="{StructFldr}"+$relative_path
 		
-		If ($vt_relativePath=("@"+Folder separator:K24:12))
-			$vt_relativePath:=Substring:C12($vt_relativePath; 1; Length:C16($vt_relativePath)-1)
+		If ($relative_path=("@"+Folder separator:K24:12))
+			$relative_path:=Substring:C12($relative_path; 1; Length:C16($relative_path)-1)
 		End if 
 		
 	Else 
-		$vt_relativePath:=""  // Ensure it is blank
+		$relative_path:=""  // Ensure it is blank
 	End if 
 	
 End if 
-$0:=$vt_relativePath

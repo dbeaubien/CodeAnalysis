@@ -4,55 +4,48 @@
 // DESCRIPTION
 //   This method finds the Shortest Middle Snake.
 //
-C_POINTER:C301($1; $DataA_ptr)  // sequence A
-C_LONGINT:C283($2; $LowerA)  // lower bound of the actual range in Data A
-C_LONGINT:C283($3; $UpperA)  // upper bound of the actual range in Data A
-C_POINTER:C301($4; $DataB_ptr)  // sequence B
-C_LONGINT:C283($5; $LowerB)  // lower bound of the actual range in Data B
-C_LONGINT:C283($6; $UpperB)  // upper bound of the actual range in Data B
-C_POINTER:C301($7; $DownVector_ptr)  // a vector for the (0,0) to (x,y) search. Passed as a parameter for speed reasons.
-C_POINTER:C301($8; $UpVector_ptr)  // >a vector for the (u,v) to (N,M) search. Passed as a parameter for speed reasons.
-C_POINTER:C301($9; $X_ptr)  // Returns x
-C_POINTER:C301($10; $Y_ptr)  // Returns y
-// ----------------------------------------------------
-// HISTORY
-//   Created by: ddancy (18/02/2008)
+#DECLARE($DataA_ptr : Pointer\
+; $LowerA : Integer; $UpperA : Integer\
+; $DataB_ptr : Pointer\
+; $LowerB : Integer; $UpperB : Integer\
+; $DownVector_ptr : Pointer\
+; $UpVector_ptr : Pointer\
+; $X_ptr : Pointer; $Y_ptr : Pointer)
+//var $1; $DataA_ptr : Pointer  // sequence A
+//var $2; $LowerA : Integer  // lower bound of the actual range in Data A
+//var $3; $UpperA : Integer  // upper bound of the actual range in Data A
+//var $4; $DataB_ptr : Pointer  // sequence B
+//var $5; $LowerB : Integer  // lower bound of the actual range in Data B
+//var $6; $UpperB : Integer  // upper bound of the actual range in Data B
+//var $7; $DownVector_ptr : Pointer  // a vector for the (0,0) to (x,y) search. Passed as a parameter for speed reasons.
+//var $8; $UpVector_ptr : Pointer  // >a vector for the (u,v) to (N,M) search. Passed as a parameter for speed reasons.
+//var $9; $X_ptr : Pointer  // Returns x
+//var $10; $Y_ptr : Pointer  // Returns y
 // ----------------------------------------------------
 
-$DataA_ptr:=$1
-$LowerA:=$2
-$UpperA:=$3
-$DataB_ptr:=$4
-$LowerB:=$5
-$UpperB:=$6
-$DownVector_ptr:=$7
-$UpVector_ptr:=$8
-$X_ptr:=$9
-$Y_ptr:=$10
-
-C_LONGINT:C283($SizeOfA; $SizeOfB)
+var $SizeOfA; $SizeOfB : Integer
 $SizeOfA:=Size of array:C274($DataA_ptr->)+1
 $SizeOfB:=Size of array:C274($DataB_ptr->)+1
 
-C_LONGINT:C283($MAX)
+var $MAX : Integer
 $MAX:=$SizeOfA+$SizeOfB+1
 
-C_LONGINT:C283($DownK; $UpK)
+var $DownK; $UpK : Integer
 $DownK:=$LowerA-$LowerB  // the k-line to start the forward search
 $UpK:=$UpperA-$UpperB  // the k-line to start the reverse search
 
-C_LONGINT:C283($Delta)
+var $Delta : Integer
 var $OddDelta : Boolean
 $Delta:=($UpperA-$LowerA)-($UpperB-$LowerB)
 $OddDelta:=($Delta%2#0)
 
 // The vectors in the publication accepts negative indexes. the vectors implemented here are 0-based
 // and are access using a specific offset: UpOffset UpVector and DownOffset for DownVektor
-C_LONGINT:C283($DownOffset; $UpOffset)
+var $DownOffset; $UpOffset : Integer
 $DownOffset:=$MAX-$DownK
 $UpOffset:=$MAX-$UpK
 
-C_LONGINT:C283($MaxD)
+var $MaxD : Integer
 $MaxD:=(($UpperA-$LowerA+$UpperB-$LowerB)/2)+1
 
 //_DBG_WriteLine("SMS: "+_PText("Search the box: A[%1-%2] to B[%3-%4]";String($LowerA);String($UpperA);String($LowerB);String($UpperB)))
@@ -61,7 +54,7 @@ $MaxD:=(($UpperA-$LowerA+$UpperB-$LowerB)/2)+1
 $DownVector_ptr->{$DownOffset+$DownK+1}:=$LowerA
 $UpVector_ptr->{$UpOffset+$UpK-1}:=$UpperA
 
-C_LONGINT:C283($D; $k; $x; $y)
+var $D; $k; $x; $y : Integer
 
 var $Continue : Boolean
 var $Overlap : Boolean
@@ -185,4 +178,3 @@ End for
 If (Not:C34($Overlap))
 	//ALERT("No overlap")
 End if 
-

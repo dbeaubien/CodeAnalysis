@@ -1,22 +1,9 @@
 //%attributes = {"invisible":true}
 // Explorer_UpdateMethodInfo (formObj{; methodPath, updateToDo})
 //
-// DESCRIPTION
-//   
-//
-var $1; $formObj : Object
-var $2; $methodPath : Text  // OPTIONAL
-var $3; $updateToDo : Text  // OPTIONAL
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (01/23/2021)
+#DECLARE($formObj : Object; $methodPath : Text; $updateToDo : Text)
 // ----------------------------------------------------
 ASSERT:C1129((Count parameters:C259=1) | (Count parameters:C259=3))
-$formObj:=$1
-If (Count parameters:C259=3)
-	$methodPath:=$2
-	$updateToDo:=$3
-End if 
 
 var hdr0; hdr1; hdr2; hdr3; hdr4; hdr5; hdr6; hdr7; hdr8; hdr9; hdr10; hdr_dts : Integer
 var vt_ftr1 : Text

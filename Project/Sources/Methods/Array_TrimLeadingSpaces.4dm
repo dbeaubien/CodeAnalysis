@@ -1,20 +1,15 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 // Array_TrimLeadingSpaces (textArrayPtr)
-// Array_TrimLeadingSpaces (pointer)
 // 
 // DESCRIPTION
 //   Goes through each element in the text array and removes
 //   any leading spaces.
 //
-var $1; $textArrayPtr : Pointer
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (06/13/2017)
+#DECLARE($textArrayPtr : Pointer)
 // ----------------------------------------------------
 
 If (Asserted:C1132(Count parameters:C259=1))
-	ASSERT:C1129(Type:C295($1->)=Text array:K8:16)
-	$textArrayPtr:=$1
+	ASSERT:C1129(Type:C295($textArrayPtr->)=Text array:K8:16)
 	
 	// Comment Line
 	If (Size of array:C274($textArrayPtr->)>0)

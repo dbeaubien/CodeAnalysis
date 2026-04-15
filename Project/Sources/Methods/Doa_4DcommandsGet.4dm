@@ -5,8 +5,8 @@
 
 // FROM DISCUSS FORUM: https://discuss.4d.com/t/formatted-method-code/14299/9
 
-var $0; $command_c : Collection
-$command_c:=New collection:C1472
+#DECLARE()->$command_c : Collection
+$command_c:=[]
 
 var $i_l : Integer
 var $nom_t; $token_t : Text
@@ -19,6 +19,4 @@ Repeat
 	End if 
 	$i_l:=$i_l+1
 Until (ok=0)
-//$test:=$command_c.query("cmde=ds")
-$0:=$command_c
-//_
+

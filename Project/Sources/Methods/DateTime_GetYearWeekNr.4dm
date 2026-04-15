@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true}
 // DateTime_GetYearWeekNr (date{; format}) : formatedStr
-// DateTime_GetYearWeekNr (date{; text}) : text
 // 
 // DESCRIPTION
 //   Returns the year + week number
@@ -9,20 +8,11 @@
 //    "yyyy" is replaced with the year
 //    "wk" is replaced with the week
 //
-var $1; $vd_theDate : Date
-var $2; $vt_theFormat : Text  // OPTIONAL
-var $0; $vt_formattedStr : Text
+#DECLARE($vd_theDate : Date; $vt_theFormat : Text)->$vt_formattedStr : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created by: DB (03/14/13)
-// ----------------------------------------------------
-
 $vt_formattedStr:=""
+
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:C259))
-	$vd_theDate:=$1
-	If (Count parameters:C259>=2)
-		$vt_theFormat:=$2
-	End if 
 	If ($vt_theFormat="")
 		$vt_theFormat:="YYYY - week wk"
 	End if 
@@ -54,4 +44,3 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 	End if 
 	
 End if 
-$0:=$vt_formattedStr

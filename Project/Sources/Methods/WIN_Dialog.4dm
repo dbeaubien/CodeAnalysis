@@ -1,10 +1,9 @@
 //%attributes = {"invisible":true}
-// ====================================================
-// Method: WIN_Dialog
+// WIN_Dialog (..)
+//  
 // DESCRIPTION:
 //   This is a wrapper method for handling dialogs. restoring and saving
 //   of window positions is handled. 
-//  
 //  
 // Parameters
 // ----------------------------------------------------
@@ -14,53 +13,25 @@
 //   $4: Window Title
 //   $5: horz positioning
 //   $6: vert positioning
+#DECLARE($WIN_vl_tablePtr : Pointer\
+; $WIN_vt_layoutName : Text\
+; $WIN_vl_windowType : Integer\
+; $WIN_vT_WindowTitle : Text\
+; $WIN_vl_horzPos : Integer\
+; $WIN_vl_vertPos : Integer\
+; $WIN_vF_DontUseSaved : Boolean)
 // ----------------------------------------------------
-//  Returns:
-//  none:
-// ====================================================
-// History:
-// ----------------------------------------------------
-//  Created by: (OS): jcraig
-//  Date and time: 01/31/05, 14:35:17
-// ----------------------------------------------------
-//  Modified:
-//  
-// ====================================================
+If (Count parameters:C259<5)
+	$WIN_vl_horzPos:=On the left:K39:2
+End if 
+If (Count parameters:C259<6)
+	$WIN_vl_vertPos:=At the top:K39:5
+End if 
 
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:C259))
-	var $1; $WIN_vl_tablePtr : Pointer
-	var $2; $WIN_vt_layoutName : Text
-	var $3; $WIN_vl_windowType : Integer
-	var $4; $WIN_vT_WindowTitle : Text
-	var $5; $WIN_vl_horzPos : Integer
-	var $6; $WIN_vl_vertPos : Integer
-	var $7; $WIN_vF_DontUseSaved : Boolean
 	var $vL_OK : Integer
-	$WIN_vl_tablePtr:=$1
-	$WIN_vt_layoutName:=$2
-	$WIN_vl_windowType:=$3
 	
 	Component_init
-	
-	$WIN_vT_WindowTitle:=""
-	If (Count parameters:C259>=4)
-		$WIN_vT_WindowTitle:=$4
-	End if 
-	
-	$WIN_vl_horzPos:=On the left:K39:2
-	If (Count parameters:C259>=5)
-		$WIN_vl_horzPos:=$5
-	End if 
-	
-	$WIN_vl_vertPos:=At the top:K39:5
-	If (Count parameters:C259>=6)
-		$WIN_vl_vertPos:=$6
-	End if 
-	
-	$WIN_vF_DontUseSaved:=False:C215
-	If (Count parameters:C259>=7)
-		$WIN_vF_DontUseSaved:=$7
-	End if 
 	
 	var $WIN_vl_width; $WIN_vl_height : Integer
 	

@@ -1,21 +1,14 @@
 //%attributes = {"invisible":true}
 // MethodDiff_d_ApplyCodePrefs (srcMethodCode) : trimmedMethodCode
-// MethodDiff_d_ApplyCodePrefs (text) : text
 //
 // DESCRIPTION
 //   Handle the configuration checkboxes on the dialog
 //
-var $1; $vt_srcMethodCode : Text
-var $0; $vt_trimmedMethodCode : Text
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/30/2012)
+#DECLARE($vt_srcMethodCode : Text)->$vt_trimmedMethodCode : Text
 // ----------------------------------------------------
 
 $vt_trimmedMethodCode:=""
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vt_srcMethodCode:=$1
-	
 	$vt_trimmedMethodCode:=$vt_srcMethodCode
 	
 	If ($vt_trimmedMethodCode#"")
@@ -42,4 +35,3 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	End if 
 	
 End if 
-$0:=$vt_trimmedMethodCode

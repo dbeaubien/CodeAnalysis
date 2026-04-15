@@ -1,32 +1,18 @@
 //%attributes = {"invisible":true}
 // Digest_GetForMethodText (methodContent; ignoreAttributeLine; ignoreCase; ignoreMultipleSpaces) : methodDigest
-// Digest_GetForMethodText (text; boolean; boolean; boolean) : methodDigest
 // 
 // DESCRIPTION
 //   Returns a digest for the method by path.
 //
-C_TEXT:C284($1; $methodContent)
-var $2; $ignoreAttributeLine : Boolean
-var $3; $ignoreCase : Boolean
-var $4; $ignoreMultipleSpaces : Boolean
-var $5; $ignoreBlankLines : Boolean
-var $0; $methodDigest : Text
+#DECLARE($methodContent : Text\
+; $ignoreAttributeLine : Boolean\
+; $ignoreCase : Boolean\
+; $ignoreMultipleSpaces : Boolean\
+; $ignoreBlankLines : Boolean)->$methodDigest : Text
 // ----------------------------------------------------
-// CALLED BY
-//   Digest_GetForFile, Digest_GetForMethod
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (12/17/2015)
-// ----------------------------------------------------
-
 $methodDigest:=""
+
 If (Asserted:C1132(Count parameters:C259=5))
-	$methodContent:=$1
-	$ignoreAttributeLine:=$2
-	$ignoreCase:=$3
-	$ignoreMultipleSpaces:=$4
-	$ignoreBlankLines:=$5
-	
 	var $onErrorMethod : Text  //   Mod by: Dani Beaubien (06/22/2013)
 	$onErrorMethod:=Method called on error:C704
 	OnErr_ClearError
@@ -61,4 +47,3 @@ If (Asserted:C1132(Count parameters:C259=5))
 	OnErr_ClearError  //   Mod by: Dani Beaubien (06/22/2013)
 	ON ERR CALL:C155($onErrorMethod)  // restore our method
 End if 
-$0:=$methodDigest

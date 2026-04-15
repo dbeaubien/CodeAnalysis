@@ -4,24 +4,13 @@
 // DESCRIPTION
 //   Initializes the Logging Method vars
 //
-C_BOOLEAN:C305($1)  // true forces an init
-// ----------------------------------------------------
-// CALLED BY
-//   Logging_Method_START
-//   Logging_Method_STOP
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (01/14/09)
+#DECLARE($force_init : Boolean)  // true forces an init
 // ----------------------------------------------------
 
+var __incrementLevel : Integer
 var _LogMethod_inited : Boolean
-If (Count parameters:C259>=1)
-	_LogMethod_inited:=Not:C34($1)
-End if 
-
-If (Not:C34(_LogMethod_inited))
+If (Not:C34(_LogMethod_inited) || $force_init)
 	_LogMethod_inited:=True:C214
-	var __incrementLevel : Integer
 	__incrementLevel:=0
 	
 	ARRAY TEXT:C222(_LOGMETHOD_CallingStack; 0)

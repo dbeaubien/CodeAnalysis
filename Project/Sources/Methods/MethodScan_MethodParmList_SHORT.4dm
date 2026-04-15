@@ -4,15 +4,9 @@
 // DESCRIPTION
 //    Returns an abbreviated list of parameters for the method.
 //
-var $1; $methodPath : Text
-var $0; $html : Text
-// ----------------------------------------------------
-// HISTORY
-//   Created by Dani Beaubien : (2012-08-03)
-//   Mod by: Dani Beaubien (02/07/2021) - convert to use objects
+#DECLARE($methodPath : Text)->$html : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$methodPath:=$1
 $html:=""
 
 var MethodStatsMasterObj : Object  // defined by MethodStats__Init
@@ -47,5 +41,3 @@ If ($methodDetails#Null:C1517)
 	End if 
 	
 End if 
-
-$0:=$html
