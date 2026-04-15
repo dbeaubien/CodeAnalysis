@@ -44,5 +44,5 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 1; Count parameters:
 	
 	// Append our log type
 	$vt_pathToLogFile:=$vt_pathToLogFile+" "+$vt_logType+".txt"
-End if   // ASSERT
+End if 
 $0:=$vt_pathToLogFile

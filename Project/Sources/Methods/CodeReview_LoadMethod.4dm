@@ -1,21 +1,18 @@
 //%attributes = {"invisible":true}
 // CodeReview_LoadMethod (methodName) 
-// CodeReview_LoadMethod (text) 
 // 
 // DESCRIPTION
 //   Loads the method code and parses the content for displaying
 //   on the Code Review window
 //
-C_TEXT:C284($1; _DIFF_MethodName)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (01/08/2017)
+#DECLARE($method_name : Text)
 // ----------------------------------------------------
 
 Logging_Method_START(Current method name:C684)
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	_DIFF_MethodName:=$1
 	
+	var _DIFF_MethodName : Text
+	_DIFF_MethodName:=$method_name
 	
 	ARRAY TEXT:C222(DEMO_File1_at; 0)
 	ARRAY LONGINT:C221(DEMO_File1LineNo_al; 0)
@@ -24,7 +21,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		OnErr_ClearError
 		ON ERR CALL:C155("OnErr_GENERIC")
 		
-		C_TEXT:C284($vt_theCode)
+		var $vt_theCode : Text
 		$vt_theCode:=Method_GetNormalizedCode(_DIFF_MethodName; True:C214)  //   Mod by: Dani Beaubien (02/17/2014) 
 		//METHOD GET CODE(_DIFF_MethodName;$vt_theCode;*)
 		ON ERR CALL:C155("")
@@ -38,7 +35,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			
 			
 			Array_SetSize(Size of array:C274(DEMO_File1_at); ->DEMO_File1LineNo_al; ->DEMO_tokens_at)
-			C_LONGINT:C283($i; $j)
+			var $i; $j : Integer
 			For ($i; 1; Size of array:C274(DEMO_File1_at))
 				DEMO_File1LineNo_al{$i}:=$i
 				
@@ -82,6 +79,6 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	
 	
 	
-End if   // ASSERT
+End if 
 Logging_Method_STOP(Current method name:C684)
 

@@ -69,5 +69,5 @@ If (DEV_ASSERT((Count parameters:C259=1) | (Count parameters:C259=2); Current me
 	$theResult:=Replace string:C233($theResult; "ss"; String:C10($numSeconds; "00"))
 	$theResult:=Replace string:C233($theResult; "ampm"; $vt_ampm)
 	
-End if   // ASSERT
+End if 
 $0:=$theResult

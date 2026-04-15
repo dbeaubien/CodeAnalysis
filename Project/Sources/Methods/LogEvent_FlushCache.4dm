@@ -42,4 +42,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		
 		Semaphore_Release("LogWriteSemaphore")
 	End if 
-End if   // ASSERT
+End if 

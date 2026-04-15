@@ -11,7 +11,7 @@
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=0)
 
-C_BOOLEAN:C305(<>_GraphIsInited)
+var <>_GraphIsInited : Boolean
 <>_GraphIsInited:=True:C214
 ARRAY PICTURE:C279(<>_Graphs; 3)
 ARRAY TEXT:C222(<>_Graphs_Label; 3)

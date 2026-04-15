@@ -32,4 +32,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:
 	End if 
 	
 	OT_PutLong($chartID; "seriesLegend_width"; $vl_width)
-End if   // ASSERT
+End if 

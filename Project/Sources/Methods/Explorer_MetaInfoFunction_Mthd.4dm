@@ -4,15 +4,12 @@
 // DESCRIPTION
 //   Method meta function for the Explorer window
 //
-C_OBJECT:C1216($0; $metaInfo)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (12/18/2020)
+#DECLARE()->$metaInfo : Object
 // ----------------------------------------------------
 
 // Reference: https://developer.4d.com/docs/18/en/FormObjects/propertiesText.html#meta-info-expression
 
-C_LONGINT:C283(mediumComplexity; highComplexity)
+var mediumComplexity; highComplexity : Integer
 If (mediumComplexity=0) | (highComplexity=0)  // try to only fetch from prefs once
 	mediumComplexity:=Num:C11(Pref_GetPrefString("CC Med Risk"; "11"))
 	highComplexity:=Num:C11(Pref_GetPrefString("CC High Risk"; "25"))
@@ -39,5 +36,3 @@ End case
 //If (This.numTimesCalled=0)
 //$metaInfo.fontStyle:="italic"
 //End if 
-
-$0:=$metaInfo

@@ -42,7 +42,7 @@ $DownK:=$LowerA-$LowerB  // the k-line to start the forward search
 $UpK:=$UpperA-$UpperB  // the k-line to start the reverse search
 
 C_LONGINT:C283($Delta)
-C_BOOLEAN:C305($OddDelta)
+var $OddDelta : Boolean
 $Delta:=($UpperA-$LowerA)-($UpperB-$LowerB)
 $OddDelta:=($Delta%2#0)
 
@@ -63,8 +63,8 @@ $UpVector_ptr->{$UpOffset+$UpK-1}:=$UpperA
 
 C_LONGINT:C283($D; $k; $x; $y)
 
-C_BOOLEAN:C305($Continue)
-C_BOOLEAN:C305($Overlap)
+var $Continue : Boolean
+var $Overlap : Boolean
 $Overlap:=False:C215
 
 For ($D; 0; $MaxD)

@@ -36,4 +36,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	C_TEXT:C284(<>_EOL)
 	<>_EOL:=""  // Forces a refresh
 	<>_EOL:=Pref_GetEOL
-End if   // ASSERT
+End if 

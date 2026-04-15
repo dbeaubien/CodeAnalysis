@@ -36,7 +36,7 @@ ALL RECORDS:C47([Table_1:1])
 
 //%attributes = {"lang":"en","invisible":true} comment added and reserved by 4D.
 
-C_BOOLEAN:C305($someValue)
+var $someValue : Boolean
 C_LONGINT:C283($i)
 If ($someValue)  // IF
 	BEEP:C151

@@ -2,7 +2,7 @@
 // (PM) UnitTest_LogMessage
 // Log any errors/messages from the unittests
 
-C_TEXT:C284($1; $message)
+var $1; $message : Text
 
 $message:=$1
 

@@ -40,5 +40,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 		$at_methodDTS_ArrPtr->{$i}:=TS_FromDateTime($ad_methodModDate{$i}; $ah_methodModTime{$i})
 	End for 
 	
-End if   // ASSERT
+End if 
 

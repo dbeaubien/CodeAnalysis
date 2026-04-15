@@ -22,5 +22,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		LogEvent_SetLogFolder
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=<>LOG_FolderPathForLogFiles

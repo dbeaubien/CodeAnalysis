@@ -36,5 +36,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 		$vt_result:="ERROR: "+Convert to text:C1012($err; "utf-8")
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vt_result

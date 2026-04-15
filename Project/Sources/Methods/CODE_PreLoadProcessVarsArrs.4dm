@@ -37,7 +37,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	
 	// Compare our "last refresh DTS" against the compiler methods to determine if they have
 	// been updated or not
-	C_BOOLEAN:C305($vb_doUpdate)
+	var $vb_doUpdate : Boolean
 	$vb_doUpdate:=False:C215
 	If ($vl_maxDTS>$vl_lastRefresh_DTS)
 		$vb_doUpdate:=True:C214
@@ -128,5 +128,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		
 	End if 
 	
-End if   // ASSERT
+End if 
 Logging_Method_STOP(Current method name:C684)

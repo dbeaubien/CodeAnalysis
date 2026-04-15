@@ -67,4 +67,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 6; 8; Count parameters:
 	
 	_DIFF_DiffList($DataA_ptr; ->$ModA; $DataB_ptr; ->$ModB; $StartA_ptr; $StartB_ptr; $DeletedA_ptr; $InsertedB_ptr)
 	
-End if   // ASSERT
+End if 

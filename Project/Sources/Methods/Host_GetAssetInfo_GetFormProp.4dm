@@ -54,4 +54,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 8; Count parameters:C259))
 	$vp_formFixedWidth->:=$vb_formFixedWidth
 	$vp_formFixedHeight->:=$vb_formFixedHeight
 	$vp_title->:=$vt_title
-End if   // ASSERT
+End if 

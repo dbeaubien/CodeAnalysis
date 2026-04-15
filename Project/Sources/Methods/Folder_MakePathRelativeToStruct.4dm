@@ -6,8 +6,8 @@
 //   Converts the passed path into one that is relative
 //   to the structure.
 //
-C_TEXT:C284($1; $vt_filePath)
-C_TEXT:C284($0; $vt_relativePath)
+var $1; $vt_filePath : Text
+var $0; $vt_relativePath : Text
 // ----------------------------------------------------
 // HISTORY
 //   Created by: Dani Beaubien (04/12/2014)
@@ -17,7 +17,7 @@ $vt_relativePath:=""
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	$vt_filePath:=$1
 	
-	C_TEXT:C284($vt_pathToStructureFolder)
+	var $vt_pathToStructureFolder : Text
 	$vt_pathToStructureFolder:=Folder_ParentName(Structure file:C489(*))
 	
 	// Does the path a subfolder of the structure's folder
@@ -38,5 +38,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		$vt_relativePath:=""  // Ensure it is blank
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vt_relativePath

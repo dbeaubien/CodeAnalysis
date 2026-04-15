@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true}
 // LogEvent_Write  (textToLog {; logType})
-// LogEvent_Write  (text {; text})
 // 
 // DESCRIPTION
 //   Adds the passed text to the log file cache.
@@ -12,32 +11,27 @@
 //   Use LogEvent_FlushCache to force everything
 //   to disk.
 //
-C_TEXT:C284($1; $vt_textToLog)
-C_TEXT:C284($2; $vt_logType)  // OPTIONAL
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (03/13/13)
+#DECLARE($vt_textToLog : Text; $vt_logType : Text)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:C259))
-	$vt_textToLog:=$1
-	$vt_textToLog:=$vt_textToLog+Char:C90(Carriage return:K15:38)
+	$vt_textToLog+=Char:C90(Carriage return:K15:38)
 	
 	If (Count parameters:C259>=2)
-		$vt_logType:="Code Analysis "+$2
+		$vt_logType:="Code Analysis "+$vt_logType
 	End if 
 	If ($vt_logType="")  // Force a default
 		$vt_logType:="Code Analysis Log"
 	End if 
 	
-	C_BOOLEAN:C305($vb_doFlushCache)
-	C_TEXT:C284($vt_logFileName)
+	var $vb_doFlushCache : Boolean
+	var $vt_logFileName : Text
 	$vt_logFileName:=File_GetFileName(LogEvent_GetPathToLogFile($vt_logType))
 	
 	Semaphore_WaitUntilGrabbed("LogWriteSemaphore")
 	
 	// Make sure that our cache has been created
-	C_BOOLEAN:C305(<>LOG_CacheInitd)
+	var <>LOG_CacheInitd : Boolean
 	If (Not:C34(<>LOG_CacheInitd))
 		ARRAY TEXT:C222(<>LOG_at_logFileName; 0)
 		ARRAY TEXT:C222(<>LOG_at_cacheBuffer; 0)
@@ -47,7 +41,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 	
 	If (<>LOG_IsInDebugMode)
 		// add the data to the log
-		C_LONGINT:C283($vl_index)
+		var $vl_index : Integer
 		$vl_index:=Find in array:C230(<>LOG_at_logFileName; $vt_logFileName)
 		If ($vl_index<1)
 			APPEND TO ARRAY:C911(<>LOG_at_logFileName; $vt_logFileName)
@@ -68,4 +62,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 		LogEvent_FlushCache
 	End if 
 	
-End if   // ASSERT
+End if 

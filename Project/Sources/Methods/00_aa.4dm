@@ -85,7 +85,7 @@ $vt_fileFolder:=$vt_fileFolder+"Structure Definition.json"
 Structure_SaveStructDefn2Folder($vt_fileFolder)
 SHOW ON DISK:C922($vt_fileFolder)
 
-//C_BOOLEAN($vb_noResult)
+//var $vb_noResult: Boolean
 //C_LONGINT(vl_tmpLongint)
 //EXECUTE METHOD("CodeAnalysis_GetAssetInfo";$vb_noResult;"MethodVersion";->vl_tmpLongint)  // CodeAnalysis_GetAssetInfo("MethodVersion";->vl_tmpLongint)
 

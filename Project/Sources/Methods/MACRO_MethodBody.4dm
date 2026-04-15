@@ -56,5 +56,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			CLOSE DOCUMENT:C267($vh_docRef)
 		End if 
 	End if 
-End if   // ASSERT
+End if 
 

@@ -22,5 +22,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			//: (tabControl=3)  // Component Docs
 			//WA OPEN URL(myWebArea;Get 4D folder(Current Resources folder)+"Graphs"+Folder separator +"analysis.html")
 	End case 
-End if   // ASSERT
+End if 
 

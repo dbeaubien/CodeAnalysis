@@ -20,5 +20,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	
 	$vr_realNumber:=Num:C11(OT_GetText($xml_Ref; $vt_tag))
 	
-End if   // ASSERT
+End if 
 $0:=$vr_realNumber

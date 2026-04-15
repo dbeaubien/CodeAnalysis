@@ -2,6 +2,12 @@
 A model that contains information on the tables and fields.
 */
 
+property _table_model : Collection
+property _field_model : Collection
+property _structure_catalog_full_model : Object
+property _structure_catalog_model : Collection
+property _structure_catalog_tables_by_no : Object
+
 Class constructor
 	This:C1470._init()
 	
@@ -77,7 +83,7 @@ Function _load_catalog_info()
 Function _load_table_model()
 	var $table : Object
 	var $table_no : Integer
-	For ($table_no; 1; Get last table number:C254)  // use classic since only tables with PKs are known to orda
+	For ($table_no; 1; Last table number:C254)  // use classic since only tables with PKs are known to orda
 		If (Is table number valid:C999($table_no))
 			$table:=This:C1470._structure_catalog_tables_by_no[String:C10($table_no)]
 			This:C1470._table_model.push(This:C1470._get_detail_for_table($table; $table_no))
@@ -90,12 +96,12 @@ Function _load_field_model()
 	var $table : Object
 	var $table_model : Object
 	var $table_no; $field_no : Integer
-	For ($table_no; 1; Get last table number:C254)  // use classic since only tables with PKs are known to orda
+	For ($table_no; 1; Last table number:C254)  // use classic since only tables with PKs are known to orda
 		If (Is table number valid:C999($table_no))
 			$table:=This:C1470._structure_catalog_tables_by_no[String:C10($table_no)]
 			$table_model:=This:C1470._table_model.query("tableNumber=:1"; $table_no)[0]
 			
-			For ($field_no; 1; Get last field number:C255($table_no))  // use classic since only tables with PKs are known to orda
+			For ($field_no; 1; Last field number:C255($table_no))  // use classic since only tables with PKs are known to orda
 				If (Is field number valid:C1000($table_no; $field_no))
 					This:C1470._field_model.push(This:C1470._get_detail_for_field($table_model; $table; $table_no; $field_no))
 				End if 

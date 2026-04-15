@@ -258,4 +258,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 		CLOSE DOCUMENT:C267($fileRef)
 	End if 
 	
-End if   // ASSERT
+End if 

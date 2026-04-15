@@ -39,5 +39,5 @@ If (Asserted:C1132(Count parameters:C259=1))
 			// NOP
 	End case 
 	
-End if   // ASSERT
+End if 
 $0:=$vb_doIndent

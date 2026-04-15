@@ -10,7 +10,7 @@ APPEND TO ARRAY:C911($Expected; 5)
 APPEND TO ARRAY:C911($Expected; 5)
 APPEND TO ARRAY:C911($Expected; 2)
 
-C_BOOLEAN:C305($Pass)
+var $Pass : Boolean
 $Pass:=True:C214
 
 For ($Test_l; 1; $TestCount_l)

@@ -7,8 +7,8 @@
 //   call the specified method.
 //   The object returned looks like {"calledByMethods":[]}
 //
-C_TEXT:C284($1; $methodPath)
-C_OBJECT:C1216($0; $calledByMethodsObj)
+var $1; $methodPath : Text
+var $0; $calledByMethodsObj : Object
 // ----------------------------------------------------
 // HISTORY
 //   Created by: DB (06/24/2016)

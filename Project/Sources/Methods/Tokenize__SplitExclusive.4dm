@@ -9,9 +9,9 @@
 //   are appended to the passed array.
 //
 // Parameters
-C_TEXT:C284($1; $pattern)
-C_TEXT:C284($2; $localLine)
-C_POINTER:C301($3; $ap_values)
+var $1; $pattern : Text
+var $2; $localLine : Text
+var $3; $ap_values : Pointer
 // ----------------------------------------------------
 
 $pattern:=$1
@@ -20,9 +20,9 @@ $ap_values:=$3
 
 $localLine:=$localLine+" "
 
-C_LONGINT:C283($start; $pos; $len; $index)
-C_TEXT:C284($localLine; $s)
-C_BOOLEAN:C305($done)
+var $start; $pos; $len; $index : Integer
+var $localLine; $s : Text
+var $done : Boolean
 
 $start:=1
 $index:=0

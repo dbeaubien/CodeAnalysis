@@ -52,4 +52,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:
 		End if 
 	End for 
 	
-End if   // ASSERT
+End if 

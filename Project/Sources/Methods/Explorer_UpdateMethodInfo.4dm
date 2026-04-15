@@ -4,9 +4,9 @@
 // DESCRIPTION
 //   
 //
-C_OBJECT:C1216($1; $formObj)
-C_TEXT:C284($2; $methodPath)  // OPTIONAL
-C_TEXT:C284($3; $updateToDo)  // OPTIONAL
+var $1; $formObj : Object
+var $2; $methodPath : Text  // OPTIONAL
+var $3; $updateToDo : Text  // OPTIONAL
 // ----------------------------------------------------
 // HISTORY
 //   Created by: Dani Beaubien (01/23/2021)
@@ -18,18 +18,18 @@ If (Count parameters:C259=3)
 	$updateToDo:=$3
 End if 
 
-C_LONGINT:C283(hdr0; hdr1; hdr2; hdr3; hdr4; hdr5; hdr6; hdr7; hdr8; hdr9; hdr10; hdr_dts)
-C_TEXT:C284(vt_ftr1)
-C_TEXT:C284(ftrText1; ftrText2; ftrText3; ftrText4; ftrText5; ftrText6; ftrText7; ftrText8)
+var hdr0; hdr1; hdr2; hdr3; hdr4; hdr5; hdr6; hdr7; hdr8; hdr9; hdr10; hdr_dts : Integer
+var vt_ftr1 : Text
+var ftrText1; ftrText2; ftrText3; ftrText4; ftrText5; ftrText6; ftrText7; ftrText8 : Text
 vt_ftr1:="Average"
 
-C_OBJECT:C1216(MethodStatsMasterObj)  // defined in MethodStats__Init
+var MethodStatsMasterObj : Object  // defined in MethodStats__Init
 MethodStats__Init
 
-C_LONGINT:C283($i)
+var $i : Integer
 ARRAY TEXT:C222($methodObjNames; 0)
-C_OBJECT:C1216($methodStatsObj; $explorerRowObj)
-C_COLLECTION:C1488($matchingMethodsList)
+var $methodStatsObj; $explorerRowObj : Object
+var $matchingMethodsList : Collection
 Case of 
 	: ($methodPath="")  // reload everything fresh
 		$formObj.fullList:=New collection:C1472

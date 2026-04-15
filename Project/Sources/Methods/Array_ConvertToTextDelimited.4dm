@@ -32,6 +32,6 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 		$vt_delimitedText:=$vt_delimitedText+Choose:C955($i<Size of array:C274($vp_arrayPtr->); $vt_theDelimiter; "")
 	End for 
 	
-End if   // ASSERT
+End if 
 
 $0:=$vt_delimitedText

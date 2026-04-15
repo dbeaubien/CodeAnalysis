@@ -20,4 +20,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	$vt_seriesName:=$2
 	
 	CHART_Line_SetSeriesLabel($chartID; $vt_seriesName)
-End if   // ASSERT
+End if 

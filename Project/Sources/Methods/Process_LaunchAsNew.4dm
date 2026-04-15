@@ -29,7 +29,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:
 	C_TEXT:C284($currentProcessName_t)
 	C_LONGINT:C283($processState_i; $processTime_i; $processNumber_i)
 	
-	PROCESS PROPERTIES:C336(Current process:C322; $currentProcessName_t; $processState_i; $processTime_i)
+	_O_PROCESS PROPERTIES:C336(Current process:C322; $currentProcessName_t; $processState_i; $processTime_i)
 	
 	Case of 
 		: ($currentProcessName_t=$newProcessName_t)  //& (Not(Fnd_Gen_ProcessLaunched_b))
@@ -50,6 +50,6 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:
 		Else 
 			TRACE:C157
 	End case 
-End if   // ASSERT
+End if 
 
 $0:=$go_b

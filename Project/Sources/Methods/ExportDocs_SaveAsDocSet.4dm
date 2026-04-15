@@ -68,7 +68,7 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	// # Create the Sqlite file
 	C_TEXT:C284($vt_commandToExecute)
 	$vt_commandToExecute:="CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);"
-	$vt_commandToExecute:=$vt_commandToExecute+"CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);"
+	$vt_commandToExecute+="CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);"
 	Sqlite_DoCommand($vt_folder_Resources+"docSet.dsidx"; $vt_commandToExecute)
 	$vt_commandToExecute:=""
 	
@@ -84,7 +84,7 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 			If (String:C10($methodObj.in_module)#"") & (Bool:C1537($methodObj.is_shared))
 				If ($moduleCounts[$methodObj.in_module]=Null:C1517)
 					$moduleCounts[$methodObj.in_module]:=New object:C1471("count"; 1)
-					$vt_commandToExecute:=$vt_commandToExecute+"INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('"+$methodObj.in_module+"', 'Module', '/Modules/"+$methodObj.in_module+".html');"
+					$vt_commandToExecute+="INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('"+$methodObj.in_module+"', 'Module', '/Modules/"+$methodObj.in_module+".html');"
 					If (Length:C16($vt_commandToExecute)>4096)
 						Sqlite_DoCommand($vt_folder_Resources+"docSet.dsidx"; $vt_commandToExecute)
 						$vt_commandToExecute:=""
@@ -104,7 +104,7 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	For ($i; 1; Size of array:C274($projectMethodPathsArr))
 		Progress SET PROGRESS($progHdl; $i/Size of array:C274($projectMethodPathsArr))
 		If (MethodStatsMasterObj[$projectMethodPathsArr{$i}].is_shared)
-			$vt_commandToExecute:=$vt_commandToExecute+"INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('"+$projectMethodPathsArr{$i}+"', 'Method', '/Methods/"+$projectMethodPathsArr{$i}+".html');"
+			$vt_commandToExecute+="INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('"+$projectMethodPathsArr{$i}+"', 'Method', '/Methods/"+$projectMethodPathsArr{$i}+".html');"
 			If (Length:C16($vt_commandToExecute)>4096)
 				Sqlite_DoCommand($vt_folder_Resources+"docSet.dsidx"; $vt_commandToExecute)
 				$vt_commandToExecute:=""

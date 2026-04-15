@@ -54,5 +54,5 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 3; Count parameters:
 		$vh_docRef:=-1
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vh_docRef

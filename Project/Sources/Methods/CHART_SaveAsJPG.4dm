@@ -24,4 +24,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	
 	SVG_SAVE_AS_PICTURE(CHART_SVG_GetMasterRef($chartID); $vt_filePath; ".jpg")
 	//SVG_SAVE_AS_PICTURE (CHART_SVG_GetMasterRef ($chartID);$vt_filePath;".gif")
-End if   // ASSERT
+End if 

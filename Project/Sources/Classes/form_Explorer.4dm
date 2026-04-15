@@ -1,5 +1,8 @@
 /* Form controller for the "Explorer_d" form */
 
+property _form : Object
+property _model_tableInfo : cs:C1710.model_TableInformation
+
 Class constructor($form : Object)
 	This:C1470._form:=$form
 	This:C1470._setup_tabControl()

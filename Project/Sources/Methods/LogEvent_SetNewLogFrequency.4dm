@@ -25,4 +25,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	Else 
 		<>LOG_Frequency:="Weekly"
 	End if 
-End if   // ASSERT
+End if 

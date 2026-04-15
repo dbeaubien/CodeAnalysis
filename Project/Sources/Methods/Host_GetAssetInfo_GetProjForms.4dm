@@ -28,4 +28,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	//LogEvent_Write ("    IN "+Current method name+" returned "+String(Size of array(at_tmpTextArray))+".")
 	
 	COPY ARRAY:C226(at_tmpTextArray; $ap_projectFormNamesPtr->)
-End if   // ASSERT
+End if 

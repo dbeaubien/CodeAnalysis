@@ -20,5 +20,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	
 	OBJECT SET FONT STYLE:C166(*; $vt_objName; $vl_style)
 	OBJECT SET HORIZONTAL ALIGNMENT:C706(*; $vt_objName; $vl_alignment)
-End if   // ASSERT
+End if 
 

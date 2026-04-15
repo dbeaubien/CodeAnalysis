@@ -42,6 +42,6 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 		Until ($vF_Flag) | (($vl_startTickCount+$vl_tickCountOffset)<Tickcount:C458)
 	End if 
 	
-End if   // ASSERT
+End if 
 
 $0:=$vF_Flag

@@ -35,5 +35,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	End for 
 	
 	SORT ARRAY:C229($ap_methodNamesArrPtr->; $ap_methodModDTSArrPtr->; >)
-End if   // ASSERT
+End if 
 Logging_Method_STOP(Current method name:C684)

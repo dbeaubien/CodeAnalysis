@@ -40,7 +40,7 @@ If ($numProjectFormMethods>0)
 	$previousFormName:=Char:C90(Escape:K15:39)  // use some totally bogus value that will not match anything
 	
 	C_LONGINT:C283($i)
-	C_BOOLEAN:C305($ulTagOpened)
+	var $ulTagOpened : Boolean
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$friendlyName:=Substring:C12($methodObjNames{$i}; Length:C16("[projectForm]/")+1)  // strip out the first part
 		$currentFormName:=Substring:C12($friendlyName; 1; Position:C15("/"; $friendlyName)-1)

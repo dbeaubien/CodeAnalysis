@@ -28,14 +28,14 @@
 // ====================================================
 
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:C259))
-	C_POINTER:C301($1; $WIN_vl_tablePtr)
-	C_TEXT:C284($2; $WIN_vt_layoutName)
-	C_LONGINT:C283($3; $WIN_vl_windowType)
-	C_TEXT:C284($4; $WIN_vT_WindowTitle)
-	C_LONGINT:C283($5; $WIN_vl_horzPos)
-	C_LONGINT:C283($6; $WIN_vl_vertPos)
-	C_BOOLEAN:C305($7; $WIN_vF_DontUseSaved)
-	C_LONGINT:C283($vL_OK)
+	var $1; $WIN_vl_tablePtr : Pointer
+	var $2; $WIN_vt_layoutName : Text
+	var $3; $WIN_vl_windowType : Integer
+	var $4; $WIN_vT_WindowTitle : Text
+	var $5; $WIN_vl_horzPos : Integer
+	var $6; $WIN_vl_vertPos : Integer
+	var $7; $WIN_vF_DontUseSaved : Boolean
+	var $vL_OK : Integer
 	$WIN_vl_tablePtr:=$1
 	$WIN_vt_layoutName:=$2
 	$WIN_vl_windowType:=$3
@@ -62,7 +62,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:
 		$WIN_vF_DontUseSaved:=$7
 	End if 
 	
-	C_LONGINT:C283($WIN_vl_width; $WIN_vl_height)
+	var $WIN_vl_width; $WIN_vl_height : Integer
 	
 	// If the window size has been saved to disk, then make sure that it is not too small
 	// the layout might have been resized, so just double check
@@ -74,7 +74,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:
 	
 	If ((WIN_PositionHasBeenSaved($WIN_vt_layoutName; "Disk")) & (Not:C34($WIN_vF_DontUseSaved)))
 		WIN_PositionFromDisk($WIN_vt_layoutName; $WIN_vl_width; $WIN_vl_height; "notOpenYet"; "UserPrefs")
-		C_LONGINT:C283($RefWindow)
+		var $RefWindow : Integer
 		$RefWindow:=Open window:C153(WIN_left_l; WIN_top_l; WIN_right_l; WIN_bottom_l; $WIN_vl_windowType; $WIN_vT_WindowTitle; "WIN_HandleCloseWindow_EMPTY")
 		
 	Else 
@@ -134,4 +134,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:
 		//Fnd_Dlg_Alert("An unexpected error occured. Could not open the desired window.")
 		ALERT:C41("An unexpected error occured. Could not open the desired window.")
 	End if 
-End if   // ASSERT
+End if 

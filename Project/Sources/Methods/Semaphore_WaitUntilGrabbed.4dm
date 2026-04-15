@@ -42,4 +42,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 	
 	C_BOOLEAN:C305($wasGrabbed)
 	$wasGrabbed:=Not:C34(Semaphore:C143($1))
-End if   // ASSERT
+End if 

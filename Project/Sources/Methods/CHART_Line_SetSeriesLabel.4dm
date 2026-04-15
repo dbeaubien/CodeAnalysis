@@ -26,4 +26,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 		OT_PutText($chartID; "dataLine "+String:C10($vl_lineNo)+".seriesLabel"; $vt_seriesName)
 	End if 
 	
-End if   // ASSERT
+End if 

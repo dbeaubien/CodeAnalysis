@@ -6,10 +6,10 @@
 //   Sets the most recent Area to have the specified
 //   indicator.
 //
-C_TEXT:C284($1; $chartID)
-C_TEXT:C284($2; $vt_indicatorShape)
-C_LONGINT:C283($3; $vl_width)
-C_TEXT:C284($4; $vt_AreaColour)
+var $1; $chartID : Text
+var $2; $vt_indicatorShape : Text
+var $3; $vl_width : Integer
+var $4; $vt_AreaColour : Text
 // ----------------------------------------------------
 // CALLED BY
 //   
@@ -25,4 +25,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
 	$vt_AreaColour:=$4
 	
 	CHART_Line_SetPointIndicator($chartID; $vt_indicatorShape; $vl_width; $vt_AreaColour)
-End if   // ASSERT
+End if 

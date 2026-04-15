@@ -22,5 +22,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		$vt_filePath:=Folder_ParentName(Structure file:C489(*))+$vt_filePath
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vt_filePath

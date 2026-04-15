@@ -5,8 +5,8 @@
 // DESCRIPTION
 //   Handle the configuration checkboxes on the dialog
 //
-C_TEXT:C284($1; $vt_srcMethodCode)
-C_TEXT:C284($0; $vt_trimmedMethodCode)
+var $1; $vt_srcMethodCode : Text
+var $0; $vt_trimmedMethodCode : Text
 // ----------------------------------------------------
 // HISTORY
 //   Created by: Dani Beaubien (10/30/2012)
@@ -21,7 +21,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	If ($vt_trimmedMethodCode#"")
 		
 		// Normalize the EOL
-		C_TEXT:C284($vt_theEOL)
+		var $vt_theEOL : Text
 		$vt_theEOL:=STR_TellMeTheEOL($vt_trimmedMethodCode)
 		If ($vt_theEOL#Pref_GetEOL)  // make sure we are using a comming EOL
 			$vt_trimmedMethodCode:=Replace string:C233($vt_trimmedMethodCode; $vt_theEOL; Pref_GetEOL)
@@ -41,5 +41,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vt_trimmedMethodCode

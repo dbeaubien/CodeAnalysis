@@ -40,7 +40,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	C_LONGINT:C283($vl_minNumber; $vl_maxNumber)
 	C_REAL:C285($vr_min; $vr_max)
 	If ($vl_numLines>0)
-		C_BOOLEAN:C305($vb_firstValueSet)  // Flag to prime our min/max values
+		var $vb_firstValueSet : Boolean  // Flag to prime our min/max values
 		$vb_firstValueSet:=False:C215
 		$vl_minNumber:=MAXLONG:K35:2  // some large longint
 		$vl_maxNumber:=0-MAXLONG:K35:2
@@ -130,7 +130,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	
 	//   Mod: DB (12/06/2013) - 2278 - Support y-axis ranges and increments
 	// If the gap between the max and min is large enough, round to whole #s
-	C_BOOLEAN:C305($vb_useWholeNumbers)
+	var $vb_useWholeNumbers : Boolean
 	C_REAL:C285($vr_yAxis_LabelInc; $vr_yAxis_GraphOffsetInc)
 	If (OT_GetReal($chartID; "verticalAxisIncrement")#0)
 		$vr_yAxis_LabelInc:=OT_GetReal($chartID; "verticalAxisIncrement")
@@ -368,4 +368,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	
 	//LOG_INFO ("   f1")
 	
-End if   // ASSERT
+End if 

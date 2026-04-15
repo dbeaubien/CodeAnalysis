@@ -40,4 +40,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		ON ERR CALL:C155($vt_curOnErrMethod)  // Added: DB (2005.08.05 @ 09:01:57) -  better error handling
 	End if 
 	
-End if   // ASSERT
+End if 

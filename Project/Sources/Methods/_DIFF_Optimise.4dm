@@ -21,7 +21,7 @@ C_LONGINT:C283($Start; $End; $DataLength)
 $Start:=0
 $DataLength:=Size of array:C274($Data_ptr->)+1
 
-C_BOOLEAN:C305($Continue)
+var $Continue : Boolean
 While ($Start<$DataLength)
 	$Continue:=True:C214
 	

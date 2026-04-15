@@ -1,32 +1,19 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// METHOD: WIN_EnsureOnScreen
+// WIN_EnsureOnScreen
 // 
 // DESCRIPTION:
 //   This method checks to make sure that the frontmost window
 //   is on screen and is not under the menu bar.
-// ----------------------------------------------------
-// PARAMETERS:
-//   $1: window to check
-// RETURNS:
-//   none
-// ----------------------------------------------------
-// CALLED BY:
-// 
-// ----------------------------------------------------
-// MODIFICATION HISTORY:
-// Added by: jcraig (1/28/05) - 
+//
+#DECLARE($WIN_vl_winRef : Integer)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	C_LONGINT:C283($1; $WIN_vl_winRef)
-	$WIN_vl_winRef:=$1
-	
-	C_BOOLEAN:C305($WIN_vl_isOnScreen)  // true if we are on screen
-	C_LONGINT:C283($WIN_vl_offsetX; $WIN_vl_offsetY)
-	C_LONGINT:C283($WIN_vl_left; $WIN_vl_top; $WIN_vl_right; $WIN_vl_bottom)
-	C_LONGINT:C283($WIN_vl_screenLeft; $WIN_vl_screenTop; $WIN_vl_screenRight; $WIN_vl_screenBottom)
-	C_LONGINT:C283($WIN_vl_screenNo)
+	var $WIN_vl_isOnScreen : Boolean  // true if we are on screen
+	var $WIN_vl_offsetX; $WIN_vl_offsetY : Integer
+	var $WIN_vl_left; $WIN_vl_top; $WIN_vl_right; $WIN_vl_bottom : Integer
+	var $WIN_vl_screenLeft; $WIN_vl_screenTop; $WIN_vl_screenRight; $WIN_vl_screenBottom : Integer
+	var $WIN_vl_screenNo : Integer
 	
 	//
 	$WIN_vl_isOnScreen:=False:C215
@@ -75,5 +62,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		SET WINDOW RECT:C444($WIN_vl_left; $WIN_vl_top; $WIN_vl_right; $WIN_vl_bottom; $WIN_vl_winRef)
 	End if 
 	//
-End if   // ASSERT
+End if 
 

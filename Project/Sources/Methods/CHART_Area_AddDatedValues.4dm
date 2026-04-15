@@ -40,4 +40,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
 	OT_PutArray($chartID; "dataLine "+String:C10($vl_AreaNo)+".yAxis_values"; $vp_ar_valuesArrayPtr)
 	OT_PutText($chartID; "dataLine "+String:C10($vl_AreaNo)+".lineColour"; $vt_AreaColour)
 	OT_PutText($chartID; "dataLine "+String:C10($vl_AreaNo)+".indicator"; "none")
-End if   // ASSERT
+End if 

@@ -10,7 +10,7 @@ If (Not:C34(Is compiled mode:C492))
 		EXECUTE METHOD:C1007("4DPop_Palette")
 	End if 
 	
-	C_LONGINT:C283($Window_lref)
+	var $Window_lref : Integer
 	$Window_lref:=Open form window:C675("ReleaseBuildNo_d"; Regular window:K27:1; 420; 200)
 	BRING TO FRONT:C326($Window_lref)
 	DIALOG:C40("ReleaseBuildNo_d")

@@ -23,4 +23,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	File_Delete($vt_filePath)
 	
 	SVG_SAVE_AS_PICTURE(CHART_SVG_GetMasterRef($chartID); $vt_filePath; ".png")
-End if   // ASSERT
+End if 

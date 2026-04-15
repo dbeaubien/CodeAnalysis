@@ -51,6 +51,6 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		$result:=$result+Char:C90($ascii)
 	End for 
 	
-End if   // ASSERT
+End if 
 
 $0:=$result

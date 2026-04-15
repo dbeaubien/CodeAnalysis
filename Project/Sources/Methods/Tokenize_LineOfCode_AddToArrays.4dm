@@ -28,5 +28,5 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:
 			APPEND TO ARRAY:C911($ap_tokenArrayPtr->; $vt_item2)
 		End if 
 	End if 
-End if   // ASSERT
+End if 
 

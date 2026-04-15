@@ -48,4 +48,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	$vt_valueToPut:=STR_Base64_Encode($vt_valueToPut)
 	
 	OT_PutText($xml_Ref; $vt_tag; $vt_valueToPut)
-End if   // ASSERT
+End if 

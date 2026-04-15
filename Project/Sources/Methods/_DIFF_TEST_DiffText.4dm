@@ -3,7 +3,7 @@
 //_DBG_Logging (True)
 //_DBG_Clear 
 
-C_BOOLEAN:C305($Success_b)
+var $Success_b : Boolean
 $Success_b:=True:C214
 
 C_TEXT:C284($a; $b)

@@ -15,4 +15,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
 	$numParms:=$4
 	
 	$0:=DEV_ASSERT(($numParms>=$2) & ($numParms<=$3); $1+" is expecting "+String:C10($2)+" thru "+String:C10($3)+" parameters but only got "+String:C10($numParms)+".")
-End if   // ASSERT_PARMCOUNT
+	End if_PARMCOUNT
+	

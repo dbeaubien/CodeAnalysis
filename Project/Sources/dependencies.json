@@ -1,0 +1,33 @@
+{
+	"version": 2100,
+	"dependencies": {
+		"4D AIKit": {
+			"github": "4d/4D-AIKit",
+			"version": "4d"
+		},
+		"4D NetKit": {
+			"github": "4d/4D-NetKit",
+			"version": "4d"
+		},
+		"4D Progress": {
+			"github": "4d/4D-Progress",
+			"version": "4d"
+		},
+		"4D SVG": {
+			"github": "4d/4D-SVG",
+			"version": "4d"
+		},
+		"4D ViewPro": {
+			"github": "4d/4D-ViewPro",
+			"version": "4d"
+		},
+		"4D Widgets": {
+			"github": "4d/4D-Widgets",
+			"version": "4d"
+		},
+		"4D WritePro Interface": {
+			"github": "4d/4D-WritePro-Interface",
+			"version": "4d"
+		}
+	}
+}

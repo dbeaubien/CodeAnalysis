@@ -43,5 +43,5 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 		OnErr_ClearError
 		ON ERR CALL:C155($vt_currentOnErrorMethod)
 	End if 
-End if   // ASSERT
+End if 
 

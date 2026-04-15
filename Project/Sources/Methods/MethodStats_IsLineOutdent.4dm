@@ -5,8 +5,8 @@
 // DESCRIPTION
 //   Returns true if the line reduces nesting.
 //
-C_TEXT:C284($1; $vt_lineOfCode)
-C_BOOLEAN:C305($0; $vb_doOutdent)
+var $1; $vt_lineOfCode : Text
+var $0; $vb_doOutdent : Boolean
 // ----------------------------------------------------
 // HISTORY
 //   Created by: DB (07/20/2016)
@@ -39,5 +39,5 @@ If (Asserted:C1132(Count parameters:C259=1))
 			// NOP
 	End case 
 	
-End if   // ASSERT
+End if 
 $0:=$vb_doOutdent

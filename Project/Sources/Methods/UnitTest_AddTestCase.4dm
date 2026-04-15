@@ -3,7 +3,7 @@
 // Adds a testcase to the unit tests
 // $1 = Test case (=project method)
 
-C_TEXT:C284($1; $testcase)
+var $1; $testcase : Text
 
 $testcase:=$1
 

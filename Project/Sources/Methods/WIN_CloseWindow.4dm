@@ -31,5 +31,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	//End if 
 	
 	CLOSE WINDOW:C154($WIN_vl_windowRef)
-End if   // ASSERT
+End if 
 

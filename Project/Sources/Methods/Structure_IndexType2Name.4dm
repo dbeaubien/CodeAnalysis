@@ -32,4 +32,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			$0:="Unknown Index Type #"+String:C10($1)
 	End case 
 	
-End if   // ASSERT
+End if 

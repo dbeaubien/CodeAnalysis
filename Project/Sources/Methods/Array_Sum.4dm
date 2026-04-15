@@ -20,5 +20,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	For ($i; 1; Size of array:C274($vp_arrayPtr->))
 		$vl_arraySum:=$vl_arraySum+$vp_arrayPtr->{$i}
 	End for 
-End if   // ASSERT
+End if 
 $0:=$vl_arraySum

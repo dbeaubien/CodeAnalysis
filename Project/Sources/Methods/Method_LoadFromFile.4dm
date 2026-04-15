@@ -75,5 +75,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	
 	OnErr_ClearError
 	ON ERR CALL:C155($vt_currentOnErrorMethod)
-End if   // ASSERT
+End if 
 $0:=$vl_err

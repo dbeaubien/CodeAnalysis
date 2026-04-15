@@ -32,5 +32,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		$vt_posixPath:=Substring:C12($vt_posixPath; 1; Length:C16($vt_posixPath)-1)  //strip terminator 
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vt_posixPath

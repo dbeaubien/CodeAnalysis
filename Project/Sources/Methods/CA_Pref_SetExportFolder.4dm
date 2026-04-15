@@ -16,4 +16,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	$vt_exportFolderPath:=$1
 	
 	Pref_SetPrefString("destinationFolder v2"; $vt_exportFolderPath)
-End if   // ASSERT
+End if 

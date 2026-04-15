@@ -6,22 +6,16 @@
 //   from disk.
 //
 // ----------------------------------------------------
-// CALLED BY
-//   MethodStats__Init
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (12/17/2014)
-// ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=0)
 
-C_TEXT:C284($folderForSavedStats)
+var $folderForSavedStats : Text
 $folderForSavedStats:=File_GetFolderName(Pref__GetFile2PrefFile)
 
 If (File_DoesExist($folderForSavedStats+"method stats.json"))  // If file does not exist, then do nothing 
-	C_TEXT:C284($json)
+	var $json : Text
 	$json:=Document to text:C1236($folderForSavedStats+"method stats.json"; "utf-8")
 	If ($json="{@}")
-		C_OBJECT:C1216($parsedJson)
+		var $parsedJson : Object
 		$parsedJson:=JSON Parse:C1218($json)
 		Use (Storage:C1525)
 			Storage:C1525.methodStats:=New shared object:C1526  // make sure it exists and has been cleared

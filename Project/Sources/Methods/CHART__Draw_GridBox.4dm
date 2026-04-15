@@ -72,4 +72,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 		$pos:=$pos+$vl_gridBoxSize
 	End for 
 	
-End if   // ASSERT
+End if 

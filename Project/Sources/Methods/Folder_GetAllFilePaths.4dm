@@ -38,5 +38,5 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:
 		End if 
 		SORT ARRAY:C229($at_filePathsPtr->; >)
 	End if 
-End if   // ASSERT
+End if 
 
