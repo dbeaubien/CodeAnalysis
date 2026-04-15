@@ -1,32 +1,25 @@
 //%attributes = {"invisible":true,"shared":true}
 // Structure_SaveStructDefn2Folder (fullPathToFileToSaveReport)
-// Structure_SaveStructDefn2Folder (text)
 //
 // DESCRIPTION
 //   Exports a report containing the structure definition
 //   of the host database to the file specified.
 //
-C_TEXT:C284($1; $vt_diskFilePath)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (07/05/2013)
-//   Mod: DB (07/29/2015) - Add support for AutoIncrement and AutoGenerate (4Dv14)
-//   Mod: DB (08/27/2015) - Converted to C_OBJECT
+#DECLARE($vt_diskFilePath : Text)
 // ----------------------------------------------------
 
-C_BOOLEAN:C305($vb_isInvisible; $vb_trigSaveNew; $vb_trigSaveRec; $vb_trigDelRec; $vb_trigLoadRec)
-C_BOOLEAN:C305($vb_isIndexed; $vb_isUnique; $vb_isInvisible)
-C_LONGINT:C283($vl_fieldType; $vl_fieldLength)
-C_LONGINT:C283($i; $j; $curMS)
-C_OBJECT:C1216($vo_tbl)
+var $vb_isInvisible; $vb_trigSaveNew; $vb_trigSaveRec; $vb_trigDelRec; $vb_trigLoadRec : Boolean
+var $vb_isIndexed; $vb_isUnique : Boolean
+var $vl_fieldType; $vl_fieldLength : Integer
+var $i; $j; $curMS : Integer
+var $vo_tbl : Object
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vt_diskFilePath:=$1
 	
-	C_PICTURE:C286($vg_icon)
+	var $vg_icon : Picture
 	READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Write.png"); $vg_icon)
 	
-	C_LONGINT:C283($progHdl)
+	var $progHdl : Integer
 	$progHdl:=Progress New
 	Progress SET TITLE($progHdl; "Exporting table definitions"; 0; "Initializing..."; True:C214)
 	Progress SET ICON($progHdl; $vg_icon)
@@ -86,7 +79,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			INTO :$al_fieldTableNo, :$al_fieldNo, :$al_dataType, :$al_oldDataType, :$at_fieldName, :$ab_isNullable, :$ab_doAutoGenerate, :$ab_doAutoIncrement, :$ab_isRestAvailableFld;
 		End SQL
 		
-		C_LONGINT:C283($vl_tableNo)
+		var $vl_tableNo : Integer
 		$vl_tableNo:=0
 		For ($i; 1; Size of array:C274($al_fieldTableNo))
 			If ($vl_tableNo#$al_fieldTableNo{$i})
@@ -97,7 +90,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			
 			GET FIELD PROPERTIES:C258($vl_tableNo; $al_fieldNo{$i}; $vl_fieldType; $vl_fieldLength; $vb_isIndexed; $vb_isUnique; $vb_isInvisible)
 			
-			C_OBJECT:C1216($vo_fld)
+			var $vo_fld : Object
 			$vo_fld:=New object:C1471
 			$vo_fld.FieldNo:=$al_fieldNo{$i}
 			$vo_fld.FieldName:=$at_fieldName{$i}
@@ -148,7 +141,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			INTO :$at_IndexUUID, :$at_IndexName, :$al_Col_ColumnPositionInIndex, :$al_IndexType, :$ab_IndexKeyword, :$ab_IndexUniquness, :$al_Col_tableNo, :$al_Col_fieldNo;
 		End SQL
 		
-		C_TEXT:C284($indexId)
+		var $indexId : Text
 		$indexId:=""
 		For ($i; 1; Size of array:C274($al_Col_tableNo))
 			If ($vl_tableNo#$al_Col_tableNo{$i})
@@ -157,7 +150,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 				$vo_tbl:=$vo_tables{Find in array:C230($al_tableNo; $vl_tableNo)}
 			End if 
 			
-			C_OBJECT:C1216($vo_index)
+			var $vo_index : Object
 			If ($indexId#$at_IndexUUID{$i})
 				$indexId:=$at_IndexUUID{$i}
 				$vo_index:=New object:C1471
@@ -186,13 +179,13 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	End if 
 	
 	
-	C_OBJECT:C1216($structureExportObj)
+	var $structureExportObj : Object
 	OB SET ARRAY:C1227($structureExportObj; "Tables"; $vo_tables)
 	
-	C_TEXT:C284($textToExport)
+	var $textToExport : Text
 	$textToExport:=JSON Stringify:C1217($structureExportObj; *)
 	
-	C_TEXT:C284($vt_EOL_Target; $vt_EOL_Current)
+	var $vt_EOL_Target; $vt_EOL_Current : Text
 	$vt_EOL_Target:=Pref_GetEOL
 	$vt_EOL_Current:=STR_TellMeTheEOL($textToExport)
 	
@@ -200,7 +193,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		$textToExport:=Replace string:C233($textToExport; $vt_EOL_Current; $vt_EOL_Target)
 	End if 
 	
-	C_TIME:C306($docRef)
+	var $docRef : Time
 	$docRef:=Create document:C266($vt_diskFilePath)  // Don't use "TEXT TO DOCUMENT", that changes eol chars
 	If (OK=1)
 		SEND PACKET:C103($docRef; $textToExport)

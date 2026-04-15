@@ -1,20 +1,12 @@
 //%attributes = {"invisible":true}
 // ExportDocs___Output_PF_NavHTML (methodCount) : navigationHTML
-// ExportDocs___Output_PF_NavHTML (boolean): text
 //
 // DESCRIPTION
 //   Returns the Project Form Methods HTML for the navigation section.
 //
-C_LONGINT:C283($1; $numProjectFormMethods)
-C_TEXT:C284($0; $html)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/07/2012)
-//   Mod by: Dani Beaubien (01/25/2013) - Use "pretty" method names in the output.
-//   Mod by: Dani Beaubien (01/31/2021)
+#DECLARE($numProjectFormMethods : Integer)->$html : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$numProjectFormMethods:=$1
 $html:=""
 
 If ($numProjectFormMethods>0)  // Output the Project Form Methods top level of tree
@@ -25,7 +17,7 @@ If ($numProjectFormMethods>0)  // Output the Project Form Methods top level of t
 End if 
 
 If ($numProjectFormMethods>0)  // Get the list of project form methods
-	C_OBJECT:C1216(MethodStatsMasterObj)
+	var MethodStatsMasterObj : Object
 	MethodStats__Init  // defines MethodStatsMasterObj
 	
 	ARRAY TEXT:C222($methodObjNames; 0)
@@ -34,12 +26,12 @@ If ($numProjectFormMethods>0)  // Get the list of project form methods
 End if 
 
 If ($numProjectFormMethods>0)
-	C_TEXT:C284($friendlyName; $vt_ObjectName)
+	var $friendlyName; $vt_ObjectName : Text
 	
-	C_TEXT:C284($previousFormName; $currentFormName)
+	var $previousFormName; $currentFormName : Text
 	$previousFormName:=Char:C90(Escape:K15:39)  // use some totally bogus value that will not match anything
 	
-	C_LONGINT:C283($i)
+	var $i : Integer
 	var $ulTagOpened : Boolean
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$friendlyName:=Substring:C12($methodObjNames{$i}; Length:C16("[projectForm]/")+1)  // strip out the first part
@@ -74,5 +66,3 @@ If ($numProjectFormMethods>0)
 	$html:=$html+"</ul>"+(Pref_GetEOL*2)
 	
 End if 
-
-$0:=$html

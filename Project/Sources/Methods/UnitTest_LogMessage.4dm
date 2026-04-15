@@ -2,8 +2,6 @@
 // (PM) UnitTest_LogMessage
 // Log any errors/messages from the unittests
 
-var $1; $message : Text
-
-$message:=$1
+#DECLARE($message : Text)
 
 UnitTest_Log:=UnitTest_Log+$message+"\r"

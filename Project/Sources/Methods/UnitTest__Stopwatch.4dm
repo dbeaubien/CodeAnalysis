@@ -3,11 +3,9 @@
 // Controls the stopwatch functions for the unit tests
 // $1 = Action
 
-C_TEXT:C284($1; $action)
-C_LONGINT:C283($totalDuration; $index)
+#DECLARE($action : Text)
 
-$action:=$1
-
+var $totalDuration; $index : Integer
 Case of 
 		
 	: ($action="start")

@@ -5,9 +5,9 @@
 // $2 = Actual
 // $3 = Failure message (optional)
 
-C_TEXT:C284($1; $expected)
-C_TEXT:C284($2; $actual)
-C_TEXT:C284($3; $message)
+var $1; $expected : Text
+var $2; $actual : Text
+var $3; $message : Text
 
 $expected:=$1
 $actual:=$2

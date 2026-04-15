@@ -8,7 +8,7 @@
 //   to the function.
 //
 C_POINTER:C301($1; $tokenArrPtr)
-C_LONGINT:C283($0; $vl_increment)
+var $0; $vl_increment : Integer
 // ----------------------------------------------------
 // HISTORY
 //   Created by: DB (04/06/2017) - moved code to it's own method, easier to test and simplier
@@ -18,7 +18,7 @@ $vl_increment:=0
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	$tokenArrPtr:=$1
 	
-	C_TEXT:C284($vt_tmpTxt)
+	var $vt_tmpTxt : Text
 	If (Size of array:C274($tokenArrPtr->)>0)
 		If (STR_IsOneOf($tokenArrPtr->{1}; "If"; "Si"))
 			If (Size of array:C274($tokenArrPtr->)>=4)  // ignore "if (true)" and "if (false)" statements

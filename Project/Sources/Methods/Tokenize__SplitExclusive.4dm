@@ -1,28 +1,18 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
-// ----------------------------------------------------
-// User name (OS): Dani Beaubien
-// Date and time: 02/27/12, 17:34:22
-// ----------------------------------------------------
-// Method: Tokenize__SplitExclusive
+// Tokenize__SplitExclusive
+//
 // Description
 //   Tokenizes the input line on the provided patter. The tokens
 //   are appended to the passed array.
 //
-// Parameters
-var $1; $pattern : Text
-var $2; $localLine : Text
-var $3; $ap_values : Pointer
+#DECLARE($pattern : Text; $localLine : Text; $ap_values : Pointer)
 // ----------------------------------------------------
-
-$pattern:=$1
-$localLine:=$2
-$ap_values:=$3
 
 $localLine:=$localLine+" "
 
-var $start; $pos; $len; $index : Integer
-var $localLine; $s : Text
+var $s : Text
 var $done : Boolean
+var $start; $pos; $len; $index : Integer
 
 $start:=1
 $index:=0

@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 // CA_Pref_GetStructureKey : uniqueStructureKey
-// CA_Pref_GetStructureKey : text
 // 
 // DESCRIPTION
 //   This method will return the unique key that attributed
@@ -9,10 +8,7 @@
 //   The key is stored in the "InternalProjectName.txt" file in
 //   the CodeAnalysis folder witin the host's Resources folder.
 //
-C_TEXT:C284($0; $structureInternalName)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (03/25/2017)
+#DECLARE()->$structureInternalName : Text
 // ----------------------------------------------------
 
 $structureInternalName:=""
@@ -25,11 +21,11 @@ End if
 
 If (String:C10(Storage:C1525.hostStructure.internalName)="")
 	// Location for the internal name that CodeAnalysis uses to store the preferences
-	C_TEXT:C284($tmpFilePath)
+	var $tmpFilePath : Text
 	$tmpFilePath:=Get 4D folder:C485(Current resources folder:K5:16; *)+"Code Analysis"+Folder separator:K24:12+"InternalProjectName.txt"
 	Folder_VerifyExistance(File_GetFolderName($tmpFilePath))
 	
-	C_TIME:C306($fileRef)
+	var $fileRef : Time
 	If (Test path name:C476($tmpFilePath)=Is a document:K24:1)
 		$fileRef:=Open document:C264($tmpFilePath; Read mode:K24:5)
 		If (OK=1)
@@ -47,4 +43,3 @@ If (String:C10(Storage:C1525.hostStructure.internalName)="")
 End if 
 
 $structureInternalName:=Storage:C1525.hostStructure.internalName
-$0:=$structureInternalName

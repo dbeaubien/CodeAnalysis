@@ -16,12 +16,12 @@ OnErr_Install_Handler("OnErr_GENERIC")
 If (Is table number valid:C999($tableNo))
 	If (Is field number valid:C1000($tableNo; $fieldNo))
 		
-		C_LONGINT:C283($fieldtype; $fieldLength)
-		C_BOOLEAN:C305($indexed; $unique)
+		var $fieldtype; $fieldLength : Integer
+		var $indexed; $unique : Boolean
 		GET FIELD PROPERTIES:C258($tableNo; $fieldNo; $fieldtype; $fieldLength; $indexed; $unique)
 		
 		If ($indexed)
-			C_LONGINT:C283($numberOfRecordsInTable; $numberOfRecordsHaveDistinctVals)
+			var $numberOfRecordsInTable; $numberOfRecordsHaveDistinctVals : Integer
 			$numberOfRecordsInTable:=Records in table:C83(Table:C252($tableNo)->)
 			ALL RECORDS:C47(Table:C252($tableNo)->)
 			
@@ -42,7 +42,7 @@ If (Is table number valid:C999($tableNo))
 						$numberOfRecordsHaveDistinctVals:=Size of array:C274($aiLongInt)
 						ARRAY LONGINT:C221($aiLongInt; 0)
 						
-					: (($fieldtype=Is real:K8:4) | ($fieldtype=_o_Is float:K8:26))
+					: ($fieldtype=Is real:K8:4)
 						ARRAY REAL:C219($arReals; 0)
 						DISTINCT VALUES:C339(Field:C253($tableNo; $fieldNo)->; $arReals)
 						$numberOfRecordsHaveDistinctVals:=Size of array:C274($arReals)

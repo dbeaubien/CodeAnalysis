@@ -4,10 +4,10 @@
 // DESCRIPTION
 //   
 //
-C_TEXT:C284($0)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (09/23/12)
+#DECLARE() : Text
 // ----------------------------------------------------
 
-$0:=System folder:C487(User preferences_user:K41:4)+"Code Analysis"+Folder separator:K24:12+CA_Pref_GetStructureKey+Folder separator:K24:12+"Preferences.xml"
+return System folder:C487(User preferences_user:K41:4)\
++"Code Analysis"+Folder separator:K24:12\
++CA_Pref_GetStructureKey+Folder separator:K24:12\
++"Preferences.xml"

@@ -9,8 +9,7 @@
 //   Created by: Dani Beaubien (02/25/2017)
 // ----------------------------------------------------
 
-
-C_BOOLEAN:C305(_structureInitd)
+var _structureInitd : Boolean
 If (Not:C34(_structureInitd))
 	_structureInitd:=True:C214
 	
@@ -22,13 +21,13 @@ If (Not:C34(_structureInitd))
 	ARRAY BOOLEAN:C223($ab_FLD_hasIndex; 0)
 	
 	// Build arrays for table names and arrays for field info
-	C_LONGINT:C283($vl_fieldType; $vl_fieldLength; $tableNo; $fieldNo)
-	C_BOOLEAN:C305($vb_isIndexed)
-	C_COLLECTION:C1488($tableCol; $fieldCol)
-	C_TEXT:C284($tableName; $fieldName)
+	var $vl_fieldType; $vl_fieldLength; $tableNo; $fieldNo : Integer
+	var $vb_isIndexed : Boolean
+	var $tableCol; $fieldCol : Collection
+	var $tableName; $fieldName : Text
 	$tableCol:=New collection:C1472
 	$fieldCol:=New collection:C1472
-	For ($tableNo; 1; Get last table number:C254)
+	For ($tableNo; 1; Last table number:C254)
 		If (Is table number valid:C999($tableNo))
 			$tableName:="["+Table name:C256($tableNo)+"]"
 			$tableCol.push(New object:C1471("tNo"; $tableNo; "tName"; $tableName))
@@ -36,7 +35,7 @@ If (Not:C34(_structureInitd))
 			APPEND TO ARRAY:C911($al_TBL_tableNos; $tableNo)
 			
 			// Build an array of table/field names
-			For ($fieldNo; 1; Get last field number:C255($tableNo))
+			For ($fieldNo; 1; Last field number:C255($tableNo))
 				If (Is field number valid:C1000($tableNo; $fieldNo))
 					$fieldName:=$tableName+Field name:C257($tableNo; $fieldNo)
 					GET FIELD PROPERTIES:C258($tableNo; $fieldNo; $vl_fieldType; $vl_fieldLength; $vb_isIndexed)  // need to know if it is indexed
@@ -51,7 +50,7 @@ If (Not:C34(_structureInitd))
 	End for 
 	
 	
-	C_OBJECT:C1216(_STRUCT_ObjOfArrays)
+	var _STRUCT_ObjOfArrays : Object
 	_STRUCT_ObjOfArrays:=New object:C1471
 	OB SET ARRAY:C1227(_STRUCT_ObjOfArrays; "tableNames"; $at_TBL_tableNames)
 	OB SET ARRAY:C1227(_STRUCT_ObjOfArrays; "tableNos"; $al_TBL_tableNos)

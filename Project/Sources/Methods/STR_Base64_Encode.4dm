@@ -10,24 +10,24 @@
 // • must convert all CR to CRLF
 
 
-C_TEXT:C284($0; $encoded)  //$0 contains a base64 encoded string
-C_TEXT:C284($1; $input)  //$1 contains an ascii string string
+var $0; $encoded : Text  //$0 contains a base64 encoded string
+var $1; $input : Text  //$1 contains an ascii string string
 $input:=$1
 
-C_TEXT:C284($codedCharacters)
+var $codedCharacters : Text
 $codedCharacters:="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 
 // The size of the input must be a multiple of 3 characters.
 // Figure out how many are left if div by 3.
-C_LONGINT:C283($remainder)
+var $remainder : Integer
 $remainder:=Mod:C98(Length:C16($input); 3)
 
 //translate the ascii string into a binary string and then encode it
 //translate each 6 bits packet from the previous string into
 //base64 chars
 $encoded:=""
-C_LONGINT:C283($i; $group1; $group2; $group3; $group4)
-C_TEXT:C284($inputChars_24bits)
+var $i; $group1; $group2; $group3; $group4 : Integer
+var $inputChars_24bits : Text
 For ($i; 1; Length:C16($input); 3)
 	// grab 3 characters, pad an extra two just in case at the end of the string  
 	$inputChars_24bits:=Substring:C12($input; $i; 3)+Char:C90(0)+Char:C90(0)

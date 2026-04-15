@@ -6,11 +6,11 @@
 //   Returns a digest for the method by path.
 //
 C_TEXT:C284($1; $methodContent)
-C_BOOLEAN:C305($2; $ignoreAttributeLine)
-C_BOOLEAN:C305($3; $ignoreCase)
-C_BOOLEAN:C305($4; $ignoreMultipleSpaces)
-C_BOOLEAN:C305($5; $ignoreBlankLines)
-C_TEXT:C284($0; $methodDigest)
+var $2; $ignoreAttributeLine : Boolean
+var $3; $ignoreCase : Boolean
+var $4; $ignoreMultipleSpaces : Boolean
+var $5; $ignoreBlankLines : Boolean
+var $0; $methodDigest : Text
 // ----------------------------------------------------
 // CALLED BY
 //   Digest_GetForFile, Digest_GetForMethod
@@ -27,7 +27,7 @@ If (Asserted:C1132(Count parameters:C259=5))
 	$ignoreMultipleSpaces:=$4
 	$ignoreBlankLines:=$5
 	
-	C_TEXT:C284($onErrorMethod)  //   Mod by: Dani Beaubien (06/22/2013)
+	var $onErrorMethod : Text  //   Mod by: Dani Beaubien (06/22/2013)
 	$onErrorMethod:=Method called on error:C704
 	OnErr_ClearError
 	ON ERR CALL:C155("OnErr_GENERIC")  //   Mod by: Dani Beaubien (08/13/2013)
@@ -48,7 +48,7 @@ If (Asserted:C1132(Count parameters:C259=5))
 	
 	//   Mod: DB (12/17/2015) - Ignore blank lines
 	If ($ignoreBlankLines)
-		C_TEXT:C284($EOL)
+		var $EOL : Text
 		$EOL:=Pref_GetEOL
 		$methodContent:=Replace string:C233($methodContent; Pref_GetEOL+Pref_GetEOL; Pref_GetEOL)
 		$methodContent:=Replace string:C233($methodContent; Pref_GetEOL+Pref_GetEOL; Pref_GetEOL)

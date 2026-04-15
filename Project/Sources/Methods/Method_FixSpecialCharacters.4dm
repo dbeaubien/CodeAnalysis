@@ -15,9 +15,9 @@ C_POINTER:C301($1; $ap_methodNamesArrPtr)
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	$ap_methodNamesArrPtr:=$1
 	
-	C_TEXT:C284($vt_buffer; $vt_theChar)
-	C_LONGINT:C283($start; $pos; $len; $index)
-	C_LONGINT:C283($i)
+	var $vt_buffer; $vt_theChar : Text
+	var $start; $pos; $len; $index : Integer
+	var $i : Integer
 	For ($i; 1; Size of array:C274($ap_methodNamesArrPtr->))
 		$vt_buffer:=$ap_methodNamesArrPtr->{$i}
 		

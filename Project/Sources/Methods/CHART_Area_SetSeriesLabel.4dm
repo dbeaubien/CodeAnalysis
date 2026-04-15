@@ -6,7 +6,7 @@
 //   Sets the name of the most recently added line series.
 //
 C_TEXT:C284($1; $chartID)
-C_TEXT:C284($2; $vt_seriesName)
+var $2; $vt_seriesName : Text
 // ----------------------------------------------------
 // CALLED BY
 //   

@@ -7,8 +7,8 @@
 //   they are not empty.
 //
 C_POINTER:C301($1; $ap_tokenArrayPtr)
-C_TEXT:C284($2; $vt_item1)
-C_TEXT:C284($3; $vt_item2)  // OPTIONAL
+var $2; $vt_item1 : Text
+var $3; $vt_item2 : Text  // OPTIONAL
 // ----------------------------------------------------
 // HISTORY
 //   Created by: DB (04/03/2017)

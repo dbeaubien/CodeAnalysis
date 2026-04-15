@@ -1,22 +1,13 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// METHOD: Folder_EmptyContents
+// Folder_EmptyContents
 // 
 // DESCRIPTION
 //   This method deletes all the files within the specified folder.
 //
-// PARAMETERS:
-C_TEXT:C284($1; $vt_folderPath)
-//
-// RETURNS:
-//   none
-// ----------------------------------------------------
-//   Created by: DB (02/03/07)
-//   Mod: DB (12/11/2010) - Modify to remove subfolders as well.
+#DECLARE($vt_folderPath : Text)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vt_folderPath:=$1
 	
 	// Make sure we have a nice ending to our string, We will add one below
 	If (Substring:C12($vt_folderPath; Length:C16($vt_folderPath); 1)=Folder separator:K24:12)
@@ -26,11 +17,11 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	If (Folder_DoesExist($vt_folderPath))
 		$vt_folderPath:=$vt_folderPath+Folder separator:K24:12  // ready for our code below
 		
-		C_TEXT:C284($vt_currentOnErrorMethod)
+		var $vt_currentOnErrorMethod : Text
 		$vt_currentOnErrorMethod:=Method called on error:C704
 		ON ERR CALL:C155("OnErr_GENERIC")
 		
-		C_LONGINT:C283($PROC_vL_Count)
+		var $PROC_vL_Count : Integer
 		ARRAY TEXT:C222($PROC_aT_Folders; 0)
 		ARRAY TEXT:C222($PROC_aT_Files; 0)
 		
