@@ -906,9 +906,9 @@ C_LONGINT:C283(Structure_GetFieldIndexType; $1)
 C_LONGINT:C283(Structure_GetFieldIndexType; $2)
 
 //Structure_GetFieldIndexRatio
-C_REAL:C285(Structure_GetFieldIndexRatio; $0)
 C_LONGINT:C283(Structure_GetFieldIndexRatio; $1)
 C_LONGINT:C283(Structure_GetFieldIndexRatio; $2)
+C_OBJECT:C1216(Structure_GetFieldIndexRatio; $3)
 
 //Digest_GetForMethodText
 C_TEXT:C284(Digest_GetForMethodText; $0)
@@ -1392,3 +1392,6 @@ C_BOOLEAN:C305(XML__XPathNewSyntax; $0)
 //UTL_lowerCamelCase
 C_TEXT:C284(UTL_lowerCamelCase; $0)
 C_TEXT:C284(UTL_lowerCamelCase; $1)
+
+//Structure_GetFieldIndexRatio
+C_OBJECT:C1216(Structure_GetFieldIndexRatio; $3)

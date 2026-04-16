@@ -20,24 +20,31 @@ Function RefreshIndexedFieldInfo()
 	
 	
 Function PerformIndexAnalysis()
-	var $field_detail : Object
-	var $indexUsageRatio : Real
+	var $field_detail; $fieldStatistics : Object
 	var $numberOfRecordsInTable : Integer
 	For each ($field_detail; This:C1470._form.filteredIndexedFieldList)
 		$numberOfRecordsInTable:=Records in table:C83(Table:C252($field_detail.tableNumber)->)
 		If ($numberOfRecordsInTable=0)
 			$field_detail.index_analysis_notes:="n/a - Table is empty"
 		Else 
-			$indexUsageRatio:=Structure_GetFieldIndexRatio($field_detail.tableNumber; $field_detail.fieldNumber)*100
+			$fieldStatistics:={}
+			Structure_GetFieldIndexRatio($field_detail.tableNumber; $field_detail.fieldNumber; $fieldStatistics)
+			$fieldStatistics.indexUsageRatio:=$fieldStatistics.indexUsageRatio*100
+			If ($fieldStatistics.numberOfRecords>0)
+				$field_detail.numberOfRecords:=$fieldStatistics.numberOfRecords
+			End if 
+			If ($fieldStatistics.distinctValues>0)
+				$field_detail.distinctValues:=$fieldStatistics.distinctValues
+			End if 
 			Case of 
-				: ($indexUsageRatio>=100)
+				: ($fieldStatistics.indexUsageRatio>=100)
 					$field_detail.index_analysis_notes:="ALL values are unique"
 					
-				: ($indexUsageRatio<1)
+				: ($fieldStatistics.indexUsageRatio<1)
 					$field_detail.index_analysis_notes:="Less than 1% of the values are unique"
 					
 				Else 
-					$field_detail.index_analysis_notes:=String:C10($indexUsageRatio; "#0.000")+"% of the values are unique"
+					$field_detail.index_analysis_notes:=String:C10($fieldStatistics.indexUsageRatio; "#0.000")+"% of the values are unique"
 			End case 
 		End if 
 	End for each 
