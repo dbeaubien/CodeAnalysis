@@ -10,10 +10,10 @@
 //@notes : 
 //@example : 
 //
-//  C_TEXT($catalog_xml)
+//  var $catalog_xml : Text
 //  EXPORT STRUCTURE($catalog_xml)
 //
-//  C_OBJECT($vo_structure)
+//  var $vo_structure : Object
 //  $vo_structure:=UTL_structure2Object($catalog_xml)
 //
 //  SET TEXT TO PASTEBOARD(JSON Stringify($vo_structure))
@@ -67,10 +67,10 @@ If (True:C214)  // table
 		ARRAY TEXT:C222($tt_tableName; Size of array:C274($tt_tableElementDomRef))
 		ARRAY OBJECT:C1221($to_tables; 0)
 		For ($i; 1; Size of array:C274($tt_tableElementDomRef))
-			C_TEXT:C284($vt_tableElementDomRef)
+			var $vt_tableElementDomRef : Text
 			$vt_tableElementDomRef:=$tt_tableElementDomRef{$i}
 			
-			C_OBJECT:C1216($vo_table)
+			var $vo_table : Object
 			
 			If (True:C214)  // read the table properties
 				For ($attribute_index; 1; DOM Count XML attributes:C727($vt_tableElementDomRef))
@@ -99,7 +99,7 @@ If (True:C214)  // table
 			
 			
 			If (True:C214)  // read the trigger properties table/table_extra
-				C_OBJECT:C1216($vo_triggers)
+				var $vo_triggers : Object
 				var $vt_tableExtraDomRef : Text
 				$vt_tableExtraDomRef:=DOM Find XML element:C864($vt_tableElementDomRef; "table_extra")
 				If (OK#1)
@@ -111,10 +111,10 @@ If (True:C214)  // table
 					ARRAY TEXT:C222($tt_commentElementDomRef; 0)
 					$dummy_DOM_ref:=DOM Find XML element:C864($vt_tableExtraDomRef; "comment"; $tt_commentElementDomRef)
 					If (OK=1)
-						C_LONGINT:C283($vl_commentIndex)
+						var $vl_commentIndex : Integer
 						For ($vl_commentIndex; 1; Size of array:C274($tt_commentElementDomRef))
 							
-							C_TEXT:C284($vt_format; $vt_comment; $vt_commentCData)
+							var $vt_format; $vt_comment; $vt_commentCData : Text
 							$vt_format:=""
 							$vt_comment:=""
 							$vt_commentCData:=""
@@ -178,17 +178,17 @@ If (True:C214)  // table
 				ARRAY TEXT:C222($tt_primaryKeyElementDomRef; 0)
 				$dummy_DOM_ref:=DOM Find XML element:C864($vt_tableElementDomRef; "primary_key"; $tt_primaryKeyElementDomRef)
 				If (ok=1)
-					C_LONGINT:C283($vl_nbPrimaryKey)
+					var $vl_nbPrimaryKey : Integer
 					$vl_nbPrimaryKey:=Size of array:C274($tt_primaryKeyElementDomRef)
 					
 					ARRAY OBJECT:C1221($to_primaryKeys; 0)
 					
-					C_LONGINT:C283($vl_primaryKeyIndex)
+					var $vl_primaryKeyIndex : Integer
 					For ($vl_primaryKeyIndex; 1; $vl_nbPrimaryKey)
-						C_TEXT:C284($vt_primaryKeyDomRef)
+						var $vt_primaryKeyDomRef : Text
 						$vt_primaryKeyDomRef:=$tt_primaryKeyElementDomRef{$vl_primaryKeyIndex}
 						
-						C_OBJECT:C1216($vo_primaryKey)
+						var $vo_primaryKey : Object
 						
 						For ($attribute_index; 1; DOM Count XML attributes:C727($vt_primaryKeyDomRef))
 							DOM GET XML ATTRIBUTE BY INDEX:C729($vt_primaryKeyDomRef; $attribute_index; $attribute_name; $attribute_value)
@@ -214,17 +214,17 @@ If (True:C214)  // table
 				$dummy_DOM_ref:=DOM Find XML element:C864($vt_tableElementDomRef; "field"; $tt_fieldElementDomRef)
 				If (ok=1)
 					
-					C_LONGINT:C283($vl_nbField)
+					var $vl_nbField : Integer
 					$vl_nbField:=Size of array:C274($tt_fieldElementDomRef)
 					
 					ARRAY OBJECT:C1221($to_fields; 0)
 					
-					C_LONGINT:C283($vl_fieldIndex)
+					var $vl_fieldIndex : Integer
 					For ($vl_fieldIndex; 1; $vl_nbField)
-						C_TEXT:C284($vt_fieldElementDomRef)
+						var $vt_fieldElementDomRef : Text
 						$vt_fieldElementDomRef:=$tt_fieldElementDomRef{$vl_fieldIndex}
 						
-						C_OBJECT:C1216($vo_field)
+						var $vo_field : Object
 						
 						If (True:C214)  // read the field properties
 							For ($attribute_index; 1; DOM Count XML attributes:C727($vt_fieldElementDomRef))
@@ -238,9 +238,9 @@ If (True:C214)  // table
 										
 									: ($attribute_name="type")
 										OB SET:C1220($vo_field; $attribute_name; Num:C11($attribute_value))
-										C_TEXT:C284($vt_typeStr)
+										var $vt_typeStr : Text
 										$vt_typeStr:=""
-										C_LONGINT:C283($vl_type)
+										var $vl_type : Integer
 										$vl_type:=Num:C11($attribute_value)
 										Case of 
 											: ($vl_type=1)  // boolean
@@ -304,10 +304,10 @@ If (True:C214)  // table
 						// index_ref
 						
 						If (True:C214)  // read the field index properties
-							C_TEXT:C284($vt_indexDomRef)
+							var $vt_indexDomRef : Text
 							$vt_indexDomRef:=DOM Find XML element:C864($vt_fieldElementDomRef; "index_ref[1]")
 							If (ok=1)
-								C_TEXT:C284($vt_uuid)
+								var $vt_uuid : Text
 								DOM GET XML ATTRIBUTE BY NAME:C728($vt_indexDomRef; "uuid"; $vt_uuid)
 								OB SET:C1220($vo_field; "indexUuid"; $vt_uuid)
 							End if 
@@ -317,10 +317,10 @@ If (True:C214)  // table
 							ARRAY TEXT:C222($tt_commentElementDomRef; 0)
 							$dummy_DOM_ref:=DOM Find XML element:C864($vt_fieldElementDomRef; "field_extra[1]/comment"; $tt_commentElementDomRef)
 							If (ok=1)
-								C_LONGINT:C283($vl_commentIndex)
+								var $vl_commentIndex : Integer
 								For ($vl_commentIndex; 1; Size of array:C274($tt_commentElementDomRef))
 									
-									C_TEXT:C284($vt_format; $vt_comment; $vt_commentCData)
+									var $vt_format; $vt_comment; $vt_commentCData : Text
 									$vt_format:=""
 									$vt_comment:=""
 									$vt_commentCData:=""
@@ -350,10 +350,10 @@ If (True:C214)  // table
 							End if 
 							ARRAY TEXT:C222($tt_commentElementDomRef; 0)
 							
-							C_TEXT:C284($vt_tipElementDomRef)
+							var $vt_tipElementDomRef : Text
 							$vt_tipElementDomRef:=DOM Find XML element:C864($vt_fieldElementDomRef; "field_extra[1]/tip[1]"; $tt_commentElementDomRef)
 							If (ok=1)
-								C_TEXT:C284($vt_tip; $vt_tipCData)
+								var $vt_tip; $vt_tipCData : Text
 								$vt_tip:=""
 								$vt_tipCData:=""
 								DOM GET XML ELEMENT VALUE:C731($vt_tipElementDomRef; $vt_tip; $vt_tipCData)
@@ -365,7 +365,7 @@ If (True:C214)  // table
 							End if 
 							
 							If (True:C214)  // read the field extra attributes
-								C_TEXT:C284($vt_extraDomRef)
+								var $vt_extraDomRef : Text
 								$vt_extraDomRef:=DOM Find XML element:C864($vt_fieldElementDomRef; "field_extra[1]"; $tt_commentElementDomRef)
 								If (ok=1)  // read the field extra attributes
 									For ($attribute_index; 1; DOM Count XML attributes:C727($vt_extraDomRef))
@@ -422,12 +422,12 @@ If (True:C214)  // relation
 	If (ok=1)
 		ARRAY OBJECT:C1221($to_relations; 0)
 		
-		C_LONGINT:C283($vl_relationIndex)
+		var $vl_relationIndex : Integer
 		For ($vl_relationIndex; 1; Size of array:C274($tt_relationElementDomRef))
-			C_TEXT:C284($vt_relationDomRef)
+			var $vt_relationDomRef : Text
 			$vt_relationDomRef:=$tt_relationElementDomRef{$vl_relationIndex}
 			
-			C_OBJECT:C1216($vo_relation)
+			var $vo_relation : Object
 			For ($attribute_index; 1; DOM Count XML attributes:C727($vt_relationDomRef))
 				DOM GET XML ATTRIBUTE BY INDEX:C729($vt_relationDomRef; $attribute_index; $attribute_name; $attribute_value)
 				Case of 
@@ -458,18 +458,18 @@ If (True:C214)  // relation
 			$dummy_DOM_ref:=DOM Find XML element:C864($vt_relationDomRef; "related_field"; $tt_relatedFieldElementDomRef)
 			If (ok=1)
 				
-				C_LONGINT:C283($vl_relatedFieldIndex)
+				var $vl_relatedFieldIndex : Integer
 				For ($vl_relatedFieldIndex; 1; Size of array:C274($tt_relatedFieldElementDomRef))
-					C_TEXT:C284($vt_relatedFieldDomRef)
+					var $vt_relatedFieldDomRef : Text
 					$vt_relatedFieldDomRef:=$tt_relatedFieldElementDomRef{$vl_relatedFieldIndex}
 					
-					C_OBJECT:C1216($vo_relatedField)
+					var $vo_relatedField : Object
 					
-					C_TEXT:C284($vt_kind)
+					var $vt_kind : Text
 					DOM GET XML ATTRIBUTE BY NAME:C728($vt_relatedFieldDomRef; "kind"; $vt_kind)
 					
-					C_TEXT:C284($vt_fieldRefDomRef; $vt_tableRefDomRef)
-					C_TEXT:C284($vt_uuid; $vt_name)
+					var $vt_fieldRefDomRef; $vt_tableRefDomRef : Text
+					var $vt_uuid; $vt_name : Text
 					
 					$vt_fieldRefDomRef:=DOM Find XML element:C864($vt_relatedFieldDomRef; "field_ref")
 					DOM GET XML ATTRIBUTE BY NAME:C728($vt_fieldRefDomRef; "uuid"; $vt_uuid)
@@ -500,7 +500,7 @@ If (True:C214)  // relation
 			ARRAY TEXT:C222($tt_relatedFieldElementDomRef; 0)
 			
 			If (True:C214)  // relation_extra
-				C_TEXT:C284($vt_relationExtraDomRef)
+				var $vt_relationExtraDomRef : Text
 				$vt_relationExtraDomRef:=DOM Find XML element:C864($vt_relationDomRef; "relation_extra")
 				If (ok=1)
 					For ($attribute_index; 1; DOM Count XML attributes:C727($vt_relationExtraDomRef))
@@ -539,12 +539,12 @@ If (True:C214)  // index
 	If (ok=1)
 		ARRAY OBJECT:C1221($to_indexes; 0)
 		
-		C_LONGINT:C283($vl_indexIndex)
+		var $vl_indexIndex : Integer
 		For ($vl_indexIndex; 1; Size of array:C274($tt_indexElementDomRef))
-			C_TEXT:C284($vt_indexDomRef)
+			var $vt_indexDomRef : Text
 			$vt_indexDomRef:=$tt_indexElementDomRef{$vl_indexIndex}
 			
-			C_OBJECT:C1216($vo_index)
+			var $vo_index : Object
 			For ($attribute_index; 1; DOM Count XML attributes:C727($vt_indexDomRef))
 				DOM GET XML ATTRIBUTE BY INDEX:C729($vt_indexDomRef; $attribute_index; $attribute_name; $attribute_value)
 				Case of 
@@ -565,20 +565,20 @@ If (True:C214)  // index
 				If (ok=1)
 					ARRAY OBJECT:C1221($to_fieldRef; 0)
 					
-					C_LONGINT:C283($vl_fieldRefIndex)
+					var $vl_fieldRefIndex : Integer
 					For ($vl_fieldRefIndex; 1; Size of array:C274($tt_fieldRefElementDomRef))
-						C_TEXT:C284($vt_fieldRefDomRef)
+						var $vt_fieldRefDomRef : Text
 						$vt_fieldRefDomRef:=$tt_fieldRefElementDomRef{$vl_fieldRefIndex}
 						
-						C_OBJECT:C1216($vo_fieldRef)
+						var $vo_fieldRef : Object
 						
-						C_TEXT:C284($vt_uuid; $vt_name)
+						var $vt_uuid; $vt_name : Text
 						DOM GET XML ATTRIBUTE BY NAME:C728($vt_fieldRefDomRef; "uuid"; $vt_uuid)
 						OB SET:C1220($vo_fieldRef; "fieldUuid"; $vt_uuid)
 						DOM GET XML ATTRIBUTE BY NAME:C728($vt_fieldRefDomRef; "name"; $vt_name)
 						OB SET:C1220($vo_fieldRef; "fieldName"; $vt_name)
 						
-						C_TEXT:C284($vt_tableRefDomRef)
+						var $vt_tableRefDomRef : Text
 						$vt_tableRefDomRef:=DOM Find XML element:C864($vt_fieldRefDomRef; "table_ref")
 						DOM GET XML ATTRIBUTE BY NAME:C728($vt_tableRefDomRef; "uuid"; $vt_uuid)
 						OB SET:C1220($vo_fieldRef; "tableUuid"; $vt_uuid)
@@ -608,10 +608,10 @@ If (True:C214)  // index
 End if 
 
 If (True:C214)  // base_extra
-	C_TEXT:C284($vt_baseExtraDomRef)
+	var $vt_baseExtraDomRef : Text
 	$vt_baseExtraDomRef:=DOM Find XML element:C864($root_DOM_ref; "/base/base_extra")
 	If (ok=1)
-		C_OBJECT:C1216($vo_extra)
+		var $vo_extra : Object
 		
 		If (True:C214)  // read the "base_extra" properties
 			For ($attribute_index; 1; DOM Count XML attributes:C727($vt_baseExtraDomRef))
@@ -647,10 +647,10 @@ If (True:C214)  // base_extra
 		End if 
 		
 		If (True:C214)  // read the temp file properties
-			C_TEXT:C284($vt_tempFolderDomRef)
+			var $vt_tempFolderDomRef : Text
 			$vt_tempFolderDomRef:=DOM Find XML element:C864($vt_baseExtraDomRef; "temp_folder")
 			If (OK=1)
-				C_OBJECT:C1216($vo_tempFolder)
+				var $vo_tempFolder : Object
 				For ($attribute_index; 1; DOM Count XML attributes:C727($vt_tempFolderDomRef))
 					DOM GET XML ATTRIBUTE BY INDEX:C729($vt_tempFolderDomRef; $attribute_index; $attribute_name; $attribute_value)
 					OB SET:C1220($vo_tempFolder; UTL_lowerCamelCase($attribute_name); $attribute_value)
@@ -661,7 +661,7 @@ If (True:C214)  // base_extra
 		End if 
 		
 		If (True:C214)  // read the journal file properties
-			C_TEXT:C284($vt_journalFileDomRef)
+			var $vt_journalFileDomRef : Text
 			var $vo_journal : Object
 			$vo_journal:=Null:C1517
 			$vt_journalFileDomRef:=DOM Find XML element:C864($vt_baseExtraDomRef; "journal_file")

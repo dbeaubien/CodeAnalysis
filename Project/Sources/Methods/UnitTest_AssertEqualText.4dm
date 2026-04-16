@@ -5,16 +5,9 @@
 // $2 = Actual
 // $3 = Failure message (optional)
 
-var $1; $expected : Text
-var $2; $actual : Text
-var $3; $message : Text
+#DECLARE($expected : Text; $actual : Text; $message : Text)
 
-$expected:=$1
-$actual:=$2
-
-If (Count parameters:C259>=3)
-	$message:=$3
-Else 
+If (Count parameters:C259#3)
 	$message:="AssertEqualText Expected \""+$expected+"\" but got \""+$actual+"\""
 End if 
 

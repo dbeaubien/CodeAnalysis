@@ -1,26 +1,17 @@
 //%attributes = {"invisible":true}
 // LogEvent_GetLogFolder : pathToLogFolder
-// LogEvent_GetLogFolder : text
 // 
 // DESCRIPTION
 //   Returns the folder that the logs files will be saved
 //   to.
 //
-C_TEXT:C284($0; <>LOG_FolderPathForLogFiles)
-// ----------------------------------------------------
-// CALLED BY
-//   
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (03/13/13)
+#DECLARE() : Text
 // ----------------------------------------------------
 
-If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
-	
-	// Check to see it has been set yet, if not, then do the default
-	If (<>LOG_FolderPathForLogFiles="")
-		LogEvent_SetLogFolder
-	End if 
-	
+// Check to see it has been set yet, if not, then do the default
+var <>LOG_FolderPathForLogFiles : Text
+If (<>LOG_FolderPathForLogFiles="")
+	LogEvent_SetLogFolder
 End if 
-$0:=<>LOG_FolderPathForLogFiles
+
+return <>LOG_FolderPathForLogFiles

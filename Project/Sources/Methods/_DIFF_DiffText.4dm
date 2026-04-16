@@ -11,29 +11,19 @@
 //
 //   A array of Items containing the differences is returned.
 //
-C_TEXT:C284($1; $A_t)
-C_TEXT:C284($2; $B_t)
-C_POINTER:C301($3; $StartA_ptr)
-C_POINTER:C301($4; $StartB_ptr)
-C_POINTER:C301($5; $DeletedA_ptr)
-C_POINTER:C301($6; $InsertedB_ptr)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: ddancy (04/22/2008)
+#DECLARE($A_t : Text\
+; $B_t : Text\
+; $StartA_ptr : Pointer\
+; $StartB_ptr : Pointer\
+; $DeletedA_ptr : Pointer\
+; $InsertedB_ptr : Pointer)
 // ----------------------------------------------------
 
-$A_t:=$1
-$B_t:=$2
-$StartA_ptr:=$3
-$StartB_ptr:=$4
-$DeletedA_ptr:=$5
-$InsertedB_ptr:=$6
-
-C_LONGINT:C283($LengthA_l; $LengthB_l)
+var $LengthA_l; $LengthB_l : Integer
 $LengthA_l:=Length:C16($A_t)
 $LengthB_l:=Length:C16($B_t)
 
-C_LONGINT:C283($Char_l)
+var $Char_l : Integer
 
 ARRAY TEXT:C222($A; $LengthA_l)
 For ($Char_l; 1; $LengthA_l)

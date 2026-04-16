@@ -56,7 +56,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		If (OnErr_GetLastError=0)
 			If (Pref_GetPrefString("isFormObjectStubRemoved")="")  // only clean up "once"
 				FormProperties_RemoveStub
-				Pref_SetPrefString("isFormObjectStubRemoved"; "Done "+Date2String(CurrentDate; "YYYY-MM-DD"))
+				Pref_SetPrefString("isFormObjectStubRemoved"; "Done "+Date2String(Current date:C33; "YYYY-MM-DD"))
 			End if 
 			APPEND TO ARRAY:C911($at_stuffToRemove; "Project Method \"CodeAnalysis_FormObjectStub\"")
 		End if 

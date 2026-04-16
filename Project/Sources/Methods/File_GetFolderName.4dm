@@ -1,32 +1,25 @@
 //%attributes = {"invisible":true}
 // File_GetFolderName (filePath) : parentFolderPath
-// File_GetFolderName (text) : text
 // 
 // DESCRIPTION
 //   Given the path to a document, returns the path
 //   to the folder the document is in.
 //
-C_TEXT:C284($1; $t_docPath)  //   Full path to document 
-C_TEXT:C284($0; $t_folderPath)  //   Path to folder document is in
+#DECLARE($t_docPath : Text)->$t_folderPath : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Jeremy Sullivan (10/16/2001)
-//   Mod: DB (11/20/07) - Improved and simplified
-//   Mod by: Dani Beaubien (10/14/2012) - Worked around compiler bug
-// ----------------------------------------------------
+ASSERT:C1129(Count parameters:C259=1)
 
-$t_docPath:=$1
 $t_folderPath:=$t_docPath  // be default
 
-C_LONGINT:C283($l_length; $l_position)
+var $l_length; $l_position : Integer
 $l_position:=0
 $l_length:=Length:C16($t_docPath)
 
-C_TEXT:C284($vt_directorySymbol)
+var $vt_directorySymbol : Text
 $vt_directorySymbol:=Folder separator:K24:12
 
 If ($l_length>2)
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; $l_length-1; 1; -1)
 		If ($t_docPath[[$i]]=$vt_directorySymbol)
 			$l_position:=$i
@@ -43,5 +36,3 @@ If ($l_length>2)
 Else 
 	$t_folderPath:=""  // no parent so return empty string
 End if 
-
-$0:=$t_folderPath

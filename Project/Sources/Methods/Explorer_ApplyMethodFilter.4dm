@@ -39,7 +39,7 @@ var $vl_modLastDayCount; $vl_dts : Integer
 $vl_modLastDayCount:=Num:C11(Pref_GetPrefString("EXPLORE LastMod DayCount"))
 If ($vl_modLastDayCount>0)
 	var $vd_date : Date
-	$vd_date:=Add to date:C393(CurrentDate; 0; 0; 1-$vl_modLastDayCount)
+	$vd_date:=Add to date:C393(Current date:C33; 0; 0; 1-$vl_modLastDayCount)
 	$vl_dts:=TS_FromDateTime($vd_date; ?00:00:00?)
 End if 
 

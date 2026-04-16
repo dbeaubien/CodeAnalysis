@@ -1,164 +1,5 @@
 //%attributes = {"invisible":true}
 
-//UnitTest_AssertEqualText
-C_TEXT:C284(UnitTest_AssertEqualText; $1)
-C_TEXT:C284(UnitTest_AssertEqualText; $2)
-C_TEXT:C284(UnitTest_AssertEqualText; $3)
-
-//MethodLines_GetHeaderComment
-C_TEXT:C284(MethodLines_GetHeaderComment; $0)
-C_POINTER:C301(MethodLines_GetHeaderComment; $1)
-C_TEXT:C284(MethodLines_GetHeaderComment; $2)
-
-//_DIFF_SMS
-C_POINTER:C301(_DIFF_SMS; $1)
-C_LONGINT:C283(_DIFF_SMS; $2)
-C_LONGINT:C283(_DIFF_SMS; $3)
-C_POINTER:C301(_DIFF_SMS; $4)
-C_LONGINT:C283(_DIFF_SMS; $5)
-C_LONGINT:C283(_DIFF_SMS; $6)
-C_POINTER:C301(_DIFF_SMS; $7)
-C_POINTER:C301(_DIFF_SMS; $8)
-C_POINTER:C301(_DIFF_SMS; $9)
-C_POINTER:C301(_DIFF_SMS; $10)
-
-//Folder_Delete
-C_TEXT:C284(Folder_Delete; $1)
-
-//Folder_GetAllFilePaths
-C_TEXT:C284(Folder_GetAllFilePaths; $1)
-C_POINTER:C301(Folder_GetAllFilePaths; $2)
-C_POINTER:C301(Folder_GetAllFilePaths; $3)
-C_POINTER:C301(Array_SetSize; ${2})
-C_LONGINT:C283(Array_SetSize; $1)
-
-//Utility_MakeTextStyleSafe
-C_TEXT:C284(Utility_MakeTextStyleSafe; $0)
-C_TEXT:C284(Utility_MakeTextStyleSafe; $1)
-
-//CHART_SaveAsJPG
-C_TEXT:C284(CHART_SaveAsJPG; $1)
-C_TEXT:C284(CHART_SaveAsJPG; $2)
-
-//File_GetFolderName
-C_TEXT:C284(File_GetFolderName; $0)
-C_TEXT:C284(File_GetFolderName; $1)
-
-//Array_ConvertToTextDelimited
-C_TEXT:C284(Array_ConvertToTextDelimited; $0)
-C_POINTER:C301(Array_ConvertToTextDelimited; $1)
-C_TEXT:C284(Array_ConvertToTextDelimited; $2)
-
-//CHART_Config_ShowSeriesLabels
-C_TEXT:C284(CHART_Config_ShowSeriesLabels; $1)
-C_BOOLEAN:C305(CHART_Config_ShowSeriesLabels; $2)
-C_LONGINT:C283(CHART_Config_ShowSeriesLabels; $3)
-
-//JSON_EncodeString
-C_TEXT:C284(JSON_EncodeString; $0)
-C_TEXT:C284(JSON_EncodeString; $1)
-C_TEXT:C284(JSON_EncodeString; $2)
-
-//Folder_DeleteFilesNotInSource
-C_TEXT:C284(Folder_DeleteFilesNotInSource; $1)
-C_POINTER:C301(Folder_DeleteFilesNotInSource; $2)
-
-//Structure_IndexType2Name
-C_TEXT:C284(Structure_IndexType2Name; $0)
-C_LONGINT:C283(Structure_IndexType2Name; $1)
-
-//Time2String
-C_TEXT:C284(Time2String; $0)
-C_TIME:C306(Time2String; $1)
-C_TEXT:C284(Time2String; $2)
-
-//CyclomaticComplxty_UnitTests
-C_TEXT:C284(CyclomaticComplxty_UnitTests; $1)
-
-//CHART_Config_XAxis_SetDataType
-C_TEXT:C284(CHART_Config_XAxis_SetDataType; $1)
-C_LONGINT:C283(CHART_Config_XAxis_SetDataType; $2)
-
-//LogEvent_GetLogFolder
-C_TEXT:C284(LogEvent_GetLogFolder; $0)
-
-//Method_ReduceToNamesOfType
-C_POINTER:C301(Method_ReduceToNamesOfType; $1)
-C_TEXT:C284(Method_ReduceToNamesOfType; $2)
-
-//_DIFF_Diff
-C_POINTER:C301(_DIFF_Diff; $1)
-C_POINTER:C301(_DIFF_Diff; $2)
-C_POINTER:C301(_DIFF_Diff; $3)
-C_POINTER:C301(_DIFF_Diff; $4)
-C_POINTER:C301(_DIFF_Diff; $5)
-C_POINTER:C301(_DIFF_Diff; $6)
-C_BOOLEAN:C305(_DIFF_Diff; $7)
-C_BOOLEAN:C305(_DIFF_Diff; $8)
-
-//Date__UnitTests
-C_TEXT:C284(Date__UnitTests; $1)
-
-//CHART__Draw_Indicator
-C_TEXT:C284(CHART__Draw_Indicator; $1)
-C_LONGINT:C283(CHART__Draw_Indicator; $2)
-C_LONGINT:C283(CHART__Draw_Indicator; $3)
-C_TEXT:C284(CHART__Draw_Indicator; $4)
-C_LONGINT:C283(CHART__Draw_Indicator; $5)
-C_TEXT:C284(CHART__Draw_Indicator; $6)
-
-//Folder_DeleteFoldersNotInSource
-C_TEXT:C284(Folder_DeleteFoldersNotInSource; $1)
-C_POINTER:C301(Folder_DeleteFoldersNotInSource; $2)
-
-//MethodStats__UnitTests
-C_TEXT:C284(MethodStats__UnitTests; $1)
-
-//MethodStats__GatherParmInfo2
-C_POINTER:C301(MethodStats__GatherParmInfo2; $1)
-C_TEXT:C284(MethodStats__GatherParmInfo2; $2)
-C_TEXT:C284(MethodStats__GatherParmInfo2; $3)
-C_TEXT:C284(MethodStats__GatherParmInfo2; $4)
-C_TEXT:C284(MethodStats__GatherParmInfo2; $5)
-
-//BuildNo_GetBuildNo_CodeAnalysis
-C_OBJECT:C1216(BuildNo_GetBuildNo_CodeAnalysis; $0)
-
-//MethodStats__DeleteMethod
-C_LONGINT:C283(MethodStats__DeleteMethod; $0)
-C_TEXT:C284(MethodStats__DeleteMethod; $1)
-
-//LogEvent_SetNewLogFrequency
-C_TEXT:C284(LogEvent_SetNewLogFrequency; $1)
-
-//ExportDocs__SaveMainHtmlPage
-C_TEXT:C284(ExportDocs__SaveMainHtmlPage; $1)
-
-//Structure_GetTokenArr_Cdefn
-C_POINTER:C301(Structure_GetTokenArr_Cdefn; $1)
-
-//TS_FromDateTime
-C_LONGINT:C283(TS_FromDateTime; $0)
-C_DATE:C307(TS_FromDateTime; $1)
-C_TIME:C306(TS_FromDateTime; $2)
-
-//4D_GenerateDigest
-C_TEXT:C284(4D_GenerateDigest; $0)
-C_TEXT:C284(4D_GenerateDigest; $1)
-
-//List_Object_SetStyle
-C_TEXT:C284(List_Object_SetStyle; $1)
-C_LONGINT:C283(List_Object_SetStyle; $2)
-C_LONGINT:C283(List_Object_SetStyle; $3)
-
-//OT_GetReal
-C_REAL:C285(OT_GetReal; $0)
-C_TEXT:C284(OT_GetReal; $1)
-C_TEXT:C284(OT_GetReal; $2)
-
-//MethodStats__Init
-C_BOOLEAN:C305(MethodStats__Init; $1)
-
 //StructureCollection_AddTable
 C_COLLECTION:C1488(StructureCollection_AddTable; $1)
 C_LONGINT:C283(StructureCollection_AddTable; $2)
@@ -167,14 +8,6 @@ C_TEXT:C284(StructureCollection_AddTable; $3)
 //MethodCode_RemoveAllComments
 C_TEXT:C284(MethodCode_RemoveAllComments; $0)
 C_TEXT:C284(MethodCode_RemoveAllComments; $1)
-
-//_DIFF_DiffText
-C_TEXT:C284(_DIFF_DiffText; $1)
-C_TEXT:C284(_DIFF_DiffText; $2)
-C_POINTER:C301(_DIFF_DiffText; $3)
-C_POINTER:C301(_DIFF_DiffText; $4)
-C_POINTER:C301(_DIFF_DiffText; $5)
-C_POINTER:C301(_DIFF_DiffText; $6)
 
 //MethodStats__GetMaxNestingLevel
 C_LONGINT:C283(MethodStats__GetMaxNestingLevel; $0)
@@ -193,16 +26,6 @@ C_TEXT:C284(HASH_HashTextSDBM; $1)
 //CHART_SaveAsPNG
 C_TEXT:C284(CHART_SaveAsPNG; $1)
 C_TEXT:C284(CHART_SaveAsPNG; $2)
-
-//_DIFF_ChangesText
-C_TEXT:C284(_DIFF_ChangesText; $0)
-C_POINTER:C301(_DIFF_ChangesText; $1)
-C_POINTER:C301(_DIFF_ChangesText; $2)
-C_POINTER:C301(_DIFF_ChangesText; $3)
-C_POINTER:C301(_DIFF_ChangesText; $4)
-
-//CurrentDate
-C_DATE:C307(CurrentDate; $0)
 
 //WIN_CloseWindow
 C_LONGINT:C283(WIN_CloseWindow; $1)

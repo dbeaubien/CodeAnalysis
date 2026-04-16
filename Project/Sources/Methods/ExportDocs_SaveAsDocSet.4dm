@@ -12,8 +12,8 @@
 // ----------------------------------------------------
 
 If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
-	C_PICTURE:C286($vg_icon)
-	C_LONGINT:C283($progHdl)
+	var $vg_icon : Picture
+	var $progHdl : Integer
 	READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Write.png"); $vg_icon)
 	$progHdl:=Progress New
 	Progress SET ICON($progHdl; $vg_icon)
@@ -24,13 +24,13 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	
 	Pref_SetPrefString("HTML do Component View"; "1")  // Force to be only shared methods
 	
-	C_LONGINT:C283($vs1; $vs2; $vs3; $ve1; $ve2; $ve3)
+	var $vs1; $vs2; $vs3; $ve1; $ve2; $ve3 : Integer
 	$vs1:=Milliseconds:C459
 	MethodStats_RecalculateModified
 	$ve1:=Milliseconds:C459
 	
 	// # Setup the folder paths
-	C_TEXT:C284($vt_rootFolder; $vt_folder_Contents; $vt_folder_Resources; $vt_folder_Documents)
+	var $vt_rootFolder; $vt_folder_Contents; $vt_folder_Resources; $vt_folder_Documents : Text
 	$vt_rootFolder:=CodeAnalysis__GetDestFolder+File_GetFileName(Structure file:C489(*))+".docset"+Folder separator:K24:12
 	$vt_folder_Contents:=$vt_rootFolder+"Contents"+Folder separator:K24:12
 	$vt_folder_Resources:=$vt_folder_Contents+"Resources"+Folder separator:K24:12
@@ -43,8 +43,8 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	COPY DOCUMENT:C541(Get 4D folder:C485(Current resources folder:K5:16)+"docset"+Folder separator:K24:12+"icon.png"; $vt_rootFolder+"icon.png")
 	
 	// Copy (and update) the Info.plist file into the package
-	C_TEXT:C284($vt_tmpText)
-	C_BLOB:C604($vx_tmpFile)
+	var $vt_tmpText : Text
+	var $vx_tmpFile : Blob
 	DOCUMENT TO BLOB:C525(Get 4D folder:C485(Current resources folder:K5:16)+"docset"+Folder separator:K24:12+"Info.plist"; $vx_tmpFile)
 	$vt_tmpText:=BLOB to text:C555($vx_tmpFile; UTF8 text without length:K22:17)
 	$vt_tmpText:=Replace string:C233($vt_tmpText; "##ComponentName##"; File_GetFileName(Structure file:C489(*)))
@@ -66,7 +66,7 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	
 	$vs3:=Milliseconds:C459
 	// # Create the Sqlite file
-	C_TEXT:C284($vt_commandToExecute)
+	var $vt_commandToExecute : Text
 	$vt_commandToExecute:="CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);"
 	$vt_commandToExecute+="CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);"
 	Sqlite_DoCommand($vt_folder_Resources+"docSet.dsidx"; $vt_commandToExecute)
@@ -76,8 +76,8 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	METHOD GET PATHS:C1163(Path project method:K72:1; $projectMethodPathsArr)
 	
 	If (True:C214)  // # Add sqlite entries for each of the modules
-		C_OBJECT:C1216($moduleCounts; $methodObj)
-		C_LONGINT:C283($i)
+		var $moduleCounts; $methodObj : Object
+		var $i : Integer
 		$moduleCounts:=New object:C1471
 		For ($i; 1; Size of array:C274($projectMethodPathsArr))
 			$methodObj:=MethodStatsMasterObj[$projectMethodPathsArr{$i}]
@@ -119,7 +119,7 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	
 	
 	// Put out some stats
-	C_TEXT:C284(<>vt_ExportToResults)
+	var <>vt_ExportToResults : Text
 	<>vt_ExportToResults:=<>vt_ExportToResults+"Docset Created on folder:\r "
 	<>vt_ExportToResults:=<>vt_ExportToResults+Folder_ParentName($vt_rootFolder)+"\r\r"
 	<>vt_ExportToResults:=<>vt_ExportToResults+" Time to Scan - "+String:C10($ve1-$vs1; "###,###,###,##0")+"ms\r"

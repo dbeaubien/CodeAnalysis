@@ -1,27 +1,21 @@
 //%attributes = {"invisible":true}
 // MethodStats__GetMaxNestingLevel (arrayToIndent) : maxNestingLevel
-// MethodStats__GetMaxNestingLevel (pointer to array) : longint
 // 
 // DESCRIPTION
 //   Takes an array of 4D Code (one line per element) and
 //   and determines the maximum nesting level.
 //
-C_POINTER:C301($1; $at_linesOfCode_ArrPtr)
-C_LONGINT:C283($0; $vl_maxNestingLevel)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (07/20/2016)
+#DECLARE($at_linesOfCode_ArrPtr : Pointer)->$vl_maxNestingLevel : Integer
 // ----------------------------------------------------
 
 $vl_maxNestingLevel:=0
 Logging_Method_START(Current method name:C684)
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$at_linesOfCode_ArrPtr:=$1
 	
-	C_LONGINT:C283($vl_indentLevel)
+	var $vl_indentLevel : Integer
 	$vl_indentLevel:=0
-	C_LONGINT:C283($i)
-	C_TEXT:C284($vt_curLine)
+	var $i : Integer
+	var $vt_curLine : Text
 	For ($i; 1; Size of array:C274($at_linesOfCode_ArrPtr->))
 		$vt_curLine:=$at_linesOfCode_ArrPtr->{$i}
 		
@@ -44,4 +38,3 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	
 End if 
 Logging_Method_STOP(Current method name:C684)
-$0:=$vl_maxNestingLevel

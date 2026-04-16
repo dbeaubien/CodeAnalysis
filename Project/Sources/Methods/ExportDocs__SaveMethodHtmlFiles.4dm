@@ -1,26 +1,16 @@
 //%attributes = {"invisible":true}
 // ExportDocs__SaveMethodHtmlFiles (root Folder; progressBarID)
-// ExportDocs__SaveMethodHtmlFiles (text; longint)
 //
 // DESCRIPTION
 //   Outputs each method's documentation to HTML files.
 //
-C_TEXT:C284($1; $rootFolder)
-C_LONGINT:C283($2; $progressHdl)
-// ----------------------------------------------------
-// User name (OS): Dani Beaubien
-// Date and time: 03/07/12, 12:22:56
-//   Mod by: Dani Beaubien (10/02/2012) - Add support to limit to just methods viewable by the host DB
-//   Mod by: Dani Beaubien (01/25/2013) - Use "pretty" method names in the output.
-//   Mod by: Dani Beaubien (01/27/2021) - Refactored to use objects rather than arrays.
+#DECLARE($rootFolder : Text; $progressHdl : Integer)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$rootFolder:=$1
-$progressHdl:=$2
 
-C_BOOLEAN:C305($onlyExportSharedMethods)
-C_TEXT:C284($methodRootFolder; $templateSourceFolder)
-C_TEXT:C284($templateHTML)
+var $onlyExportSharedMethods : Boolean
+var $methodRootFolder; $templateSourceFolder : Text
+var $templateHTML : Text
 If (True:C214)  // prep our vars
 	$onlyExportSharedMethods:=(Pref_GetPrefString("HTML do Component View"; "0")="1")
 	$templateSourceFolder:=Get 4D folder:C485(Current resources folder:K5:16)+"HTML Tempates"+Folder separator:K24:12
@@ -42,10 +32,10 @@ Method_GetMethodObjNames(->$methodObjNames; $onlyExportSharedMethods)
 ARRAY TEXT:C222($at_otherMethodsCalledAsHTML; Size of array:C274($methodObjNames))
 ARRAY TEXT:C222($at_calledByOtherMethodsAsHTML; Size of array:C274($methodObjNames))
 If (True:C214)  // work out the hrefs for the upsteam/downstream methods
-	C_OBJECT:C1216($methodObj)
-	C_LONGINT:C283($i; $j)
-	C_TEXT:C284($value)
-	C_COLLECTION:C1488($hrefList)
+	var $methodObj : Object
+	var $i; $j : Integer
+	var $value : Text
+	var $hrefList : Collection
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$methodObj:=MethodStatsMasterObj[$methodObjNames{$i}]
 		
@@ -73,9 +63,9 @@ If (True:C214)  // work out the hrefs for the upsteam/downstream methods
 End if 
 
 If (True:C214)  // # Save the method files to disk
-	C_OBJECT:C1216($methodObj; $reference)
-	C_COLLECTION:C1488($list)
-	C_TEXT:C284($fileHTML; $methodHTML; $methodComment)
+	var $reference : Object
+	var $list : Collection
+	var $fileHTML; $methodHTML; $methodComment : Text
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$methodObj:=MethodStatsMasterObj[$methodObjNames{$i}]
 		
@@ -161,8 +151,6 @@ If (True:C214)  // # Save the method files to disk
 		$methodHTML:=$methodHTML+"</tr></table>"+Pref_GetEOL
 		$methodHTML:=Replace string:C233($methodHTML; Pref_GetEOL; "<br/>")  //   Mod: DB (02/18/2014)
 		
-		
-		C_TEXT:C284($fileHTML)
 		If (True:C214)  // put the html file together
 			$fileHTML:=$templateHTML
 			$fileHTML:=Replace string:C233($fileHTML; "###PageTitle###"; "Method: "+$methodObj.path)
@@ -173,7 +161,7 @@ If (True:C214)  // # Save the method files to disk
 		End if 
 		
 		If (True:C214)  // write the HTML to disk
-			C_TIME:C306($fileRef)
+			var $fileRef : Time
 			$fileRef:=Create document:C266($methodRootFolder+Replace string:C233($methodObj.path; "/"; "-")+".html")
 			If (OK=1)
 				SEND PACKET:C103($fileRef; $fileHTML)

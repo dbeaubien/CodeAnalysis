@@ -6,7 +6,7 @@
 var $Success_b : Boolean
 $Success_b:=True:C214
 
-C_TEXT:C284($a; $b)
+var $a; $b : Text
 
 // test all changes
 $a:="a,b,c,d,e,f,g,h,i,j,k,l"

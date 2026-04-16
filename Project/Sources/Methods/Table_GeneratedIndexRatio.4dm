@@ -25,7 +25,7 @@ Open window:C153(100; 100; 500; 500)
 
 var $vl_fileName; $vt_docName : Text
 var $docref : Time
-$vl_fileName:=File_GetFolderName(Structure file:C489(*))+Date2String(CurrentDate; "yyyy-mm-dd")+" index ratios.csv"
+$vl_fileName:=File_GetFolderName(Structure file:C489(*))+Date2String(Current date:C33; "yyyy-mm-dd")+" index ratios.csv"
 $docref:=Create document:C266($vl_fileName)
 If (OK=1)
 	$vt_docName:=Document
