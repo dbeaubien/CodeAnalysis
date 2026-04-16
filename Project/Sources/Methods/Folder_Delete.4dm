@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// METHOD: Folder_Delete
+// Folder_Delete
 // 
 // DESCRIPTION
 //  This routine will recursively delete files and folders  
@@ -8,20 +7,13 @@
 //  this is NOT UNDOABLE and has NO ERROR CHECKING!
 //  Don't say I didn't warn you.
 //
-// PARAMETERS:
-C_TEXT:C284($1; $vt_folderPath)  // Path of the folder to be deleted. 
-// RETURNS:
-//   none
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (05/31/06)
+#DECLARE($vt_folderPath : Text)  // Path of the folder to be deleted. 
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vt_folderPath:=$1
 	
 	If ($vt_folderPath#"")
-		C_TEXT:C284($vt_curOnErrMethod)  // Added: DB (2005.08.05 @ 09:01:57) -  better error handling
+		var $vt_curOnErrMethod : Text  // Added: DB (2005.08.05 @ 09:01:57) -  better error handling
 		$vt_curOnErrMethod:=Method called on error:C704
 		ON ERR CALL:C155("OnErr_GENERIC")
 		OnErr_ClearError
@@ -40,4 +32,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		ON ERR CALL:C155($vt_curOnErrMethod)  // Added: DB (2005.08.05 @ 09:01:57) -  better error handling
 	End if 
 	
-End if   // ASSERT
+End if 

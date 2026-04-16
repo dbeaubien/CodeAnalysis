@@ -41,7 +41,7 @@ If ($numTableFormMethods>0)  // Get the list of project form methods
 	$currentFormName:=""
 	$currentTableName:=""
 	
-	C_BOOLEAN:C305($ulTagOpened)
+	var $ulTagOpened : Boolean
 	C_TEXT:C284($friendlyName; $vt_ObjectName)
 	C_LONGINT:C283($i)
 	For ($i; 1; Size of array:C274($methodObjNames))

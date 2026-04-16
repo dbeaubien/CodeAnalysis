@@ -9,7 +9,7 @@ If (Count parameters:C259=0)
 	UnitTest_RunAll
 	
 Else 
-	C_TEXT:C284($1; $action)
+	var $1; $action : Text
 	$action:=$1
 	
 	Case of 

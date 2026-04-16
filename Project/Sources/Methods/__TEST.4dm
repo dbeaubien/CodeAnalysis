@@ -3,10 +3,10 @@
 
 var $ms : Integer
 $ms:=Milliseconds:C459
-C_TEXT:C284($vt_xml)
+var $vt_xml : Text
 EXPORT STRUCTURE:C1311($vt_xml)
 
-C_OBJECT:C1216($vo_structure)
+var $vo_structure : Object
 $vo_structure:=UTL_structure2Object($vt_xml)
 ALERT:C41(String:C10(Milliseconds:C459-$ms))
 

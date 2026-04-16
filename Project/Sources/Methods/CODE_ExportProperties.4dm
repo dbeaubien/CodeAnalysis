@@ -13,15 +13,15 @@
 // ----------------------------------------------------
 
 If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
-	C_TEXT:C284($vt_onErrorMethod)
+	var $vt_onErrorMethod : Text
 	$vt_onErrorMethod:=Method called on error:C704
 	OnErr_ClearError
 	ON ERR CALL:C155("OnErr_GENERIC_Quiet")
 	
-	C_TEXT:C284(<>_CODEANALYSIS_FLDR_SUFFIX)  // used in the CA_SaveFormProperties method.
+	var <>_CODEANALYSIS_FLDR_SUFFIX : Text  // used in the CA_SaveFormProperties method.
 	<>_CODEANALYSIS_FLDR_SUFFIX:=""
 	
-	C_BOOLEAN:C305($vb_doAppendDate; $vb_doAppendTime)
+	var $vb_doAppendDate; $vb_doAppendTime : Boolean
 	If (Pref_GetPrefString("EXPORT - Append Date to Form Folder Name"; "1")="1")  //   Mod: DB (08/29/2015)
 		$vb_doAppendDate:=True:C214
 		$vb_doAppendTime:=True:C214
@@ -38,10 +38,10 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 		<>_CODEANALYSIS_FLDR_SUFFIX:=<>_CODEANALYSIS_FLDR_SUFFIX+Time2String(Current time:C178; " 24hh.mm.ss")
 	End if 
 	
-	C_LONGINT:C283($progHdl; $progHdl2)
+	var $progHdl; $progHdl2 : Integer
 	$progHdl:=Progress New
 	
-	C_PICTURE:C286($vg_icon)
+	var $vg_icon : Picture
 	READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Write.png"); $vg_icon)
 	Progress SET ICON($progHdl; $vg_icon)
 	
@@ -63,17 +63,17 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	
 	
 	
-	C_LONGINT:C283($vl_maxCount)
-	$vl_maxCount:=Get last table number:C254+1
+	var $vl_maxCount : Integer
+	$vl_maxCount:=Last table number:C254+1
 	
 	
-	C_BOOLEAN:C305($vb_noResult)
-	C_LONGINT:C283($vl_tableNo; $vl_count)
+	var $vb_noResult : Boolean
+	var $vl_tableNo; $vl_count : Integer
 	$vl_tableNo:=0
 	
 	// Process the table forms
-	C_POINTER:C301($vp_table)
-	For ($vl_tableNo; 1; Get last table number:C254)
+	var $vp_table : Pointer
+	For ($vl_tableNo; 1; Last table number:C254)
 		If (Is table number valid:C999($vl_tableNo))
 			$vp_table:=Table:C252($vl_tableNo)
 			Progress SET MESSAGE($progHdl; "Scanning ["+Table name:C256($vl_tableNo)+"] forms...")
@@ -82,7 +82,7 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 			Host_GetAssetInfo_GetTableForms($vl_tableNo; ->at_projectFormNames)
 			//LogEvent_Write ("Host_GetAssetInfo_GetTableForms returned "+String(Size of array(at_projectFormNames))+" for table "+Table name($vl_tableNo)+".")
 			
-			C_LONGINT:C283($i)
+			var $i : Integer
 			For ($i; 1; Size of array:C274(at_projectFormNames))
 				$vl_count:=$vl_count+1
 				$vb_noResult:=CA_SaveFormProperties($vl_tableNo; at_projectFormNames{$i})

@@ -60,5 +60,5 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 		Pref_SetGlobalPrefString($vt_prefName; $vt_defaultValue)
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vt_value

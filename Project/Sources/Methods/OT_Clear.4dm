@@ -13,4 +13,4 @@ C_TEXT:C284($1)
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	DOM CLOSE XML:C722($1)
-End if   // ASSERT
+End if 

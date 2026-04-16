@@ -1,0 +1,128 @@
+{
+	"_method_": {
+		"Manifest_ShowAttributeEditor": {
+			"Syntax": "**Manifest_ShowAttributeEditor**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_RefreshLocalFile": {
+			"Syntax": "**Manifest_RefreshLocalFile**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_SetCopyright": {
+			"Syntax": "**Manifest_SetCopyright**( *copyrights* : Text; *forceMethodListRefresh* : Boolean )",
+			"Params": [
+				[
+					"copyrights",
+					"Text",
+					"->"
+				],
+				[
+					"forceMethodListRefresh",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_GetPluginManifests": {
+			"Syntax": "**Manifest_GetPluginManifests**()->pluginManifests : Object",
+			"Params": [
+				[
+					"pluginManifests",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_SetBuildDate": {
+			"Syntax": "**Manifest_SetBuildDate**( *buildDate* : Date; *forceMethodListRefresh* : Boolean )",
+			"Params": [
+				[
+					"buildDate",
+					"Date",
+					"->"
+				],
+				[
+					"forceMethodListRefresh",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_GetComponentManifests": {
+			"Syntax": "**Manifest_GetComponentManifests**()->componentManifests : Object",
+			"Params": [
+				[
+					"componentManifests",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_SetVersion": {
+			"Syntax": "**Manifest_SetVersion**( *version* : Text; *forceMethodListRefresh* : Boolean )",
+			"Params": [
+				[
+					"version",
+					"Text",
+					"->"
+				],
+				[
+					"forceMethodListRefresh",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_SetAuthor": {
+			"Syntax": "**Manifest_SetAuthor**( *author* : Text; *forceMethodListRefresh* : Boolean )",
+			"Params": [
+				[
+					"author",
+					"Text",
+					"->"
+				],
+				[
+					"forceMethodListRefresh",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Manifest_SetURL": {
+			"Syntax": "**Manifest_SetURL**( *url* : Text; *forceMethodListRefresh* : Boolean )",
+			"Params": [
+				[
+					"url",
+					"Text",
+					"->"
+				],
+				[
+					"forceMethodListRefresh",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		}
+	}
+}

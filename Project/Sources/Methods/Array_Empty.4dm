@@ -19,5 +19,5 @@ If (Asserted:C1132(Count parameters:C259=1))
 	If ($pos>0)
 		DELETE FROM ARRAY:C228($arrayPtr->; 1; $pos)
 	End if 
-End if   // ASSERT
+End if 
 

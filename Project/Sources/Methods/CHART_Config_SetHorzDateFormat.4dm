@@ -21,4 +21,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	$vt_dateFormat:=$2
 	
 	OT_PutText($chartID; "horzDateLabelFormat"; $vt_dateFormat)
-End if   // ASSERT
+End if 

@@ -15,23 +15,18 @@ ABORT:C156
 
 
 
-C_OBJECT:C1216($vo_callersObj)
+var $vo_callersObj : Object
 $vo_callersObj:=CA_GetMethodsCalledByMethod(Current method name:C684)
 $vo_callersObj:=CA_GetMethodsCallingTheMethod(Current method name:C684)
 
-
-
-
-C_OBJECT:C1216($vo_callersObj)
 $vo_callersObj:=CA_GetMethodsCalledByMethod(Current method name:C684)
 $vo_callersObj:=CA_GetMethodsCallingTheMethod(Current method name:C684)
 
-C_OBJECT:C1216($vo_callersObj)
 $vo_callersObj:=CA_GetMethodsCalledByMethod(Current method name:C684)
 $vo_callersObj:=CA_GetMethodsCallingTheMethod(Current method name:C684)
 
 ABORT:C156
-C_TEXT:C284($vt)
+var $vt : Text
 $vt:=""
 __TODO_CA
 MethodStats__Init
@@ -51,24 +46,24 @@ SET DATABASE LOCALIZATION:C1104("EN")
 ABORT:C156
 
 If (False:C215)
-	C_TEXT:C284($string)
+	var $string : Text
 	$string:=""
 	$vt:="54 6f 20 73 65 65 20 61 20 57 6f 72 6c 64 20 69 6e 20 61 20 47 72 61 69 6E 20 6F 66 20 53 61 6e 64 2e "
 	$vt:=$vt+"20 48 6f 6c 64 20 49 6e 66 69 6e 69 74 79 20 69 6e 20 74 68 65 20 70 61 6c 6d 20 6f 66 20 79 6f 75 72 20 68 61 6e 64 2e"
 	ARRAY TEXT:C222($at; 0)
 	Array_ConvertFromTextDelimited(->$at; $vt; " ")
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274($at))
-		C_LONGINT:C283(someNum)
+		var someNum : Integer
 		EXECUTE FORMULA:C63("someNum:=0x"+String:C10($at{$i}))
 		$string:=$string+Char:C90(someNum)
 	End for 
 	ALERT:C41($string)
 End if 
 
-C_TEXT:C284(\
+var \
 $someVar; \
-$someOtherVar)
+$someOtherVar : Text
 
 If (False:C215)
 	Case of 
@@ -85,7 +80,7 @@ If (False:C215)
 End if 
 
 
-C_TEXT:C284($vt_line)
+var $vt_line : Text
 $vt_line:="<>_Graphs_Label{$graphNo}:=\"# Methods by Length\""
 $vt_line:="$pos:=Position(\"//\";$myText)  // Also start position to start spell checking"
 ARRAY TEXT:C222($at_tokens; 0)
@@ -125,23 +120,23 @@ ARRAY LONGINT:C221($pagesArr; 0)
 ARRAY LONGINT:C221($objTypeArr; 0)
 ARRAY TEXT:C222($objActionArr; 0)
 
-C_POINTER:C301($vp_table)
+var $vp_table : Pointer
 $vp_table:=->[Table_1:1]
 FORM LOAD:C1103($vp_table->; "Input"; *)
 
-FORM GET OBJECTS:C898($objNamesArr; $varArr; $pagesArr; *)
-For ($i; 1; Size of array:C274($objNamesArr))
-	APPEND TO ARRAY:C911($objTypeArr; OBJECT Get type:C1300(*; $objNamesArr{$i}))
-	APPEND TO ARRAY:C911($objActionArr; _O_OBJECT Get action:C1260(*; $objNamesArr{$i}))
-End for 
-FORM UNLOAD:C1299
+//FORM GET OBJECTS($objNamesArr; $varArr; $pagesArr; *)
+//For ($i; 1; Size of array($objNamesArr))
+//APPEND TO ARRAY($objTypeArr; OBJECT Get type(*; $objNamesArr{$i}))
+//APPEND TO ARRAY($objActionArr; _O_OBJECT Get action(*; $objNamesArr{$i}))
+//End for 
+//FORM UNLOAD
 
 CA_SaveFormProperties
 
 ABORT:C156
 
-C_LONGINT:C283($vl_tableNo)
-C_TEXT:C284($vt_formName; $vt_diskFilePath)
+var $vl_tableNo : Integer
+var $vt_formName; $vt_diskFilePath : Text
 $vl_tableNo:=Table:C252(->[Table_1:1])
 $vt_formName:="Input"
 $vt_diskFilePath:="test.json"
@@ -155,10 +150,10 @@ ABORT:C156
 //$someVar:=$1
 //<>_CA_QUICKLAUNCHER_PROCID:=0
 
-C_LONGINT:C283($vl_test; $vsomeVar)
+var $vl_test; $vsomeVar : Integer
 $vl_test:=0
-C_TEXT:C284($vt_msg)
-$vt_msg:=Replace string:C233(Get localized string:C991("Msg_STRCT_DfltFldBadChar"); "%1"; Folder separator:K24:12)
+var $vt_msg : Text
+$vt_msg:=Replace string:C233(Localized string:C991("Msg_STRCT_DfltFldBadChar"); "%1"; Folder separator:K24:12)
 
 ALERT:C41($vt_msg)
 

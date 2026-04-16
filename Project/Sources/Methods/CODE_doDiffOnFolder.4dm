@@ -30,8 +30,8 @@ $vt_srcFldr:=<>_DIFF_PathToFileOnDisk
 OnErr_Install_Handler("OnErr_GENERIC")
 OnErr_ClearError
 
-C_BOOLEAN:C305($vb_ignoreAttributeLine; $vb_ignoreMultipleSpaces; $vb_ignoreCase; $vb_ignoreBlankLines)
-C_BOOLEAN:C305($vb_noStructOnly; $vb_noDiskOnly)
+var $vb_ignoreAttributeLine; $vb_ignoreMultipleSpaces; $vb_ignoreCase; $vb_ignoreBlankLines : Boolean
+var $vb_noStructOnly; $vb_noDiskOnly : Boolean
 ARRAY TEXT:C222(at_XTRA_ignoreNames; 0)  // List of file/folder names to ignore on disk
 If (True:C214)  // grab preferences
 	$vb_ignoreAttributeLine:=(Pref_GetPrefString("DIFF Ignore Attribute Line"; "0")="1")
@@ -137,7 +137,7 @@ End for
 
 // Put a description on the change
 ARRAY TEXT:C222($diffDescriptionArr; Size of array:C274(at_methodNames))
-C_BOOLEAN:C305($vb_deleteRow)
+var $vb_deleteRow : Boolean
 Progress SET MESSAGE($progHdl; "Step 3 of 3: Examining digests...")
 For ($i; Size of array:C274(at_methodNames); 1; -1)
 	$vb_deleteRow:=False:C215

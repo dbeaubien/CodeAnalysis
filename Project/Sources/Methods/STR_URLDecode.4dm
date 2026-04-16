@@ -1,13 +1,15 @@
 //%attributes = {"invisible":true}
 // (PM) STR_URLDecode
+//
 // Returns a URL decoded string
 // $1 = String to decode
 // $0 = Decoded string
+//
+#DECLARE($input : Text)->$output : Text
+// ----------------------------------------------------
 
-C_TEXT:C284($1; $0; $input; $output; $hexValues)
-C_LONGINT:C283($position; $value)
-
-$input:=$1
+var $hexValues : Text
+var $position; $value : Integer
 $hexValues:="123456789ABCDEF"
 
 For ($position; 1; Length:C16($input))
@@ -26,5 +28,3 @@ For ($position; 1; Length:C16($input))
 	End case 
 	
 End for 
-
-$0:=$output

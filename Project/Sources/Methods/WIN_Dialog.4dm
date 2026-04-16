@@ -1,10 +1,9 @@
 //%attributes = {"invisible":true}
-// ====================================================
-// Method: WIN_Dialog
+// WIN_Dialog (..)
+//  
 // DESCRIPTION:
 //   This is a wrapper method for handling dialogs. restoring and saving
 //   of window positions is handled. 
-//  
 //  
 // Parameters
 // ----------------------------------------------------
@@ -14,55 +13,27 @@
 //   $4: Window Title
 //   $5: horz positioning
 //   $6: vert positioning
+#DECLARE($WIN_vl_tablePtr : Pointer\
+; $WIN_vt_layoutName : Text\
+; $WIN_vl_windowType : Integer\
+; $WIN_vT_WindowTitle : Text\
+; $WIN_vl_horzPos : Integer\
+; $WIN_vl_vertPos : Integer\
+; $WIN_vF_DontUseSaved : Boolean)
 // ----------------------------------------------------
-//  Returns:
-//  none:
-// ====================================================
-// History:
-// ----------------------------------------------------
-//  Created by: (OS): jcraig
-//  Date and time: 01/31/05, 14:35:17
-// ----------------------------------------------------
-//  Modified:
-//  
-// ====================================================
+If (Count parameters:C259<5)
+	$WIN_vl_horzPos:=On the left:K39:2
+End if 
+If (Count parameters:C259<6)
+	$WIN_vl_vertPos:=At the top:K39:5
+End if 
 
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:C259))
-	C_POINTER:C301($1; $WIN_vl_tablePtr)
-	C_TEXT:C284($2; $WIN_vt_layoutName)
-	C_LONGINT:C283($3; $WIN_vl_windowType)
-	C_TEXT:C284($4; $WIN_vT_WindowTitle)
-	C_LONGINT:C283($5; $WIN_vl_horzPos)
-	C_LONGINT:C283($6; $WIN_vl_vertPos)
-	C_BOOLEAN:C305($7; $WIN_vF_DontUseSaved)
-	C_LONGINT:C283($vL_OK)
-	$WIN_vl_tablePtr:=$1
-	$WIN_vt_layoutName:=$2
-	$WIN_vl_windowType:=$3
+	var $vL_OK : Integer
 	
 	Component_init
 	
-	$WIN_vT_WindowTitle:=""
-	If (Count parameters:C259>=4)
-		$WIN_vT_WindowTitle:=$4
-	End if 
-	
-	$WIN_vl_horzPos:=On the left:K39:2
-	If (Count parameters:C259>=5)
-		$WIN_vl_horzPos:=$5
-	End if 
-	
-	$WIN_vl_vertPos:=At the top:K39:5
-	If (Count parameters:C259>=6)
-		$WIN_vl_vertPos:=$6
-	End if 
-	
-	$WIN_vF_DontUseSaved:=False:C215
-	If (Count parameters:C259>=7)
-		$WIN_vF_DontUseSaved:=$7
-	End if 
-	
-	C_LONGINT:C283($WIN_vl_width; $WIN_vl_height)
+	var $WIN_vl_width; $WIN_vl_height : Integer
 	
 	// If the window size has been saved to disk, then make sure that it is not too small
 	// the layout might have been resized, so just double check
@@ -74,7 +45,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:
 	
 	If ((WIN_PositionHasBeenSaved($WIN_vt_layoutName; "Disk")) & (Not:C34($WIN_vF_DontUseSaved)))
 		WIN_PositionFromDisk($WIN_vt_layoutName; $WIN_vl_width; $WIN_vl_height; "notOpenYet"; "UserPrefs")
-		C_LONGINT:C283($RefWindow)
+		var $RefWindow : Integer
 		$RefWindow:=Open window:C153(WIN_left_l; WIN_top_l; WIN_right_l; WIN_bottom_l; $WIN_vl_windowType; $WIN_vT_WindowTitle; "WIN_HandleCloseWindow_EMPTY")
 		
 	Else 
@@ -134,4 +105,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:
 		//Fnd_Dlg_Alert("An unexpected error occured. Could not open the desired window.")
 		ALERT:C41("An unexpected error occured. Could not open the desired window.")
 	End if 
-End if   // ASSERT
+End if 

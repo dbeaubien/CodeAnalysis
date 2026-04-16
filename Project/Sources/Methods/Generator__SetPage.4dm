@@ -38,8 +38,8 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 			: ($vl_mainTab=$tabPos_Differences)  // Differences
 				OBJECT SET VISIBLE:C603(SubTabControl; True:C214)
 				ARRAY TEXT:C222(SubTabControl; 2)
-				SubTabControl{1}:=Get localized string:C991("TabLabel_Methods")
-				SubTabControl{2}:=Get localized string:C991("TabLabel_Folders")
+				SubTabControl{1}:=Localized string:C991("TabLabel_Methods")
+				SubTabControl{2}:=Localized string:C991("TabLabel_Folders")
 				
 			: ($vl_mainTab=$tabPos_Exporting)  // Exporting
 				OBJECT SET VISIBLE:C603(SubTabControl; False:C215)
@@ -81,4 +81,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 		FORM GOTO PAGE:C247($vl_Page)
 	End if 
 	
-End if   // ASSERT
+End if 

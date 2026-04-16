@@ -19,4 +19,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	$vr_longintNumber:=$3
 	
 	OT_PutText($xml_Ref; $vt_tag; String:C10($vr_longintNumber))
-End if   // ASSERT
+End if 

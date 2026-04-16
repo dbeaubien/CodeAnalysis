@@ -1,20 +1,14 @@
 //%attributes = {"invisible":true}
 // MethodStats_IsLineIndent (lineOfCode) : doIndent
-// MethodStats_IsLineIndent (text) : boolean
 // 
 // DESCRIPTION
 //   Returns true if the line increases nesting.
 //
-C_TEXT:C284($1; $vt_lineOfCode)
-C_BOOLEAN:C305($0; $vb_doIndent)
+#DECLARE($vt_lineOfCode : Text)->$vb_doIndent : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by: DB (07/20/2016)
-// ----------------------------------------------------
-
 $vb_doIndent:=False:C215
+
 If (Asserted:C1132(Count parameters:C259=1))
-	$vt_lineOfCode:=$1
 	
 	Case of 
 		: ($vt_lineOfCode="For @") | ($vt_lineOfCode="Boucle @")
@@ -39,5 +33,5 @@ If (Asserted:C1132(Count parameters:C259=1))
 			// NOP
 	End case 
 	
-End if   // ASSERT
-$0:=$vb_doIndent
+End if 
+

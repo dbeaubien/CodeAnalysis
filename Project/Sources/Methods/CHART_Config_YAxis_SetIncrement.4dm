@@ -17,4 +17,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	$axisIncrement:=$2
 	
 	OT_PutReal($chartID; "verticalAxisIncrement"; $axisIncrement)
-End if   // ASSERT
+End if 

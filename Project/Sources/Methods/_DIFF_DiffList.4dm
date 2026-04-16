@@ -43,7 +43,7 @@ Array_SetSize(0; $StartB_ptr)
 Array_SetSize(0; $DeletedA_ptr)
 Array_SetSize(0; $InsertedB_ptr)
 
-C_BOOLEAN:C305($Equal)
+var $Equal : Boolean
 
 While (($LineA<$DataALength) | ($LineB<$DataBLength))
 	$Equal:=True:C214
@@ -70,7 +70,7 @@ While (($LineA<$DataALength) | ($LineB<$DataBLength))
 		$StartA:=$LineA
 		$StartB:=$LineB
 		
-		C_BOOLEAN:C305($Continue)
+		var $Continue : Boolean
 		$Continue:=True:C214
 		While ($Continue)
 			If ($LineA<$DataALength)

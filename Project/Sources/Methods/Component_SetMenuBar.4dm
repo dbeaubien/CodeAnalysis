@@ -17,7 +17,7 @@
 // ----------------------------------------------------
 
 
-C_TEXT:C284($_Menu_MenuBar_s; $_Menu_FileMenu_s; $_Menu_EditMenu_s)
+var $_Menu_MenuBar_s; $_Menu_FileMenu_s; $_Menu_EditMenu_s : Text
 //C_BOOLEAN(_LB_MenuBar_init)
 //If (Not(_LB_MenuBar_init))
 //_LB_MenuBar_init:=True

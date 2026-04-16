@@ -1,22 +1,14 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 // MethodStats_IsLineOutdent (lineOfCode) : doOutdent
-// MethodStats_IsLineOutdent (text) : boolean
 // 
 // DESCRIPTION
 //   Returns true if the line reduces nesting.
 //
-C_TEXT:C284($1; $vt_lineOfCode)
-C_BOOLEAN:C305($0; $vb_doOutdent)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (07/20/2016)
+#DECLARE($vt_lineOfCode : Text)->$vb_doOutdent : Boolean
 // ----------------------------------------------------
 
 $vb_doOutdent:=False:C215
 If (Asserted:C1132(Count parameters:C259=1))
-	$vt_lineOfCode:=$1
-	
-	
 	Case of 
 		: ($vt_lineOfCode="End for@") | ($vt_lineOfCode="Fin de boucle @")
 			$vb_doOutdent:=True:C214
@@ -39,5 +31,4 @@ If (Asserted:C1132(Count parameters:C259=1))
 			// NOP
 	End case 
 	
-End if   // ASSERT
-$0:=$vb_doOutdent
+End if 

@@ -1,30 +1,15 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// METHOD: NUM_GetMinLongint
+// NUM_GetMinLongint
 // 
 // DESCRIPTION
 //   Returns the smaller of the two Longints
 //
-// PARAMETERS:
-C_LONGINT:C283($1)
-C_LONGINT:C283($2)
-//
-// RETURNS:
-C_LONGINT:C283($0)
+#DECLARE($num1 : Integer; $num2 : Integer) : Integer
 // ----------------------------------------------------
-// CALLED BY
-//   
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (10/22/09)
-// ----------------------------------------------------
+ASSERT:C1129(Count parameters:C259=2)
 
-If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
-	
-	If ($1<$2)
-		$0:=$1
-	Else 
-		$0:=$2
-	End if 
-	
-End if   // ASSERT
+If ($num1<$num2)
+	return $num1
+End if 
+
+return $num2

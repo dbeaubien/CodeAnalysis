@@ -1,0 +1,144 @@
+{
+	"_method_": {
+		"Snippet_SetKeyValue": {
+			"Syntax": "**Snippet_SetKeyValue**( *p1* : Text; *p2* : Text ) : Variant",
+			"Params": [
+				[
+					"p1",
+					"Text",
+					"->"
+				],
+				[
+					"p2",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Snippet_ShowSelectorWindow": {
+			"Syntax": "**Snippet_ShowSelectorWindow**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"split_form_identifier": {
+			"Syntax": "**split_form_identifier**( *formIdentifier* : Text )->status : Object",
+			"Params": [
+				[
+					"formIdentifier",
+					"Text",
+					"->"
+				],
+				[
+					"status",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Bounds": {
+			"Syntax": "**Bounds**()->EXPORT : Object",
+			"Params": [
+				[
+					"EXPORT",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"is_preemtive": {
+			"Syntax": "**is_preemtive**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get_window_bounds_folder": {
+			"Syntax": "**get_window_bounds_folder**()->prefFolder : 4D.Folder",
+			"Params": [
+				[
+					"prefFolder",
+					"4D.Folder",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get_window_bounds": {
+			"Syntax": "**get_window_bounds**( *formIdentifier* : Text )->formRect : Object",
+			"Params": [
+				[
+					"formIdentifier",
+					"Text",
+					"->"
+				],
+				[
+					"formRect",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set_window_bounds": {
+			"Syntax": "**set_window_bounds**( *formIdentifier* : Text )",
+			"Params": [
+				[
+					"formIdentifier",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"is_component": {
+			"Syntax": "**is_component**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get_window_bounds_file": {
+			"Syntax": "**get_window_bounds_file**( *tableName* : Text; *formName* : Text ) : Object",
+			"Params": [
+				[
+					"tableName",
+					"Text",
+					"->"
+				],
+				[
+					"formName",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	}
+}

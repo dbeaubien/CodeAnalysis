@@ -28,4 +28,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		ALERT:C41(Current method name:C684+" only supports \"\\r\", \"\\n\", \"\\r\\n\", or \"\".")
 	End if 
 	
-End if   // ASSERT
+End if 

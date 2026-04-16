@@ -1,8 +1,8 @@
 //%attributes = {"invisible":true,"preemptive":"incapable"}
 
 ABORT:C156
-C_LONGINT:C283($vl_size)
-C_TEXT:C284($vt)
+var $vl_size : Integer
+var $vt : Text
 $vl_size:=20
 $vt:="refresh.svg"
 $vt:="folder-Outline.svg"
@@ -15,21 +15,20 @@ $vt:="question.svg"
 //$vt:="screen-full.svg"
 //$vt:="cog.svg"
 
-C_PICTURE:C286($srcPicture; buttonPicture)
-C_TEXT:C284($fileName; $fileName2)
+var $srcPicture; buttonPicture : Picture
+var $fileName; $fileName2 : Text
 $fileName:=Get 4D folder:C485(Current resources folder:K5:16)+"images"+Folder separator:K24:12+"src"+Folder separator:K24:12+$vt
 $fileName2:=Get 4D folder:C485(Current resources folder:K5:16)+"images"+Folder separator:K24:12+$vt+"_"+String:C10($vl_size)+"_4d.png"
 
 
 If (File_DoesExist($fileName))
-	C_PICTURE:C286(buttonPicture)
 	READ PICTURE FILE:C678($fileName; $srcPicture; *)
 	SET PICTURE TO PASTEBOARD:C521($srcPicture)
 	
 	buttonPicture:=Pic_make_4stateIcon($srcPicture; $vl_size)
 	
 	
-	C_TIME:C306($fileRef)
+	var $fileRef : Time
 	File_Delete($fileName2)
 	WRITE PICTURE FILE:C680($fileName2; buttonPicture; ".png")
 	If (File_DoesExist($fileName2))
@@ -79,13 +78,13 @@ CA_ShowAnalysisWindow
 //ALTER TABLE Table_1 ADD Field_13_Interval INTERVAL;
 //End SQL
 
-C_TEXT:C284($vt_fileFolder)
+var $vt_fileFolder : Text
 $vt_fileFolder:=Folder_ParentName(Folder_ParentName(Structure file:C489))
 $vt_fileFolder:=$vt_fileFolder+"Structure Definition.json"
 Structure_SaveStructDefn2Folder($vt_fileFolder)
 SHOW ON DISK:C922($vt_fileFolder)
 
-//C_BOOLEAN($vb_noResult)
+//var $vb_noResult: Boolean
 //C_LONGINT(vl_tmpLongint)
 //EXECUTE METHOD("CodeAnalysis_GetAssetInfo";$vb_noResult;"MethodVersion";->vl_tmpLongint)  // CodeAnalysis_GetAssetInfo("MethodVersion";->vl_tmpLongint)
 
@@ -95,21 +94,21 @@ If (False:C215)
 	CodeAnalysis_GetAssetInfoCOPY("GetListOfPicts"; ->picRefs; ->picNames)
 	//PICTURE LIBRARY LIST(picRefs;picNames)
 	
-	C_PICTURE:C286($somePicture)
+	var $somePicture : Picture
 	CodeAnalysis_GetAssetInfoCOPY("GetPict"; ->picRefs{1}; ->$somePicture)
 	//GET PICTURE FROM LIBRARY(picRefs{1};$somePicture)
 	
-	C_LONGINT:C283($vl_sizeInBytes)
+	var $vl_sizeInBytes : Integer
 	$vl_sizeInBytes:=Picture size:C356($somePicture)
 	
-	C_LONGINT:C283($width; $height; $hOffset; $vOffset; $mode)
+	var $width; $height; $hOffset; $vOffset; $mode : Integer
 	PICTURE PROPERTIES:C457($somePicture; $width; $height; $hOffset; $vOffset; $mode)
 	
 	ARRAY TEXT:C222($arrKeywords; 0)
 	GET PICTURE KEYWORDS:C1142($somePicture; $arrKeywords; *)  // distinct list of keywords
 	
-	C_BLOB:C604($source_in_x)
-	C_TEXT:C284($vt_digest)
+	var $source_in_x : Blob
+	var $vt_digest : Text
 	PICTURE TO BLOB:C692($somePicture; $source_in_x; ".gif")
 	$vt_digest:=Generate digest:C1147($source_in_x; MD5 digest:K66:1)
 End if 

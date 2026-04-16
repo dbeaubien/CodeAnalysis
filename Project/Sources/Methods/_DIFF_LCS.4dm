@@ -33,7 +33,7 @@ $UpVector_ptr:=$10
 //_DBG_WriteLine("LCS: "+_PText("Analyse the box: A[%1-%2] to B[%3-%4]";String($LowerA);String($UpperA);String($LowerB);String($UpperB)))
 
 // Fast walkthrough equal lines at the start
-C_BOOLEAN:C305($Continue)
+var $Continue : Boolean
 $Continue:=True:C214
 While ($Continue)
 	If (($LowerA<$UpperA) & ($LowerB<$UpperB))

@@ -79,7 +79,7 @@
 					"left": 30,
 					"width": 28,
 					"height": 24,
-					"dataSource": "Button",
+					"dataSource": "",
 					"shortcutKey": "_",
 					"shortcutShift": true,
 					"text": "-",
@@ -96,7 +96,7 @@
 					"left": 62,
 					"width": 28,
 					"height": 24,
-					"dataSource": "Button",
+					"dataSource": "",
 					"shortcutKey": "+",
 					"shortcutShift": true,
 					"text": "+",
@@ -113,7 +113,7 @@
 					"left": 131,
 					"width": 28,
 					"height": 24,
-					"dataSource": "Button",
+					"dataSource": "",
 					"shortcutKey": "-",
 					"text": "-",
 					"class": "default",
@@ -129,7 +129,7 @@
 					"left": 163,
 					"width": 28,
 					"height": 24,
-					"dataSource": "Button",
+					"dataSource": "",
 					"shortcutKey": "=",
 					"text": "+",
 					"class": "default",
@@ -145,7 +145,7 @@
 					"left": 260,
 					"width": 58,
 					"height": 24,
-					"dataSource": "Button",
+					"dataSource": "",
 					"shortcutKey": "t",
 					"shortcutAccel": true,
 					"text": "Today",
@@ -162,7 +162,7 @@
 					"left": 18,
 					"width": 78,
 					"height": 21,
-					"dataSource": "Button",
+					"dataSource": "",
 					"text": "Revert",
 					"class": "default",
 					"focusable": false,
@@ -178,7 +178,7 @@
 					"left": 318,
 					"width": 88,
 					"height": 21,
-					"dataSource": "Button",
+					"dataSource": "",
 					"action": "cancel",
 					"shortcutKey": "[Return]",
 					"text": "Continue",
@@ -286,5 +286,9 @@
 			"View 8": {},
 			"View 9": {}
 		}
+	},
+	"$4d": {
+		"version": "1",
+		"kind": "form"
 	}
 }

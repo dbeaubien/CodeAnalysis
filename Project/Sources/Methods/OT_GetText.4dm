@@ -25,5 +25,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 		$vt_value:=$vt_value+$vt_CDATA_value
 	End if 
 	
-End if   // ASSERT
+End if 
 $0:=$vt_value

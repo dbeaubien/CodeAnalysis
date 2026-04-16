@@ -30,19 +30,19 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 1; Count parameters:
 	C_TEXT:C284(<>LOG_Frequency)  // Set by LogEvent_SetNewLogFrequency
 	Case of   //   Mod: DB (11/26/2010)
 		: (<>LOG_Frequency="Daily") | (<>LOG_Frequency="")
-			$vt_pathToLogFile:=$vt_pathToLogFile+Date2String(CurrentDate; "YYYY-MM-DD")
+			$vt_pathToLogFile:=$vt_pathToLogFile+Date2String(Current date:C33; "YYYY-MM-DD")
 			
 		: (<>LOG_Frequency="Weekly")
-			$vt_pathToLogFile:=$vt_pathToLogFile+String:C10(Year of:C25(CurrentDate))+DateTime_GetYearWeekNr(CurrentDate; " week wk")
+			$vt_pathToLogFile:=$vt_pathToLogFile+String:C10(Year of:C25(Current date:C33))+DateTime_GetYearWeekNr(Current date:C33; " week wk")
 			
 		: (<>LOG_Frequency="Monthly")
-			$vt_pathToLogFile:=$vt_pathToLogFile+String:C10(Year of:C25(CurrentDate))+"-"+String:C10(Month of:C24(CurrentDate); "00")
+			$vt_pathToLogFile:=$vt_pathToLogFile+String:C10(Year of:C25(Current date:C33))+"-"+String:C10(Month of:C24(Current date:C33); "00")
 			
 		: (<>LOG_Frequency="Yearly")
-			$vt_pathToLogFile:=$vt_pathToLogFile+String:C10(Year of:C25(CurrentDate))
+			$vt_pathToLogFile:=$vt_pathToLogFile+String:C10(Year of:C25(Current date:C33))
 	End case 
 	
 	// Append our log type
 	$vt_pathToLogFile:=$vt_pathToLogFile+" "+$vt_logType+".txt"
-End if   // ASSERT
+End if 
 $0:=$vt_pathToLogFile

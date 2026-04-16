@@ -5,15 +5,9 @@
 //   Updates the explorer row object with the information
 //   from the method stats object.
 //
-C_OBJECT:C1216($1; $methodStatsObj)
-C_OBJECT:C1216($2; $explorerRowObj)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (02/08/2021)
+#DECLARE($methodStatsObj : Object; $explorerRowObj : Object)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$methodStatsObj:=$1
-$explorerRowObj:=$2
 
 If ($methodStatsObj#Null:C1517)
 	$explorerRowObj.path:=$methodStatsObj.path

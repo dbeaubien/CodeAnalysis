@@ -2,7 +2,7 @@
 
 
 If (True:C214)  // Generate random #s
-	C_LONGINT:C283($vl_numIntervals)
+	var $vl_numIntervals : Integer
 	$vl_numIntervals:=40
 	ARRAY TEXT:C222($at_labels; $vl_numIntervals)
 	ARRAY LONGINT:C221($al_counts; $vl_numIntervals)
@@ -11,7 +11,7 @@ If (True:C214)  // Generate random #s
 	ARRAY REAL:C219($ar_dataPoints2; $vl_numIntervals)
 	
 	$al_counts{1}:=100
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274($at_labels))
 		$al_xDataPoints{$i}:=$i
 		
@@ -29,11 +29,11 @@ If (True:C214)  // Generate random #s
 	$al_counts{1}:=0
 End if 
 
-C_LONGINT:C283($vl_graphWidth; $vl_graphHeight)
+var $vl_graphWidth; $vl_graphHeight : Integer
 $vl_graphWidth:=600
 $vl_graphHeight:=300
 
-C_TEXT:C284($chartID)
+var $chartID : Text
 $chartID:=CHART_CreateNewGraph($vl_graphWidth; $vl_graphHeight; "My first Test Graph")
 CHART_Config_ShowSeriesLabels($chartID; True:C214)
 CHART_Config_YAxis_SetMinMax($chartID; -100; 200)
@@ -57,7 +57,7 @@ CHART_Line_SetSeriesLabel($chartID; "Line Values")
 
 CHART_Draw($chartID)
 
-C_TEXT:C284($vt_filePath)
+var $vt_filePath : Text
 $vt_filePath:=Folder_ParentName(Get 4D folder:C485(Database folder:K5:14))+"Test longint image"
 //CHART_SaveAsSVG ($chartID;$vt_filePath+".svg")
 //CHART_SaveAsJPG ($chartID;$vt_filePath+".jpg")

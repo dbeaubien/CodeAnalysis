@@ -44,6 +44,6 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 	//If ($vt_normalizedCode="  //@")
 	//$vt_normalizedCode:=Substring($vt_normalizedCode;3;Length($vt_normalizedCode)-2)
 	//End if 
-End if   // ASSERT
+End if 
 Logging_Method_STOP(Current method name:C684)
 $0:=$vt_normalizedCode

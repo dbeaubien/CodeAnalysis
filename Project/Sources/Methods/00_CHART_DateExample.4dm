@@ -16,7 +16,7 @@ $al_counts{1}:=100
 C_LONGINT:C283($i)
 For ($i; 1; Size of array:C274($at_labels))
 	$ad_dates{$i}:=Add to date:C393(!00-00-00!; 2009; 9; $i)
-	//$ad_dates{$i}:=CurrentDate 
+	//$ad_dates{$i}:=Current Date 
 	
 	//$ad_dates{$i}:=Add to date(!00/00/00!;2009;9;$i)
 	$at_labels{$i}:=Date2String($ad_dates{$i}; "Mon dd, yyyy")

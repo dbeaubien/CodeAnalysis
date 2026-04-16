@@ -14,7 +14,7 @@ C_TEXT:C284($0; $html)
 ASSERT:C1129(Count parameters:C259=0)
 $html:=""
 
-C_BOOLEAN:C305($onlyExportSharedMethods)
+var $onlyExportSharedMethods : Boolean
 $onlyExportSharedMethods:=(Pref_GetPrefString("HTML do Component View"; "0")="1")
 
 C_LONGINT:C283($numProjectMethods; $numProjectFormMethods; $numTableFormMethods; $numDatabaseMethods; $numTriggerMethods)
@@ -55,7 +55,7 @@ Else
 End if 
 
 // Output the Project Methods:
-C_BOOLEAN:C305($includeHeader)
+var $includeHeader : Boolean
 If ($numProjectMethods#Storage:C1525.methodStatsSummary.numMethods)
 	$includeHeader:=True:C214
 End if 

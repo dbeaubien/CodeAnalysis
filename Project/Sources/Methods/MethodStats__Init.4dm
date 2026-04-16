@@ -1,28 +1,18 @@
 //%attributes = {"invisible":true}
 // MethodStats__Init ({clearAllStats})
-// MethodStats__Init ({boolean})
 // 
 // DESCRIPTION
 //   Initializes all the arrays used for method statistics.
 //   By default, the stats are persisted.
 //
-C_BOOLEAN:C305($1; $doForceToClearAllStats)  // If set, then the arrays will be empty
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (12/04/2014)
-//   Mod by: Dani Beaubien (02/04/2021) - Converted to use objects
+#DECLARE($doForceToClearAllStats : Boolean)  // If set, then the arrays will be empty
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259<=1)
-If (Count parameters:C259>=1)
-	$doForceToClearAllStats:=$1
-Else 
-	$doForceToClearAllStats:=False:C215
-End if 
 
 Tokenize__Init
 Structure__Init
 
-C_BOOLEAN:C305($clearStorage)
+var $clearStorage : Boolean
 Case of 
 	: ($doForceToClearAllStats)
 		_MSTAT_init:=True:C214
@@ -45,8 +35,8 @@ If ($clearStorage)
 End if 
 
 // Grab this from the preference
-C_TEXT:C284(vt_LastRefreshStr)
+var vt_LastRefreshStr : Text
 vt_LastRefreshStr:=Pref_GetPrefString("vt_LastRefreshStr"; "unknown")
 
-C_OBJECT:C1216(MethodStatsMasterObj)
+var MethodStatsMasterObj : Object
 MethodStatsMasterObj:=Storage:C1525.methodStats

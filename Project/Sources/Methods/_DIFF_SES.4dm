@@ -55,7 +55,7 @@ If ($NoErrors_b)
 		$Type_l:=Text array:K8:16
 	End if 
 	
-	C_BOOLEAN:C305($OptimisedCopy_b)
+	var $OptimisedCopy_b : Boolean
 	$OptimisedCopy_b:=True:C214
 	
 	Case of 
@@ -127,7 +127,7 @@ If ($NoErrors_b)
 		
 		$V{$N+$M+1}:=0
 		
-		C_BOOLEAN:C305($Continue)
+		var $Continue : Boolean
 		
 		For ($D; 0; $MAX)
 			

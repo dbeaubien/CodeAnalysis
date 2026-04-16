@@ -7,21 +7,14 @@
 //   appended line and not the starting line is marked as modified.
 //   This leads to more readable diff sequences when comparing text files.
 //
-C_POINTER:C301($1; $Data_ptr)
-C_POINTER:C301($2; $Mod_ptr)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: ddancy (02/18/2008)
+#DECLARE($Data_ptr : Pointer; $Mod_ptr : Pointer)
 // ----------------------------------------------------
 
-$Data_ptr:=$1
-$Mod_ptr:=$2
-
-C_LONGINT:C283($Start; $End; $DataLength)
+var $Start; $End; $DataLength : Integer
 $Start:=0
 $DataLength:=Size of array:C274($Data_ptr->)+1
 
-C_BOOLEAN:C305($Continue)
+var $Continue : Boolean
 While ($Start<$DataLength)
 	$Continue:=True:C214
 	

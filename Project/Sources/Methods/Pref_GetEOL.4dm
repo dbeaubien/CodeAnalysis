@@ -1,20 +1,17 @@
 //%attributes = {"invisible":true}
 // Pref_GetEOL () : EOLcharacters
-// Pref_GetEOL () : text
 //
 // DESCRIPTION
 //   Returns the selected EOL characters
 //
-C_TEXT:C284($0; <>_EOL)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (02/17/2014)
+#DECLARE() : Text
 // ----------------------------------------------------
 
+var <>_EOL : Text
 If (<>_EOL="")
 	
 	// Do a platform specific default
-	C_TEXT:C284($vt_default)
+	var $vt_default : Text
 	If (Is macOS:C1572)
 		$vt_default:="LF"
 	Else 
@@ -34,4 +31,5 @@ If (<>_EOL="")
 			<>_EOL:=Char:C90(Carriage return:K15:38)
 	End case 
 End if 
-$0:=<>_EOL
+
+return <>_EOL

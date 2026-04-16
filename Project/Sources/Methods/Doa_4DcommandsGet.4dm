@@ -5,11 +5,11 @@
 
 // FROM DISCUSS FORUM: https://discuss.4d.com/t/formatted-method-code/14299/9
 
-C_COLLECTION:C1488($0; $command_c)
-$command_c:=New collection:C1472
+#DECLARE()->$command_c : Collection
+$command_c:=[]
 
-C_LONGINT:C283($i_l)
-C_TEXT:C284($nom_t; $token_t)
+var $i_l : Integer
+var $nom_t; $token_t : Text
 $i_l:=1
 Repeat 
 	$nom_t:=Command name:C538($i_l)
@@ -19,6 +19,4 @@ Repeat
 	End if 
 	$i_l:=$i_l+1
 Until (ok=0)
-//$test:=$command_c.query("cmde=ds")
-$0:=$command_c
-//_
+

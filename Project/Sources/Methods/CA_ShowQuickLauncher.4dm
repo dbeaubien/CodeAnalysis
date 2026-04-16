@@ -20,12 +20,12 @@ If (Is compiled mode:C492(*))
 Else 
 	Component_init
 	
-	C_LONGINT:C283(<>_CA_QuickLauncher_ProcID)
+	var <>_CA_QuickLauncher_ProcID : Integer
 	If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 		<>_CA_QuickLauncher_ProcID:=Current process:C322
 		
-		C_POINTER:C301($NIL_p)
-		C_LONGINT:C283($vl_winType)
+		var $NIL_p : Pointer
+		var $vl_winType : Integer
 		$vl_winType:=0-Palette window:K34:3
 		
 		If (Pref_GetGlobalPrefString("QuickLauncher.IsFloating"; "Yes")="Yes")

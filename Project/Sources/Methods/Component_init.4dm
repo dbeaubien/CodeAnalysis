@@ -9,22 +9,22 @@
 //   Mod: DB (02/24/2014) - internal prefs are tied to an internal project name
 // ----------------------------------------------------
 
-C_BOOLEAN:C305(<>_hasBeenInitd)
+var <>_hasBeenInitd : Boolean
 If (Not:C34(<>_hasBeenInitd))
 	<>_hasBeenInitd:=True:C214
 	
 	
-	C_OBJECT:C1216($buildNoObj)
+	var $buildNoObj : Object
 	$buildNoObj:=BuildNo_GetBuildNo_CodeAnalysis
-	C_TEXT:C284(<>SYS_Version)
+	var <>SYS_Version : Text
 	<>SYS_Version:=$buildNoObj.versionLong
 	
-	C_TEXT:C284(<>SYS_PrefsFolder_t)
+	var <>SYS_PrefsFolder_t : Text
 	<>SYS_PrefsFolder_t:=System folder:C487(User preferences_user:K41:4)+"Code Analysis"+Folder separator:K24:12  // Use a global location
 	
 	// Check to see if the preference file is in the "correct" place locally in the resource folder.
 	//     Copy it if is not.
-	C_LONGINT:C283($File_pathNameTestCode; $File_pathNameTestCode2)
+	var $File_pathNameTestCode; $File_pathNameTestCode2 : Integer
 	$File_pathNameTestCode2:=Test path name:C476(Pref__GetFile2PrefFile)
 	If ($File_pathNameTestCode2#1)  // Does not exist
 		$File_pathNameTestCode:=Test path name:C476(Pref__GetFile2PrefFile_OLD)

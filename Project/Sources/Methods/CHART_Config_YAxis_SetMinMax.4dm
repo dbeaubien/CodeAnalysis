@@ -23,4 +23,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	
 	OT_PutLong($chartID; "maxVerticalHeight_isSet"; 1)
 	OT_PutLong($chartID; "maxVerticalHeight"; $vl_maxVerticalHeight)
-End if   // ASSERT
+End if 

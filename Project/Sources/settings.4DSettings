@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="31">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="32">
 	<com.4d>
 		<compiler>
-			<options compilation_path="3" fat_binary="true" symbol_file="false" target="all"/>
+			<options compilation_path="3" fat_binary="true" symbol_file="false" syntax_file="true" target="all"/>
 			<typage default_for_button="2"/>
 		</compiler>
 		<database>
@@ -37,5 +37,6 @@
 		<deployment>
 			<options/>
 		</deployment>
+		<general component_classStore_name="CodeAnalysis"/>
 	</com.4d>
 </preferences>

@@ -62,6 +62,6 @@ Else
 		// Save the form properties
 		FormProperties_SaveToFile($vl_tableNo; $vt_formName; $vt_diskFilePath)
 		
-	End if   // ASSERT
+	End if 
 	$0:=True:C214
 End if 

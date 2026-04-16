@@ -1,33 +1,26 @@
 //%attributes = {"invisible":true}
 // ExportDocs___OutputModuleAsHTML (root Folder; progressBarID)
-// ExportDocs___OutputModuleAsHTML (text; longint)
 //
 // DESCRIPTION
 //   Outputs the modules to HTML files.
 //
-C_TEXT:C284($1; $rootFolder)
-C_LONGINT:C283($2; $progHdl)
-// ----------------------------------------------------
-//   Created by: Dani Beaubien (08/06/2013)
+#DECLARE($rootFolder : Text; $progHdl : Integer)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
-	$rootFolder:=$1
-	$progHdl:=$2
-	
-	C_TEXT:C284($moduleRootFolder)
+	var $moduleRootFolder : Text
 	$moduleRootFolder:=$rootFolder+"Modules"+Folder separator:K24:12
 	Folder_VerifyExistance($moduleRootFolder)
 	
-	C_OBJECT:C1216(MethodStatsMasterObj)
+	var MethodStatsMasterObj : Object
 	MethodStats__Init  // defines MethodStatsMasterObj
 	
 	ARRAY TEXT:C222($methodObjNames; 0)
 	Method_GetMethodObjNames(->$methodObjNames; True:C214)
 	
-	C_BOOLEAN:C305($hasModules)
+	var $hasModules : Boolean
 	If (True:C214)  // Determine if there are modules
-		C_LONGINT:C283($i)
+		var $i : Integer
 		For ($i; 1; Size of array:C274($methodObjNames))
 			If (MethodStatsMasterObj[$methodObjNames{$i}].in_module#"")
 				$hasModules:=True:C214
@@ -36,9 +29,9 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 		End for 
 	End if 
 	
-	C_TEXT:C284($templateHTML)
+	var $templateHTML : Text
 	If ($hasModules)  // Load the HTML Template
-		C_TEXT:C284($templateSourceFolder)
+		var $templateSourceFolder : Text
 		$templateSourceFolder:=Get 4D folder:C485(Current resources folder:K5:16)+"HTML Tempates"+Folder separator:K24:12
 		
 		$templateHTML:=""
@@ -48,9 +41,9 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 	End if 
 	
 	If ($templateHTML#"")  // Save the method files to disk
-		C_LONGINT:C283($j)
-		C_OBJECT:C1216($methodObj)
-		C_TEXT:C284($previousMethodModule; $buffer)
+		var $j : Integer
+		var $methodObj : Object
+		var $previousMethodModule; $buffer : Text
 		$previousMethodModule:=Char:C90(Escape:K15:39)  // use some totally bogus value that will not match anything
 		For ($i; 1; Size of array:C274($methodObjNames))
 			$methodObj:=MethodStatsMasterObj[$methodObjNames{$i}]
@@ -62,12 +55,12 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 				$buffer:=Replace string:C233($buffer; "###PageTitle###"; "Module: "+$methodObj.in_module)
 				$buffer:=Replace string:C233($buffer; "###MethodNameAndParms###"; $methodObj.in_module)
 				
-				C_TIME:C306($fileRef)
+				var $fileRef : Time
 				$fileRef:=Create document:C266($moduleRootFolder+Replace string:C233($methodObj.in_module; "/"; "-")+".html")
 				If (OK=1)
 					
-					C_TEXT:C284($methodBufferOther)
-					C_OBJECT:C1216($methodObjOther)
+					var $methodBufferOther : Text
+					var $methodObjOther : Object
 					$methodBufferOther:="<table width=100%>"
 					For ($j; 1; Size of array:C274($methodObjNames))
 						$methodObjOther:=MethodStatsMasterObj[$methodObjNames{$j}]

@@ -42,4 +42,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 1; Count parameters:
 		<>LOG_FolderPathForLogFiles:=<>LOG_FolderPathForLogFiles+Folder separator:K24:12
 	End if 
 	
-End if   // ASSERT
+End if 

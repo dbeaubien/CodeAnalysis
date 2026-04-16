@@ -44,7 +44,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		If ($vt_saveToPath=("@.4dbase"+Folder separator:K24:12))
 			$vt_saveToPath:=Folder_ParentName($vt_saveToPath)
 		End if 
-		$vt_saveToPath:=$vt_saveToPath+File_GetFileName(Structure file:C489(*))+" CHANGES"+Folder separator:K24:12+Date2String(CurrentDate; "YYYY-MM-DD")+Folder separator:K24:12
+		$vt_saveToPath:=$vt_saveToPath+File_GetFileName(Structure file:C489(*))+" CHANGES"+Folder separator:K24:12+Date2String(Current date:C33; "YYYY-MM-DD")+Folder separator:K24:12
 		Folder_VerifyExistance($vt_saveToPath)
 		
 		// Save the file
@@ -56,5 +56,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			CLOSE DOCUMENT:C267($vh_docRef)
 		End if 
 	End if 
-End if   // ASSERT
+End if 
 

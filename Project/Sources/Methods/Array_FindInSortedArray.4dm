@@ -8,28 +8,23 @@
 //   "wasFound" will be true if the item exists.
 //   See http://doc.4d.com/4Dv16/4D/16/Find-in-sorted-array.301-3036765.en.html
 //
-C_POINTER:C301($1; $array_pointer)
-C_POINTER:C301($2; $value_pointer)
-C_POINTER:C301($3)
-C_BOOLEAN:C305($0; $wasFound)
-// ----------------------------------------------------
-// HISTORY
 //   Adapted from "Binary Searches:, ACI US Technical note #28, May 1991 by Dave Terry.
 //   TAKEN FROM http://4d.1045681.n5.nabble.com/Tip-Binary-insertion-code-tt5749745.html#a5749782
-//   Mod by: Dani Beaubien (02/25/2017) - rejig to be more like the "Find in sorted Array" R15 command
+//
+#DECLARE($array_pointer : Pointer\
+; $value_pointer : Pointer\
+; $position_ptr : Pointer)->$wasFound : Boolean
 // ----------------------------------------------------
-
-C_LONGINT:C283($result)
-$result:=0
+ASSERT:C1129(Count parameters:C259=3)
 $wasFound:=False:C215
 
-$array_pointer:=$1
-$value_pointer:=$2
+var $result : Integer
+$result:=0
 
-C_LONGINT:C283($high)
-C_LONGINT:C283($low)
-C_LONGINT:C283($current)
-C_LONGINT:C283($size_of_array)
+var $high : Integer
+var $low : Integer
+var $current : Integer
+var $size_of_array : Integer
 $size_of_array:=Size of array:C274($array_pointer->)
 
 Case of 
@@ -71,5 +66,5 @@ Case of
 		$wasFound:=(($value_pointer->)=($array_pointer->{$result}))
 End case 
 
-$3->:=$result
-$0:=$wasFound
+$position_ptr->:=$result
+

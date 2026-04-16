@@ -4,14 +4,9 @@
 // $1 = Pointer
 // $2 = Failure message (optional)
 
-C_POINTER:C301($1; $pointer)
-C_TEXT:C284($2; $message)
+#DECLARE($pointer : Pointer; $message : Text)
 
-$pointer:=$1
-
-If (Count parameters:C259>=2)
-	$message:=$2
-Else 
+If (Count parameters:C259#2)
 	$message:="AssertNotNil Expected Not Nil but got "+UnitTest__ResolvePointer($pointer)
 End if 
 

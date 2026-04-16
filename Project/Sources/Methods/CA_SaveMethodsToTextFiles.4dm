@@ -78,7 +78,7 @@ MethodScan_OutputMethodsAsTEXT($vt_rootFolder; $progHdl)
 $ve2:=Milliseconds:C459
 
 //   Mod: DB (02/24/2014) - Record the last date and time that the export was done
-Pref_SetPrefString("Export.MethodsAsTextLastUTC"; Date2String(CurrentDate; "MON dd, YYYY ")+Time2String(CurrentTime))
+Pref_SetPrefString("Export.MethodsAsTextLastUTC"; Date2String(Current date:C33; "MON dd, YYYY ")+Time2String(CurrentTime))
 
 // Put out some stats and send back to parent window
 C_TEXT:C284(<>vt_ExportToResults)

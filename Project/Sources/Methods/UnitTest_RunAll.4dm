@@ -4,7 +4,7 @@
 
 
 If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
-	C_LONGINT:C283($index)
+	var $index : Integer
 	
 	// Initialise our variables and setup the test cases
 	UnitTest_Init("all")

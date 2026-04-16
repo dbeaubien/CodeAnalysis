@@ -24,7 +24,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	Folder_VerifyExistance($vt_folderPath)
 	If (OnErr_GetLastError=0)
 		C_TEXT:C284($vt_tmpFileName)
-		$vt_tmpFileName:=String:C10(Milliseconds:C459)+Date2String(CurrentDate; "yymmdd")
+		$vt_tmpFileName:=String:C10(Milliseconds:C459)+Date2String(Current date:C33; "yymmdd")
 		
 		C_TIME:C306($vh_docRef)
 		$vh_docRef:=Create document:C266($vt_folderPath+$vt_tmpFileName)
@@ -37,5 +37,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	
 	OnErr_ClearError  //   Mod by: Dani Beaubien (06/22/2013)
 	ON ERR CALL:C155($vt_onErrorMethod)  // restore our method
-End if   // ASSERT
+End if 
 $0:=$vb_isWritable
