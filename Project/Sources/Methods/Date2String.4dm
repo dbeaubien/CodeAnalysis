@@ -18,21 +18,12 @@
 //   "mon" is converted to an abbreviated month name
 //   "day" is converted to the full day name
 //
-C_DATE:C307($1; $date2Convert)  // date to format
-C_TEXT:C284($2)  // format to convert date to
-C_TEXT:C284($0; $dateString)  // formated date as string
-// ----------------------------------------------------
-// HISTORY
-//   1999/02/28   DB   Created
-//   2000/03/21   DB   Modified to include the new header formating
+#DECLARE($date2Convert : Date; $format : Text)->$dateString : Text
 // ===============================================================
 
-C_LONGINT:C283($Day; $Month; $Year; $WeekDay)
-$date2Convert:=$1
-If (Count parameters:C259>=2)
-	$dateString:=$2
+If ($format#"")
+	$dateString:=$format
 End if 
-
 If ($dateString="")
 	$dateString:="mm/dd/yyyy"
 End if 
@@ -41,12 +32,13 @@ If ($date2Convert=!00-00-00!)  // return blank string if date !00/00/00!
 	$dateString:=""
 	
 Else 
+	var $Day; $Month; $Year; $WeekDay : Integer
 	$Day:=Day of:C23($date2Convert)
 	$Month:=Month of:C24($date2Convert)
 	$Year:=Year of:C25($date2Convert)
 	$WeekDay:=Day number:C114($date2Convert)
 	
-	C_TEXT:C284($DayStr; $DayStr2; $MonthStr)
+	var $DayStr; $DayStr2; $MonthStr : Text
 	$DayStr:=String:C10($Day)
 	$DayStr2:=String:C10($Day; "00")
 	$MonthStr:=String:C10($Month; "00")
@@ -125,7 +117,3 @@ Else
 	$dateString:=Replace string:C233($dateString; "dd"; $DayStr2)
 	
 End if 
-
-$0:=$dateString
-
-//#End method

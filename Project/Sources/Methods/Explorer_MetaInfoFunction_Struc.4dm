@@ -4,12 +4,8 @@
 // DESCRIPTION
 //   Structure meta function for the Explorer window
 //
-C_OBJECT:C1216($0; $metaInfo)
+#DECLARE()->$metaInfo : Object
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (01/23/2021)
-// ----------------------------------------------------
-
 
 // Reference: https://developer.4d.com/docs/18/FormObjects/propertiesText/#meta-info-expression
 
@@ -30,5 +26,3 @@ End if
 
 //$metaInfo.fontWeight:="bold"
 //$metaInfo.fontStyle:="italic"
-
-$0:=$metaInfo

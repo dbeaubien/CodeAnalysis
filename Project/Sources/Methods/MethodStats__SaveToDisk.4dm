@@ -13,7 +13,7 @@ ASSERT:C1129(Count parameters:C259=0)
 
 Logging_Method_START(Current method name:C684)
 
-C_TEXT:C284($folderForSavedStats)
+var $folderForSavedStats : Text
 $folderForSavedStats:=File_GetFolderName(Pref__GetFile2PrefFile)
 
 File_Delete($folderForSavedStats+"method stats.json")

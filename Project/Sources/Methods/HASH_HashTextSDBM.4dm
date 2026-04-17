@@ -53,4 +53,4 @@ For ($i; 1; $len)  //    for(i = 0; i < len; str++, i++)
 	
 End for 
 
-return (hash & 0x7FFFFFFF)
+return ($hash & 0x7FFFFFFF)

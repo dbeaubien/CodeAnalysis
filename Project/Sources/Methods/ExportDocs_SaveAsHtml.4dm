@@ -12,24 +12,24 @@
 
 If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	
-	C_PICTURE:C286($vg_icon)
-	C_LONGINT:C283($progHdl)
+	var $vg_icon : Picture
+	var $progHdl : Integer
 	READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Write.png"); $vg_icon)
 	$progHdl:=Progress New
 	Progress SET ICON($progHdl; $vg_icon)
 	Progress SET TITLE($progHdl; "Generated HTML Docs"; -1; "Initializing..."; True:C214)
 	
-	C_LONGINT:C283($vs1; $ve1)
+	var $vs1; $ve1 : Integer
 	$vs1:=Milliseconds:C459
 	MethodStats_RecalculateModified
 	$ve1:=Milliseconds:C459
 	
 	// # Setup the root folder
-	C_TEXT:C284($vt_rootFolder)
+	var $vt_rootFolder : Text
 	$vt_rootFolder:=CodeAnalysis__GetDestFolder+Pref_GetPrefString("HTML2File Default Folder Name"; "Methods as HTML")+Folder separator:K24:12
 	Folder_EmptyContents($vt_rootFolder)
 	
-	C_LONGINT:C283($vs2; $ve2)
+	var $vs2; $ve2 : Integer
 	$vs2:=Milliseconds:C459
 	Progress SET MESSAGE($progHdl; "Saving to disk...")
 	ExportDocs__SaveMethodHtmlFiles($vt_rootFolder; $progHdl)
@@ -41,7 +41,7 @@ If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 	
 	
 	// Put out some stats
-	C_TEXT:C284(<>vt_ExportToResults)
+	var <>vt_ExportToResults : Text
 	<>vt_ExportToResults:=<>vt_ExportToResults+"Export Completed to:\r "
 	<>vt_ExportToResults:=<>vt_ExportToResults+$vt_rootFolder+"\r\r"
 	<>vt_ExportToResults:=<>vt_ExportToResults+" Count - "+String:C10(Storage:C1525.methodStatsSummary.numMethods)+" files saved\r"

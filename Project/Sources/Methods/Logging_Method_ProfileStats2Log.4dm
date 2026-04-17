@@ -18,7 +18,7 @@
 Logging_Method__init
 
 If (Size of array:C274(_LOGMETHOD_PROF_Method)>0)
-	C_TEXT:C284($vt_buffer)
+	var $vt_buffer : Text
 	$vt_buffer:=("-"*40)+"\r"
 	$vt_buffer:=$vt_buffer+("-"*40)+"\r"
 	$vt_buffer:=$vt_buffer+"METHOD NAME (LOCAL)\t"
@@ -30,7 +30,7 @@ If (Size of array:C274(_LOGMETHOD_PROF_Method)>0)
 	$vt_buffer:=$vt_buffer+("-"*40)+"\r"
 	
 	SORT ARRAY:C229(_LOGMETHOD_PROF_Method; _LOGMETHOD_PROF_minTime; _LOGMETHOD_PROF_maxTime; _LOGMETHOD_PROF_totalTime; _LOGMETHOD_PROF_count)
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274(_LOGMETHOD_PROF_Method))
 		$vt_buffer:=$vt_buffer+_LOGMETHOD_PROF_Method{$i}+Char:C90(Tab:K15:37)
 		$vt_buffer:=$vt_buffer+String:C10(_LOGMETHOD_PROF_count{$i})+Char:C90(Tab:K15:37)

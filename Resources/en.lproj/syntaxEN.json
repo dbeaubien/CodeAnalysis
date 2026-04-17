@@ -33,7 +33,7 @@
 			"Summary": ""
 		},
 		"Structure_GetFieldIndexRatio": {
-			"Syntax": "**Structure_GetFieldIndexRatio**( *tableNo* : Integer; *fieldNo* : Integer )->indexUsageRatio : Real",
+			"Syntax": "**Structure_GetFieldIndexRatio**( *tableNo* : Integer; *fieldNo* : Integer; *fieldStatistics* : Object )",
 			"Params": [
 				[
 					"tableNo",
@@ -46,9 +46,9 @@
 					"->"
 				],
 				[
-					"indexUsageRatio",
-					"Real",
-					"<-"
+					"fieldStatistics",
+					"Object",
+					"->"
 				]
 			],
 			"Summary": ""
@@ -142,17 +142,12 @@
 			"Summary": ""
 		},
 		"CA_SaveStructureDetails": {
-			"Syntax": "**CA_SaveStructureDetails**( *p1* : Text ) : Variant",
+			"Syntax": "**CA_SaveStructureDetails**( *vt_rootFolder* : Text )",
 			"Params": [
 				[
-					"p1",
+					"vt_rootFolder",
 					"Text",
 					"->"
-				],
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""

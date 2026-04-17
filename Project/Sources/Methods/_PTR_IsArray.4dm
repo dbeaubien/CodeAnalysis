@@ -1,25 +1,15 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// User name (OS): ddancy
-// Date and time: 19/02/08, 22:09:51
-// ----------------------------------------------------
-// Method: _PTR_IsArray
-// Description
-// 
+// _PTR_IsArray ()
 //
-// Parameters
+#DECLARE($Var_ptr : Pointer)->$IsArray_b : Boolean
 // ----------------------------------------------------
-C_POINTER:C301($1; $Var_ptr)
-C_BOOLEAN:C305($0; $IsArray_b)
-
 $IsArray_b:=False:C215
 
 If (Count parameters:C259>0)
-	$Var_ptr:=$1
 	
 	If (Not:C34(Is nil pointer:C315($Var_ptr)))
 		
-		C_LONGINT:C283($Type_l)
+		var $Type_l : Integer
 		$Type_l:=Type:C295($Var_ptr->)
 		
 		$IsArray_b:=True:C214
@@ -46,6 +36,3 @@ If (Count parameters:C259>0)
 	End if 
 	
 End if 
-
-$0:=$IsArray_b
-

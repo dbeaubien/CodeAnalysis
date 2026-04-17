@@ -4,10 +4,7 @@
 // DESCRIPTION
 //   Returns the BOM string for UTF8.
 //
-C_BLOB:C604($0)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (07/05/2013)
+#DECLARE()->$bom_b : Blob
 // ----------------------------------------------------
 
 // This is the UTF-8 Byte Order Mark (BOM).  It will be inserted into the
@@ -17,4 +14,3 @@ $bom_b{0}:=239  // EF (UTF-8)
 $bom_b{1}:=187  // BB (UTF-8)
 $bom_b{2}:=191  // BF (UTF-8)
 
-$0:=$bom_b

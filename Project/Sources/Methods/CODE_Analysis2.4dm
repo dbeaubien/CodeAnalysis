@@ -9,10 +9,10 @@
 //   Created by: DB (12/29/2016)
 // ----------------------------------------------------
 
-C_TEXT:C284($vt_msg)
+var $vt_msg : Text
 $vt_msg:="Updating statistics for modified methods..."
 
-C_BOOLEAN:C305($vb_doFullRefresh)
+var $vb_doFullRefresh : Boolean
 If (Macintosh option down:C545) | (Windows Alt down:C563)
 	CONFIRM:C162("Please confirm if you want to recalculate the statistics for all the methods or only those modified since the last refresh.\r\rNote: Doing them all will take more time."; "Update Modified"; "Recalculate All")
 	If (OK=0)
