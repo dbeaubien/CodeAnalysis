@@ -5,16 +5,9 @@
 // $2 = Pointer to table
 // $3 = Failure message (optional)
 
-C_LONGINT:C283($1; $expected)
-C_POINTER:C301($2; $table)
-C_TEXT:C284($3; $message)
+#DECLARE($expected : Integer; $table : Pointer; $message : Text)
 
-$expected:=$1
-$table:=$2
-
-If (Count parameters:C259>=3)
-	$message:=$3
-Else 
+If ($message="")
 	$message:="AssertRecordCount Expected "+String:C10($expected)+" but got "+String:C10(Records in selection:C76($table->))
 End if 
 

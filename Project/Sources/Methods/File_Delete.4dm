@@ -1,17 +1,12 @@
 //%attributes = {"invisible":true}
 // File_Delete (path to file)
-// File_Delete (text)
 // 
 // DESCRIPTION
 //   Deletes the document pass to it.
 //
-C_TEXT:C284($1; $vt_fileName)
-// ----------------------------------------------------
-//   Created by: DB (07/25/07)
+#DECLARE($file_platformPath : Text)
 // ----------------------------------------------------
 
-$vt_fileName:=$1
-
-If (File_DoesExist($vt_fileName))
-	DELETE DOCUMENT:C159($vt_fileName)
+If ($file_platformPath#"") && (Test path name:C476($file_platformPath)=Is a document:K24:1)
+	DELETE DOCUMENT:C159($file_platformPath)
 End if 

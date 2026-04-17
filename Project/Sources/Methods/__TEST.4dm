@@ -13,7 +13,7 @@ ALERT:C41(String:C10(Milliseconds:C459-$ms))
 //SET TEXT TO PASTEBOARD(JSON Stringify($vo_structure; *))
 BEEP:C151
 ABORT:C156
-
+Compiler_Methods()
 
 //_DIFF_ChangesText 
 

@@ -3,10 +3,12 @@
 // Runs a single test for the current testcase
 // $1 = Test name
 
-C_TEXT:C284($1; $testname; $testcase)
-C_LONGINT:C283($index; $start; $stop)
+#DECLARE($testname : Text)
 
-$testname:=$1
+var $testcase : Text
+var $index; $start; $stop : Integer
+
+
 $testcase:=UnitTest_CurrentTestCase
 
 // Add the test to our statistics

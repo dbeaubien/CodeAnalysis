@@ -4,14 +4,9 @@
 // $1 = Filename
 // $2 = Failure message (optional)
 
-C_TEXT:C284($1; $filename)
-C_TEXT:C284($2; $message)
+#DECLARE($filename : Text; $message : Text)
 
-$filename:=$1
-
-If (Count parameters:C259>=2)
-	$message:=$2
-Else 
+If ($message="")
 	$message:="AssertFileExists Expected file \""+$filename+"\""
 End if 
 

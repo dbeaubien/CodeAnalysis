@@ -4,12 +4,9 @@
 // This method is used for debugging purposes. It is used to test assumptions.
 //  if $1 is false, then there is an error and the error string is presented
 
+#DECLARE($condition : Boolean; $msg : Text) : Boolean
 
-C_BOOLEAN:C305($1)
-C_TEXT:C284($2; $msg)
-C_BOOLEAN:C305($0)  // returns $1
-
-If ($1=False:C215)  // & (◊DEBUG)
+If ($condition=False:C215)  // & (◊DEBUG)
 	//If (Application type#4D Server)
 	//$msg:="ASSERT ERROR:"+(Char(Carriage return)*2)+$2+(Char(Carriage return)*2)+"Please notify InfoHandler's Technical Support of this error."
 	//If (Not(Is compiled mode(*)))
@@ -23,4 +20,4 @@ If ($1=False:C215)  // & (◊DEBUG)
 	End if 
 End if 
 
-$0:=$1
+return $condition
