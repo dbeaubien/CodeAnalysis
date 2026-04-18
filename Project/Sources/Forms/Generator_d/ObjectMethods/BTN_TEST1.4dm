@@ -1,7 +1,7 @@
 //   Mod: DB (03/29/2014) - Added pop-up menu
 
 If (True:C214)  // DEFINE THE MENU CHOICES
-	C_TEXT:C284($vt_itemStr)
+	var $vt_itemStr : Text
 	ARRAY TEXT:C222($at_items; 0)
 	//APPEND TO ARRAY($at_items;"(Import All Updates") // Commented out item
 	//APPEND TO ARRAY($at_items;"(-")  // Horizontal Line
@@ -67,9 +67,9 @@ If (True:C214)  // DEFINE THE MENU CHOICES
 	APPEND TO ARRAY:C911($at_items; "Clear all ignores")
 	
 	
-	C_TEXT:C284($vt_menuStr)
+	var $vt_menuStr : Text
 	$vt_menuStr:=""
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274($at_items))
 		If ($i#1)
 			$vt_menuStr:=$vt_menuStr+";"
@@ -81,7 +81,7 @@ End if
 
 
 // Show the pop-up menu
-C_LONGINT:C283($vlUserChoice)
+var $vlUserChoice : Integer
 $vlUserChoice:=Pop up menu:C542($vt_menuStr)
 
 

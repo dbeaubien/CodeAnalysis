@@ -1,6 +1,6 @@
 //%attributes = {"invisible":true}
 
-C_TEXT:C284(gErrorMessage)
-C_LONGINT:C283(gError)
+var gErrorMessage : Text
+var gError : Integer
 gError:=0
 gErrorMessage:=""

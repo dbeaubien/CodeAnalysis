@@ -13,9 +13,9 @@ If (False:C215)
 	// ----------------------------------------------------
 End if 
 ASSERT:C1129(Count parameters:C259=0)
-C_REAL:C285($vs)
 
-C_COLLECTION:C1488($methodChangeNotification)
+var $vs : Real
+var $methodChangeNotification : Collection
 $methodChangeNotification:=New collection:C1472
 
 <>TrackPerformance:=(Pref_GetGlobalPrefString("IsInLoggingMode"; "No")="Yes")
@@ -23,15 +23,15 @@ Logging_Method_START(Current method name:C684)
 OnErr_ClearError
 OnErr_Install_Handler("OnErr_GENERIC")
 
-C_LONGINT:C283($progHdl)
-C_REAL:C285($vr_startTime; $vr_lastUpdate)
+var $progHdl : Integer
+var $vr_startTime; $vr_lastUpdate : Real
 $vr_startTime:=Milliseconds:C459
 
 MethodStats__Init
 LogEvent_Write("")  // BLANK LINE
 LogEvent_Write(Str_DateTimeStamp+"\tSTART STATISTICS REFRESH")
 
-C_BOOLEAN:C305($vb_changeWasMade)
+var $vb_changeWasMade : Boolean
 $vb_changeWasMade:=False:C215
 
 // Get the current list of method paths along with their last modified DTS
@@ -55,12 +55,12 @@ ARRAY TEXT:C222($at_projectMethodPaths; 0)
 METHOD GET PATHS:C1163(Path project method:K72:1; $at_projectMethodPaths; *)
 
 // Loop through and attempt to update the Complexity calc
-C_LONGINT:C283($i; $pos)
-C_BOOLEAN:C305($methodNeedsToBeRefreshed)
+var $i; $pos : Integer
+var $methodNeedsToBeRefreshed : Boolean
 For ($i; 1; Size of array:C274($at_tmpMethodNames))
 	// Open progress if more than 500 milliseconds have passed
 	If (Abs:C99(Milliseconds:C459-$vr_startTime)>500) & ($progHdl=0)
-		C_PICTURE:C286($vg_icon)
+		var $vg_icon : Picture
 		READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Compare.png"); $vg_icon)
 		$progHdl:=Progress New
 		Progress SET TITLE($progHdl; "Analysing "+String:C10(Size of array:C274($at_tmpMethodNames); "###,###,##0")+" Methods..."; $i/Size of array:C274($at_tmpMethodNames); ""; True:C214)
@@ -108,7 +108,7 @@ For ($i; 1; Size of array:C274($methodObjNames))
 End for 
 
 // Check for changes in the "Shared" attribute, this doesn't modify the method
-C_BOOLEAN:C305($projectMethodIsShared)
+var $projectMethodIsShared : Boolean
 Use (MethodStatsMasterObj)
 	For ($i; 1; Size of array:C274($at_tmpMethodNames))
 		If ($at_tmpMethodNames{$i}="[@")
@@ -137,7 +137,7 @@ If ($vb_changeWasMade)
 	MethodStats__SaveToDisk
 	LogEvent_Write(Str_DateTimeStamp+"\tSaved to disk ("+String:C10(Milliseconds:C459-$vs)+"ms)")
 	
-	C_OBJECT:C1216($methodChange)
+	var $methodChange : Object
 	For each ($methodChange; $methodChangeNotification)
 		ExplorerWin_MethodUpdated($methodChange.path; $methodChange.action)
 	End for each 

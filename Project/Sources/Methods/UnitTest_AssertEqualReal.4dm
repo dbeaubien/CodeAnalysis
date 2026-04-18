@@ -5,16 +5,9 @@
 // $2 = Actual
 // $3 = Failure message (optional)
 
-C_REAL:C285($1; $expected)
-C_REAL:C285($2; $actual)
-C_TEXT:C284($3; $message)
+#DECLARE($expected : Real; $actual : Real; $message : Text)
 
-$expected:=$1
-$actual:=$2
-
-If (Count parameters:C259>=3)
-	$message:=$3
-Else 
+If ($message="")
 	$message:="AssertEqualReal Expected "+String:C10($expected)+" but got "+String:C10($actual)
 End if 
 

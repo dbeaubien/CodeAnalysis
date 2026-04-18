@@ -1,20 +1,12 @@
 //%attributes = {"invisible":true}
 // ExportDocs___Output_TF_NavHTML (methodCount) : navigationHTML
-// ExportDocs___Output_TF_NavHTML (boolean): text
 //
 // DESCRIPTION
 //   Returns the Table Form Methods HTML for the navigation section.
 //
-C_LONGINT:C283($1; $numTableFormMethods)
-C_TEXT:C284($0; $html)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/07/2012)
-//   Mod by: Dani Beaubien (01/25/2013) - Use "pretty" method names in the output.
-//   Mod by: Dani Beaubien (01/31/2021)
+#DECLARE($numTableFormMethods : Integer)->$html : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$numTableFormMethods:=$1
 $html:=""
 
 If ($numTableFormMethods>0)  // Output the Table Form Methods top of the tree:
@@ -25,7 +17,7 @@ If ($numTableFormMethods>0)  // Output the Table Form Methods top of the tree:
 End if 
 
 If ($numTableFormMethods>0)  // Get the list of table form methods
-	C_OBJECT:C1216(MethodStatsMasterObj)
+	var MethodStatsMasterObj : Object
 	MethodStats__Init  // defines MethodStatsMasterObj
 	MethodStats_RecalculateModified
 	
@@ -35,15 +27,15 @@ If ($numTableFormMethods>0)  // Get the list of table form methods
 End if 
 
 If ($numTableFormMethods>0)  // Get the list of project form methods
-	C_TEXT:C284($previousTableName; $previousFormName; $currentFormName; $currentTableName)
+	var $previousTableName; $previousFormName; $currentFormName; $currentTableName : Text
 	$previousTableName:=Char:C90(Escape:K15:39)  // use some totally bogus value that will not match anything
 	$previousFormName:=Char:C90(Escape:K15:39)  // use some totally bogus value that will not match anything
 	$currentFormName:=""
 	$currentTableName:=""
 	
 	var $ulTagOpened : Boolean
-	C_TEXT:C284($friendlyName; $vt_ObjectName)
-	C_LONGINT:C283($i)
+	var $friendlyName; $vt_ObjectName : Text
+	var $i : Integer
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$friendlyName:=Substring:C12($methodObjNames{$i}; Length:C16("[tableForm]/")+1)  // strip out the first part
 		$currentTableName:=Substring:C12($friendlyName; 1; Position:C15("/"; $friendlyName)-1)
@@ -89,5 +81,3 @@ If ($numTableFormMethods>0)  // Get the list of project form methods
 	$html:=$html+"</ul></li>"+Pref_GetEOL  // Close Header
 	$html:=$html+"</ul>"+(Pref_GetEOL*2)
 End if 
-
-$0:=$html

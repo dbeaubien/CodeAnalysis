@@ -2,9 +2,9 @@
 //   Mod: Dani Beaubien (09/26/2013) - No line number on first line if it is an attribute line
 //   Mod: DB (05/14/2014) - Implement alternate view
 
-C_TEXT:C284($vt_theCode)
+var $vt_theCode : Text
 
-C_LONGINT:C283(_FORM_CurrentPage)
+var _FORM_CurrentPage : Integer
 If (Form event code:C388=On Load:K2:1)  //   Mod: DB (05/14/2014)
 	If (Pref_GetPrefString("DIFF DifferenceView")="")
 		_FORM_CurrentPage:=1
@@ -27,7 +27,7 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 	// --------- Grab the method code and get it ready
 	ARRAY TEXT:C222(DEMO_File1_at; 0)
 	ARRAY LONGINT:C221(DEMO_File1LineNo_al; 0)
-	C_BOOLEAN:C305($vb_MethodDoesExist)
+	var $vb_MethodDoesExist : Boolean
 	If (_DIFF_MethodName#"")
 		OnErr_ClearError
 		ON ERR CALL:C155("OnErr_GENERIC")
@@ -50,16 +50,16 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 	// --------- Grab the code from the file (on disk) and get it ready
 	ARRAY TEXT:C222(DEMO_File2_at; 0)
 	ARRAY LONGINT:C221(DEMO_File2LineNo_al; 0)
-	C_BOOLEAN:C305($vb_FileDoesExist)
+	var $vb_FileDoesExist : Boolean
 	If (File_DoesExist(_DIFF_PathToFileOnDisk))
-		C_TIME:C306($File2_h)
+		var $File2_h : Time
 		$File2_h:=Open document:C264(_DIFF_PathToFileOnDisk)
 		If (OK=1)
 			RECEIVE PACKET:C104($File2_h; $vt_theCode; 1024*256)
 			CLOSE DOCUMENT:C267($File2_h)
 		End if 
 		
-		C_TEXT:C284($vt)
+		var $vt : Text
 		$vt_theCode:=MethodDiff_d_ApplyCodePrefs($vt_theCode)  // Handle the configuration checkboxes on the dialog
 		$vt:=STR_TellMeTheEOL($vt_theCode)
 		ARRAY_Unpack($vt_theCode; ->DEMO_File2_at; STR_TellMeTheEOL($vt_theCode))
@@ -84,8 +84,8 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 	ARRAY LONGINT:C221($StartB; 0)
 	ARRAY LONGINT:C221($DeletedA; 0)
 	ARRAY LONGINT:C221($InsertedB; 0)
-	C_BOOLEAN:C305($vb_ignoreMultipleSpaces)  //   Mod by: Dani Beaubien (10/25/2012)
-	C_BOOLEAN:C305($vb_ignoreCase)  //   Mod by: Dani Beaubien (10/25/2012)
+	var $vb_ignoreMultipleSpaces : Boolean  //   Mod by: Dani Beaubien (10/25/2012)
+	var $vb_ignoreCase : Boolean  //   Mod by: Dani Beaubien (10/25/2012)
 	$vb_ignoreMultipleSpaces:=(Num:C11(Pref_GetPrefString("DIFF ignoreMultipleSpaces"; ""))=1)  //   Mod by: Dani Beaubien (10/25/2012)
 	$vb_ignoreCase:=(Num:C11(Pref_GetPrefString("DIFF ignoreCase"; ""))=1)  //   Mod by: Dani Beaubien (10/25/2012)
 	_DIFF_Diff(->DEMO_File1_at; ->DEMO_File2_at; ->$StartA; ->$StartB; ->$DeletedA; ->$InsertedB; $vb_ignoreMultipleSpaces; $vb_ignoreCase)  //   Mod by: Dani Beaubien (10/25/2012)
@@ -108,7 +108,7 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 	// ##### Move the font colour to the background colour
 	ARRAY LONGINT:C221(DEMO_BackColors_al; Size of array:C274(DEMO_FontColors_al))
 	ARRAY LONGINT:C221(DEMO_Styles_al; Size of array:C274(DEMO_FontColors_al))
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274(DEMO_FontColors_al))
 		DEMO_Styles_al{$i}:=-255  // default
 		DEMO_BackColors_al{$i}:=0x00FFFFFF  // no change
@@ -151,8 +151,8 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 		
 		//   Mod: DB (05/15/2015) - Identify the single line changes; set the array true on those lines
 		ARRAY BOOLEAN:C223($ab_startOfSingleLineChange; Size of array:C274(DEMO_File2LineNo_al))
-		C_LONGINT:C283($vl_curState)
-		C_BOOLEAN:C305($vb_isSingleLineChange)
+		var $vl_curState : Integer
+		var $vb_isSingleLineChange : Boolean
 		$vl_curState:=0
 		For ($i; 1; Size of array:C274(DEMO_File2LineNo_al))
 			$vb_isSingleLineChange:=False:C215
@@ -215,7 +215,7 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 				ARRAY LONGINT:C221($InsertedB; 0)
 				_DIFF_Diff(->DEMO_File1_at{$i}; ->DEMO_File2_at{$i+1}; ->$StartA; ->$StartB; ->$DeletedA; ->$InsertedB)
 				
-				C_LONGINT:C283($j)
+				var $j : Integer
 				For ($j; 1; Size of array:C274($StartA))
 					If ($DeletedA{$j}>0)
 						DEMO_File1_at{$i}:=Utility_MakeTextStyleSafe(DEMO_File1_at{$i})  //   Mod: DB (11/21/2013) - First style setting?
@@ -275,7 +275,7 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 	
 	
 	//   Mod by: Dani Beaubien (10/15/2012) - Figure out the # of changes
-	C_LONGINT:C283(_DIFF_NumDifferences)
+	var _DIFF_NumDifferences : Integer
 	If (_FORM_CurrentPage=1)
 		_DIFF_NumDifferences:=MethodDiff_d_CalcNumChanges(->DEMO_BackColors_al)
 	Else 
@@ -313,11 +313,11 @@ End if
 
 // #### Ensure that the ListBox has it's columns sized nicely
 If (Form event code:C388=On Load:K2:1) | (Form event code:C388=On Resize:K2:27)
-	C_LONGINT:C283(_DIFF_ListBox_ExtraSpace)
-	C_LONGINT:C283($vl_fixedWidth; $vl_variableWidth)
+	var _DIFF_ListBox_ExtraSpace : Integer
+	var $vl_fixedWidth; $vl_variableWidth : Integer
 	$vl_fixedWidth:=LISTBOX Get column width:C834(*; "Column1")+LISTBOX Get column width:C834(*; "Column3")
 	
-	C_LONGINT:C283($vl_left; $vl_top; $vl_right; $vl_bottom; $vl_ListBoxWidth)
+	var $vl_left; $vl_top; $vl_right; $vl_bottom; $vl_ListBoxWidth : Integer
 	OBJECT GET COORDINATES:C663(*; "DEMO_FileDiff_lb"; $vl_left; $vl_top; $vl_right; $vl_bottom)
 	$vl_ListBoxWidth:=$vl_right-$vl_left
 	
@@ -329,7 +329,7 @@ If (Form event code:C388=On Load:K2:1) | (Form event code:C388=On Resize:K2:27)
 	// The amount of "space" that is left over for the two variable columns
 	$vl_variableWidth:=$vl_ListBoxWidth-$vl_fixedWidth-_DIFF_ListBox_ExtraSpace
 	
-	C_LONGINT:C283($vl_FirstWidth; $vl_SecondWidth)
+	var $vl_FirstWidth; $vl_SecondWidth : Integer
 	$vl_FirstWidth:=Int:C8($vl_variableWidth/2)
 	$vl_SecondWidth:=$vl_variableWidth-$vl_FirstWidth
 	
@@ -337,7 +337,7 @@ If (Form event code:C388=On Load:K2:1) | (Form event code:C388=On Resize:K2:27)
 	LISTBOX SET COLUMN WIDTH:C833(*; "Column4"; $vl_SecondWidth)
 	
 	//   Mod: DB (03/29/2014) - Move the Rescan button to centre of listbox
-	C_LONGINT:C283($vl_curCentre)
+	var $vl_curCentre : Integer
 	OBJECT GET COORDINATES:C663(*; "BTN_Rescan"; $vl_left; $vl_top; $vl_right; $vl_bottom)
 	$vl_curCentre:=$vl_left+(($vl_right-$vl_left)/2)
 	OBJECT MOVE:C664(*; "BTN_Rescan"; 11+($vl_ListBoxWidth/2)-$vl_curCentre; 0)

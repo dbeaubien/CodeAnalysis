@@ -1,37 +1,22 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// User name (OS): ddancy
-// Date and time: 18/02/08, 08:50:17
-// ----------------------------------------------------
-// Method: _DIFF_SES
-// Description
-// 
+// _DIFF_SES
 //
-// Parameters
+#DECLARE($A_ptr : Pointer; $B_ptr : Pointer; $SMS_ptr : Pointer)->$SES : Integer
 // ----------------------------------------------------
-C_POINTER:C301($1; $A_ptr)
-C_POINTER:C301($2; $B_ptr)
-C_POINTER:C301($3; $SMS_ptr)
-C_LONGINT:C283($0; $SES)
-
 $SES:=-1
 
-$A_ptr:=$1
-$B_ptr:=$2
-$SMS_ptr:=$3
-
-C_BOOLEAN:C305($NoErrors_b)
+var $NoErrors_b : Boolean
 $NoErrors_b:=True:C214
 
-C_LONGINT:C283($Type_l)
+var $Type_l : Integer
 $Type_l:=Type:C295($A_ptr->)
 If ($Type_l#Type:C295($B_ptr->))
 	ALERT:C41("Incompatible variable types for DIFF comparison.")
 	$NoErrors_b:=False:C215
 End if 
 
-C_POINTER:C301($A1_ptr)
-C_POINTER:C301($B1_ptr)
+var $A1_ptr : Pointer
+var $B1_ptr : Pointer
 
 If ($NoErrors_b)
 	
@@ -39,7 +24,7 @@ If ($NoErrors_b)
 		ARRAY TEXT:C222($TempA_at; 0)
 		ARRAY TEXT:C222($TempB_at; 0)
 		
-		C_LONGINT:C283($x1; $y1)
+		var $x1; $y1 : Integer
 		
 		For ($x1; 1; Length:C16($A_ptr->))
 			APPEND TO ARRAY:C911($TempA_at; $A_ptr->[[$x1]])
@@ -98,7 +83,7 @@ If ($NoErrors_b)
 			COPY ARRAY:C226($B_ptr->; $B1_ptr->)
 			
 		Else 
-			C_LONGINT:C283($Element_l; $ElementCount_l)
+			var $Element_l; $ElementCount_l : Integer
 			
 			$ElementCount_l:=Size of array:C274($A_ptr->)
 			
@@ -118,7 +103,7 @@ If ($NoErrors_b)
 		
 		Array_SetSize(0; $SMS_ptr)
 		
-		C_LONGINT:C283($N; $M; $MAX; $D; $k; $k1; $x; $y)
+		var $N; $M; $MAX; $D; $k; $k1; $x; $y : Integer
 		$N:=Size of array:C274($A1_ptr->)
 		$M:=Size of array:C274($B1_ptr->)
 		$MAX:=$N+$M
@@ -176,8 +161,3 @@ If ($NoErrors_b)
 	End if 
 	
 End if 
-
-
-$0:=$SES
-
-

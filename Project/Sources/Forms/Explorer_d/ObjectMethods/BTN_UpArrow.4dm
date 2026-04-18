@@ -1,9 +1,9 @@
 
 
-C_LONGINT:C283($highlightedRow)
+var $highlightedRow : Integer
 $highlightedRow:=selectedMethodPos
 
-C_LONGINT:C283($numRowsInList)
+var $numRowsInList : Integer
 $numRowsInList:=Form:C1466.filteredList.length
 
 If ($highlightedRow>1)

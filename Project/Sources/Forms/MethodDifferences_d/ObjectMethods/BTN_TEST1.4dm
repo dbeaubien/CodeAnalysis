@@ -5,7 +5,7 @@ If (True:C214)  // DEFINE THE MENU CHOICES
 	//APPEND TO ARRAY($at_items;"(Import All Updates")
 	//APPEND TO ARRAY($at_items;"(-")
 	
-	C_TEXT:C284($vt_itemStr)
+	var $vt_itemStr : Text
 	$vt_itemStr:=""
 	If (Pref_GetPrefString("DIFF HideAttributeLine")="Yes")
 		$vt_itemStr:="!-"
@@ -40,9 +40,9 @@ If (True:C214)  // DEFINE THE MENU CHOICES
 		APPEND TO ARRAY:C911($at_items; "!-Show Differences Vertically")
 	End if 
 	
-	C_TEXT:C284($vt_menuStr)
+	var $vt_menuStr : Text
 	$vt_menuStr:=""
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274($at_items))
 		If ($i#1)
 			$vt_menuStr:=$vt_menuStr+";"
@@ -54,7 +54,7 @@ End if
 
 
 // Show the pop-up menu
-C_LONGINT:C283($vlUserChoice)
+var $vlUserChoice : Integer
 $vlUserChoice:=Pop up menu:C542($vt_menuStr)
 
 

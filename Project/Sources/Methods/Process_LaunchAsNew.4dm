@@ -1,33 +1,24 @@
 //%attributes = {"invisible":true}
 // Process_LaunchAsNew (methodName; processName{; stackByteSize}) : inNewProcess
-// Process_LaunchAsNew (text; text{; longing}) : boolean
 //
 // DESCRIPTION
 //   Launches the specified process as a new process.
 //   The process, unless specified, defaults to a stack size of 256k.
 //   If the process is already running it is sent to the front.
 //
-C_BOOLEAN:C305($0; $go_b)
-C_TEXT:C284($1; $methodName_t)
-C_TEXT:C284($2; $newProcessName_t)
-C_LONGINT:C283($3; $vl_stackSize)  // OPTIONAL: 256k default
+#DECLARE($methodName_t : Text; \
+$newProcessName_t : Text\
+; $vl_stackSize : Integer)->$go_b : Boolean
 // ----------------------------------------------------
-// HISTORY
-//   Created by Dave Batton on Nov 19, 2003
-// ----------------------------------------------------
-
 $go_b:=False:C215
+
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:C259))
-	$methodName_t:=$1
-	$newProcessName_t:=$2
-	If (Count parameters:C259>=3)
-		$vl_stackSize:=$3
-	Else 
+	If ($vl_stackSize=0)
 		$vl_stackSize:=1024*256
 	End if 
 	
-	C_TEXT:C284($currentProcessName_t)
-	C_LONGINT:C283($processState_i; $processTime_i; $processNumber_i)
+	var $currentProcessName_t : Text
+	var $processState_i; $processTime_i; $processNumber_i : Integer
 	
 	_O_PROCESS PROPERTIES:C336(Current process:C322; $currentProcessName_t; $processState_i; $processTime_i)
 	
@@ -51,5 +42,3 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 2; 3; Count parameters:
 			TRACE:C157
 	End case 
 End if 
-
-$0:=$go_b

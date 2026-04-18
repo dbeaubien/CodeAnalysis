@@ -10,7 +10,7 @@ Else
 	UnitTest_Init("stats")
 	UnitTest__Stopwatch("start")
 	
-	C_LONGINT:C283($index)
+	var $index : Integer
 	For ($index; 1; Size of array:C274(UnitTest_ListBoxTestCases))
 		If (UnitTest_TestCaseEnabled{$index})
 			UnitTest_RunTestCase(UnitTest_TestCases{$index})

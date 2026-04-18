@@ -1,7 +1,7 @@
 Case of 
 	: (Form event code:C388=On Clicked:K2:4)
-		C_LONGINT:C283($vlMouseX; $vlMouseY; $vlButton)
-		GET MOUSE:C468($vlMouseX; $vlMouseY; $vlButton)
+		var $vlMouseX; $vlMouseY; $vlButton : Integer
+		MOUSE POSITION:C468($vlMouseX; $vlMouseY; $vlButton)
 		If (Macintosh control down:C544 | ($vlButton=2))
 			
 			If (Size of array:C274(DEMO_File1_at)>0)
@@ -11,8 +11,8 @@ Case of
 				
 				// Look to see if there are any mispelled words that the user might want to add to the user dictionary
 				If (DEMO_File1_at#0)
-					C_TEXT:C284($myText)
-					C_LONGINT:C283($i; $pos; $errCount)
+					var $myText : Text
+					var $i; $pos; $errCount : Integer
 					$myText:=ST Get plain text:C1092(DEMO_File1_at{DEMO_File1_at})
 					$pos:=Position:C15("//"; $myText)
 					If ($pos>0)
@@ -20,8 +20,8 @@ Case of
 						$errCount:=0
 						ARRAY TEXT:C222($at_errorWords; 0)
 						ARRAY TEXT:C222($tSuggestions; 0)
-						C_LONGINT:C283($errPos; $errLength)
-						C_TEXT:C284($errorWord)
+						var $errPos; $errLength : Integer
+						var $errorWord : Text
 						Repeat 
 							SPELL CHECK TEXT:C1215($myText; $errPos; $errLength; $pos; $tSuggestions)
 							If (OK=0)
@@ -45,7 +45,7 @@ Case of
 				
 				
 				// Convert the array into the pop-up menu
-				C_TEXT:C284($vtItems)
+				var $vtItems : Text
 				$vtItems:=""
 				For ($i; 1; Size of array:C274($at_menuItems))
 					If ($vtItems#"")
@@ -56,7 +56,7 @@ Case of
 				
 				
 				// Show pop-up and handle choice
-				C_LONGINT:C283($vlUserChoice)
+				var $vlUserChoice : Integer
 				$vlUserChoice:=Pop up menu:C542($vtItems)
 				Case of 
 					: ($at_menuItems{$vlUserChoice}="Open Method...")  // Open the method

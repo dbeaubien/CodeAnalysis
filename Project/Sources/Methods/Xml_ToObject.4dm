@@ -20,42 +20,36 @@
 
 // FROM DISCUSS FORUM: https://discuss.4d.com/t/can-i-get-the-name-of-4d-constants-modifiers-or-key-codes/14810/13
 
-C_OBJECT:C1216($0)
-C_TEXT:C284($1)
+#DECLARE($ref_xml : Text) : Object
 
-C_LONGINT:C283($count_l)
-C_LONGINT:C283($i_l)
-C_LONGINT:C283($j_l)
-C_LONGINT:C283($k_l)
-C_LONGINT:C283($nbAttribs_l)
-C_LONGINT:C283($nbElementsEnfants_l)
-C_LONGINT:C283($pos_l)
-C_TEXT:C284($nomElementCourant_t)
-C_TEXT:C284($propriete_t)
-C_TEXT:C284($refXMLcourant_t)
-C_TEXT:C284($valeur_t)
-C_TEXT:C284($valeurElementCourant_t)
-C_OBJECT:C1216($element_o)
-C_OBJECT:C1216($objEnfant_o)
-C_OBJECT:C1216($out_o)
-C_OBJECT:C1216($temp_o)
+var $count_l : Integer
+var $i_l : Integer
+var $j_l : Integer
+var $k_l : Integer
+var $nbAttribs_l : Integer
+var $nbElementsEnfants_l : Integer
+var $pos_l : Integer
+var $nomElementCourant_t : Text
+var $propriete_t : Text
+var $refXMLcourant_t : Text
+var $valeur_t : Text
+var $valeurElementCourant_t : Text
+var $element_o : Object
+var $objEnfant_o : Object
+var $out_o : Object
+var $temp_o : Object
 ARRAY LONGINT:C221($type_al; 0)
 ARRAY TEXT:C222($nomElementEnfant_at; 0)
 ARRAY TEXT:C222($prop_at; 0)
 ARRAY TEXT:C222($refXMLenfant_at; 0)
-C_TEXT:C284($nomFrereSuivant_t)
-C_BOOLEAN:C305($convertirNomNonConforme_b)
-C_TEXT:C284($proprieteJson_t)
-
-If (False:C215)
-	C_OBJECT:C1216(Xml_ToObject; $0)
-	C_TEXT:C284(Xml_ToObject; $1)
-End if 
+var $nomFrereSuivant_t : Text
+var $convertirNomNonConforme_b : Boolean
+var $proprieteJson_t : Text
 
 $out_o:=New object:C1471
 $element_o:=New object:C1471
 $convertirNomNonConforme_b:=True:C214
-$refXMLcourant_t:=$1
+$refXMLcourant_t:=$ref_xml
 
 DOM GET XML ELEMENT NAME:C730($refXMLcourant_t; $nomElementCourant_t)
 DOM GET XML ELEMENT VALUE:C731($refXMLcourant_t; $valeurElementCourant_t)
@@ -100,7 +94,7 @@ If ($nbElementsEnfants_l>0)
 				$element_ao{$k_l}:=New object:C1471()
 				$element_ao{$k_l}[$propriete_t]:=$objEnfant_o[$propriete_t]
 				If ($pos_l<1)  //last in array
-					C_COLLECTION:C1488($temp_c)
+					var $temp_c : Collection
 					$temp_c:=New collection:C1472
 					For ($k_l; 1; Size of array:C274($element_ao))
 						$temp_c.push($element_ao{$k_l}[$propriete_t])
@@ -127,4 +121,4 @@ Else
 	$out_o[$nomElementCourant_t]:=$element_o
 End if 
 
-$0:=$out_o  //ouf !
+return $out_o

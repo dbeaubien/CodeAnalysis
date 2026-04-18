@@ -10,7 +10,7 @@
 //   Created by: Dani Beaubien (12/20/2020)
 // ----------------------------------------------------
 
-C_OBJECT:C1216($statSummaryCounts)
+var $statSummaryCounts : Object
 $statSummaryCounts:=New shared object:C1526
 
 Use ($statSummaryCounts)
@@ -31,8 +31,8 @@ Use ($statSummaryCounts)
 		ARRAY TEXT:C222($tagsArr; 0)
 		OB GET PROPERTY NAMES:C1232(Storage:C1525.methodStats; $tagsArr)
 		
-		C_LONGINT:C283($i)
-		C_OBJECT:C1216($methodStatObject)
+		var $i : Integer
+		var $methodStatObject : Object
 		For ($i; 1; Size of array:C274($tagsArr))
 			If (Value type:C1509(Storage:C1525.methodStats[$tagsArr{$i}])=Is object:K8:27)
 				$methodStatObject:=Storage:C1525.methodStats[$tagsArr{$i}]

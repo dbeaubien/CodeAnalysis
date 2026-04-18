@@ -4,14 +4,9 @@
 // $1 = Boolean
 // $2 = Failure message (optional)
 
-C_BOOLEAN:C305($1; $boolean)
-C_TEXT:C284($2; $message)
+#DECLARE($boolean : Boolean; $message : Text)
 
-$boolean:=$1
-
-If (Count parameters:C259>=2)
-	$message:=$2
-Else 
+If ($message="")
 	$message:="AssertTrue Expected True but got False"
 End if 
 

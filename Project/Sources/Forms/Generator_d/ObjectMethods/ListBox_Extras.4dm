@@ -1,6 +1,6 @@
 //   Mod: DB (03/28/2014) - Use generic method for loading methods
 
-C_BOOLEAN:C305($vb_doDoubleClick)
+var $vb_doDoubleClick : Boolean
 $vb_doDoubleClick:=False:C215
 
 Case of 

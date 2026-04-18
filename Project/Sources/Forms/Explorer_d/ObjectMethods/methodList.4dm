@@ -1,8 +1,8 @@
 
-C_BOOLEAN:C305($doDoubleClick)
+var $doDoubleClick : Boolean
 $doDoubleClick:=False:C215
 
-C_OBJECT:C1216(selectedMethodObj)  // set by the list box
+var selectedMethodObj : Object  // set by the list box
 Case of 
 	: (String:C10(selectedMethodObj.path)="")  // do nothing
 		
@@ -10,8 +10,8 @@ Case of
 		$doDoubleClick:=True:C214
 		
 	: (Form event code:C388=On Clicked:K2:4)
-		C_LONGINT:C283($vlMouseX; $vlMouseY; $vlButton)
-		GET MOUSE:C468($vlMouseX; $vlMouseY; $vlButton)
+		var $vlMouseX; $vlMouseY; $vlButton : Integer
+		MOUSE POSITION:C468($vlMouseX; $vlMouseY; $vlButton)
 		If (Macintosh control down:C544 | ($vlButton=2))
 			ARRAY TEXT:C222($at_menuItems; 0)
 			ARRAY TEXT:C222($at_selectedMethodPaths; 0)
@@ -27,7 +27,7 @@ Case of
 				//APPEND TO ARRAY($at_menuItems;selectedMethodObj.name)
 				//APPEND TO ARRAY($at_selectedMethodPaths;"")
 				
-				C_TEXT:C284($methodPath)
+				var $methodPath : Text
 				For each ($methodPath; selectedMethodObj.upstreamMethodPaths)
 					APPEND TO ARRAY:C911($at_menuItems; "Called by \""+Replace string:C233($methodPath; "/"; " > ")+"\"…")
 					APPEND TO ARRAY:C911($at_selectedMethodPaths; $methodPath)
@@ -35,8 +35,8 @@ Case of
 			End if 
 			
 			// Convert the array into the pop-up menu
-			C_TEXT:C284($vtItems)
-			C_LONGINT:C283($i)
+			var $vtItems : Text
+			var $i : Integer
 			$vtItems:=""
 			For ($i; 1; Size of array:C274($at_menuItems))
 				If ($vtItems#"")
@@ -46,7 +46,7 @@ Case of
 			End for 
 			
 			// Show pop-up and handle choice
-			C_LONGINT:C283($vlUserChoice)
+			var $vlUserChoice : Integer
 			$vlUserChoice:=Pop up menu:C542($vtItems)
 			Case of 
 				: ($vlUserChoice=0)
@@ -56,7 +56,7 @@ Case of
 					$doDoubleClick:=True:C214
 					
 				: ($at_menuItems{$vlUserChoice}="Code Review...")
-					C_TEXT:C284(<>_DIFF_MethodName)
+					var <>_DIFF_MethodName : Text
 					<>_DIFF_MethodName:=selectedMethodObj.name
 					CODE_DoCodeReview
 					
@@ -72,7 +72,6 @@ End case
 
 
 If ($doDoubleClick)
-	C_TEXT:C284($methodPath)
 	$methodPath:=String:C10(selectedMethodObj.path)
 	If ($methodPath#"")
 		METHOD OPEN PATH:C1213($methodPath; *)

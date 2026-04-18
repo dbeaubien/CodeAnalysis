@@ -1,7 +1,7 @@
 
 Case of 
 	: (Form event code:C388=On Clicked:K2:4)
-		C_TEXT:C284($vt_default_Folder)
+		var $vt_default_Folder : Text
 		$vt_default_Folder:=CodeAnalysis__GetDestFolder
 		
 		Folder_VerifyExistance($vt_default_Folder)

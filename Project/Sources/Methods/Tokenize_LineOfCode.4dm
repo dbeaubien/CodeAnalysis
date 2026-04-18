@@ -4,21 +4,12 @@
 // DESCRIPTION
 //   Tokenizes a single line of code.
 //
-C_TEXT:C284($1; $localLine)  // line to be parsed 
-C_POINTER:C301($2; $tokensArrPtr)  // ->array text, to be filled with the tokens 
-C_OBJECT:C1216($3; $previousLineInfo)
-C_OBJECT:C1216($0; $currentLineInfo)
-// ----------------------------------------------------
-// HISTORY
-//   Mod by: Dani Beaubien (03/14/2021)
+#DECLARE($localLine : Text; $tokensArrPtr : Pointer\
+; $previousLineInfo : Object)->$currentLineInfo : Object
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259>=2)
 ASSERT:C1129(Count parameters:C259<=3)
-$localLine:=$1
-$tokensArrPtr:=$2
-If (Count parameters:C259=3)
-	$previousLineInfo:=$3
-Else 
+If ($previousLineInfo=Null:C1517)
 	$previousLineInfo:=New object:C1471
 End if 
 $currentLineInfo:=New object:C1471
@@ -36,7 +27,7 @@ If ($localLine="//@") | ($localLine="/*@*/")
 Else 
 	Tokenize__Init
 	
-	C_LONGINT:C283($pos)
+	var $pos : Integer
 	If (Array_FindInSortedArray(->_CODELINE_original; ->$localLine; ->$pos))
 		OB GET ARRAY:C1229(_CODELINE_tokenized{$pos}; "tokenizedLine"; $tokensArrPtr->)
 		$currentLineInfo.isCommentLine:=True:C214
@@ -45,11 +36,11 @@ Else
 		Logging_Method_START(Current method name:C684+" - INNER")
 		
 		// loop through the characters
-		C_BOOLEAN:C305($vb_startQuotedText; $vb_startDate; $vb_startTime)
-		C_BOOLEAN:C305($vb_startToken)
-		C_BOOLEAN:C305($vb_inWhiteSpace)
-		C_TEXT:C284($vt_curToken; $vt_trailingSpaces; $curChar; $nextChar; $prevChar; $prevPrevChar)
-		C_LONGINT:C283($maxLen; $i; $index)
+		var $vb_startQuotedText; $vb_startDate; $vb_startTime : Boolean
+		var $vb_startToken : Boolean
+		var $vb_inWhiteSpace : Boolean
+		var $vt_curToken; $vt_trailingSpaces; $curChar; $nextChar; $prevChar; $prevPrevChar : Text
+		var $maxLen; $i; $index : Integer
 		$maxLen:=Length:C16($localLine)
 		For ($i; 1; $maxLen)
 			$curChar:=$localLine[[$i]]
@@ -331,7 +322,7 @@ Else
 		Tokenize_LineOfCode_AddToArrays($tokensArrPtr; $vt_curToken)
 		
 		// Append to document
-		C_OBJECT:C1216($vo_tokenizedArr)
+		var $vo_tokenizedArr : Object
 		CLEAR VARIABLE:C89($vo_tokenizedArr)
 		//$vo_tokenizedArr:=New object
 		OB SET ARRAY:C1227($vo_tokenizedArr; "tokenizedLine"; $tokensArrPtr->)
@@ -345,4 +336,3 @@ Else
 End if 
 
 Logging_Method_STOP(Current method name:C684)
-$0:=$currentLineInfo

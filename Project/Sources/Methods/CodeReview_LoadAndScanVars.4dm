@@ -5,11 +5,6 @@
 //   Parses the content and parses the variables for displaying
 //   on the Code Review window.
 //
-C_LONGINT:C283($1)
-C_TEXT:C284($0)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (01/08/2017)
 // ----------------------------------------------------
 
 Logging_Method_START(Current method name:C684)
@@ -22,16 +17,16 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	Structure_GetTokenArr_Cdefn(->$at_C_declarVarToken)
 	Structure_GetTokenArr_ArrDefn(->$at_ARR_declarVarToken)
 	
-	C_TEXT:C284($vT_Pattern)
+	var $vT_Pattern : Text
 	$vT_Pattern:="((\\$)|[<>])(.)+"  // Matches any interprocess and local var
 	$vT_Pattern:="(?mi-s)(<>[0-9a-zA-Z_.]+)+|(\\$[0-9a-zA-Z_.]+)+"
 	
 	ARRAY TEXT:C222($at_foundVars; 0)
 	ARRAY TEXT:C222($at_foundVarTypes; 0)
 	ARRAY TEXT:C222($at_foundVarPositions; 0)
-	C_LONGINT:C283($vl_start; $vl_pos_found; $vl_length_found)
-	C_LONGINT:C283($i; $j; $pos; $vl_posOfMatchingCommand)
-	C_TEXT:C284($vt_varName; $vt_varType; $vt_varPosition)
+	var $vl_start; $vl_pos_found; $vl_length_found : Integer
+	var $i; $j; $pos; $vl_posOfMatchingCommand : Integer
+	var $vt_varName; $vt_varType; $vt_varPosition : Text
 	For ($i; 1; Size of array:C274(DEMO_File1_at))
 		ARRAY TEXT:C222($at_tokens; 0)
 		Tokenize_LineOfCode(DEMO_File1_at{$i}; ->$at_tokens)

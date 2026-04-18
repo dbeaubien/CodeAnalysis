@@ -1,23 +1,14 @@
 //%attributes = {"invisible":true}
 // ExportDocs___Output_PM_NavHTML (methodCount; includeHeader) : navigationHTML
-// ExportDocs___Output_PM_NavHTML (boolean): text
 //
 // DESCRIPTION
 //   Returns the Project Method HTML for the navigation section.
 //
-C_LONGINT:C283($1; $numProjectMethods)
-C_BOOLEAN:C305($2; $includeHeader)
-C_BOOLEAN:C305($3; $onlyExportSharedMethods)
-C_TEXT:C284($0; $html)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/07/2012)
-//   Mod by: Dani Beaubien (01/30/2021)
+#DECLARE($numProjectMethods : Integer\
+; $includeHeader : Boolean\
+; $onlyExportSharedMethods : Boolean)->$html : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=3)
-$numProjectMethods:=$1
-$includeHeader:=$2
-$onlyExportSharedMethods:=$3
 $html:=""
 
 If ($numProjectMethods>0)  // Output the Project Methods top level of tree:
@@ -34,22 +25,20 @@ If ($numProjectMethods>0)  // Output the Project Methods top level of tree:
 End if 
 
 If ($numProjectMethods>0)
-	C_OBJECT:C1216(MethodStatsMasterObj)
+	var MethodStatsMasterObj : Object
 	MethodStats__Init  // defines MethodStatsMasterObj
 	
 	ARRAY TEXT:C222($methodObjNames; 0)
 	Method_GetMethodObjNames(->$methodObjNames; $onlyExportSharedMethods)
 	Method_ReduceToNamesOfType(->$methodObjNames; "project method")
 	
-	C_TEXT:C284($previousMethodModule)
+	var $previousMethodModule : Text
 	$previousMethodModule:=Char:C90(Escape:K15:39)  // use some totally bogus value that will not match anything
 	
-	C_OBJECT:C1216($moduleCounts)
+	var $moduleCounts : Object
 	If (True:C214)  // get the counts for each module
 		$moduleCounts:=New object:C1471
 		
-		C_LONGINT:C283($i)
-		C_OBJECT:C1216($methodObj)
 		For ($i; 1; Size of array:C274($methodObjNames))
 			$methodObj:=MethodStatsMasterObj[$methodObjNames{$i}]
 			If ($methodObj.in_module#"")
@@ -63,9 +52,9 @@ If ($numProjectMethods>0)
 		End for 
 	End if 
 	
-	C_LONGINT:C283($i)
-	C_BOOLEAN:C305($ulTagOpened)
-	C_OBJECT:C1216($methodObj)
+	var $i : Integer
+	var $ulTagOpened : Boolean
+	var $methodObj : Object
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$methodObj:=MethodStatsMasterObj[$methodObjNames{$i}]
 		
@@ -97,7 +86,4 @@ If ($numProjectMethods>0)
 	
 	$html:=$html+"</ul></li>"+Pref_GetEOL
 	$html:=$html+"</ul>"+(Pref_GetEOL*2)
-	
 End if 
-
-$0:=$html

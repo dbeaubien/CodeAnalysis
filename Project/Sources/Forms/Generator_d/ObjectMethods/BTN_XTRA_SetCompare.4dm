@@ -1,5 +1,5 @@
 
-C_TEXT:C284($vt_newFolderPath)
+var $vt_newFolderPath : Text
 $vt_newFolderPath:=Select folder:C670("Compare with folder"; CodeAnalysis__GetDestFolder)
 If (OK=1)
 	If ($vt_newFolderPath=("@"+Folder separator:K24:12))

@@ -15,7 +15,7 @@
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	
 	// Look for changes within the lines
-	C_LONGINT:C283($i; $j)
+	var $i; $j : Integer
 	For ($i; 1; Size of array:C274(DEMO_File2_at))  // Look for lines changes
 		
 		If (DEMO_BackColors_al{$i}#0x00FFFFFF)  // If this line has a change on it.

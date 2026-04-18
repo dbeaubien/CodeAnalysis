@@ -1,5 +1,5 @@
 
-C_TEXT:C284($vt_newFolderPath)
+var $vt_newFolderPath : Text
 $vt_newFolderPath:=Select folder:C670("Select the folder to scan:"; CodeAnalysis__GetDestFolder)
 If (OK=1)
 	Pref_SetPrefString("DIFF.LastFolder"; $vt_newFolderPath)

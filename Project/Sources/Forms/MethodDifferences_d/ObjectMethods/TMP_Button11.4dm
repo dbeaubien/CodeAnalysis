@@ -2,7 +2,7 @@
 
 If (Form event code:C388=On Clicked:K2:4)
 	
-	C_LONGINT:C283($vl_vertPosition)
+	var $vl_vertPosition : Integer
 	OBJECT GET SCROLL POSITION:C1114(DEMO_FileDiff_ALT_lb; $vl_vertPosition)
 	
 	If ($vl_vertPosition<Size of array:C274(DEMO_ALT_File1LineNo_al))

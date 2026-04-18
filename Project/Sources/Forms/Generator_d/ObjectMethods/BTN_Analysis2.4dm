@@ -5,8 +5,8 @@ ARRAY TEXT:C222(at_DIFF2_descriptions; 0)
 ARRAY TEXT:C222(at_DIFF2_filePaths; 0)
 ARRAY TEXT:C222(at_DIFF2_compareFilePaths; 0)
 
-C_LONGINT:C283($i; $pos)
-C_TEXT:C284($vt_pathToLocalFolder)
+var $i; $pos : Integer
+var $vt_pathToLocalFolder : Text
 For ($i; 1; Size of array:C274(at_XTRA_relativePaths))
 	If (at_XTRA_comparePathsFULL{$i}#"")
 		$vt_pathToLocalFolder:=Folder_GetPathFrmRelativeToStct(at_XTRA_relativePaths{$i})
@@ -14,7 +14,7 @@ For ($i; 1; Size of array:C274(at_XTRA_relativePaths))
 		If (Folder_DoesExist($vt_pathToLocalFolder) & Folder_DoesExist(at_XTRA_comparePathsFULL{$i}))
 			ARRAY TEXT:C222($at_localFiles; 0)
 			Folder_GetAllFilePaths($vt_pathToLocalFolder; ->$at_localFiles)
-			C_LONGINT:C283($j)
+			var $j : Integer
 			For ($j; 1; Size of array:C274($at_localFiles))  // Remove the "relative" part
 				$at_localFiles{$j}:=Replace string:C233($at_localFiles{$j}; $vt_pathToLocalFolder; "")
 			End for 
@@ -39,23 +39,23 @@ For ($i; 1; Size of array:C274(at_XTRA_relativePaths))
 						
 						If (Digest_GetForFile($vt_pathToLocalFolder+$at_localFiles{$j})#Digest_GetForFile(at_XTRA_comparePathsFULL{$i}+$at_localFiles{$j}))
 							// Get the dates from the local file
-							C_DATE:C307($vd_createdDate_SRC; $vd_modDate_SRC)
-							C_TIME:C306($vh_createdTime_SRC; $vh_modTime_SRC)
-							C_BOOLEAN:C305($vb_isLocked; $vb_isInvisble)
+							var $vd_createdDate_SRC; $vd_modDate_SRC : Date
+							var $vh_createdTime_SRC; $vh_modTime_SRC : Time
+							var $vb_isLocked; $vb_isInvisble : Boolean
 							GET DOCUMENT PROPERTIES:C477($vt_pathToLocalFolder+$at_localFiles{$j}; $vb_isLocked; $vb_isInvisble; $vd_createdDate_SRC; $vh_createdTime_SRC; $vd_modDate_SRC; $vh_modTime_SRC)
-							C_LONGINT:C283($vl_created_SRC; $vl_mod_SRC)
+							var $vl_created_SRC; $vl_mod_SRC : Integer
 							$vl_created_SRC:=TS_FromDateTime($vd_createdDate_SRC; $vh_createdTime_SRC)
 							$vl_mod_SRC:=TS_FromDateTime($vd_modDate_SRC; $vh_modTime_SRC)
 							
 							// Get the dates from the remote file
-							C_DATE:C307($vd_createdDate_DST; $vd_modDate_DST)
-							C_TIME:C306($vh_createdTime_DST; $vh_modTime_DST)
+							var $vd_createdDate_DST; $vd_modDate_DST : Date
+							var $vh_createdTime_DST; $vh_modTime_DST : Time
 							GET DOCUMENT PROPERTIES:C477(at_XTRA_comparePathsFULL{$i}+$at_localFiles{$j}; $vb_isLocked; $vb_isInvisble; $vd_createdDate_DST; $vh_createdTime_DST; $vd_modDate_DST; $vh_modTime_DST)
-							C_LONGINT:C283($vl_created_DST; $vl_mod_DST)
+							var $vl_created_DST; $vl_mod_DST : Integer
 							$vl_created_DST:=TS_FromDateTime($vd_createdDate_DST; $vh_createdTime_DST)
 							$vl_mod_DST:=TS_FromDateTime($vd_modDate_DST; $vh_modTime_DST)
 							
-							C_BOOLEAN:C305($vb_localIsNewer; $vb_remoteIsNewer)
+							var $vb_localIsNewer; $vb_remoteIsNewer : Boolean
 							$vb_localIsNewer:=False:C215
 							$vb_remoteIsNewer:=False:C215
 							Case of 
@@ -103,7 +103,7 @@ For ($i; 1; Size of array:C274(at_XTRA_relativePaths))
 	
 End for 
 
-C_TEXT:C284($vt_header)
+var $vt_header : Text
 Case of 
 	: (Size of array:C274(at_DIFF2_fileNames)>1)
 		$vt_header:=String:C10(Size of array:C274(at_DIFF2_fileNames))+" Files that Differ"

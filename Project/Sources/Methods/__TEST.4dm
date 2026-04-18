@@ -1,6 +1,12 @@
 //%attributes = {"preemptive":"capable"}
 //Progress QUIT (0)
 
+var $o : Object
+$o:=cs:C1710.model_TableInformation.new()
+
+BEEP:C151
+ABORT:C156
+
 var $ms : Integer
 $ms:=Milliseconds:C459
 var $vt_xml : Text
@@ -13,7 +19,7 @@ ALERT:C41(String:C10(Milliseconds:C459-$ms))
 //SET TEXT TO PASTEBOARD(JSON Stringify($vo_structure; *))
 BEEP:C151
 ABORT:C156
-Compiler_Methods()
+cs:C1710.model_TableInformation
 
 //_DIFF_ChangesText 
 

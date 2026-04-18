@@ -1,7 +1,7 @@
 //   Mod: DB (03/28/2014) - Use generic method for loading methods
 
-C_OBJECT:C1216(selectedDiffMethod)
-C_BOOLEAN:C305($userDoubleClicked)
+var selectedDiffMethod : Object
+var $userDoubleClicked : Boolean
 $userDoubleClicked:=False:C215
 
 Case of 
@@ -11,8 +11,8 @@ Case of
 		
 		
 	: (Form event code:C388=On Clicked:K2:4)
-		C_LONGINT:C283($vlMouseX; $vlMouseY; $vlButton)
-		GET MOUSE:C468($vlMouseX; $vlMouseY; $vlButton)
+		var $vlMouseX; $vlMouseY; $vlButton : Integer
+		MOUSE POSITION:C468($vlMouseX; $vlMouseY; $vlButton)
 		If (Macintosh control down:C544 | ($vlButton=2))
 			If (selectedDiffMethod#Null:C1517)
 				
@@ -41,8 +41,8 @@ Case of
 				End if 
 				
 				// Convert the array into the pop-up menu
-				C_TEXT:C284($vtItems)
-				C_LONGINT:C283($i)
+				var $vtItems : Text
+				var $i : Integer
 				$vtItems:=""
 				For ($i; 1; Size of array:C274($at_menuItems))
 					If ($vtItems#"")
@@ -52,7 +52,7 @@ Case of
 				End for 
 				
 				// Show pop-up and handle choice
-				C_LONGINT:C283($vlUserChoice)
+				var $vlUserChoice : Integer
 				$vlUserChoice:=Pop up menu:C542($vtItems)
 				Case of 
 					: ($at_menuItems{$vlUserChoice}="View Differences...")
@@ -70,7 +70,7 @@ Case of
 						If (OK=1)
 							
 							//   Mod: DB (03/28/2014)
-							C_LONGINT:C283($vl_Err)
+							var $vl_Err : Integer
 							$vl_Err:=Method_LoadFromFile(selectedDiffMethod.methodName; selectedDiffMethod.methodPathOnDisk)
 							
 							If ($vl_Err=0)
@@ -95,7 +95,7 @@ End case
 
 If ($userDoubleClicked) & (selectedDiffMethod#Null:C1517)
 	If (selectedDiffMethod.methodName#"")
-		C_TEXT:C284(<>_DIFF_MethodName; <>_DIFF_PathToFileOnDisk)
+		var <>_DIFF_MethodName; <>_DIFF_PathToFileOnDisk : Text
 		<>_DIFF_MethodName:=selectedDiffMethod.methodName
 		<>_DIFF_PathToFileOnDisk:=selectedDiffMethod.methodPathOnDisk
 		

@@ -1,3 +1,3 @@
 
-C_LONGINT:C283($vl)
+var $vl : Integer
 $vl:=$vl+1
