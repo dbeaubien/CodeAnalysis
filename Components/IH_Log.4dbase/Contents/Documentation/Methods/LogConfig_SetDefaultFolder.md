@@ -1,0 +1,1 @@
+﻿   LogConfig_SetDefaultFolder (folderRootPath; {dynamicFolderPath})     LogConfig_SetDefaultFolder (text; text)          DESCRIPTION       Sets the default folder where logs files are stored.       Passing an empty string will reset it back to default.           Templated names are supported. The dynamicFolderPath is        passed through Date2String on output.      

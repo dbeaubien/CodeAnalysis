@@ -1,0 +1,1 @@
+﻿   LogDisplay__BringToFront (processNo)     LogDisplay__BringToFront (longint)          DESCRIPTION       NON THREAD SAFE method that brings the named process       to the front.         Example:      CALL WORKER(1;"LogDisplay__BringToFront";Process number("Log_AppLog"))      

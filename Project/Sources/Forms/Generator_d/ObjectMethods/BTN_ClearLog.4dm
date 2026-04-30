@@ -1,3 +1,3 @@
 
-C_TEXT:C284(<>vt_ExportToResults)
+var <>vt_ExportToResults : Text
 <>vt_ExportToResults:=""

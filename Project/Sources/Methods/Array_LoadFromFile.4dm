@@ -4,12 +4,12 @@
 // DESCRIPTION
 //   Loads the variable from the specified file path.
 //
-#DECLARE($vp_arrayPtr : Pointer; $vt_saveToFilePath : Text)->$vl_err : Integer
+#DECLARE($array_ptr : Pointer; $vt_saveToFilePath : Text)->$vl_err : Integer
 // ----------------------------------------------------
 $vl_err:=0
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
-	Array_Empty($vp_arrayPtr)
+	Array_Empty($array_ptr)
 	
 	If (File_DoesExist($vt_saveToFilePath))
 		var $vt_onErrorMethod : Text  //   Mod by: Dani Beaubien (06/22/2013)
@@ -22,7 +22,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 		var $vx_binaryData : Blob
 		DOCUMENT TO BLOB:C525($vt_saveToFilePath; $vx_binaryData)
 		
-		BLOB TO VARIABLE:C533($vx_binaryData; $vp_arrayPtr->)
+		BLOB TO VARIABLE:C533($vx_binaryData; $array_ptr->)
 		
 		$vl_err:=OnErr_GetLastError
 		OnErr_ClearError  //   Mod by: Dani Beaubien (06/22/2013)

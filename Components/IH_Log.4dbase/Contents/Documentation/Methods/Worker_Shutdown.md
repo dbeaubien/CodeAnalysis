@@ -1,0 +1,1 @@
+﻿   Worker_Shutdown ()          DESCRIPTION       Shuts down the worker process.         ----------------------------------------------------     HISTORY       Created by: DB (04/28/2017)       Mod: DB (05/21/2017) - Added cache flush       Mod by: Dani Beaubien (02/03/2020) - Updated to use log config object     ----------------------------------------------------  

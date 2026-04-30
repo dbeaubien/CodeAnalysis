@@ -9,7 +9,7 @@
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
-	Util_SaveWindowPosition("Disk"; $WIN_vt_layoutName)
+	Util_SaveWindowPosition($WIN_vt_layoutName)
 	
 	CLOSE WINDOW:C154($WIN_vl_windowRef)
 End if 

@@ -17,5 +17,7 @@ Case of
 		$file_name:=""
 		
 	Else 
-		$file_name:=File:C1566($file_platformPath; fk platform path:K87:2).fullName
+		var $parts : Collection
+		$parts:=Split string:C1554($file_platformPath; Folder separator:K24:12)
+		$file_name:=$parts.pop()
 End case 

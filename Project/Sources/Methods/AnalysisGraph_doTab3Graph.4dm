@@ -27,7 +27,7 @@ APPEND TO ARRAY:C911($al_lineBreaks; MAXLONG:K35:2)
 ARRAY LONGINT:C221($al_lineBreaksCounts; Size of array:C274($al_lineBreaks))
 
 // Load the template
-C_TEXT:C284($templateHTML)
+var $templateHTML : Text
 $templateHTML:=AnalysisGraph_GetTemplate
 
 ARRAY TEXT:C222($methodObjNames; 0)
@@ -35,13 +35,13 @@ Method_GetMethodObjNames(->$methodObjNames)
 
 ARRAY LONGINT:C221($al_tmp; 0)
 ARRAY LONGINT:C221($al_tmp; Size of array:C274($methodObjNames))
-C_OBJECT:C1216($methodLineCounts)
+var $methodLineCounts : Object
 For ($i; 1; Size of array:C274($methodObjNames))
 	$al_tmp{$i}:=MethodStatsMasterObj[$methodObjNames{$i}].analysis.max_nesting_level
 End for 
 SORT ARRAY:C229($al_tmp)
 
-C_LONGINT:C283($vl_curIndex; $vl_lowerLimit; $vl_upperLimit; $vl_nextNum)
+var $vl_curIndex; $vl_lowerLimit; $vl_upperLimit; $vl_nextNum : Integer
 $vl_curIndex:=1
 $vl_lowerLimit:=0
 $vl_upperLimit:=$al_lineBreaks{$vl_curIndex}
@@ -68,11 +68,11 @@ End for
 
 
 // Build the strings that will get put into the template
-C_TEXT:C284($labelStr; $dataStr)
+var $labelStr; $dataStr : Text
 $labelStr:=""
 $dataStr:=""
 $vl_lowerLimit:=0
-C_LONGINT:C283($i; $j)
+var $i; $j : Integer
 For ($i; 1; Size of array:C274($al_lineBreaks))
 	If ($i#1)
 		$labelStr:=$labelStr+","
@@ -97,7 +97,7 @@ End for
 
 
 // Update the template
-C_TEXT:C284($pathToGraphFile)
+var $pathToGraphFile : Text
 $pathToGraphFile:=Get 4D folder:C485(Current resources folder:K5:16)+"Graph_tabs"+Folder separator:K24:12+"tab_3.html"
 File_Delete($pathToGraphFile)
 $templateHTML:=Replace string:C233($templateHTML; "##GRAPH_CA_LABELS##"; $labelStr)

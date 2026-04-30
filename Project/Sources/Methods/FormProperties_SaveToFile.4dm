@@ -1,27 +1,19 @@
 //%attributes = {"invisible":true}
 // FormProperties_SaveToFile (formPath; formName; tableNo)
-// FormProperties_SaveToFile (text; text; longint)
 //
 // DESCRIPTION
 //   Scans the objects on the "Current" form, generates
 //   a file, and saves it to disk.
 //
-C_LONGINT:C283($1; $vl_tableNo)  // 0 means a project form
-C_TEXT:C284($2; $vt_formName)  // project/table form name
-C_TEXT:C284($3; $vt_diskFilePath)  // Path to save the form properties too
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (10/30/2012)
-//   Mod: DB (11/05/2012) - Task 2159 - Convered to JSON
-//   Mod: DB (11/07/2012) - Added calls to JSON_EncodeString to handle encoding
-//   Mod: DB (06/26/2013) - Use different method to fetch form properties
-//   Mod: DB (09/03/2015) - Converted to C_OBJECT
+#DECLARE($vl_tableNo : Integer\
+; $vt_formName : Text\
+; $vt_diskFilePath : Text)
+//var $1; $vl_tableNo : Integer  // 0 means a project form
+//var $2; $vt_formName : Text  // project/table form name
+//var $3; $vt_diskFilePath : Text  // Path to save the form properties too
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
-	$vl_tableNo:=$1
-	$vt_formName:=$2
-	$vt_diskFilePath:=$3
 	
 	If ($vl_tableNo>0)
 		FORM LOAD:C1103(Table:C252($vl_tableNo)->; $vt_formName; *)
@@ -35,14 +27,14 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	ARRAY LONGINT:C221($vl_pagesArray; 0)
 	FORM GET OBJECTS:C898($at_objectsArray; $ap_variablesArray; $vl_pagesArray)
 	
-	C_LONGINT:C283($vl_formWidth; $vl_formHeight; $vl_numPages)
-	C_BOOLEAN:C305($vb_formFixedWidth; $vb_formFixedHeight)
-	C_TEXT:C284($vt_title)
-	C_BOOLEAN:C305($vb_noResult)
+	var $vl_formWidth; $vl_formHeight; $vl_numPages : Integer
+	var $vb_formFixedWidth; $vb_formFixedHeight : Boolean
+	var $vt_title : Text
+	var $vb_noResult : Boolean
 	Host_GetAssetInfo_GetFormProp($vl_tableNo; $vt_formName; ->$vl_formWidth; ->$vl_formHeight; ->$vl_numPages; ->$vb_formFixedWidth; ->$vb_formFixedHeight; ->$vt_title)
 	
 	// Define some useful vars for the json
-	C_OBJECT:C1216($vo_formProperties)
+	var $vo_formProperties : Object
 	CLEAR VARIABLE:C89($vo_formProperties)
 	
 	// ##### FORM PROPERTIES - START
@@ -56,7 +48,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 		End if 
 		OB SET:C1220($vo_formProperties; "PageCount"; $vl_numPages)
 		
-		C_OBJECT:C1216($vo_tmpObj)
+		var $vo_tmpObj : Object
 		CLEAR VARIABLE:C89($vo_tmpObj)
 		OB SET:C1220($vo_tmpObj; "Width"; $vl_formWidth; "Height"; $vl_formHeight)
 		OB SET:C1220($vo_formProperties; "Size"; $vo_tmpObj)
@@ -66,8 +58,8 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 		OB SET:C1220($vo_formProperties; "FixedSize"; $vo_tmpObj)
 		
 		
-		C_BOOLEAN:C305($vb_canResize)
-		C_LONGINT:C283($vl_minSize; $vl_maxSize)
+		var $vb_canResize : Boolean
+		var $vl_minSize; $vl_maxSize : Integer
 		FORM GET VERTICAL RESIZING:C1078($vb_canResize; $vl_minSize; $vl_maxSize)
 		CLEAR VARIABLE:C89($vo_tmpObj)
 		If ($vb_canResize)
@@ -88,24 +80,24 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	End if 
 	// ##### FORM PROPERTIES - END
 	
-	C_OBJECT:C1216($vo_root)
+	var $vo_root : Object
 	OB SET:C1220($vo_root; "FormProperties"; $vo_formProperties)
 	
 	
 	
-	C_LONGINT:C283($vlTableNum; $vlFieldNum; $vl_horzSizingOption; $vl_vertSizingOption)
-	C_TEXT:C284($vt_VarName; $vt_ChoiceListName)
-	C_LONGINT:C283($vl_left; $vl_top; $vl_right; $vl_bottom)
+	var $vlTableNum; $vlFieldNum; $vl_horzSizingOption; $vl_vertSizingOption : Integer
+	var $vt_VarName; $vt_ChoiceListName : Text
+	var $vl_left; $vl_top; $vl_right; $vl_bottom : Integer
 	ARRAY OBJECT:C1221($ao_pageProperties; 0)
-	C_OBJECT:C1216($vo_page)
-	C_LONGINT:C283($i; $j)
+	var $vo_page : Object
+	var $i; $j : Integer
 	For ($i; 0; $vl_numPages)
 		CLEAR VARIABLE:C89($vo_page)
 		OB SET:C1220($vo_page; "PageNo"; $i)
 		
 		
 		ARRAY OBJECT:C1221($ao_ObjectProperties; 0)
-		C_OBJECT:C1216($vo_Object)
+		var $vo_Object : Object
 		For ($j; 1; Size of array:C274($at_objectsArray))
 			
 			If ($vl_pagesArray{$j}=$i)
@@ -138,10 +130,9 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 						OB SET:C1220($vo_Object; "TableName"; "["+Table name:C256($vlTableNum)+"]")
 				End case 
 				
-				C_TEXT:C284($vt_objText; $vl_indent5; $vl_indent4)
+				var $vt_objText; $vl_indent5; $vl_indent4 : Text
 				$vt_objText:=""
 				
-				C_OBJECT:C1216($vo_tmpObj)
 				CLEAR VARIABLE:C89($vo_tmpObj)
 				OB SET:C1220($vo_tmpObj; "Top"; $vl_top; "Left"; $vl_left; "Bottom"; $vl_bottom; "Right"; $vl_right)
 				OB SET:C1220($vo_Object; "BoundingRect"; $vo_tmpObj)
@@ -154,20 +145,19 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 					OB SET:C1220($vo_Object; "ChoiceList"; $vt_ChoiceListName)
 				End if 
 				
-				C_OBJECT:C1216($vo_tmpObj)
 				CLEAR VARIABLE:C89($vo_tmpObj)
 				OB SET:C1220($vo_tmpObj; "Horizontal"; $vl_horzSizingOption; "Vertical"; $vl_vertSizingOption)
 				OB SET:C1220($vo_Object; "SizingOptions"; $vo_tmpObj)
 				
 				// Title
-				C_TEXT:C284($vt_objectTitle)
+				var $vt_objectTitle : Text
 				$vt_objectTitle:=OBJECT Get title:C1068(*; $at_objectsArray{$j})
 				If ($vt_objectTitle#"")
 					OB SET:C1220($vo_Object; "Title"; $vt_objectTitle)
 				End if 
 				
 				// Format
-				C_TEXT:C284($vt_property; $vt_property2)
+				var $vt_property; $vt_property2 : Text
 				$vt_property:=OBJECT Get format:C894(*; $at_objectsArray{$j})
 				If ($vt_property#"") & ($vt_property#$vt_objectTitle)
 					OB SET:C1220($vo_Object; "Format"; $vt_property)
@@ -186,7 +176,6 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 					$vt_property:=Choose:C955(Num:C11($vt_property); ""; "Align default"; "Align left"; "Align center"; "Align right")
 					$vt_property2:=Choose:C955(Num:C11($vt_property2); ""; "Align default"; "Align top"; "Align center"; "Align bottom")
 					
-					C_OBJECT:C1216($vo_tmpObj)
 					CLEAR VARIABLE:C89($vo_tmpObj)
 					If ($vt_property#"")
 						OB SET:C1220($vo_tmpObj; "Horizontal"; $vt_property)
@@ -198,18 +187,16 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 				End if 
 				
 				// Colour
-				C_LONGINT:C283($vl_foregroundColor; $vl_backgroundColor; $vl_altBackgrndColor)
+				var $vl_foregroundColor; $vl_backgroundColor; $vl_altBackgrndColor : Integer
 				OBJECT GET RGB COLORS:C1074(*; $at_objectsArray{$j}; $vl_foregroundColor; $vl_backgroundColor; $vl_altBackgrndColor)
-				C_OBJECT:C1216($vo_tmpObj)
 				CLEAR VARIABLE:C89($vo_tmpObj)
 				OB SET:C1220($vo_tmpObj; "Foreground"; STR_LongintToHexString($vl_foregroundColor; 8); "Background"; STR_LongintToHexString($vl_backgroundColor; 8); "Alt Background"; STR_LongintToHexString($vl_altBackgrndColor; 8))
 				OB SET:C1220($vo_Object; "ColorRGB"; $vo_tmpObj)
 				
 				// Scrollbar
-				C_BOOLEAN:C305($vb_horizontal; $vb_vertical)
+				var $vb_horizontal; $vb_vertical : Boolean
 				OBJECT GET SCROLLBAR:C1076(*; $at_objectsArray{$j}; $vb_horizontal; $vb_vertical)
 				If ($vb_horizontal | $vb_vertical)
-					C_OBJECT:C1216($vo_tmpObj)
 					CLEAR VARIABLE:C89($vo_tmpObj)
 					OB SET:C1220($vo_tmpObj; "Horizontal"; Choose:C955($vb_horizontal; "Displayed"; "Hidden"); "Vertical"; Choose:C955($vb_vertical; "Displayed"; "Hidden"))
 					OB SET:C1220($vo_Object; "Scrollbar"; $vo_tmpObj)
@@ -222,7 +209,6 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 				End if 
 				
 				// Font Properties
-				C_OBJECT:C1216($vo_tmpObj)
 				CLEAR VARIABLE:C89($vo_tmpObj)
 				OB SET:C1220($vo_tmpObj; "Name"; OBJECT Get font:C1069(*; $at_objectsArray{$j}); "Size"; OBJECT Get font size:C1070(*; $at_objectsArray{$j}); "Style"; OBJECT Get font style:C1071(*; $at_objectsArray{$j}))
 				OB SET:C1220($vo_Object; "Font"; $vo_tmpObj)
@@ -243,15 +229,15 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	
 	FORM UNLOAD:C1299
 	
-	C_TEXT:C284($vt_msg)
+	var $vt_msg : Text
 	$vt_msg:=JSON Stringify:C1217($vo_root; *)
 	
 	File_Delete($vt_diskFilePath)
 	
-	C_TIME:C306($fileRef)
+	var $fileRef : Time
 	$fileRef:=Create document:C266($vt_diskFilePath)
 	If (OK=1)
-		C_BLOB:C604($vx_theCode)
+		var $vx_theCode : Blob
 		CONVERT FROM TEXT:C1011($vt_msg; "UTF-8"; $vx_theCode)  // Methods will be saved as UTF-8 so I need to convert the 4D Text (UTF-16) to UTF-8...
 		SEND PACKET:C103($fileRef; UTF8_BOMString)  // Insert the BOM...
 		SEND PACKET:C103($fileRef; $vx_theCode)

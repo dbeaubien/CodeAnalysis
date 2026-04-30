@@ -11,13 +11,13 @@ APPEND TO ARRAY:C911($at_headers; "Max Nesting Level")
 APPEND TO ARRAY:C911($at_headers; "Called by Methods")
 APPEND TO ARRAY:C911($at_headers; "Last Saved")
 
-C_TEXT:C284($vt_fileName)
+var $vt_fileName : Text
 $vt_fileName:="Analysis Results"
 $vt_fileName:=$vt_fileName+Date2String(Current date:C33; " YYYY-MM-DD")
 $vt_fileName:=$vt_fileName+Time2String(Current time:C178; " 24hh.mm.ss")
 $vt_fileName:=$vt_fileName+".csv"
 
-C_TEXT:C284($vt_filePath)
+var $vt_filePath : Text
 $vt_filePath:=CodeAnalysis__GetDestFolder+$vt_fileName
 
 // Setup temp arrays
@@ -30,7 +30,7 @@ ARRAY LONGINT:C221($al_maxNest; 0)
 ARRAY LONGINT:C221($al_Called; 0)
 ARRAY TEXT:C222($at_DTS; 0)
 
-C_OBJECT:C1216($row)
+var $row : Object
 For each ($row; Form:C1466.filteredList)
 	APPEND TO ARRAY:C911($at_method; $row.name)
 	APPEND TO ARRAY:C911($al_CodeLns; $row.numCodeLines)

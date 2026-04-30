@@ -1,0 +1,1 @@
+﻿   Defaults_GetLogFolder () : defaultLogFolder     Defaults_GetLogFolder () : text          DESCRIPTION       Returns the default folder that the logs will be placed in.       The default is 4D's "Log" folder.      

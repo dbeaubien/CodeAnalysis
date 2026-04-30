@@ -44,7 +44,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 7; Count parameters:
 	End if 
 	
 	If ((WIN_PositionHasBeenSaved($WIN_vt_layoutName; "Disk")) & (Not:C34($WIN_vF_DontUseSaved)))
-		WIN_PositionFromDisk($WIN_vt_layoutName; $WIN_vl_width; $WIN_vl_height; "notOpenYet"; "UserPrefs")
+		WIN_PositionFromDisk($WIN_vt_layoutName; $WIN_vl_width; $WIN_vl_height; "notOpenYet")
 		var $RefWindow : Integer
 		$RefWindow:=Open window:C153(WIN_left_l; WIN_top_l; WIN_right_l; WIN_bottom_l; $WIN_vl_windowType; $WIN_vT_WindowTitle; "WIN_HandleCloseWindow_EMPTY")
 		

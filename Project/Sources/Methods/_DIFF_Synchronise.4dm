@@ -9,43 +9,27 @@
 //
 // Parameters
 // ----------------------------------------------------
-C_POINTER:C301($1; $A_ptr)
-C_POINTER:C301($2; $B_ptr)
-C_POINTER:C301($3; $StartA_ptr)
-C_POINTER:C301($4; $StartB_ptr)
-C_POINTER:C301($5; $DeletedA_ptr)
-C_POINTER:C301($6; $InsertedB_ptr)
-C_POINTER:C301($7; $LinesA_ptr)
-C_POINTER:C301($8; $LinesB_ptr)
-C_POINTER:C301($9; $Colours_ptr)
-C_LONGINT:C283($10; $NormalColour_l)
-C_LONGINT:C283($11; $InsertedColour_l)
-C_LONGINT:C283($12; $DeletedColour_l)
+#DECLARE($A_ptr : Pointer\
+; $B_ptr : Pointer\
+; $StartA_ptr : Pointer\
+; $StartB_ptr : Pointer\
+; $DeletedA_ptr : Pointer\
+; $InsertedB_ptr : Pointer\
+; $LinesA_ptr : Pointer\
+; $LinesB_ptr : Pointer\
+; $Colours_ptr : Pointer\
+; $NormalColour_l : Integer\
+; $InsertedColour_l : Integer\
+; $DeletedColour_l : Integer)
 
-$A_ptr:=$1
-$B_ptr:=$2
-$StartA_ptr:=$3
-$StartB_ptr:=$4
-$DeletedA_ptr:=$5
-$InsertedB_ptr:=$6
-$LinesA_ptr:=$7
-$LinesB_ptr:=$8
-If (Count parameters:C259>8)
-	$Colours_ptr:=$9
-End if 
-If (Count parameters:C259>9)
-	$NormalColour_l:=$10
-Else 
+
+If ($NormalColour_l=0)
 	$NormalColour_l:=-255
 End if 
-If (Count parameters:C259>10)
-	$InsertedColour_l:=$11
-Else 
+If ($InsertedColour_l=0)
 	$InsertedColour_l:=0x00E02D42  //0x00FF8800
 End if 
-If (Count parameters:C259>11)
-	$DeletedColour_l:=$12
-Else 
+If ($DeletedColour_l=0)
 	$DeletedColour_l:=0x002702F5  //0xEE44
 End if 
 
@@ -53,7 +37,7 @@ End if
 // Setup tasks
 //************************************************
 
-C_LONGINT:C283($Line_l; $LineCountA_l; $LineCountB_l)
+var $Line_l; $LineCountA_l; $LineCountB_l : Integer
 $LineCountA_l:=Size of array:C274($A_ptr->)
 $LineCountB_l:=Size of array:C274($B_ptr->)
 
@@ -93,7 +77,7 @@ COPY ARRAY:C226($InsertedB_ptr->; $InsertB_al)
 // Synchronise A and B
 //************************************************
 
-C_LONGINT:C283($Change_l; $Change1_l; $ChangeCount_l; $Line_l; $InsertA_l; $InsertB_l)
+var $Change_l; $Change1_l; $ChangeCount_l; $InsertA_l; $InsertB_l : Integer
 $ChangeCount_l:=Size of array:C274($StartA_al)
 
 For ($Change_l; 1; $ChangeCount_l)
@@ -120,7 +104,7 @@ End for
 
 // Apply colours to the arrays
 If (Not:C34(Is nil pointer:C315($Colours_ptr)))
-	C_LONGINT:C283($LineCount_l)
+	var $LineCount_l : Integer
 	$LineCount_l:=Size of array:C274($A_ptr->)
 	Array_SetSize($LineCount_l; $Colours_ptr)
 	

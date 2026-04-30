@@ -1,5 +1,5 @@
 
-C_BOOLEAN:C305(<>LOG_IsInDebugMode)
+var <>LOG_IsInDebugMode : Boolean
 
 Case of 
 	: (Form event code:C388=On Load:K2:1)

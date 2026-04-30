@@ -5,16 +5,9 @@
 // $2 = Actual
 // $3 = Failure message (optional)
 
-C_POINTER:C301($1; $expected)
-C_POINTER:C301($2; $actual)
-C_TEXT:C284($3; $message)
+#DECLARE($expected : Pointer; $actual : Pointer; $message : Text)
 
-$expected:=$1
-$actual:=$2
-
-If (Count parameters:C259>=3)
-	$message:=$3
-Else 
+If ($message="")
 	$message:="AssertEqualPointer Expected "+UnitTest__ResolvePointer($expected)+" but got "+UnitTest__ResolvePointer($actual)
 End if 
 

@@ -1,26 +1,14 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// METHOD: CHART_SVG_GetGridRef
+// CHART_SVG_GetGridRef ()
 // 
 // DESCRIPTION
 //   Returns the SVG Reference for the added grid.
 //
-// PARAMETERS:
-C_TEXT:C284($1; $chartID)
-//   
-// RETURNS:
-C_TEXT:C284($0; $vt_gridRef)
+#DECLARE($chartID : Text)->$vt_gridRef : Text
 // ----------------------------------------------------
-// CALLED BY
-//   
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (03/23/11)
-// ----------------------------------------------------
-
 $vt_gridRef:=""
+
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$chartID:=$1
 	
 	$vt_gridRef:=OT_GetText($chartID; "SVG gridRef")
 	If ($vt_gridRef="")
@@ -28,4 +16,3 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	End if 
 	
 End if 
-$0:=$vt_gridRef

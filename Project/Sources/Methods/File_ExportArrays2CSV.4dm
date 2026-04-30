@@ -1,46 +1,40 @@
 //%attributes = {"invisible":true}
 // File_ExportArrays2CSV (filePath; headers; array1; array2; ... ; arrayn)
-// File_ExportArrays2CSV (text; ptr; ptr; ptr; ... ; ptr)
 // 
 // DESCRIPTION
 //   A generic method for exporting arrays to a CSV delimited file.
 //
-C_TEXT:C284($1; $vt_pathToFile)
-C_POINTER:C301($2; $at_headers_arrPtr)
-C_POINTER:C301(${3})
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (12/20/2011)
+#DECLARE($vt_pathToFile : Text\
+; $at_headers_arrPtr : Pointer\
+;  ...  : Pointer)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 20; Count parameters:C259))
-	$vt_pathToFile:=$1
-	$at_headers_arrPtr:=$2
 	
 	// Remove the file, prep for writing
 	File_Delete($vt_pathToFile)
 	
 	// # setup our arrays
-	C_LONGINT:C283($vl_numCols)
+	var $vl_numCols : Integer
 	$vl_numCols:=Count parameters:C259-2
 	
 	If ($vl_numCols>0)
 		ARRAY POINTER:C280($vp_ArrayOfArrayPtrs; $vl_numCols)
-		C_LONGINT:C283($i)
+		var $i : Integer
 		For ($i; 3; Count parameters:C259)
 			$vp_ArrayOfArrayPtrs{$i-2}:=${$i}
 		End for 
 		
 		// # open the file and start importing the data
-		C_TIME:C306($docRef)
+		var $docRef : Time
 		$docRef:=File_CreateFile($vt_pathToFile; "TXT")
 		If (OK=1)
 			
-			C_TEXT:C284($vt_tmp)
+			var $vt_tmp : Text
 			$vt_tmp:=""
 			
 			// output the header row
-			C_LONGINT:C283($row; $col)
+			var $row; $col : Integer
 			For ($col; 1; Size of array:C274($at_headers_arrPtr->))
 				$vt_tmp:=$vt_tmp+"\""+Replace string:C233($at_headers_arrPtr->{$col}; "\""; "\"\"")+"\""
 				If ($col#$vl_numCols)
@@ -53,7 +47,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 3; 20; Count parameters
 			// Output the other rows
 			For ($row; 1; Size of array:C274($vp_ArrayOfArrayPtrs{1}->))
 				For ($col; 1; $vl_numCols)
-					C_LONGINT:C283($vl_ArrayType)
+					var $vl_ArrayType : Integer
 					$vl_ArrayType:=Type:C295($vp_ArrayOfArrayPtrs{$col}->)
 					Case of 
 						: ($vl_ArrayType=String array:K8:15) | ($vl_ArrayType=Text array:K8:16)

@@ -1,0 +1,1 @@
+﻿   LogDisplay__AddToBodyText (logName; label; numItemsInLogCache)     LogDisplay__AddToBodyText (logName; label; numItemsInLogCache)          DESCRIPTION       Adds to the body text on the window.      

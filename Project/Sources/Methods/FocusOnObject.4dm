@@ -2,10 +2,7 @@
 // FocusOnObject (objectName)
 //
 //
-C_TEXT:C284($1)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (02/16/2021)
+#DECLARE($object_name : Text)
 // ----------------------------------------------------
 
-GOTO OBJECT:C206(*; $1)
+GOTO OBJECT:C206(*; $object_name)

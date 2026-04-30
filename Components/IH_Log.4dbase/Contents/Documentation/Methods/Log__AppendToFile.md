@@ -1,0 +1,1 @@
+﻿   Log__AppendToFile (logType; logName; text2Append{; component})     Log__AppendToFile (text; text; text{; text})          DESCRIPTION       Appends the provided text to the specified app log.      

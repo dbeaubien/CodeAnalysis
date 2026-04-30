@@ -1,0 +1,1 @@
+﻿  Method: Folder_ParentName    Created by: Peter, Feb, 2000 11:30    Called from many places including StartWindows, StartMacintosh    Returns the Parent Name of the file pathname we pass in         Last Modified by: DB (7/25/03 @ 09:28:20) - added alternate seperator  

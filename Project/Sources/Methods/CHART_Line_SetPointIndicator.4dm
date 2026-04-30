@@ -1,32 +1,18 @@
 //%attributes = {"invisible":true}
 // CHART_Line_SetPointIndicator (ChartID; Shape; Width; Colour)
-// CHART_Line_SetPointIndicator (longint; text; longint; text)
 // 
 // DESCRIPTION
 //   Sets the most recent line to have the specified
 //   indicator.
 //
-C_TEXT:C284($1; $chartID)
-C_TEXT:C284($2; $vt_indicatorShape)
-C_LONGINT:C283($3; $vl_width)
-C_TEXT:C284($4; $vt_lineColour)
-// RETURNS:
-//   none
-// ----------------------------------------------------
-// CALLED BY
-//   
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (06/07/11)
+#DECLARE($chartID : Text\
+; $vt_indicatorShape : Text\
+; $vl_width : Integer\
+; $vt_lineColour : Text)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
-	$chartID:=$1
-	$vt_indicatorShape:=$2
-	$vl_width:=$3
-	$vt_lineColour:=$4
-	
-	C_LONGINT:C283($vl_lineNo)
+	var $vl_lineNo : Integer
 	$vl_lineNo:=OT_GetLong($chartID; "dataLines Count")
 	
 	If ($vl_lineNo>0)

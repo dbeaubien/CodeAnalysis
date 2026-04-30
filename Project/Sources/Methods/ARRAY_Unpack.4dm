@@ -1,38 +1,28 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// Method: Method: Array_Unpack
-// Description
+// Array_Unpack
+//
 // Unpack text to the given array using the given delimiter
 //
+#DECLARE($packedText_t : Text\
+; $array_ptr : Pointer\
+; $delimiter_t : Text) : Integer
 // ----------------------------------------------------
-// User name (OS): DavidD
-// Date and time: 23/03/05, 09:48:58
-// ----------------------------------------------------
-// Parameters
-C_TEXT:C284($1; $packedText_t)
-C_POINTER:C301($2; $array_ptr)
-C_TEXT:C284($3; $delimiter_t)
-C_LONGINT:C283($0; $arraySize_l)
 
-$packedText_t:=$1
-$array_ptr:=$2
-If (Count parameters:C259>2)
-	$delimiter_t:=$3
-Else 
+If ($delimiter_t="")
 	$delimiter_t:=Char:C90(Carriage return:K15:38)  //use carriage return by default
 End if 
 
 //   Mod by: Dani Beaubien (02/17/2014)
-C_LONGINT:C283($delimiterLength_l)
+var $delimiterLength_l : Integer
 $delimiterLength_l:=Length:C16($delimiter_t)
 
 Array_SetSize(0; $array_ptr)
 
-C_LONGINT:C283($type_l)
+var $type_l : Integer
 $type_l:=Type:C295($array_ptr->)
 
-C_LONGINT:C283($delimPos_l; $lastDelimPos_l)
-C_TEXT:C284($elementText_t)
+var $delimPos_l; $lastDelimPos_l : Integer
+var $elementText_t : Text
 
 If ($packedText_t#"")
 	$lastDelimPos_l:=1
@@ -65,8 +55,4 @@ If ($packedText_t#"")
 	Until ($delimPos_l<=0)
 End if 
 
-$0:=Size of array:C274($array_ptr->)
-
-
-
-
+return Size of array:C274($array_ptr->)

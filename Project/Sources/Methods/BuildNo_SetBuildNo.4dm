@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true,"preemptive":"incapable"}
 // BuildNo_SetBuildNo (year; releaseNo; buildNo)
-// BuildNo_SetBuildNo (text; text; text)
 // 
 // DESCRIPTION
 //   Stores the build no object for the component.
@@ -9,21 +8,12 @@
 //   NOTE: Cannot be run in a pre-emptive process.
 //   NOTE: Private to the component
 //
-C_TEXT:C284($1; $vt_stringYear)
-C_TEXT:C284($2; $vt_stringReleaseNo)
-C_TEXT:C284($3; $vt_stringBuildNo)
+#DECLARE($vt_stringYear : Text; $vt_stringReleaseNo : Text; $vt_stringBuildNo : Text)
 // ----------------------------------------------------
-// HISTORY
-//   Created by: DB (05/29/2017)
-// ----------------------------------------------------
-
 ASSERT:C1129(Count parameters:C259=3)
-$vt_stringYear:=$1
-$vt_stringReleaseNo:=$2
-$vt_stringBuildNo:=$3
 
 // Construct the bulid No obj
-C_OBJECT:C1216($vo_buildNoObj)
+var $vo_buildNoObj : Object
 $vo_buildNoObj:=New object:C1471
 OB SET:C1220($vo_buildNoObj; "releaseYear"; $vt_stringYear)
 OB SET:C1220($vo_buildNoObj; "releaseNo"; $vt_stringReleaseNo)

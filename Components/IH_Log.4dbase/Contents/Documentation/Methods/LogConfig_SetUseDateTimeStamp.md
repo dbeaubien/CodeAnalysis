@@ -1,0 +1,1 @@
+﻿   LogConfig_SetUseDateTimeStamp (useDateTimeStamp)     LogConfig_SetUseDateTimeStamp (boolean)          DESCRIPTION       If True, the log app messages will include a date/time stamp.      

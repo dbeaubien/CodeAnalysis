@@ -1,5 +1,16 @@
 //%attributes = {"preemptive":"capable"}
 //Progress QUIT (0)
+Log_OpenDisplayWindow()
+var $o : Object
+var $structure_xml : Text
+$structure_xml:=Folder:C1567("/PROJECT").folder("Sources").file("catalog.4DCatalog").getText()
+$o:=UTL_structure2Object($structure_xml)
+
+$o:=cs:C1710.model_TableInformation.new()
+$o.Refresh()
+
+BEEP:C151
+ABORT:C156
 
 var $ms : Integer
 $ms:=Milliseconds:C459
@@ -13,7 +24,7 @@ ALERT:C41(String:C10(Milliseconds:C459-$ms))
 //SET TEXT TO PASTEBOARD(JSON Stringify($vo_structure; *))
 BEEP:C151
 ABORT:C156
-
+//cs.model_TableInformation
 
 //_DIFF_ChangesText 
 

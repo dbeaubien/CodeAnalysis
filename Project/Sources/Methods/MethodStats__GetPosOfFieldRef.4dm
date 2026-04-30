@@ -1,24 +1,16 @@
 //%attributes = {"invisible":true}
 // MethodStats__GetPosOfFieldRef (tokenArrPtr; commandNo; curTokenPos) : $vl_posOfFieldReference
-// MethodStats__GetPosOfFieldRef (pointer; longint) : longint
 // 
 // DESCRIPTION
 //   
 //
-C_POINTER:C301($1; $ap_tokensArrPtr)
-C_LONGINT:C283($2; $vl_commandNo)
-C_LONGINT:C283($3; $vl_curTokenPos)
-C_LONGINT:C283($0; $vl_posOfFieldReference)
+#DECLARE($ap_tokensArrPtr : Pointer\
+; $vl_commandNo : Integer\
+; $vl_curTokenPos : Integer)->$vl_posOfFieldReference : Integer
 // ----------------------------------------------------
-// HISTORY
-//   Created by: DB (04/09/2017)
-// ----------------------------------------------------
-
 $vl_posOfFieldReference:=0
+
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
-	$ap_tokensArrPtr:=$1
-	$vl_commandNo:=$2
-	$vl_curTokenPos:=$3
 	
 	// Try to interpret the tokens based on the command
 	Case of 
@@ -82,5 +74,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 			End if 
 			
 	End case 
+	
 End if 
-$0:=$vl_posOfFieldReference

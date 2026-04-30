@@ -5,26 +5,13 @@
 //   A generic method to create a file and properly set the
 //   creator types. By default he file is set as a text file.
 //
-C_TEXT:C284($1; $vt_pathToCreateFileAt)
-C_TEXT:C284($2; $vt_FileType)
-C_TIME:C306($0; $vh_docRef)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (10/25/07)
+#DECLARE($vt_pathToCreateFileAt : Text\
+; $vt_FileType : Text)->$vh_docRef : Time
 // ----------------------------------------------------
 
 $vh_docRef:=?00:00:00?  // Clear our var
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 3; Count parameters:C259))
-	// ###################   Load parms   ##################
-	If (Count parameters:C259>=1)
-		$vt_pathToCreateFileAt:=$1
-	Else 
-		$vt_pathToCreateFileAt:=""
-	End if 
-	
-	If (Count parameters:C259>=2)
-		$vt_FileType:=$2
-	Else 
+	If ($vt_FileType="")
 		$vt_FileType:=File_DeriveFileTypeFromName($vt_pathToCreateFileAt)
 		If ($vt_FileType="")
 			If (Is Windows:C1573)
@@ -37,7 +24,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 3; Count parameters:
 	
 	
 	// ###################   Do the deed  ##################
-	C_TEXT:C284($vt_docActuallyCreated)
+	var $vt_docActuallyCreated : Text
 	$vh_docRef:=Create document:C266($vt_pathToCreateFileAt; $vt_FileType)
 	If (OK=1)
 		$vt_docActuallyCreated:=Document

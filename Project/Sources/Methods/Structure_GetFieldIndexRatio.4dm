@@ -41,7 +41,7 @@ If (Is table number valid:C999($tableNo))
 						$fieldStatistics.distinctValues:=Size of array:C274($aiLongInt)
 						ARRAY LONGINT:C221($aiLongInt; 0)
 						
-					: (($fieldtype=Is real:K8:4) | ($fieldtype=_o_Is float:K8:26))
+					: ($fieldtype=Is real:K8:4)
 						ARRAY REAL:C219($arReals; 0)
 						DISTINCT VALUES:C339(Field:C253($tableNo; $fieldNo)->; $arReals)
 						$fieldStatistics.distinctValues:=Size of array:C274($arReals)

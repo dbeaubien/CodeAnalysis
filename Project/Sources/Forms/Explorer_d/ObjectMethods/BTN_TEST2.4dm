@@ -1,7 +1,7 @@
 //   Mod: DB (03/29/2014) - Added pop-up menu
 
 If (True:C214)  // DEFINE THE MENU CHOICES
-	C_TEXT:C284($vt_itemStr)
+	var $vt_itemStr : Text
 	ARRAY TEXT:C222($at_items; 0)
 	
 	
@@ -92,8 +92,8 @@ If (True:C214)  // DEFINE THE MENU CHOICES
 		APPEND TO ARRAY:C911($al_days; 90)
 		APPEND TO ARRAY:C911($al_days; 180)
 		
-		C_BOOLEAN:C305($vb_oneSet)
-		C_LONGINT:C283($i)
+		var $vb_oneSet : Boolean
+		var $i : Integer
 		For ($i; 1; Size of array:C274($al_days))
 			$vt_itemStr:=""
 			If (Pref_GetPrefString("EXPLORE LastMod DayCount")=String:C10($al_days{$i}))
@@ -147,7 +147,7 @@ If (True:C214)  // DEFINE THE MENU CHOICES
 	End if 
 	
 	
-	C_TEXT:C284($vt_menuStr)
+	var $vt_menuStr : Text
 	$vt_menuStr:=""
 	For ($i; 1; Size of array:C274($at_items))
 		If ($i#1)
@@ -160,12 +160,12 @@ End if
 
 
 // Show the pop-up menu
-C_LONGINT:C283($vlUserChoice)
+var $vlUserChoice : Integer
 $vlUserChoice:=Pop up menu:C542($vt_menuStr)
 
 
 // Deal with the choice
-C_BOOLEAN:C305($vb_refreshGrid)
+var $vb_refreshGrid : Boolean
 $vb_refreshGrid:=True:C214
 Case of 
 	: ($at_items{$vlUserChoice}="@Hide Preemptive Incapable Methods@")  //   Mod: DB (05/31/2017)

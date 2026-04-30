@@ -6,62 +6,55 @@
 //   unique numbers for every unique textline so further 
 //   work can work only with simple numbers.
 //
-C_TEXT:C284($0; $vt_SQLdataTypeAsText)
-C_LONGINT:C283($1; $vl_SQLdataType)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: ddancy (02/18/2008)
-//   Mod by: Dani Beaubien (10/25/2012) - Added support for $vb_ignoreMultipleSpaces and $vb_ignoreCase
+#DECLARE($vl_SQLdataType : Integer)->$vt_SQLdataTypeAsText : Text
 // ----------------------------------------------------
 
 $vt_SQLdataTypeAsText:=""
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vl_SQLdataType:=$1
 	
 	Case of 
-		: ($1=1)
+		: ($vl_SQLdataType=1)
 			$vt_SQLdataTypeAsText:="Boolean"
 			
-		: ($1=3)
+		: ($vl_SQLdataType=3)
 			$vt_SQLdataTypeAsText:="Smallint"
 			
-		: ($1=4)
+		: ($vl_SQLdataType=4)
 			$vt_SQLdataTypeAsText:="Int"
 			
-		: ($1=5)
+		: ($vl_SQLdataType=5)
 			$vt_SQLdataTypeAsText:="Int64"
 			
-		: ($1=6)
+		: ($vl_SQLdataType=6)
 			$vt_SQLdataTypeAsText:="Real"
 			
-		: ($1=7)
+		: ($vl_SQLdataType=7)
 			$vt_SQLdataTypeAsText:="Float"
 			
-		: ($1=8)
+		: ($vl_SQLdataType=8)
 			$vt_SQLdataTypeAsText:="Timestamp"
 			
-		: ($1=9)
+		: ($vl_SQLdataType=9)
 			$vt_SQLdataTypeAsText:="Duration or Interval"
 			
-		: ($1=10)
+		: ($vl_SQLdataType=10)
 			$vt_SQLdataTypeAsText:="Varchar"
 			
-		: ($1=12)
+		: ($vl_SQLdataType=12)
 			$vt_SQLdataTypeAsText:="Picture"
 			
-		: ($1=13)
+		: ($vl_SQLdataType=13)
 			$vt_SQLdataTypeAsText:="UUID"
 			
-		: ($1=14)
+		: ($vl_SQLdataType=14)
 			$vt_SQLdataTypeAsText:="Clob"
 			
-		: ($1=18)
+		: ($vl_SQLdataType=18)
 			$vt_SQLdataTypeAsText:="Blob"
 			
 		Else 
-			$vt_SQLdataTypeAsText:="SQL DataType "+String:C10($1)
+			$vt_SQLdataTypeAsText:="SQL DataType "+String:C10($vl_SQLdataType)
 			//TRACE
 	End case 
 	
 End if 
-$0:=$vt_SQLdataTypeAsText

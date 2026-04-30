@@ -14,13 +14,13 @@
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	If (Structure file:C489(*)#Structure file:C489)  // Are we NOT running locally?
 		
-		C_TEXT:C284($vt_onErrorMethod)
+		var $vt_onErrorMethod : Text
 		$vt_onErrorMethod:=Method called on error:C704
 		ON ERR CALL:C155("OnErr_SupressError")
 		
 		// Init vars
 		ARRAY TEXT:C222($at_stuffToRemove; 0)
-		C_TEXT:C284($vt_formCode)
+		var $vt_formCode : Text
 		
 		// Check project form
 		OnErr_ClearError
@@ -66,9 +66,9 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		ON ERR CALL:C155($vt_onErrorMethod)  // restore our method
 		
 		If (Size of array:C274($at_stuffToRemove)>0)
-			C_TEXT:C284($vt_msg)
+			var $vt_msg : Text
 			$vt_msg:="The following items are no longer needed and can be deleted from your structure:"
-			C_LONGINT:C283($i)
+			var $i : Integer
 			For ($i; 1; Size of array:C274($at_stuffToRemove))
 				$vt_msg:=$vt_msg+"\r - "+$at_stuffToRemove{$i}
 			End for 

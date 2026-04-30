@@ -1,10 +1,10 @@
 
-CONFIRM:C162("Are you sure you want to update all the 4D Project Method Comments in your structure based on the first block of comments in each method?"; Get localized string:C991("Btn_Cancel"); Get localized string:C991("Btn_UpdateFromMethod"))
+CONFIRM:C162("Are you sure you want to update all the 4D Project Method Comments in your structure based on the first block of comments in each method?"; Localized string:C991("Btn_Cancel"); Localized string:C991("Btn_UpdateFromMethod"))
 If (OK=0)
 	MethodStats_RecalculateModified
 	
-	C_LONGINT:C283($progHdl)
-	C_PICTURE:C286($vg_icon)
+	var $progHdl : Integer
+	var $vg_icon : Picture
 	$progHdl:=Progress New
 	
 	READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Write.png"); $vg_icon)
@@ -14,8 +14,8 @@ If (OK=0)
 	ARRAY TEXT:C222($projectMethodPathsArr; 0)
 	METHOD GET PATHS:C1163(Path project method:K72:1; $projectMethodPathsArr; *)
 	
-	C_LONGINT:C283($i)
-	C_TEXT:C284($methodComment)
+	var $i : Integer
+	var $methodComment : Text
 	For ($i; 1; Size of array:C274($projectMethodPathsArr))
 		$methodComment:=MethodStatsMasterObj.documentation
 		$methodComment:=Replace string:C233($methodComment; "//"; "")

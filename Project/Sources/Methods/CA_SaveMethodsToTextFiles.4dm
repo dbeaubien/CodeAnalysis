@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true,"shared":true}
 // CA_SaveMethodsToTextFiles ({rootFolderPath})
-// CA_SaveMethodsToTextFiles ({text})
 //
 // DESCRIPTION
 //   Calling this method will cause the component to export all the method
@@ -14,18 +13,11 @@
 //   NOTE: The folder will be created if it does not exist.
 //   NOTE: The folder will be emptied prior to the start of the export.
 //
-C_TEXT:C284($1; $vt_rootFolder)  // OPTIONAL - folder to store the exported method code
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (11/06/2012)
-//   Mod by: Dani Beaubien (10/01/2012) - Support option to append date to export folder name
-//   Mod by: Dani Beaubien (11/02/2012) - Use 4D v13 Progress bar
-//   Mod: DB (12/29/2014) - Use the MethodStat methods & arrays
+#DECLARE($vt_rootFolder : Text)  // OPTIONAL - folder to store the exported method code
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259<=1)
 
 If (Count parameters:C259>=1)
-	$vt_rootFolder:=$1
 	If ($vt_rootFolder#"")
 		If ($vt_rootFolder[[Length:C16($vt_rootFolder)]]#Folder separator:K24:12)  // make sure the path ends in a folder
 			$vt_rootFolder:=$vt_rootFolder+Folder separator:K24:12
@@ -36,7 +28,7 @@ End if
 
 // # Get the folder name all worked out
 If ($vt_rootFolder="")
-	C_BOOLEAN:C305($vb_doAppendDate; $vb_doAppendTime)
+	var $vb_doAppendDate; $vb_doAppendTime : Boolean
 	If (Pref_GetPrefString("EXPORT - Append Date to Folder Name"; "1")="1")
 		$vb_doAppendDate:=True:C214
 		$vb_doAppendTime:=True:C214
@@ -59,15 +51,15 @@ End if
 Folder_VerifyExistance($vt_rootFolder)
 
 
-C_LONGINT:C283($progHdl)
+var $progHdl : Integer
 $progHdl:=Progress New
 
-C_PICTURE:C286($vg_icon)
+var $vg_icon : Picture
 READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Write.png"); $vg_icon)
 Progress SET ICON($progHdl; $vg_icon)
 Progress SET TITLE($progHdl; "Exporting Method Code to Files"; -1; "Initializing..."; True:C214)
 
-C_LONGINT:C283($vs1; $vs2; $ve1; $ve2)
+var $vs1; $vs2; $ve1; $ve2 : Integer
 $vs1:=Milliseconds:C459
 MethodStats_RecalculateModified  //   Mod: DB (12/29/2014)
 $ve1:=Milliseconds:C459
@@ -78,10 +70,10 @@ MethodScan_OutputMethodsAsTEXT($vt_rootFolder; $progHdl)
 $ve2:=Milliseconds:C459
 
 //   Mod: DB (02/24/2014) - Record the last date and time that the export was done
-Pref_SetPrefString("Export.MethodsAsTextLastUTC"; Date2String(Current date:C33; "MON dd, YYYY ")+Time2String(CurrentTime))
+Pref_SetPrefString("Export.MethodsAsTextLastUTC"; Date2String(Current date:C33; "MON dd, YYYY ")+Time2String(Current time:C178))
 
 // Put out some stats and send back to parent window
-C_TEXT:C284(<>vt_ExportToResults)
+var <>vt_ExportToResults : Text
 <>vt_ExportToResults:=<>vt_ExportToResults+"Export Completed to:\r "
 <>vt_ExportToResults:=<>vt_ExportToResults+$vt_rootFolder+"\r\r"
 <>vt_ExportToResults:=<>vt_ExportToResults+" Count - "+String:C10(Storage:C1525.methodStatsSummary.numMethods)+" methods\r"

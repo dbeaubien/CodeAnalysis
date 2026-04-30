@@ -12,8 +12,8 @@ Case of
 		Component_SetMenuBar
 		MethodStats__Init  // Prep the vars
 		
-		C_OBJECT:C1216(selectedDiffMethod)  // from diff listbox
-		C_LONGINT:C283(currentSelectedDiffMethod)
+		var selectedDiffMethod : Object  // from diff listbox
+		var currentSelectedDiffMethod : Integer
 		Form:C1466.methodsWithDifference:=New collection:C1472
 		Form:C1466.refreshDiff:=True:C214
 		
@@ -39,7 +39,7 @@ Case of
 			SORT ARRAY:C229(at_XTRA_relativePaths; >)
 			
 			ARRAY TEXT:C222(at_XTRA_compareFolderName; Size of array:C274(at_XTRA_relativePaths))
-			C_LONGINT:C283($i)
+			var $i : Integer
 			For ($i; 1; Size of array:C274(at_XTRA_compareFolderName))
 				Case of 
 					: (at_XTRA_actions{$i}="Skip")
@@ -87,7 +87,7 @@ End case
 If (Form:C1466.refreshDiff)
 	Form:C1466.refreshDiff:=False:C215
 	
-	C_TEXT:C284(vt_lastDIFFCheck_Folder)
+	var vt_lastDIFFCheck_Folder : Text
 	If (vt_lastDIFFCheck_Folder#"")
 		<>_DIFF_PathToFileOnDisk:=vt_lastDIFFCheck_Folder
 		Form:C1466.methodsWithDifference:=New collection:C1472

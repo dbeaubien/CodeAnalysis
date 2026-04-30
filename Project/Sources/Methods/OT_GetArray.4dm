@@ -1,24 +1,15 @@
 //%attributes = {"invisible":true}
 // OT_GetArray (objID; tag; ptrToArray) 
-// OT_GetArray (text; text; pointer)
 // 
 // DESCRIPTION
 //   Get the real number from the mock object under tag
 //
-C_TEXT:C284($1; $xml_Ref)
-C_TEXT:C284($2; $vt_tag)
-C_POINTER:C301($3; $arrayToGet_Ptr)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (11/11/2014)
+#DECLARE($xml_Ref : Text; $vt_tag : Text; $arrayToGet_Ptr : Pointer)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
-	$xml_Ref:=$1
-	$vt_tag:=$2
-	$arrayToGet_Ptr:=$3
 	
-	C_TEXT:C284($vt_valueToGet)
+	var $vt_valueToGet : Text
 	$vt_valueToGet:=OT_GetText($xml_Ref; $vt_tag)
 	$vt_valueToGet:=STR_Base64_Decode($vt_valueToGet)
 	
@@ -26,7 +17,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 3; Count parameters:C259))
 	Array_ConvertFromTextDelimited(->$at_values; $vt_valueToGet; Char:C90(Tab:K15:37))
 	
 	// Copy the array to our return value
-	C_LONGINT:C283($i)
+	var $i : Integer
 	Array_SetSize(Size of array:C274($at_values); $arrayToGet_Ptr)
 	Case of 
 		: (Size of array:C274($at_values)=0)

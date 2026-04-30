@@ -1,0 +1,1 @@
+﻿   LogConfig__UpdateNamedLog (logName, logFileName, customFolderPath, customDynamicFolderLabel)     LogConfig__UpdateNamedLog (text, text, text, text)          DESCRIPTION       Adds a new named log object to log configuration object.       A non-blank LogName must be supplied.       The remaining params if blank, are set to defaults.      

@@ -3,26 +3,27 @@
 
 
 If (FORM Get current page:C276=1)  // on DIFF tab
-	C_LONGINT:C283($selectedRow)
+	var $selectedRow : Integer
 	$selectedRow:=currentSelectedDiffMethod
 	
 	
-	C_LONGINT:C283($rowHeight)
+	var $rowHeight : Integer
 	$rowHeight:=LISTBOX Get rows height:C836(*; "ListBox_diffs"; lk pixels:K53:22)
 	
-	C_LONGINT:C283($left; $top; $right; $bottom; $ListBoxheight)
+	var $left; $top; $right; $bottom; $ListBoxheight : Integer
 	OBJECT GET COORDINATES:C663(*; "ListBox_diffs"; $left; $top; $right; $bottom)
 	$ListBoxheight:=$bottom-$top
-	$ListBoxheight:=$ListBoxheight-LISTBOX Get property:C917(*; "ListBox_diffs"; _o_lk header height:K53:5)
-	$ListBoxheight:=$ListBoxheight-LISTBOX Get property:C917(*; "ListBox_diffs"; _o_lk footer height:K53:21)
+	$ListBoxheight:=$ListBoxheight-LISTBOX Get headers height:C1144(*; "ListBox_diffs"; lk pixels:K53:22)
+	$ListBoxheight:=$ListBoxheight-LISTBOX Get headers height:C1144(*; "ListBox_diffs"; lk pixels:K53:22)
 	
-	C_LONGINT:C283($rowsShown)
+	var $rowsShown : Integer
 	$rowsShown:=Int:C8($ListBoxheight/$rowHeight)
 	
-	C_LONGINT:C283($numRowsAbove)
-	$numRowsAbove:=(LISTBOX Get property:C917(*; "ListBox_diffs"; _o_lk ver scrollbar position:K53:11)/$rowHeight)
+	var $numRowsAbove; $scroll_position : Integer
+	OBJECT GET SCROLL POSITION:C1114(*; "ListBox_diffs"; $scroll_position)
+	$numRowsAbove:=($scroll_position/$rowHeight)
 	
-	C_LONGINT:C283($rowAtTopOfScreen)
+	var $rowAtTopOfScreen : Integer
 	$rowAtTopOfScreen:=$numRowsAbove+1
 	
 	LISTBOX SELECT ROW:C912(*; "ListBox_diffs"; 0; lk remove from selection:K53:3)

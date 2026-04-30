@@ -33,7 +33,7 @@
 			"Summary": ""
 		},
 		"Structure_GetFieldIndexRatio": {
-			"Syntax": "**Structure_GetFieldIndexRatio**( *tableNo* : Integer; *fieldNo* : Integer )->indexUsageRatio : Real",
+			"Syntax": "**Structure_GetFieldIndexRatio**( *tableNo* : Integer; *fieldNo* : Integer; *fieldStatistics* : Object )",
 			"Params": [
 				[
 					"tableNo",
@@ -46,9 +46,9 @@
 					"->"
 				],
 				[
-					"indexUsageRatio",
-					"Real",
-					"<-"
+					"fieldStatistics",
+					"Object",
+					"->"
 				]
 			],
 			"Summary": ""
@@ -142,81 +142,56 @@
 			"Summary": ""
 		},
 		"CA_SaveStructureDetails": {
-			"Syntax": "**CA_SaveStructureDetails**( *p1* : Text ) : Variant",
+			"Syntax": "**CA_SaveStructureDetails**( *vt_rootFolder* : Text )",
 			"Params": [
 				[
-					"p1",
+					"vt_rootFolder",
 					"Text",
 					"->"
-				],
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""
 		},
 		"CA_SaveMethodsToTextFiles": {
-			"Syntax": "**CA_SaveMethodsToTextFiles**( *p1* : Text ) : Variant",
+			"Syntax": "**CA_SaveMethodsToTextFiles**( *vt_rootFolder* : Text )",
 			"Params": [
 				[
-					"p1",
+					"vt_rootFolder",
 					"Text",
 					"->"
-				],
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""
 		},
 		"CA_Pref_SetStructureKey": {
-			"Syntax": "**CA_Pref_SetStructureKey**( *p1* : Text ) : Variant",
+			"Syntax": "**CA_Pref_SetStructureKey**( *structureInternalName* : Text )",
 			"Params": [
 				[
-					"p1",
+					"structureInternalName",
 					"Text",
 					"->"
-				],
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""
 		},
 		"CA_Pref_SetEOL": {
-			"Syntax": "**CA_Pref_SetEOL**( *p1* : Text ) : Variant",
+			"Syntax": "**CA_Pref_SetEOL**( *vt_EOLchars* : Text )",
 			"Params": [
 				[
-					"p1",
+					"vt_EOLchars",
 					"Text",
 					"->"
-				],
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""
 		},
 		"CA_SaveExtraFolders": {
-			"Syntax": "**CA_SaveExtraFolders**( *p1* : Text ) : Variant",
+			"Syntax": "**CA_SaveExtraFolders**( *rootFolder* : Text )",
 			"Params": [
 				[
-					"p1",
+					"rootFolder",
 					"Text",
 					"->"
-				],
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""
@@ -233,20 +208,20 @@
 			"Summary": ""
 		},
 		"CA_SaveFormProperties": {
-			"Syntax": "**CA_SaveFormProperties**( *p1* : Integer; *p2* : Text; *p3* : Text ) : Boolean",
+			"Syntax": "**CA_SaveFormProperties**( *vl_tableNo* : Integer; *vt_formName* : Text; *vt_rootFolder* : Text ) : Boolean",
 			"Params": [
 				[
-					"p1",
+					"vl_tableNo",
 					"Integer",
 					"->"
 				],
 				[
-					"p2",
+					"vt_formName",
 					"Text",
 					"->"
 				],
 				[
-					"p3",
+					"vt_rootFolder",
 					"Text",
 					"->"
 				],
@@ -292,17 +267,12 @@
 			"Summary": ""
 		},
 		"CA_Pref_SetExportFolder": {
-			"Syntax": "**CA_Pref_SetExportFolder**( *p1* : Text ) : Variant",
+			"Syntax": "**CA_Pref_SetExportFolder**( *vt_exportFolderPath* : Text )",
 			"Params": [
 				[
-					"p1",
+					"vt_exportFolderPath",
 					"Text",
 					"->"
-				],
-				[
-					"",
-					"Variant",
-					"<-"
 				]
 			],
 			"Summary": ""

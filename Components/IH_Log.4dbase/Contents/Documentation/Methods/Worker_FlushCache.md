@@ -1,0 +1,1 @@
+﻿   Worker_FlushCache ()           DESCRIPTION       Writes any cached log text to disk         ----------------------------------------------------     HISTORY       Created by: DB (05/21/2017)     ----------------------------------------------------  

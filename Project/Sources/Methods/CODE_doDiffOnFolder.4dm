@@ -1,29 +1,17 @@
 //%attributes = {"invisible":true}
 // CODE_doDiffOnFolder (diffCollection)
-// CODE_doDiffOnFolder (collection)
 //
 // DESCRIPTION
 //   Scans for differences between the structure and the
 //   folder specified by <>_DIFF_PathToFileOnDisk.
 //
-C_COLLECTION:C1488($1; $diffCollection)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/01/2012)
-//   Mod by: Dani Beaubien (10/03/2012) - Handle the saved files as UTF-8
-//   Mod by: Dani Beaubien (10/04/2012) - Suppress based on user preference
-//   Mod by: Dani Beaubien (10/25/2012) - Added support for ignoringMultipleSpaces and IngoringCase.
-//   Mod by: Dani Beaubien (11/02/2012) - Use 4D v13 Progress bar
-//   Mod by: Dani Beaubien (06/22/2013) - Added some error handling
-//   Mod by: Dani Beaubien (09/28/2013) - Improved how the method paths are shown
-//   Mod: DB (11/10/2014) - Refactored
+#DECLARE($diffCollection : Collection)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$diffCollection:=$1
 
-C_TEXT:C284(<>_DIFF_PathToFileOnDisk)
+var <>_DIFF_PathToFileOnDisk : Text
 
-C_TEXT:C284($vt_srcFldr)
+var $vt_srcFldr : Text
 $vt_srcFldr:=<>_DIFF_PathToFileOnDisk
 <>_DIFF_PathToFileOnDisk:=""
 
@@ -44,11 +32,11 @@ If (True:C214)  // grab preferences
 	Pref_GetPrefTextArray("FileFolderNamesToIgnore"; ->at_XTRA_ignoreNames)
 End if 
 
-C_LONGINT:C283($progHdl)
+var $progHdl : Integer
 If (True:C214)  // setup progress bar
 	$progHdl:=Progress New
 	
-	C_PICTURE:C286($vg_icon)
+	var $vg_icon : Picture
 	READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Compare.png"); $vg_icon)
 	Progress SET ICON($progHdl; $vg_icon)
 	Progress SET TITLE($progHdl; "Analysing for Method Differences"; -1; "Initializing..."; True:C214)
@@ -67,7 +55,7 @@ ARRAY TEXT:C222($at_externalFilePath; Size of array:C274(at_methodNames))
 
 Progress SET MESSAGE($progHdl; "Step 1 of 3: Generating digests on structure methods...")
 If (True:C214)
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274(at_methodNames))
 		$at_internalMethod_MD5{$i}:=Digest_GetForMethod(at_methodNames{$i}; $vb_ignoreAttributeLine; $vb_ignoreCase; $vb_ignoreMultipleSpaces; $vb_ignoreBlankLines)
 		Progress SET PROGRESS($progHdl; $i/Size of array:C274(at_methodNames))
@@ -78,7 +66,7 @@ End if
 
 // Get digests on methods from File System
 ARRAY TEXT:C222($at_files; 0)
-C_TEXT:C284($vt_methodName; $vt_methodPath)
+var $vt_methodName; $vt_methodPath : Text
 Folder_GetAllFilePaths($vt_srcFldr; ->$at_files; ->at_XTRA_ignoreNames)
 Progress SET MESSAGE($progHdl; "Step 2 of 3: Generating digests on methods files...")
 For ($i; 1; Size of array:C274($at_files))
@@ -104,7 +92,7 @@ For ($i; 1; Size of array:C274($at_files))
 	End if 
 	
 	// Try to locate it in our arrays
-	C_LONGINT:C283($pos)
+	var $pos : Integer
 	$pos:=Find in array:C230(at_methodNames; $vt_methodPath)
 	If ($pos<1)  //   Mod by: Dani Beaubien (10/03/2012) - Try to search by just the method name
 		$pos:=Find in array:C230(at_methodNames; $vt_methodName)
@@ -170,7 +158,7 @@ End for
 
 SORT ARRAY:C229(at_methodNames; $diffDescriptionArr; $at_externalFilePath; >)
 
-C_OBJECT:C1216($diff)
+var $diff : Object
 For ($i; 1; Size of array:C274(at_methodNames))
 	$diff:=New object:C1471
 	$diff.methodName:=at_methodNames{$i}

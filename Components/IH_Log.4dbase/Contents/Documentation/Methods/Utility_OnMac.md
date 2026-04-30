@@ -1,0 +1,1 @@
+﻿   ----------------------------------------------------     METHOD: Utility_OnMac          DESCRIPTION       true if we are on a mac.         PARAMETERS:       none     RETURNS:  

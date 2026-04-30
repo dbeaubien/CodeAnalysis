@@ -1,27 +1,19 @@
 //%attributes = {}
 // MethodStats__NewDefaultObject (methodPath) : methodStatObject
-// MethodStats__NewDefaultObject (text) : object
 //
 // DESCRIPTION
 //   Creates a new method stat object with all the fields
 //   created with default values.
 //
-C_TEXT:C284($1; $methodPath)
-C_OBJECT:C1216($2; $masterMethodObj)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (09/07/2019)
-//   Mod by: Dani Beaubien (01/31/2021)
+#DECLARE($methodPath : Text; $masterMethodObj : Object)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$methodPath:=$1
-$masterMethodObj:=$2
 
 Use ($masterMethodObj)
 	$masterMethodObj[$methodPath]:=New shared object:C1526
 End use 
 
-C_OBJECT:C1216($methodStatObject)
+var $methodStatObject : Object
 $methodStatObject:=$masterMethodObj[$methodPath]
 
 Use ($methodStatObject)
@@ -59,4 +51,3 @@ Use ($methodStatObject)
 		$methodStatObject.references.downstream_methods:=New shared collection:C1527
 	End use 
 End use 
-

@@ -16,7 +16,7 @@ var <>_GraphIsInited : Boolean
 ARRAY PICTURE:C279(<>_Graphs; 3)
 ARRAY TEXT:C222(<>_Graphs_Label; 3)
 
-C_LONGINT:C283($graphNo)
+var $graphNo : Integer
 For ($graphNo; 1; Size of array:C274(<>_Graphs))
 	Case of 
 		: ($graphNo=1)

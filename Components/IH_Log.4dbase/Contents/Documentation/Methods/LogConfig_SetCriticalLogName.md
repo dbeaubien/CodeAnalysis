@@ -1,0 +1,1 @@
+﻿   LogConfig_SetCriticalLogName (criticalErrorLogFileName)     LogConfig_SetCriticalLogName (text)          DESCRIPTION       Sets the file name that is used for the critical error log.       Providing a blank name returns the file name back to default.      

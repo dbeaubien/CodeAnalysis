@@ -3,10 +3,11 @@
 //    actual number of parameters) :  isOKay
 
 // This method is used for debugging purposes. It is used to test assumptions.
-//  if $1 is false, then there is an error and the error string is presented
+//  if $method_name is false, then there is an error and the error string is presented
 
-C_BOOLEAN:C305($0)
-C_TEXT:C284($1)
-C_LONGINT:C283($2; $3)
+#DECLARE($method_name : Text\
+; $num_params : Integer\
+; $expected_num : Integer) : Boolean
 
-$0:=DEV_ASSERT($2=$3; $1+" is expecting "+String:C10($2)+" parameters but only got "+String:C10($3)+".")
+
+return DEV_ASSERT($num_params=$expected_num; $method_name+" is expecting "+String:C10($num_params)+" parameters but only got "+String:C10($expected_num)+".")

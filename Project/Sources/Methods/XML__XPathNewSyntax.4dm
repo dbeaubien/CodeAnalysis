@@ -16,11 +16,11 @@
 //@xdoc-end
 //================================================================================
 
-C_BOOLEAN:C305($0; $vb_newXpathSyntax)
+#DECLARE()->$vb_newXpathSyntax : Boolean
 
 $vb_newXpathSyntax:=False:C215
 
-C_TEXT:C284($vt_domRef; $vt_domRefChild; $vt_domRefGrandChild)
+var $vt_domRef; $vt_domRefChild; $vt_domRefGrandChild : Text
 $vt_domRef:=DOM Create XML Ref:C861("test")
 If (ok=1)
 	
@@ -29,11 +29,11 @@ If (ok=1)
 	
 	ARRAY TEXT:C222($tt_domRefList; 0)
 	
-	C_TEXT:C284($vt_xpath)
+	var $vt_xpath : Text
 	$vt_xpath:="grandchild"  // new xpath syntax
 	//$vt_xpath:="child/grandchild" // old xpath syntax
 	
-	C_TEXT:C284($va_domRefDummy)
+	var $va_domRefDummy : Text
 	$va_domRefDummy:=DOM Find XML element:C864($vt_domRefChild; $vt_xpath; $tt_domRefList)
 	If (Size of array:C274($tt_domRefList)=1)
 		$vb_newXpathSyntax:=True:C214
@@ -45,4 +45,3 @@ If (ok=1)
 	
 	DOM CLOSE XML:C722($vt_domRef)
 End if 
-$0:=$vb_newXpathSyntax

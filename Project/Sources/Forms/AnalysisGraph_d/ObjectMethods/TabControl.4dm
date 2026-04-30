@@ -1,5 +1,5 @@
 
-C_BOOLEAN:C305(<>_GraphIsInited)
+var <>_GraphIsInited : Boolean
 If (Not:C34(<>_GraphIsInited))
 	ARRAY PICTURE:C279(<>_Graphs; 1)
 	ARRAY TEXT:C222(<>_Graphs_Label; 1)

@@ -1,0 +1,1 @@
+﻿   LogConfig__SetAppLog_WinRef (winRef)     LogConfig__SetAppLog_WinRef (longint)          DESCRIPTION       Pushes to the worker the winRef for the main appLog dialog.      

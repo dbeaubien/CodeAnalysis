@@ -1,26 +1,13 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// METHOD: File_GetExtension
+// File_GetExtension
 // 
 // DESCRIPTION
 //   Returns the extension from a filename
 //
-// PARAMETERS:
-C_TEXT:C284($1; $path)
-//
-// RETURNS:
-C_TEXT:C284($0)
-// ----------------------------------------------------
-// CALLED BY
-//   
-// ----------------------------------------------------
-// HISTORY
-//   Created by:  Rob Liveau (nuggers)
-//   Mod: DB (11/20/07) - pay attention to the folder seperator
+#DECLARE($path : Text) : Text
 // ----------------------------------------------------
 
-C_LONGINT:C283($i; $position)
-$path:=$1
+var $i; $position : Integer
 
 $position:=0
 For ($i; Length:C16($path); 1; -1)
@@ -36,7 +23,7 @@ End for
 
 
 If ($position>0)
-	$0:=Substring:C12($path; $position+1)
+	return Substring:C12($path; $position+1)
 Else 
-	$0:=""  // no extension
+	return ""  // no extension
 End if 

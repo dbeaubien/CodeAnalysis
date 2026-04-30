@@ -1,35 +1,20 @@
 //%attributes = {"invisible":true}
 // Generator__SetPage (mainTab{; subTab}) 
-// Generator__SetPage (longint{; longint}) 
 // 
 // DESCRIPTION
 //   The method manages the changing of the pages on the main window.
 //
-C_LONGINT:C283($1; $vl_mainTab)
-C_LONGINT:C283($2; $vl_subTab)
-// ----------------------------------------------------
-// CALLED BY
-//   
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (05/18/2015)
+#DECLARE($vl_mainTab : Integer; $vl_subTab : Integer)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:C259))
-	$vl_mainTab:=$1
-	If (Count parameters:C259>=2)
-		$vl_subTab:=$2
-	Else 
-		$vl_subTab:=0
-	End if 
-	
-	C_LONGINT:C283($tabPos_Differences; $tabPos_Exporting; $tabPos_MethodComments)
+	var $tabPos_Differences; $tabPos_Exporting; $tabPos_MethodComments : Integer
 	$tabPos_Differences:=1
 	$tabPos_Exporting:=2
 	$tabPos_MethodComments:=3
 	
 	// Main tab has changed, update subtab values
-	C_LONGINT:C283(vl_mainTabPos)
+	var vl_mainTabPos : Integer
 	If (vl_mainTabPos#$vl_mainTab)
 		vl_mainTabPos:=$vl_mainTab
 		TabControl:=$vl_mainTab
@@ -54,7 +39,7 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 	
 	
 	
-	C_LONGINT:C283(vl_subTab1Pos; vl_subTab2Pos; vl_subTab3Pos; $vl_Page)  // place to store the last tab position
+	var vl_subTab1Pos; vl_subTab2Pos; vl_subTab3Pos; $vl_Page : Integer  // place to store the last tab position
 	Case of 
 		: ($vl_mainTab=$tabPos_Differences)  // Differences
 			If (vl_subTab2Pos=0)

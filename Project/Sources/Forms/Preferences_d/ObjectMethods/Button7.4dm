@@ -1,6 +1,6 @@
 
-C_TEXT:C284($vt_newValue)
-$vt_newValue:=Request:C163(Get localized string:C991("Msg_MTHD_AddNameToList"); ""; Get localized string:C991("Btn_Add"); Get localized string:C991("Btn_Cancel"))
+var $vt_newValue : Text
+$vt_newValue:=Request:C163(Localized string:C991("Msg_MTHD_AddNameToList"); ""; Localized string:C991("Btn_Add"); Localized string:C991("Btn_Cancel"))
 If (OK=1)
 	Case of 
 		: ($vt_newValue="")
@@ -8,7 +8,7 @@ If (OK=1)
 			
 		: (Find in array:C230(at_XTRA_ignoreNames; $vt_newValue)>0)
 			BEEP:C151
-			ALERT:C41(Replace string:C233(Get localized string:C991("Msg_FLDR_AlreadyAdded"); "%1"; $vt_newValue))
+			ALERT:C41(Replace string:C233(Localized string:C991("Msg_FLDR_AlreadyAdded"); "%1"; $vt_newValue))
 			
 		Else 
 			APPEND TO ARRAY:C911(at_XTRA_ignoreNames; $vt_newValue)
