@@ -4,7 +4,7 @@
 // GOAL - Each explorer window can have it's own view configuration
 // GOAL - Refresh automatically
 
-C_BOOLEAN:C305($refreshFooter)
+var $refreshFooter : Boolean
 Case of 
 		
 	: (Form event code:C388=On Load:K2:1)
@@ -14,8 +14,8 @@ Case of
 		
 		Form:C1466.currentTab:=1
 		
-		C_OBJECT:C1216(selectedMethodObj)
-		C_LONGINT:C283(selectedMethodPos)
+		var selectedMethodObj : Object
+		var selectedMethodPos : Integer
 		
 		Component_SetMenuBar
 		MethodStats__Init  // Prep the vars
@@ -54,7 +54,7 @@ Case of
 End case 
 
 If ($refreshFooter) & (Form:C1466.filteredList#Null:C1517)
-	C_REAL:C285($footerTotal2; $footerTotal3; $footerTotal4; $footerTotal5; $footerTotal6; $footerTotal7; $footerTotal8)
+	var $footerTotal2; $footerTotal3; $footerTotal4; $footerTotal5; $footerTotal6; $footerTotal7; $footerTotal8 : Real
 	$footerTotal2:=0
 	$footerTotal3:=0
 	$footerTotal4:=0
@@ -63,7 +63,7 @@ If ($refreshFooter) & (Form:C1466.filteredList#Null:C1517)
 	$footerTotal7:=0
 	$footerTotal8:=0
 	
-	C_OBJECT:C1216($methodDetails)
+	var $methodDetails : Object
 	For each ($methodDetails; Form:C1466.filteredList)
 		$footerTotal2+=$methodDetails.numGitCommits
 		$footerTotal3+=$methodDetails.numCodeLines
@@ -73,7 +73,7 @@ If ($refreshFooter) & (Form:C1466.filteredList#Null:C1517)
 		$footerTotal7+=$methodDetails.nestedLevels
 		$footerTotal8+=$methodDetails.numTimesCalled
 	End for each 
-	C_TEXT:C284(ftrText1; ftrText2; ftrText3; ftrText4; ftrText5; ftrText6; ftrText7; ftrText8; ftrText9)
+	var ftrText1; ftrText2; ftrText3; ftrText4; ftrText5; ftrText6; ftrText7; ftrText8; ftrText9 : Text
 	If (Form:C1466.filteredList.length>0)
 		ftrText1:="Average"
 		ftrText2:=String:C10($footerTotal2/Form:C1466.filteredList.length; "#####0.0")

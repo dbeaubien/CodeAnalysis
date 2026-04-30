@@ -11,14 +11,14 @@
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
-	C_LONGINT:C283($vl_leftNo; $vl_rightNo; $vl_rightBlankLength; $vl_rightBlankLineStart; $vl_leftBlankLineStart)
+	var $vl_leftNo; $vl_rightNo; $vl_rightBlankLength; $vl_rightBlankLineStart; $vl_leftBlankLineStart : Integer
 	$vl_leftNo:=1
 	$vl_rightNo:=1
 	$vl_leftBlankLineStart:=0
 	$vl_rightBlankLineStart:=0
 	$vl_rightBlankLength:=0
 	
-	C_BOOLEAN:C305($vb_done)
+	var $vb_done : Boolean
 	$vb_done:=False:C215
 	Repeat   // Adjust the results so that the inserts and deletes appear beside each other.
 		Case of 
@@ -62,7 +62,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	
 	
 	// Remove the blank rows (no line#'s) that have been left behind from the collapse
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; Size of array:C274(DEMO_File2_at); 1; -1)
 		If (DEMO_File1LineNo_al{$i}=0) & (DEMO_File2LineNo_al{$i}=0)
 			DELETE FROM ARRAY:C228(DEMO_File1LineNo_al; $i; 1)
@@ -75,4 +75,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		End if 
 	End for 
 	
-End if   // ASSERT
+End if 

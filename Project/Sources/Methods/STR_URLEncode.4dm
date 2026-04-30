@@ -3,12 +3,14 @@
 // Returns a URL encoded string
 // $1 = String to encode
 // $0 = Encoded string
+//
+#DECLARE($input : Text)->$output : Text
+// ----------------------------------------------------
+$output:=""
 
-C_TEXT:C284($1; $0; $input; $output; $validCharacters)
-C_LONGINT:C283($position; $length; $byte)
-C_BOOLEAN:C305($isSafe)
-
-$input:=$1
+var $validCharacters : Text
+var $position; $length; $byte : Integer
+var $isSafe : Boolean
 
 // Fill an array with the characters which need no conversion
 $validCharacters:="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:/.?=_-$(){}~&"
@@ -38,5 +40,3 @@ For ($position; 1; $length)
 	
 	
 End for 
-
-$0:=$output

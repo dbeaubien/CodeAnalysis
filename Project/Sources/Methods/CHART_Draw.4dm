@@ -1,46 +1,32 @@
 //%attributes = {"invisible":true}
 // CHART_Draw ( charID )
-// CHART_Draw ( longint )
 // 
 // DESCRIPTION
 //   Performs all the SVG calls to define the SVG
 //   graphic.
 //
-C_TEXT:C284($1; $chartID)
-// ----------------------------------------------------
-// CALLED BY
-//   
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (03/23/11)
-//   Mod: DB (08/08/2012) - Add support for area lines
-//   Mod by: Dani Beaubien (09/01/2013) - Addressed an issue if there was only one day
-//   Mod: DB (12/06/2013) - 2278 - Support y-axis ranges and increments
+#DECLARE($chartID : Text)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$chartID:=$1
-	
-	//LOG_INFO ("   a1")
-	
 	// Get the size of the "grid"
-	C_LONGINT:C283($vl_gridWidth; $vl_gridHeight)
+	var $vl_gridWidth; $vl_gridHeight : Integer
 	$vl_gridWidth:=OT_GetLong($chartID; "gridWidth")
 	$vl_gridHeight:=OT_GetLong($chartID; "gridHeight")
 	
-	C_LONGINT:C283($vl_numLines; $i; $vl_lineNo; $vl_numItems; $pos)
+	var $vl_numLines; $i; $vl_lineNo; $vl_numItems; $pos : Integer
 	$vl_numLines:=OT_GetLong($chartID; "dataLines Count")
 	
-	C_LONGINT:C283($vl_xAxisDataType)
+	var $vl_xAxisDataType : Integer
 	$vl_xAxisDataType:=OT_GetLong($chartID; "horzAxisDataType")
 	
 	// Figure out the min and max values across all lines
-	C_TEXT:C284($vt_graphType)
-	C_DATE:C307($vd_minDate; $vd_maxDate)
-	C_LONGINT:C283($vl_minNumber; $vl_maxNumber)
-	C_REAL:C285($vr_min; $vr_max)
+	var $vt_graphType : Text
+	var $vd_minDate; $vd_maxDate : Date
+	var $vl_minNumber; $vl_maxNumber : Integer
+	var $vr_min; $vr_max : Real
 	If ($vl_numLines>0)
-		C_BOOLEAN:C305($vb_firstValueSet)  // Flag to prime our min/max values
+		var $vb_firstValueSet : Boolean  // Flag to prime our min/max values
 		$vb_firstValueSet:=False:C215
 		$vl_minNumber:=MAXLONG:K35:2  // some large longint
 		$vl_maxNumber:=0-MAXLONG:K35:2
@@ -125,13 +111,13 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	End case 
 	
 	
-	C_REAL:C285($vr_scaleFactor)
+	var $vr_scaleFactor : Real
 	$vr_scaleFactor:=$vl_gridHeight/($vr_max-$vr_min)
 	
 	//   Mod: DB (12/06/2013) - 2278 - Support y-axis ranges and increments
 	// If the gap between the max and min is large enough, round to whole #s
-	C_BOOLEAN:C305($vb_useWholeNumbers)
-	C_REAL:C285($vr_yAxis_LabelInc; $vr_yAxis_GraphOffsetInc)
+	var $vb_useWholeNumbers : Boolean
+	var $vr_yAxis_LabelInc; $vr_yAxis_GraphOffsetInc : Real
 	If (OT_GetReal($chartID; "verticalAxisIncrement")#0)
 		$vr_yAxis_LabelInc:=OT_GetReal($chartID; "verticalAxisIncrement")
 		$vr_yAxis_GraphOffsetInc:=$vl_gridHeight/(($vr_max-$vr_min)/$vr_yAxis_LabelInc)
@@ -149,20 +135,20 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 	//LOG_INFO ("   c1")
 	
 	//   Mod: DB (12/06/2013) - Add drawing the grid here
-	C_LONGINT:C283($vl_gridBoxSize)
-	C_TEXT:C284($vt_title)
+	var $vl_gridBoxSize : Integer
+	var $vt_title : Text
 	$vl_gridBoxSize:=Int:C8($vl_gridHeight/10)
 	//CHART__Draw_GridBox ($chartID;$vl_gridBoxSize;$vt_title)
 	CHART__Draw_GridBox($chartID; $vr_yAxis_GraphOffsetInc; $vt_title)
 	
 	//LOG_INFO ("   d1")
 	
-	C_TEXT:C284($vt_svgGridRef)
+	var $vt_svgGridRef : Text
 	$vt_svgGridRef:=CHART_SVG_GetGridRef($chartID)
 	
 	
 	// Draw each line
-	C_TEXT:C284($vt_lineColour)
+	var $vt_lineColour : Text
 	ARRAY DATE:C224($ad_datesArray; 0)
 	ARRAY LONGINT:C221($al_numbersArray; 0)
 	ARRAY REAL:C219($ar_valuesArray; 0)
@@ -203,7 +189,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		// Define our polygon line elements
 		ARRAY REAL:C219($tX; $vl_numItems)
 		ARRAY REAL:C219($tY; $vl_numItems)
-		C_POINTER:C301($vp_xAxisArrPtr; $vp_xAxisRawValuesArrPtr)
+		var $vp_xAxisArrPtr; $vp_xAxisRawValuesArrPtr : Pointer
 		Case of 
 			: ($vl_xAxisDataType=Is date:K8:7)
 				$vp_xAxisArrPtr:=->$ad_datesArray
@@ -223,7 +209,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			$tY{$i}:=$vl_gridHeight-($vr_scaleFactor*($ar_valuesArray{$i}-$vr_min))  // vertical position
 		End for 
 		
-		C_TEXT:C284($tmpObjRef)
+		var $tmpObjRef : Text
 		If ($vt_graphType="@areaLine")
 			INSERT IN ARRAY:C227($tX; 1)
 			INSERT IN ARRAY:C227($tY; 1)
@@ -240,11 +226,11 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			$tmpObjRef:=SVG_New_polyline_by_arrays($vt_svgGridRef; ->$tX; ->$tY; $vt_lineColour; "none"; 1)  //  (parentSVGObject; xArrayPointer; yArrayPointer{; foregroundColor{; backgroundColor{; strokeWidth}}})
 		End if 
 		
-		C_TEXT:C284($vt_indicatorShape)
+		var $vt_indicatorShape : Text
 		$vt_indicatorShape:=OT_GetText($chartID; "dataLine "+String:C10($vl_lineNo)+".indicator")
 		If ($vt_indicatorShape#"none")
-			C_TEXT:C284($vt_indicatorColour)
-			C_LONGINT:C283($vl_indicatorWidth)
+			var $vt_indicatorColour : Text
+			var $vl_indicatorWidth : Integer
 			$vl_indicatorWidth:=OT_GetLong($chartID; "dataLine "+String:C10($vl_lineNo)+".indicatorWidth")
 			$vt_indicatorColour:=OT_GetText($chartID; "dataLine "+String:C10($vl_lineNo)+".indicatorColour")
 			
@@ -276,8 +262,8 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		
 		
 		// # Draw the labels along the X axis
-		C_TEXT:C284($vt_dateFormat; $textID)
-		C_LONGINT:C283($vl_lastDrawnPos)
+		var $vt_dateFormat; $textID : Text
+		var $vl_lastDrawnPos : Integer
 		$vt_dateFormat:=OT_GetText($chartID; "horzDateLabelFormat")  //   Mod: DB (06/29/2011)
 		$vl_lastDrawnPos:=10000
 		For ($i; 1; $vl_numItems)
@@ -300,8 +286,8 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		
 		
 		// # Draw the labels along the Y axis
-		C_REAL:C285($vr_curLabelValue)
-		C_TEXT:C284($vt_theValue)
+		var $vr_curLabelValue : Real
+		var $vt_theValue : Text
 		$vr_curLabelValue:=$vr_max
 		//LOG_INFO ("      $vl_gridHeight="+String($vl_gridHeight))
 		//LOG_INFO ("      $vr_yAxis_GraphOffsetInc="+String($vr_yAxis_GraphOffsetInc))
@@ -351,7 +337,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			APPEND TO ARRAY:C911($tX; $tX{1}+10)
 			APPEND TO ARRAY:C911($tY; 0)  // set in the loop
 			
-			C_TEXT:C284($vt_theLabel)
+			var $vt_theLabel : Text
 			For ($i; 1; $vl_numLines)
 				$vt_theLabel:=OT_GetText($chartID; "dataLine "+String:C10($i)+".seriesLabel")
 				$textID:=SVG_New_text($vt_svgGridRef; $vt_theLabel; $vl_gridWidth+40; 40+($i*20); "Arial"; 12; Plain:K14:1; 1; "black")
@@ -366,6 +352,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		
 	End if 
 	
-	//LOG_INFO ("   f1")
-	
-End if   // ASSERT
+End if 

@@ -1,0 +1,1 @@
+﻿   STR_GetLogLevelFromLogType (logType) : logLevel     STR_GetLogLevelFromLogType (text) : longint          DESCRIPTION       Converts the logType to a logLevel number.       -1 means undefined type.       Larger #s are higher levels.      

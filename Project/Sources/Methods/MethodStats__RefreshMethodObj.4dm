@@ -1,37 +1,29 @@
 //%attributes = {"invisible":true}
 // MethodStats__RefreshMethodObj (methodPath; projectMethodNamesArr; tableList; fieldNamesArr) 
-// MethodStats__RefreshMethodObj (text; pointer; pointer; pointer)
 //
 // DESCRIPTION
 //   Refreshes the analaysis for the specified method.
 //
-C_TEXT:C284($1; $methodPath)
-C_POINTER:C301($2; $projectMethodNamesArr)
-C_COLLECTION:C1488($3; $tableList)
-C_COLLECTION:C1488($4; $fieldList)
+#DECLARE($methodPath : Text\
+; $projectMethodNamesArr : Pointer\
+; $tableList : Collection\
+; $fieldList : Collection)
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (03/29/2020)
-// ----------------------------------------------------
+ASSERT:C1129(Count parameters:C259=4)
 
 Logging_Method_START(Current method name:C684)
-ASSERT:C1129(Count parameters:C259=4)
-$methodPath:=$1
-$projectMethodNamesArr:=$2
-$tableList:=$3
-$fieldList:=$4
 
-C_OBJECT:C1216(MethodStatsMasterObj)  // initalized by
+var MethodStatsMasterObj : Object  // initalized by
 MethodStats__Init
 
 // Store away our current on error settings
-C_TEXT:C284($onErrorMethod)
+var $onErrorMethod : Text
 $onErrorMethod:=Method called on error:C704
 OnErr_ClearError
 ON ERR CALL:C155("OnErr_GENERIC")
 
-C_TEXT:C284($theCode)
-C_LONGINT:C283($err)
+var $theCode : Text
+var $err : Integer
 $theCode:=Method_GetNormalizedCode($methodPath)
 If (OnErr_GetLastError=0)
 	ARRAY TEXT:C222($methodLinesArr; 0)
@@ -44,7 +36,7 @@ If (OnErr_GetLastError=0)
 	End if 
 	
 	If ($err=0)
-		C_OBJECT:C1216($methodStatObject)
+		var $methodStatObject : Object
 		$methodStatObject:=MethodStatsMasterObj[$methodPath]
 		Use ($methodStatObject)
 			$methodStatObject.documentation:=MethodLines_GetHeaderComment(->$methodLinesArr; Pref_GetEOL)
@@ -59,8 +51,8 @@ If (OnErr_GetLastError=0)
 				End if 
 			End use 
 			
-			C_LONGINT:C283($cyclomaticComplexity)
-			C_COLLECTION:C1488($downstreamMethodsCol; $tablesUsedCol; $fieldsUsedCol; $indexedFieldsUsedCol)
+			var $cyclomaticComplexity : Integer
+			var $downstreamMethodsCol; $tablesUsedCol; $fieldsUsedCol; $indexedFieldsUsedCol : Collection
 			$cyclomaticComplexity:=1  // Always at least 1
 			$downstreamMethodsCol:=$methodStatObject.references.downstream_methods
 			$tablesUsedCol:=New collection:C1472
@@ -68,10 +60,10 @@ If (OnErr_GetLastError=0)
 			$indexedFieldsUsedCol:=New collection:C1472
 			
 			
-			C_OBJECT:C1216($methodParameters)
+			var $methodParameters : Object
 			$methodParameters:=New object:C1471  // make sure this is an empty object
-			C_LONGINT:C283($lineNo)
-			C_OBJECT:C1216($previousLineInfo)
+			var $lineNo : Integer
+			var $previousLineInfo : Object
 			$previousLineInfo:=New object:C1471  // make sure that this thing exists.
 			For ($lineNo; 2; Size of array:C274($methodLinesArr))  // skip the first line, that is 4d attributes
 				ARRAY TEXT:C222($methodLineTokensArr; 0)
@@ -117,7 +109,7 @@ If (OnErr_GetLastError=0)
 	End if 
 End if 
 
-C_LONGINT:C283($errorNo)
+var $errorNo : Integer
 $errorNo:=OnErr_GetLastError
 OnErr_ClearError
 ON ERR CALL:C155($onErrorMethod)

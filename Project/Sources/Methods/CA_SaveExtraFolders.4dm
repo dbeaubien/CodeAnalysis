@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true,"shared":true}
 // CA_SaveExtraFolders ({rootFolderPath})
-// CA_SaveExtraFolders ({text})
 //
 // DESCRIPTION
 //   Calling this method will cause the component to export all the
@@ -14,15 +13,13 @@
 //   NOTE: The destination folders will be created if they do not exist.
 //   NOTE: The destination folders will be emptied prior to the start of the export.
 //
-C_TEXT:C284($1; $rootFolder)  // OPTIONAL - folder to store the exported resources
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (04/13/2014)
+#DECLARE($rootFolder : Text)  // OPTIONAL - folder to store the exported resources
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259<=1)
-C_TEXT:C284($vt_AppendStr)
+
+var $vt_AppendStr : Text
 If (Count parameters:C259>=1)
-	$rootFolder:=Folder_EnsureEndsInSeparator($1)
+	$rootFolder:=Folder_EnsureEndsInSeparator($rootFolder)
 	If ($rootFolder="")
 		$vt_AppendStr:=ExportExtras_GetFldrAppendStr
 	End if 
@@ -34,7 +31,7 @@ ARRAY TEXT:C222($srcFolderPathsArray; 0)
 ARRAY TEXT:C222($actionFolderPathsArray; 0)
 ExportExtras_GetFolderPathsArr(->$srcFolderPathsArray; ->$actionFolderPathsArray)
 
-C_COLLECTION:C1488($subfoldersToSkip)
+var $subfoldersToSkip : Collection
 $subfoldersToSkip:=New collection:C1472
 For ($i; 1; Size of array:C274($srcFolderPathsArray))
 	If ($actionFolderPathsArray{$i}="Skip")
@@ -45,9 +42,9 @@ End for
 
 // Copy the folders to their destinations
 If (Size of array:C274($srcFolderPathsArray)>0)
-	C_PICTURE:C286($vg_icon)
+	var $vg_icon : Picture
 	READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_Write.png"); $vg_icon)
-	C_LONGINT:C283($progHdl)
+	var $progHdl : Integer
 	$progHdl:=Progress New
 	Progress SET TITLE($progHdl; "Exporting Extra Folders"; 0; "Initializing..."; True:C214)
 	Progress SET ICON($progHdl; $vg_icon)
@@ -56,8 +53,8 @@ If (Size of array:C274($srcFolderPathsArray)>0)
 	CAWindow_log($rootFolder+"\r\r")
 	
 	// Copy the folders to their destinations
-	C_LONGINT:C283($i; $vs1; $ve1)
-	C_TEXT:C284($vt_dstFolderName)
+	var $i; $vs1; $ve1 : Integer
+	var $vt_dstFolderName : Text
 	For ($i; 1; Size of array:C274($srcFolderPathsArray))
 		If ($actionFolderPathsArray{$i}#"Skip")
 			$vs1:=Milliseconds:C459

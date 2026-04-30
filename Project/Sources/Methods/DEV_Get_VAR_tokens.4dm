@@ -11,7 +11,7 @@
 // Date and time: 03/09/12, 08:37:17
 // ----------------------------------------------------
 
-C_BOOLEAN:C305($vb_doQueryStuff)
+var $vb_doQueryStuff : Boolean
 CONFIRM:C162("Gather commands #s for Query or C Def statements?"; "Query"; "C Defs")
 If (OK=1)
 	$vb_doQueryStuff:=True:C214
@@ -24,8 +24,8 @@ ARRAY TEXT:C222($at_commandName1; 0)
 ARRAY LONGINT:C221($al_commandNo1; 0)
 ARRAY TEXT:C222($at_commandName2; 0)
 ARRAY LONGINT:C221($al_commandNo2; 0)
-C_LONGINT:C283($i)
-C_TEXT:C284($vt)
+var $i : Integer
+var $vt : Text
 For ($i; 1; 2000)
 	$vt:=Command name:C538($i)
 	//If ($vt#"")
@@ -55,7 +55,7 @@ End for
 // Turn the arrays into code that I can paste
 
 If ($vb_doQueryStuff)
-	C_TEXT:C284($vt_codeStr)
+	var $vt_codeStr : Text
 	$vt_codeStr:="array longint($al_QueryTokenCommandNo;0)\r"
 	For ($i; 1; Size of array:C274($at_commandName1))
 		$vt_codeStr:=$vt_codeStr+"append to array($al_QueryTokenCommandNo;"+String:C10($al_commandNo1{$i})+") // "+$at_commandName1{$i}+"\r"

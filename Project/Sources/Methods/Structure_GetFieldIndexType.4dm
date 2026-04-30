@@ -10,7 +10,7 @@
 ASSERT:C1129(Count parameters:C259=2)
 $index_type:=0
 
-C_BOOLEAN:C305(_INDX_hasInitd)
+var _INDX_hasInitd : Boolean
 If (Not:C34(_INDX_hasInitd))
 	_INDX_hasInitd:=True:C214
 	

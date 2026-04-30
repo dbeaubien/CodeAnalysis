@@ -1,19 +1,12 @@
 //%attributes = {"invisible":true}
 // ExportDocs___Output_DM_NavHTML (methodCount) : navigationHTML
-// ExportDocs___Output_DM_NavHTML (boolean): text
 //
 // DESCRIPTION
 //   Returns the database Methods HTML for the navigation section.
 //
-C_LONGINT:C283($1; $numDatabaseMethods)
-C_TEXT:C284($0; $html)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/07/2012)
-//   Mod by: Dani Beaubien (01/31/2021)
+#DECLARE($numDatabaseMethods : Integer)->$html : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$numDatabaseMethods:=$1
 $html:=""
 
 If ($numDatabaseMethods>0)  // Output the Database Methods top level of tree
@@ -24,7 +17,7 @@ If ($numDatabaseMethods>0)  // Output the Database Methods top level of tree
 End if 
 
 If ($numDatabaseMethods>0)  // Get the list of database methods
-	C_OBJECT:C1216(MethodStatsMasterObj)
+	var MethodStatsMasterObj : Object
 	MethodStats__Init  // defines MethodStatsMasterObj
 	
 	ARRAY TEXT:C222($methodObjNames; 0)
@@ -33,8 +26,8 @@ If ($numDatabaseMethods>0)  // Get the list of database methods
 End if 
 
 If ($numDatabaseMethods>0)  // Output all the database methods
-	C_TEXT:C284($friendlyName)
-	C_LONGINT:C283($i)
+	var $friendlyName : Text
+	var $i : Integer
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$friendlyName:=Substring:C12($methodObjNames{$i}; Length:C16("[databaseMethod]/")+1)  // strip out the first part
 		
@@ -47,5 +40,3 @@ If ($numDatabaseMethods>0)  // Output all the database methods
 	$html:=$html+"\t\t\t\t</ul></li>"+Pref_GetEOL  // Close Header
 	$html:=$html+"\t\t\t</ul>"+Pref_GetEOL
 End if 
-
-$0:=$html

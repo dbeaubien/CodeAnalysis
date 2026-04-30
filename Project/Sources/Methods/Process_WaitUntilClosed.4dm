@@ -1,31 +1,17 @@
 //%attributes = {"invisible":true}
-// ----------------------------------------------------
-// METHOD: Process_WaitUntilClosed
+// Process_WaitUntilClosed
 // 
 // DESCRIPTION:
 //   This method takes a process ID and returns once the
 //   process has completed.
+//
+#DECLARE($procID : Integer)
 // ----------------------------------------------------
-// PARAMETERS:
-C_LONGINT:C283($1; $procID)
-// RETURNS:
-//   none
-// ----------------------------------------------------
-// CALLED BY:
-//   
-// ----------------------------------------------------
-// HISTORY:
-//   Created: DB (11/09/2004)
-//   Mod by: dani (2005.02.23 @ 10:10:44) - check to make sure the proc id is a good one
-// ----------------------------------------------------
-
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$procID:=$1
-	
-	C_TEXT:C284($procName)
-	C_LONGINT:C283($procState)
-	C_LONGINT:C283($procTime)
+	var $procName : Text
+	var $procState : Integer
+	var $procTime : Integer
 	
 	If ($procID>0)  // Added by: dani (2005.02.23 @ 10:10:37) - make sure it exists
 		
@@ -37,5 +23,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		Until ($procState=Aborted:K13:1) | ($procState=Does not exist:K13:3)
 	End if 
 	
-End if   // ASSERT
+End if 
 

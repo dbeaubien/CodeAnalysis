@@ -1,6 +1,6 @@
 
 If (FORM Get current page:C276=1)  // on DIFF tab
-	C_LONGINT:C283($selectedRow)
+	var $selectedRow : Integer
 	$selectedRow:=currentSelectedDiffMethod-1
 	If ($selectedRow<=0)
 		$selectedRow:=Form:C1466.methodsWithDifference.length

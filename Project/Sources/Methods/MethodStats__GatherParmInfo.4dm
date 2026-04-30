@@ -1,34 +1,23 @@
 //%attributes = {"invisible":true}
 // MethodStats__GatherParmInfo (tokenizedLineArrPtr; parmArrayPtr)
-// MethodStats__GatherParmInfo (pointer; pointer)
-// 
-// DESCRIPTION
-//   
 //
-C_POINTER:C301($1; $ap_tokenizedLinePtr)  // the line tokenized
-C_POINTER:C301($2; $vp_parmsObjPtr)
-C_POINTER:C301($3)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (01/12/2015)
+#DECLARE($ap_tokenizedLinePtr : Pointer; $vp_parmsObjPtr : Pointer)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$ap_tokenizedLinePtr:=$1
-$vp_parmsObjPtr:=$2
 
 OnErr_ClearError
 
-C_LONGINT:C283($vl_numTokens; $pos; $len)
+var $vl_numTokens; $pos; $len : Integer
 $vl_numTokens:=Size of array:C274($ap_tokenizedLinePtr->)
 If ($vl_numTokens>1)
 	ARRAY TEXT:C222($at_C_declarVarToken; 0)
 	Structure_GetTokenArr_Cdefn(->$at_C_declarVarToken)
 	
 	ON ERR CALL:C155("")
-	C_BOOLEAN:C305($vb_addAsParm)
+	var $vb_addAsParm : Boolean
 	
 	// Is this some sort of "C_" declaration?
-	C_TEXT:C284($vt_theComment; $pattern)
+	var $vt_theComment; $pattern : Text
 	$vt_theComment:=""
 	$pattern:="\\$\\{*[0-9]+\\}*"  // Pattern to regex $1 and ${2} type strings
 	
@@ -50,7 +39,7 @@ If ($vl_numTokens>1)
 					$vt_theComment:=$ap_tokenizedLinePtr->{7}
 				End if 
 				
-				C_BOOLEAN:C305($vb_pos3_is_a_parm; $vb_pos5_is_a_parm)
+				var $vb_pos3_is_a_parm; $vb_pos5_is_a_parm : Boolean
 				$vb_pos3_is_a_parm:=(Match regex:C1019($pattern; $ap_tokenizedLinePtr->{3}; 1; $pos; $len))
 				$vb_pos5_is_a_parm:=(Match regex:C1019($pattern; $ap_tokenizedLinePtr->{5}; 1; $pos; $len))
 				If (OnErr_GetLastError#0)
@@ -75,7 +64,7 @@ If ($vl_numTokens>1)
 			Else 
 				
 				// Scan to see if there are parms in a non-optimal defined way
-				C_LONGINT:C283($i)
+				var $i : Integer
 				For ($i; 1; Size of array:C274($ap_tokenizedLinePtr->))
 					If (Match regex:C1019($pattern; $ap_tokenizedLinePtr->{$i}; 1; $pos; $len))
 						MethodStats__GatherParmInfo2($vp_parmsObjPtr; $ap_tokenizedLinePtr->{$i}; $ap_tokenizedLinePtr->{1}; ""; "")

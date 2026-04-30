@@ -1,21 +1,21 @@
 // Form Method
 
-C_BOOLEAN:C305(<>ShowAboutPage)
+var <>ShowAboutPage : Boolean
 
 Case of 
 	: (Form event code:C388=On Load:K2:1)
 		ARRAY TEXT:C222(tabControl; 7)
 		TabControl{1}:="General"
-		TabControl{2}:=Get localized string:C991("TabLabel_Complexity")
-		TabControl{3}:=Get localized string:C991("TabLabel_Differences")
-		TabControl{4}:=Get localized string:C991("TabLabel_Methods")
-		TabControl{5}:=Get localized string:C991("TabLabel_Folders")  //   Mod: DB (04/11/2014) - Added new tab
-		TabControl{6}:=Get localized string:C991("TabLabel_Structure")
-		TabControl{7}:=Get localized string:C991("TabLabel_About")
+		TabControl{2}:=Localized string:C991("TabLabel_Complexity")
+		TabControl{3}:=Localized string:C991("TabLabel_Differences")
+		TabControl{4}:=Localized string:C991("TabLabel_Methods")
+		TabControl{5}:=Localized string:C991("TabLabel_Folders")  //   Mod: DB (04/11/2014) - Added new tab
+		TabControl{6}:=Localized string:C991("TabLabel_Structure")
+		TabControl{7}:=Localized string:C991("TabLabel_About")
 		
 		Component_SetMenuBar
 		
-		C_TEXT:C284(vt_defaultFolder)
+		var vt_defaultFolder : Text
 		vt_defaultFolder:=CodeAnalysis__GetDestFolder
 		
 		
@@ -37,7 +37,7 @@ Case of
 			Pref_GetPrefTextArray("Extra Folder action"; ->at_XTRA_actions)
 			If (Size of array:C274(at_XTRA_actions)#Size of array:C274(at_XTRA_relativePaths))
 				ARRAY TEXT:C222(at_XTRA_actions; Size of array:C274(at_XTRA_relativePaths))
-				C_LONGINT:C283($i)
+				var $i : Integer
 				For ($i; 1; Size of array:C274(at_XTRA_relativePaths))
 					at_XTRA_actions{$i}:="Copy"
 				End for 
@@ -50,7 +50,7 @@ Case of
 				vt_fullPath:=""
 				
 			Else 
-				C_LONGINT:C283($vl_col; $vl_row)
+				var $vl_col; $vl_row : Integer
 				LISTBOX GET CELL POSITION:C971(*; "ListBox_Extras"; $vl_col; $vl_row)
 				If ($vl_row>Size of array:C274(at_XTRA_relativePaths))
 					$vl_row:=Size of array:C274(at_XTRA_relativePaths)

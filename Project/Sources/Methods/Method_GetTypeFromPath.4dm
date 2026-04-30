@@ -4,11 +4,9 @@
 // DESCRIPTION
 //   Returns the type of method based on the method path.
 //
-C_TEXT:C284($1; $methodPath)
-C_TEXT:C284($0; $typeOfMethod)
+#DECLARE($methodPath : Text)->$typeOfMethod : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$methodPath:=$1
 
 Case of 
 	: ($methodPath="[class]@")
@@ -29,5 +27,3 @@ Case of
 	Else 
 		$typeOfMethod:="project method"
 End case 
-
-$0:=$typeOfMethod

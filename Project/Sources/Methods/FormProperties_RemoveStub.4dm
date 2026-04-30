@@ -16,10 +16,10 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		ALERT:C41("This function can not be used directly from within the Code Analysis Component.")
 		
 	Else 
-		C_LONGINT:C283($progHdl)
+		var $progHdl : Integer
 		$progHdl:=Progress New
 		
-		C_PICTURE:C286($vg_icon)
+		var $vg_icon : Picture
 		READ PICTURE FILE:C678(LibraryImage_GetPlatformPath("Progress_RemoveCode.png"); $vg_icon)
 		Progress SET ICON($progHdl; $vg_icon)
 		
@@ -27,7 +27,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		Progress SET BUTTON ENABLED($progHdl; True:C214)
 		
 		// Get the max count for the progress window
-		C_LONGINT:C283($vl_maxCount)
+		var $vl_maxCount : Integer
 		$vl_maxCount:=0
 		ARRAY TEXT:C222(at_methodNames; 0)
 		METHOD GET PATHS:C1163(Path project form:K72:3; at_methodNames; *)
@@ -35,7 +35,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		METHOD GET PATHS:C1163(Path table form:K72:5; at_methodNames; *)
 		$vl_maxCount:=$vl_maxCount+Size of array:C274(at_methodNames)
 		
-		C_LONGINT:C283($vl_curCount; $loop; $i)
+		var $vl_curCount; $loop; $i : Integer
 		For ($loop; 1; 2)
 			ARRAY TEXT:C222(at_methodNames; 0)
 			If ($loop=1)
@@ -47,8 +47,8 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 				METHOD GET PATHS:C1163(Path table form:K72:5; at_methodNames; *)  //   Mod by: Dani Beaubien (10/03/2012)
 			End if 
 			
-			C_TEXT:C284($vt_theCode)
-			C_BOOLEAN:C305($vb_changeMade)
+			var $vt_theCode : Text
+			var $vb_changeMade : Boolean
 			$vt_theCode:=""
 			For ($i; 1; Size of array:C274(at_methodNames))
 				$vl_curCount:=$vl_curCount+1
@@ -90,4 +90,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		
 		Progress QUIT($progHdl)
 	End if 
-End if   // ASSERT
+End if 

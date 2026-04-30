@@ -1,19 +1,30 @@
 //%attributes = {"preemptive":"capable"}
 //Progress QUIT (0)
+Log_OpenDisplayWindow()
+var $o : Object
+var $structure_xml : Text
+$structure_xml:=Folder:C1567("/PROJECT").folder("Sources").file("catalog.4DCatalog").getText()
+$o:=UTL_structure2Object($structure_xml)
+
+$o:=cs:C1710.model_TableInformation.new()
+$o.Refresh()
+
+BEEP:C151
+ABORT:C156
 
 var $ms : Integer
 $ms:=Milliseconds:C459
-C_TEXT:C284($vt_xml)
+var $vt_xml : Text
 EXPORT STRUCTURE:C1311($vt_xml)
 
-C_OBJECT:C1216($vo_structure)
+var $vo_structure : Object
 $vo_structure:=UTL_structure2Object($vt_xml)
 ALERT:C41(String:C10(Milliseconds:C459-$ms))
 
 //SET TEXT TO PASTEBOARD(JSON Stringify($vo_structure; *))
 BEEP:C151
 ABORT:C156
-
+//cs.model_TableInformation
 
 //_DIFF_ChangesText 
 

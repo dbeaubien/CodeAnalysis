@@ -3,9 +3,8 @@
 // Runs a single testcase
 // $1 = Test case
 
-C_TEXT:C284($1; $testcase)
+#DECLARE($testcase : Text)
 
-$testcase:=$1
 UnitTest_CurrentTestCase:=$testcase
 
 // Run the testcase

@@ -7,30 +7,18 @@
 //
 //   "CreateDiffs" from the original C# code.
 //
-C_POINTER:C301($1; $DataA_ptr)
-C_POINTER:C301($2; $ModA_ptr)
-C_POINTER:C301($3; $DataB_ptr)
-C_POINTER:C301($4; $ModB_ptr)
-C_POINTER:C301($5; $StartA_ptr)
-C_POINTER:C301($6; $StartB_ptr)
-C_POINTER:C301($7; $DeletedA_ptr)
-C_POINTER:C301($8; $InsertedB_ptr)
-// ----------------------------------------------------
-// User name (OS): ddancy
-// Date and time: 18/02/08, 13:33:23
+#DECLARE($DataA_ptr : Pointer\
+; $ModA_ptr : Pointer\
+; $DataB_ptr : Pointer\
+; $ModB_ptr : Pointer\
+; $StartA_ptr : Pointer\
+; $StartB_ptr : Pointer\
+; $DeletedA_ptr : Pointer\
+; $InsertedB_ptr : Pointer)
 // ----------------------------------------------------
 
-$DataA_ptr:=$1
-$ModA_ptr:=$2
-$DataB_ptr:=$3
-$ModB_ptr:=$4
-$StartA_ptr:=$5
-$StartB_ptr:=$6
-$DeletedA_ptr:=$7
-$InsertedB_ptr:=$8
-
-C_LONGINT:C283($DataALength; $DataBLength)
-C_LONGINT:C283($StartA; $StartB; $LineA; $LineB)
+var $DataALength; $DataBLength : Integer
+var $StartA; $StartB; $LineA; $LineB : Integer
 
 $DataALength:=Size of array:C274($DataA_ptr->)+1
 $DataBLength:=Size of array:C274($DataB_ptr->)+1
@@ -43,7 +31,7 @@ Array_SetSize(0; $StartB_ptr)
 Array_SetSize(0; $DeletedA_ptr)
 Array_SetSize(0; $InsertedB_ptr)
 
-C_BOOLEAN:C305($Equal)
+var $Equal : Boolean
 
 While (($LineA<$DataALength) | ($LineB<$DataBLength))
 	$Equal:=True:C214
@@ -70,7 +58,7 @@ While (($LineA<$DataALength) | ($LineB<$DataBLength))
 		$StartA:=$LineA
 		$StartB:=$LineB
 		
-		C_BOOLEAN:C305($Continue)
+		var $Continue : Boolean
 		$Continue:=True:C214
 		While ($Continue)
 			If ($LineA<$DataALength)
@@ -108,5 +96,3 @@ While (($LineA<$DataALength) | ($LineB<$DataBLength))
 	End if 
 	
 End while 
-
-

@@ -9,7 +9,7 @@
 //   Created by: Dani Beaubien (10/05/2012)
 // ----------------------------------------------------
 
-C_BOOLEAN:C305(<>ShowAboutPage)
+var <>ShowAboutPage : Boolean
 <>ShowAboutPage:=True:C214
 
 If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE macros SYSTEM "http://www.4d.com/dtd/2007/macros.dtd">
+<macros>
+  <macro name="🚧 MACRO_TEST" in_menu="true" type_ahead="false" version="2">
+    <text><method>_MACROS("test_macro")</method> </text>
+  </macro>
+</macros>

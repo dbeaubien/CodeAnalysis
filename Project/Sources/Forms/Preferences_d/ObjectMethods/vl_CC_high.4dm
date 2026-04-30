@@ -4,12 +4,12 @@ Case of
 		vl_CC_high:=Num:C11(Pref_GetPrefString("CC High Risk"; "25"))
 		
 	: (Form event code:C388=On Data Change:K2:15)
-		C_TEXT:C284($vt_msg)
-		C_BOOLEAN:C305($vb_saveValue)
+		var $vt_msg : Text
+		var $vb_saveValue : Boolean
 		$vb_saveValue:=False:C215
 		Case of 
 			: (vl_CC_mid>=vl_CC_high)
-				$vt_msg:=Get localized string:C991("Msg_COMP_HighRisk_ToLow")
+				$vt_msg:=Localized string:C991("Msg_COMP_HighRisk_ToLow")
 				
 			Else 
 				$vb_saveValue:=True:C214

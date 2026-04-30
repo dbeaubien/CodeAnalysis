@@ -11,18 +11,18 @@
 //   Created by: Dani Beaubien (08/09/2020)
 // ----------------------------------------------------
 
-C_OBJECT:C1216(MethodStatsMasterObj)
+var MethodStatsMasterObj : Object
 MethodStats__Init
 
 ARRAY TEXT:C222($objProperties; 0)
 ARRAY LONGINT:C221($objPropertiesType; 0)
 OB GET PROPERTY NAMES:C1232(MethodStatsMasterObj; $objProperties; $objPropertiesType)
 
-C_OBJECT:C1216($upstreamLinks)
+var $upstreamLinks : Object
 $upstreamLinks:=New object:C1471
 
-C_LONGINT:C283($i)
-C_TEXT:C284($currentMethod; $downstreamMethod)
+var $i : Integer
+var $currentMethod; $downstreamMethod : Text
 For ($i; 1; Size of array:C274($objProperties))
 	If ($objPropertiesType{$i}=Is object:K8:27)
 		$currentMethod:=$objProperties{$i}
@@ -31,7 +31,6 @@ For ($i; 1; Size of array:C274($objProperties))
 			MethodStatsMasterObj[$currentMethod].references.upstream_methods:=New shared collection:C1527  // clear anything that is there
 		End use 
 		
-		C_TEXT:C284($downstreamMethod)
 		For each ($downstreamMethod; MethodStatsMasterObj[$currentMethod].references.downstream_methods)
 			If ($upstreamLinks[$downstreamMethod]=Null:C1517)
 				$upstreamLinks[$downstreamMethod]:=New collection:C1472

@@ -7,7 +7,7 @@
 
 // FROM DISCUSS FORUM: https://discuss.4d.com/t/formatted-method-code/14299/9
 
-C_COLLECTION:C1488($0; $keyword_c)
+#DECLARE()->$keyword_c : Collection
 $keyword_c:=New collection:C1472
 
 If (Command name:C538(1)="Sum")  //en
@@ -27,5 +27,3 @@ Else   //fr
 	$keyword_c.push(New object:C1471("start"; "Debut SQL"; "end"; "Fin SQL"))
 	$keyword_c.push(New object:C1471("start"; "Pour chaque"; "end"; "Fin de chaque"))
 End if 
-$0:=$keyword_c
-//_

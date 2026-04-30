@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true}
 // LogEvent_SetLogFolder ({pathToLogFolder}) 
-// LogEvent_SetLogFolder ({text}) 
 // 
 // DESCRIPTION
 //   Sets the folder that will contain all the log files.
@@ -8,18 +7,14 @@
 //   The default path is a "Logs" folder beside the structure.
 //   If we are 4D Remote then it is a "Logs" folder beside the 4d app.
 //
-C_TEXT:C284($1; <>LOG_FolderPathForLogFiles)
-// ----------------------------------------------------
-// CALLED BY
-//   LogEvent_GetPathToLogFile
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (03/13/13)
+#DECLARE($pathToLogFolder : Text)
 // ----------------------------------------------------
 
+var <>LOG_FolderPathForLogFiles : Text
+
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 1; Count parameters:C259))
-	If (Count parameters:C259>=1)
-		<>LOG_FolderPathForLogFiles:=$1
+	If (Count parameters:C259=1)
+		<>LOG_FolderPathForLogFiles:=$pathToLogFolder
 	End if 
 	
 	// If no value, then do default
@@ -42,4 +37,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 0; 1; Count parameters:
 		<>LOG_FolderPathForLogFiles:=<>LOG_FolderPathForLogFiles+Folder separator:K24:12
 	End if 
 	
-End if   // ASSERT
+End if 

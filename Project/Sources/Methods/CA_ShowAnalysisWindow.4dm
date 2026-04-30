@@ -32,13 +32,13 @@ If (Is compiled mode:C492(*))
 Else 
 	Component_init
 	
-	C_LONGINT:C283(<>_CodeAnalysis_ProcID)
+	var <>_CodeAnalysis_ProcID : Integer
 	If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
 		<>_CodeAnalysis_ProcID:=Current process:C322
 		
 		MethodStats_RecalculateModified
 		
-		C_POINTER:C301($NIL_p)
+		var $NIL_p : Pointer
 		WIN_Dialog($NIL_p; "Generator_d"; Plain window:K34:13; "Code Analysis Window"; On the left:K39:2; At the top:K39:5)
 		
 		<>_CodeAnalysis_ProcID:=0  // Clear our var

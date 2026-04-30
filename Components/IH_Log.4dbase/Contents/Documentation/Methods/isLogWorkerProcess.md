@@ -1,0 +1,1 @@
+﻿   isLogWorkerProcess () : isLogWorker     isLogWorkerProcess () : boolean          DESCRIPTION       Returns true if the current process is the log worker       process.      

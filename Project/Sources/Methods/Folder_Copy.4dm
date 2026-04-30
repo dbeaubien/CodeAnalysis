@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true}
 // Folder_Copy (srcFolderPath; dstFolderPath{; subFoldersToSkip})
-// Folder_Copy (text; text{; pointer})
 //
 // DESCRIPTION
 //   Does an intelligent copy. Will only copy the items 
@@ -9,17 +8,13 @@
 //   Any "extra" files or folders in the destination that
 //   are not in the source are deleted.
 //
-C_TEXT:C284($1; $vt_srcFolderPath)
-C_TEXT:C284($2; $vt_dstFolderPath)
-C_COLLECTION:C1488($3; $subFoldersToSkip)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/08/2012)
+#DECLARE($vt_srcFolderPath : Text\
+; $vt_dstFolderPath : Text\
+; $subFoldersToSkip : Collection)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=3)
-$vt_srcFolderPath:=Folder_EnsureEndsInSeparator($1)
-$vt_dstFolderPath:=Folder_EnsureEndsInSeparator($2)
-$subFoldersToSkip:=$3
+$vt_srcFolderPath:=Folder_EnsureEndsInSeparator($vt_srcFolderPath)
+$vt_dstFolderPath:=Folder_EnsureEndsInSeparator($vt_dstFolderPath)
 
 ARRAY TEXT:C222($subFoldersToSkipArr; 0)
 If ($subFoldersToSkip.length>0)
@@ -28,7 +23,7 @@ End if
 
 // Store away our current on error settings
 OnErr_ClearError
-C_TEXT:C284($vt_onErrorMethod)
+var $vt_onErrorMethod : Text
 $vt_onErrorMethod:=Method called on error:C704
 ON ERR CALL:C155("OnErr_GENERIC")
 
@@ -48,7 +43,7 @@ If (Length:C16($vt_srcFolderPath)>0) & (Length:C16($vt_dstFolderPath)>0)
 	Folder_DeleteFoldersNotInSource($vt_dstFolderPath; ->$at_containedFolders)
 	
 	// Loop through each file and copy what is "different"
-	C_LONGINT:C283($i)
+	var $i : Integer
 	For ($i; 1; Size of array:C274($at_containedDocuments))
 		If (File_isDifferent($vt_srcFolderPath+$at_containedDocuments{$i}; $vt_dstFolderPath+$at_containedDocuments{$i}))
 			File_Delete($vt_dstFolderPath+$at_containedDocuments{$i})

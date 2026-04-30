@@ -1,0 +1,1 @@
+﻿   LogDisplay__ForceCloseWindow (parm1; parm2; ...) : result     LogDisplay__ForceCloseWindow (parm1; parm2; ...) : result          DESCRIPTION                ----------------------------------------------------     HISTORY       Created by: DB (05/01/2017)     ----------------------------------------------------  

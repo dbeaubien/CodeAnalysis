@@ -1,29 +1,24 @@
 //%attributes = {"invisible":true}
 // ExportDocs___Output_All_NavHTML : navigationHTML
-// ExportDocs___Output_All_NavHTML : text
 //
 // DESCRIPTION
 //   Returns the HTML for the navigation section of the HTML export.
 //
-C_TEXT:C284($0; $html)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/07/2012)
-//   Mod by: Dani Beaubien (01/30/2021)
+#DECLARE()->$html : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=0)
 $html:=""
 
-C_BOOLEAN:C305($onlyExportSharedMethods)
+var $onlyExportSharedMethods : Boolean
 $onlyExportSharedMethods:=(Pref_GetPrefString("HTML do Component View"; "0")="1")
 
-C_LONGINT:C283($numProjectMethods; $numProjectFormMethods; $numTableFormMethods; $numDatabaseMethods; $numTriggerMethods)
+var $numProjectMethods; $numProjectFormMethods; $numTableFormMethods; $numDatabaseMethods; $numTriggerMethods : Integer
 If ($onlyExportSharedMethods)
 	ARRAY TEXT:C222($methodObjNames; 0)
 	Method_GetMethodObjNames(->$methodObjNames; $onlyExportSharedMethods)
 	
-	C_TEXT:C284($typeOfMethod)
-	C_LONGINT:C283($i)
+	var $typeOfMethod : Text
+	var $i : Integer
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$typeOfMethod:=Method_GetTypeFromPath($methodObjNames{$i})
 		
@@ -55,19 +50,17 @@ Else
 End if 
 
 // Output the Project Methods:
-C_BOOLEAN:C305($includeHeader)
+var $includeHeader : Boolean
 If ($numProjectMethods#Storage:C1525.methodStatsSummary.numMethods)
 	$includeHeader:=True:C214
 End if 
 
-$html:=$html+"\t\t<div id=\"fileTreeDemo_1\" class=\"demo\">"+Pref_GetEOL
-$html:=$html+ExportDocs___Output_PM_NavHTML($numProjectMethods; $includeHeader; $onlyExportSharedMethods)  // project methods
+$html+="\t\t<div id=\"fileTreeDemo_1\" class=\"demo\">"+Pref_GetEOL
+$html+=ExportDocs___Output_PM_NavHTML($numProjectMethods; $includeHeader; $onlyExportSharedMethods)  // project methods
 If (Not:C34($onlyExportSharedMethods))
-	$html:=$html+ExportDocs___Output_PF_NavHTML($numProjectFormMethods)  // project form methods
-	$html:=$html+ExportDocs___Output_TF_NavHTML($numTableFormMethods)  // table form methods
-	$html:=$html+ExportDocs___Output_DM_NavHTML($numDatabaseMethods)  // database methods
-	$html:=$html+ExportDocs___Output_TM_NavHTML($numTriggerMethods)  // trigger methods
+	$html+=ExportDocs___Output_PF_NavHTML($numProjectFormMethods)  // project form methods
+	$html+=ExportDocs___Output_TF_NavHTML($numTableFormMethods)  // table form methods
+	$html+=ExportDocs___Output_DM_NavHTML($numDatabaseMethods)  // database methods
+	$html+=ExportDocs___Output_TM_NavHTML($numTriggerMethods)  // trigger methods
 End if 
-$html:=$html+"\t\t</div>"+Pref_GetEOL
-
-$0:=$html
+$html+="\t\t</div>"+Pref_GetEOL

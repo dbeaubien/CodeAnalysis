@@ -1,27 +1,20 @@
 //%attributes = {"invisible":true}
 // MethodDiff_d_ApplyCodePrefs (srcMethodCode) : trimmedMethodCode
-// MethodDiff_d_ApplyCodePrefs (text) : text
 //
 // DESCRIPTION
 //   Handle the configuration checkboxes on the dialog
 //
-C_TEXT:C284($1; $vt_srcMethodCode)
-C_TEXT:C284($0; $vt_trimmedMethodCode)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (10/30/2012)
+#DECLARE($vt_srcMethodCode : Text)->$vt_trimmedMethodCode : Text
 // ----------------------------------------------------
 
 $vt_trimmedMethodCode:=""
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vt_srcMethodCode:=$1
-	
 	$vt_trimmedMethodCode:=$vt_srcMethodCode
 	
 	If ($vt_trimmedMethodCode#"")
 		
 		// Normalize the EOL
-		C_TEXT:C284($vt_theEOL)
+		var $vt_theEOL : Text
 		$vt_theEOL:=STR_TellMeTheEOL($vt_trimmedMethodCode)
 		If ($vt_theEOL#Pref_GetEOL)  // make sure we are using a comming EOL
 			$vt_trimmedMethodCode:=Replace string:C233($vt_trimmedMethodCode; $vt_theEOL; Pref_GetEOL)
@@ -41,5 +34,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		
 	End if 
 	
-End if   // ASSERT
-$0:=$vt_trimmedMethodCode
+End if 

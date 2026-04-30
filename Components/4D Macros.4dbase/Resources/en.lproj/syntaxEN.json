@@ -1,0 +1,437 @@
+{
+	"_method_": {},
+	"cs.mcro": {
+		"macros": {
+			"new()": {
+				"Syntax": "**.new**()",
+				"Params": [],
+				"Summary": ""
+			}
+		},
+		"_modernize": {
+			"new()": {
+				"Syntax": "**.new**()",
+				"Params": [],
+				"Summary": ""
+			}
+		},
+		"_regex": {
+			"new()": {
+				"Syntax": "**.new**( *target* : Variant; *pattern* : Text )",
+				"Params": [
+					[
+						"target",
+						"Variant",
+						"->"
+					],
+					[
+						"pattern",
+						"Text",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		}
+	},
+	"macros": {
+		"cursorAtEnd()": {
+			"Syntax": "**.cursorAtEnd**( *code* : Text; *newLineAtTheEnd* : Boolean ) : Text",
+			"Params": [
+				[
+					"code",
+					"Text",
+					"->"
+				],
+				[
+					"newLineAtTheEnd",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"cursorOnFirstLine()": {
+			"Syntax": "**.cursorOnFirstLine**( *code* : Text ) : Text",
+			"Params": [
+				[
+					"code",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"split()": {
+			"Syntax": "**.split**( *useSelection* : Boolean ) : Collection",
+			"Params": [
+				[
+					"useSelection",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set fullMethodText()": {
+			"Syntax": "**.set fullMethodText**( *code* : Text )",
+			"Params": [
+				[
+					"code",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"set code()": {
+			"Syntax": "**.set code**( *code* : Text )",
+			"Params": [
+				[
+					"code",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"setHighlightedText()": {
+			"Syntax": "**.setHighlightedText**( *text* : Text )",
+			"Params": [
+				[
+					"text",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"tokenise()": {
+			"Syntax": "**.tokenise**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"paste()": {
+			"Syntax": "**.paste**( *text* : Text; *useSelection* : Boolean )",
+			"Params": [
+				[
+					"text",
+					"Text",
+					"->"
+				],
+				[
+					"useSelection",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"C_xx2var()": {
+			"Syntax": "**.C_xx2var**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set highlightedMethodText()": {
+			"Syntax": "**.set highlightedMethodText**( *code* : Text )",
+			"Params": [
+				[
+					"code",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get highlightedMethodText()": {
+			"Syntax": "**.get highlightedMethodText**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setMethodText()": {
+			"Syntax": "**.setMethodText**( *text* : Text )",
+			"Params": [
+				[
+					"text",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"newLineAtTheEnd()": {
+			"Syntax": "**.newLineAtTheEnd**( *code* : Text ) : Text",
+			"Params": [
+				[
+					"code",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get code()": {
+			"Syntax": "**.get code**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"test_macro()": {
+			"Syntax": "**.test_macro**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get fullMethodText()": {
+			"Syntax": "**.get fullMethodText**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"caret": {
+			"Syntax": "caret : Text"
+		},
+		"rgx": {
+			"Syntax": "rgx : cs.mcro._regex"
+		},
+		"title": {
+			"Syntax": "title : Text"
+		}
+	},
+	"_modernize": {
+		"C_2var()": {
+			"Syntax": "**.C_2var**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "macros"
+	},
+	"_regex": {
+		"get lastError()": {
+			"Syntax": "**.get lastError**() : Object",
+			"Params": [
+				[
+					"",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get target()": {
+			"Syntax": "**.get target**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"lookingAt()": {
+			"Syntax": "**.lookingAt**() : Boolean",
+			"Params": [
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"substitute()": {
+			"Syntax": "**.substitute**( *replacement* : Text; *count* : Integer; *position* : Integer ) : Text",
+			"Params": [
+				[
+					"replacement",
+					"Text",
+					"->"
+				],
+				[
+					"count",
+					"Integer",
+					"->"
+				],
+				[
+					"position",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"match()": {
+			"Syntax": "**.match**( *start* : Variant; *all* : Boolean ) : Boolean",
+			"Params": [
+				[
+					"start",
+					"Variant",
+					"->"
+				],
+				[
+					"all",
+					"Boolean",
+					"->"
+				],
+				[
+					"",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"extract()": {
+			"Syntax": "**.extract**( *groups* : Variant ) : Collection",
+			"Params": [
+				[
+					"groups",
+					"Variant",
+					"->"
+				],
+				[
+					"",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setTarget()": {
+			"Syntax": "**.setTarget**( *target* : Variant ) : cs.mcro._regex",
+			"Params": [
+				[
+					"target",
+					"Variant",
+					"->"
+				],
+				[
+					"",
+					"cs.mcro._regex",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set pattern()": {
+			"Syntax": "**.set pattern**( *pattern* : Text )",
+			"Params": [
+				[
+					"pattern",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"get pattern()": {
+			"Syntax": "**.get pattern**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setPattern()": {
+			"Syntax": "**.setPattern**( *pattern* : Text ) : cs.mcro._regex",
+			"Params": [
+				[
+					"pattern",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"cs.mcro._regex",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"set target()": {
+			"Syntax": "**.set target**( *target* : Variant )",
+			"Params": [
+				[
+					"target",
+					"Variant",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"errors": {
+			"Syntax": "errors : Collection"
+		},
+		"searchTime": {
+			"Syntax": "searchTime : Integer"
+		},
+		"matches": {
+			"Syntax": "matches : Collection"
+		},
+		"success": {
+			"Syntax": "success : Boolean"
+		}
+	}
+}

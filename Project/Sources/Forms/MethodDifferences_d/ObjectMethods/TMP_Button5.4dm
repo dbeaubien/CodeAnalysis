@@ -2,18 +2,18 @@
 
 If (Form event code:C388=On Clicked:K2:4) & (_DIFF_NumDifferences>0)
 	
-	C_LONGINT:C283($vl_vertPosition)
+	var $vl_vertPosition : Integer
 	OBJECT GET SCROLL POSITION:C1114(DEMO_FileDiff_lb; $vl_vertPosition)
 	
 	// Is the top row a "diff"?
-	C_BOOLEAN:C305($vb_outOfDiff)
+	var $vb_outOfDiff : Boolean
 	$vb_outOfDiff:=False:C215
 	If (DEMO_Styles_al{$vl_vertPosition}#Italic:K14:3)
 		$vb_outOfDiff:=True:C214
 	End if 
 	
 	
-	C_BOOLEAN:C305($vb_done)
+	var $vb_done : Boolean
 	If ($vl_vertPosition>1)
 		$vb_done:=False:C215
 		Repeat 

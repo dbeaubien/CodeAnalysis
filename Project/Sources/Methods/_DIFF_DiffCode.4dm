@@ -6,28 +6,19 @@
 //   unique numbers for every unique textline so further 
 //   work can work only with simple numbers.
 //
-C_POINTER:C301($1; $Array_ptr)
-C_POINTER:C301($2; $DiffCode_ptr)
-C_BOOLEAN:C305($3; $vb_ignoreMultipleSpaces)
-C_BOOLEAN:C305($4; $vb_ignoreCase)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: ddancy (02/18/2008)
-//   Mod by: Dani Beaubien (10/25/2012) - Added support for $vb_ignoreMultipleSpaces and $vb_ignoreCase
+#DECLARE($Array_ptr : Pointer\
+; $DiffCode_ptr : Pointer\
+; $vb_ignoreMultipleSpaces : Boolean\
+; $vb_ignoreCase : Boolean)
 // ----------------------------------------------------
 
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
-	$Array_ptr:=$1
-	$DiffCode_ptr:=$2
-	$vb_ignoreMultipleSpaces:=$3
-	$vb_ignoreCase:=$4
-	
-	C_LONGINT:C283($Type_l)
+	var $Type_l : Integer
 	$Type_l:=Type:C295($Array_ptr->)
 	
-	C_LONGINT:C283($Hash_l; $HashCount_l)
+	var $Hash_l; $HashCount_l : Integer
 	
-	C_BOOLEAN:C305($Continue_b)
+	var $Continue_b : Boolean
 	$Continue_b:=True:C214
 	
 	Case of 
@@ -46,9 +37,9 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
 	If ($Continue_b)
 		Array_SetSize($HashCount_l-1; $DiffCode_ptr)  //make this a 0-indexed array
 		
+		var $vt_buffer : Text
 		Case of 
 			: ($Type_l=Is text:K8:3)
-				C_TEXT:C284($vt_buffer)
 				$vt_buffer:=$Array_ptr->
 				If ($vb_ignoreCase)  // Added by: Dani Beaubien (10/25/2012)
 					$vt_buffer:=Lowercase:C14($vt_buffer)
@@ -65,7 +56,6 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
 				
 			: ($Type_l=Text array:K8:16)
 				For ($Hash_l; 0; $HashCount_l-1)
-					C_TEXT:C284($vt_buffer)
 					$vt_buffer:=$Array_ptr->{$Hash_l+1}
 					If ($vb_ignoreCase)  // Added by: Dani Beaubien (10/25/2012)
 						$vt_buffer:=Lowercase:C14($vt_buffer)
@@ -81,7 +71,7 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
 				
 				
 			: (($Type_l=Integer array:K8:18) | ($Type_l=LongInt array:K8:19))
-				C_LONGINT:C283($Index_l)
+				var $Index_l : Integer
 				For ($Hash_l; 0; $HashCount_l-1)
 					$DiffCode_ptr->{$Hash_l}:=$Array_ptr->{$Hash_l+1}
 				End for 
@@ -93,4 +83,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 4; Count parameters:C259))
 		
 	End if 
 	
-End if   // ASSERT
+End if 

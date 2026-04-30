@@ -1,7 +1,7 @@
 //   Mod by: Dani Beaubien (10/25/2012) - Added support for ignoring multiple spaces and mixed case.
 
-C_TEXT:C284($vt_theCode)
-C_BOOLEAN:C305($vb_forceSpellCheck)
+var $vt_theCode : Text
+var $vb_forceSpellCheck : Boolean
 
 // Do the Diff
 If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
@@ -10,7 +10,7 @@ If (Form event code:C388=On Load:K2:1) | (BTN_Rescan=1)
 	Logging_Method__init(True:C214)
 	
 	// --------- Grab the method code and get it ready
-	C_LONGINT:C283($vs; $pos; $errCount; $errPos)
+	var $vs; $pos; $errCount; $errPos : Integer
 	$vs:=Milliseconds:C459
 	CodeReview_LoadMethod(_DIFF_MethodName)
 	LogEvent_Write(" CodeReview_LoadMethod took "+String:C10(Milliseconds:C459-$vs)+"ms")
@@ -27,8 +27,8 @@ End if
 
 
 If (BTN_SpellCheck=1) | ($vb_forceSpellCheck)
-	C_TEXT:C284($myText)
-	C_LONGINT:C283($i)
+	var $myText : Text
+	var $i : Integer
 	For ($i; 1; Size of array:C274(DEMO_File1_at))
 		DEMO_BackColors_al{$i}:=0x00FFFFFF
 		DEMO_FontColors_al{$i}:=0x0000
@@ -45,8 +45,8 @@ If (BTN_SpellCheck=1) | ($vb_forceSpellCheck)
 			$errCount:=0
 			ARRAY TEXT:C222($at_errorWords; 0)
 			ARRAY TEXT:C222($at_Suggestions; 0)
-			C_LONGINT:C283($errLength)
-			C_TEXT:C284($errorWord)
+			var $errLength : Integer
+			var $errorWord : Text
 			Repeat 
 				SPELL CHECK TEXT:C1215($myText; $errPos; $errLength; $pos; $at_Suggestions)
 				If (OK=0)

@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="31">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="33">
 	<com.4d>
 		<compiler>
-			<options compilation_path="3" fat_binary="true" symbol_file="false" target="all"/>
+			<options compilation_path="3" fat_binary="true" symbol_file="false" syntax_file="true" target="all"/>
 			<typage default_for_button="2"/>
 		</compiler>
 		<database>
 			<cache adaptative="true"/>
-			<misc standard_xpath="false"/>
+			<misc mac_use_lf="false" no_bom="false" non_blocking_printing="false" prefer_null_than_blank_values="false" split_catalog="false" standard_xpath="true" win_form_text_directwrite="false"/>
 		</database>
 		<web>
 			<standalone_server>
@@ -37,5 +37,6 @@
 		<deployment>
 			<options/>
 		</deployment>
+		<general component_classStore_name="CodeAnalysis"/>
 	</com.4d>
 </preferences>

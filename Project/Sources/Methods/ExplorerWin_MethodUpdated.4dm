@@ -1,20 +1,13 @@
 //%attributes = {}
 // ExplorerWin_MethodUpdated (methodPath, updateToDo)
-// ExplorerWin_MethodUpdated (text, text)
 //
 // DESCRIPTION
 //   A way to notify the explorer window that an update is
 //   needed for the specified method.
 //
-C_TEXT:C284($1; $methodPath)
-C_TEXT:C284($2; $updateToDo)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (02/08/2021)
+#DECLARE($methodPath : Text; $updateToDo : Text)
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=2)
-$methodPath:=$1
-$updateToDo:=$2
 ASSERT:C1129(STR_IsOneOf($updateToDo; "update"; "add"; "delete"))
 
 Case of 

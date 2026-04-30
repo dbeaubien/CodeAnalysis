@@ -1,0 +1,489 @@
+{
+	"_method_": {
+		"LogConfig_SetAppLogFileName": {
+			"Syntax": "**LogConfig_SetAppLogFileName**( *application_log_file_name* : Text )",
+			"Params": [
+				[
+					"application_log_file_name",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_WARN": {
+			"Syntax": "**Log_WARN**( *message* : Text; *component* : Text )",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"component",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetAppLogFolder": {
+			"Syntax": "**LogConfig_SetAppLogFolder**( *folder_root_path* : Text; *dynamic_folder_path* : Text )",
+			"Params": [
+				[
+					"folder_root_path",
+					"Text",
+					"->"
+				],
+				[
+					"dynamic_folder_path",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetNamedLogFileName": {
+			"Syntax": "**LogConfig_SetNamedLogFileName**( *log_name* : Text; *log_file_name* : Text )",
+			"Params": [
+				[
+					"log_name",
+					"Text",
+					"->"
+				],
+				[
+					"log_file_name",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_ShowLogOnDisk": {
+			"Syntax": "**Log_ShowLogOnDisk**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetMaxLinesToCache": {
+			"Syntax": "**LogConfig_SetMaxLinesToCache**( *number_of_lines_to_cache* : Integer )",
+			"Params": [
+				[
+					"number_of_lines_to_cache",
+					"Integer",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"IHLog__UnitTests": {
+			"Syntax": "**IHLog__UnitTests**( *action* : Text )",
+			"Params": [
+				[
+					"action",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_DEBUG": {
+			"Syntax": "**Log_DEBUG**( *message* : Text; *component* : Text )",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"component",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_IsDebugEnabled": {
+			"Syntax": "**LogConfig_IsDebugEnabled**()->is_debug_enabled : Boolean",
+			"Params": [
+				[
+					"is_debug_enabled",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetDefaultFolder": {
+			"Syntax": "**LogConfig_SetDefaultFolder**( *folderRootPath* : Text; *optional_dynamicFolderPath* : Text )",
+			"Params": [
+				[
+					"folderRootPath",
+					"Text",
+					"->"
+				],
+				[
+					"optional_dynamicFolderPath",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_INFO_FORCED": {
+			"Syntax": "**Log_INFO_FORCED**( *message* : Text; *component* : Text )",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"component",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogNamed_ShowLogOnDisk": {
+			"Syntax": "**LogNamed_ShowLogOnDisk**( *log_name* : Text )",
+			"Params": [
+				[
+					"log_name",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetNamedLogFolder": {
+			"Syntax": "**LogConfig_SetNamedLogFolder**( *log_name* : Text; *folder_root_path* : Text; *dynamic_folder_path_opt* : Text )",
+			"Params": [
+				[
+					"log_name",
+					"Text",
+					"->"
+				],
+				[
+					"folder_root_path",
+					"Text",
+					"->"
+				],
+				[
+					"dynamic_folder_path_opt",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogNamed_AppendToFile": {
+			"Syntax": "**LogNamed_AppendToFile**( *log_name* : Text; *text_to_append* : Text; *cmd1* : Text; *cmd2* : Text; *cmd3* : Text )",
+			"Params": [
+				[
+					"log_name",
+					"Text",
+					"->"
+				],
+				[
+					"text_to_append",
+					"Text",
+					"->"
+				],
+				[
+					"cmd1",
+					"Text",
+					"->"
+				],
+				[
+					"cmd2",
+					"Text",
+					"->"
+				],
+				[
+					"cmd3",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_DEV": {
+			"Syntax": "**Log_DEV**( *message* : Text; *component* : Text )",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"component",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_ERR_CRITICAL": {
+			"Syntax": "**Log_ERR_CRITICAL**( *message* : Text; *component* : Text )",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"component",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_GetNamedLogFilePath": {
+			"Syntax": "**LogConfig_GetNamedLogFilePath**( *log_name* : Text )->log_path : Text",
+			"Params": [
+				[
+					"log_name",
+					"Text",
+					"->"
+				],
+				[
+					"log_path",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetDebugMode": {
+			"Syntax": "**LogConfig_SetDebugMode**( *enable_debug_mode* : Boolean )",
+			"Params": [
+				[
+					"enable_debug_mode",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_isWorkerShutdown": {
+			"Syntax": "**Log_isWorkerShutdown**()->isShutdown : Boolean",
+			"Params": [
+				[
+					"isShutdown",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetUseProcessNumber": {
+			"Syntax": "**LogConfig_SetUseProcessNumber**( *use_process_number* : Boolean )",
+			"Params": [
+				[
+					"use_process_number",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"BuildNo_GetBuildNo_LogComp": {
+			"Syntax": "**BuildNo_GetBuildNo_LogComp**()->vo_buildNoObj : Object",
+			"Params": [
+				[
+					"vo_buildNoObj",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_GetAppLogFilePath": {
+			"Syntax": "**LogConfig_GetAppLogFilePath**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_OpenDisplayWindow": {
+			"Syntax": "**Log_OpenDisplayWindow**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_ShutdownWorker": {
+			"Syntax": "**Log_ShutdownWorker**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_SetUserNameForProcess": {
+			"Syntax": "**Log_SetUserNameForProcess**( *WP_UserNameForProcess* : Text )",
+			"Params": [
+				[
+					"WP_UserNameForProcess",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_ERR": {
+			"Syntax": "**Log_ERR**( *message* : Text; *component* : Text )",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"component",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetLoggingLevel": {
+			"Syntax": "**LogConfig_SetLoggingLevel**( *log_type* : Text )",
+			"Params": [
+				[
+					"log_type",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_INFO": {
+			"Syntax": "**Log_INFO**( *message* : Text; *component* : Text )",
+			"Params": [
+				[
+					"message",
+					"Text",
+					"->"
+				],
+				[
+					"component",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetCriticalLogName": {
+			"Syntax": "**LogConfig_SetCriticalLogName**( *critical_error_log_file_name* : Text )",
+			"Params": [
+				[
+					"critical_error_log_file_name",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_FlushCache": {
+			"Syntax": "**Log_FlushCache**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetUseDateTimeStamp": {
+			"Syntax": "**LogConfig_SetUseDateTimeStamp**( *use_date_time_stamp* : Boolean )",
+			"Params": [
+				[
+					"use_date_time_stamp",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogNamed_AppendToFile_Quiet": {
+			"Syntax": "**LogNamed_AppendToFile_Quiet**( *log_name* : Text; *text_to_append* : Text; *cmd1* : Text; *cmd2* : Text )",
+			"Params": [
+				[
+					"log_name",
+					"Text",
+					"->"
+				],
+				[
+					"text_to_append",
+					"Text",
+					"->"
+				],
+				[
+					"cmd1",
+					"Text",
+					"->"
+				],
+				[
+					"cmd2",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_SetEndOfLine": {
+			"Syntax": "**LogConfig_SetEndOfLine**( *eol_to_use* : Text )",
+			"Params": [
+				[
+					"eol_to_use",
+					"Text",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"LogConfig_GetCriticalLogFilePth": {
+			"Syntax": "**LogConfig_GetCriticalLogFilePth**() : Text",
+			"Params": [
+				[
+					"",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"Log_DumpInternalObj": {
+			"Syntax": "**Log_DumpInternalObj**() : Variant",
+			"Params": [
+				[
+					"",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	}
+}

@@ -1,19 +1,21 @@
 //%attributes = {"invisible":true}
-
 // STR_Remove_Trailing_Spaces
+#DECLARE($input : Text)->$output : Text
 
-C_TEXT:C284($0; $1)
-C_LONGINT:C283($i)
-
-If (Length:C16($1)>0)
-	If ($1#"@ ")
-		$0:=$1
-	Else 
-		For ($i; Length:C16($1); 1; -1)  //    Loop from end of string to beginning
-			If ($1[[$i]]#" ")  //    If it is -NOT- a space, then
-				$i:=-$i  //    force the loop to end (remember the spot)
-			End if 
-		End for 
-		$0:=Delete string:C232($1; -$i; Length:C16($1))  //    Delete the spaces
-	End if 
+If ($input="")
+	return ""
 End if 
+
+If ($input#"@ ")
+	$output:=$input
+	return 
+End if 
+
+var $i : Integer
+For ($i; Length:C16($input); 1; -1)  // Loop from end of string to beginning
+	If ($input[[$i]]#" ")  // If it is -NOT- a space, then
+		$i:=-$i  // force the loop to end (remember the spot)
+	End if 
+End for 
+
+$output:=Delete string:C232($input; -$i; Length:C16($input))  // Delete the spaces

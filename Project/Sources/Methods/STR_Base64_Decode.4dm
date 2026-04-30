@@ -6,17 +6,16 @@
 //based on RFC 1521 (http://www.freesoft.org/Connected/RFC/1521/7.html)
 
 // ITK_B642Text ()
+#DECLARE($input : Text)->$result : Text
 
-C_TEXT:C284($0; $result)
 $result:=""
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	C_TEXT:C284($1; $input)
-	$input:=Replace string:C233($1; "="; "")  //the "=" char is a padding char
+	$input:=Replace string:C233($input; "="; "")  //the "=" char is a padding char
 	
-	C_TEXT:C284($output)
+	var $output : Text
 	$output:=""
 	
-	C_LONGINT:C283($i; $j; $x; $ascii; $base64; $quotient; $divider)
+	var $i; $j; $x; $ascii; $base64; $quotient; $divider : Integer
 	$x:=Length:C16($input)
 	
 	For ($i; 1; $x)  //convert all chars from the string into ascii values
@@ -51,6 +50,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 		$result:=$result+Char:C90($ascii)
 	End for 
 	
-End if   // ASSERT
-
-$0:=$result
+End if 

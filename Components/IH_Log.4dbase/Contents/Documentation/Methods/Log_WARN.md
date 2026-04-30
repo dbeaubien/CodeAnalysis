@@ -1,0 +1,1 @@
+﻿   Log_WARN (warnText2Append; component)     Log_WARN (text; text)          DESCRIPTION       Appends the supplied text as WARN information.      

@@ -1,5 +1,5 @@
 
-C_TEXT:C284(<>vt_ExportToResults)
+var <>vt_ExportToResults : Text
 <>vt_ExportToResults:="Preparing to Export Shared Methods to a docset..."
 
 ExportDocs_SaveAsDocSet

@@ -1,43 +1,31 @@
 //%attributes = {"invisible":true}
 // Pref_GetGlobalPrefString (prefName {;default value}) : preference
-// Pref_GetGlobalPrefString (text {;text}) : text
 //
 // DESCRIPTION
 //   Fetches the named profile from the global preference
 //   file in the resources.
 //
-C_TEXT:C284($1; $vt_prefName)
-C_TEXT:C284($2; $vt_defaultValue)
-C_TEXT:C284($0; $vt_value)
+#DECLARE($vt_prefName : Text; $vt_defaultValue : Text)->$vt_value : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (02/24/2014)
-// ----------------------------------------------------
-
 $vt_value:=""
+
 If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:C259))
-	$vt_prefName:=$1
-	If (Count parameters:C259>=2)
-		$vt_defaultValue:=$2
-	Else 
-		$vt_defaultValue:=""
-	End if 
 	
-	C_BOOLEAN:C305($vb_forceDefaultToBeSaved)
+	var $vb_forceDefaultToBeSaved : Boolean
 	$vb_forceDefaultToBeSaved:=False:C215
 	
-	C_TEXT:C284($vt_prefNameAsDigest)
+	var $vt_prefNameAsDigest : Text
 	$vt_prefNameAsDigest:="Pref_"+STR_Base64_Encode($vt_prefName)
 	$vt_prefNameAsDigest:=Replace string:C233($vt_prefNameAsDigest; "="; "")  // strip out the illegal characters
 	
 	// Ensure the folder exists
-	C_TEXT:C284($vt_pathToPrefFile)
+	var $vt_pathToPrefFile : Text
 	$vt_pathToPrefFile:=Pref__GetFile2GlobalPrefFile
 	
 	// Ensure the file exists
 	If (File_DoesExist($vt_pathToPrefFile))
-		C_TEXT:C284($xml_Ref_s16)
-		C_TEXT:C284($xml_found_s16; $vt_CDATA_value)
+		var $xml_Ref_s16 : Text
+		var $xml_found_s16; $vt_CDATA_value : Text
 		$xml_Ref_s16:=DOM Parse XML source:C719($vt_pathToPrefFile)
 		If (OK=1)
 			$xml_found_s16:=DOM Find XML element:C864($xml_Ref_s16; "/Root/"+$vt_prefNameAsDigest)
@@ -60,5 +48,4 @@ If (DEV_ASSERT_PARMCOUNT_RANGE(Current method name:C684; 1; 2; Count parameters:
 		Pref_SetGlobalPrefString($vt_prefName; $vt_defaultValue)
 	End if 
 	
-End if   // ASSERT
-$0:=$vt_value
+End if 

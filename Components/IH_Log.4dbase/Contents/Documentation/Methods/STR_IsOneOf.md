@@ -1,0 +1,1 @@
+﻿   STR_IsOneOf (srcTxt; choice1; ... ; choiceN) : match     STR_IsOneOf (txt; txt; ... ; txt) : boolean          DESCRIPTION       Returns true is the first parameter matches one of the other       parameters. Use this method to see if the value is part of a       certain list.      

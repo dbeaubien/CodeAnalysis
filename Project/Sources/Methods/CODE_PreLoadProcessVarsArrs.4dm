@@ -6,11 +6,6 @@
 //   process variables are.
 //   Also gets a full list of declared inter-process vars.
 //
-C_LONGINT:C283($1)
-C_TEXT:C284($0)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (12/21/2015)
 // ----------------------------------------------------
 
 Logging_Method_START(Current method name:C684)
@@ -21,8 +16,8 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	ARRAY LONGINT:C221($al_methodDTS; 0)
 	Method_GetCompilerMthdNmsAndDTS(->$at_methodNames; ->$al_methodDTS)
 	
-	C_LONGINT:C283($vl_maxDTS)
-	C_LONGINT:C283($i)
+	var $vl_maxDTS : Integer
+	var $i : Integer
 	For ($i; 1; Size of array:C274($at_methodNames))
 		If ($al_methodDTS{$i}>$vl_maxDTS)
 			$vl_maxDTS:=$al_methodDTS{$i}
@@ -31,13 +26,13 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	
 	
 	// Get the DTS of our last time through this method
-	C_LONGINT:C283($vl_lastRefresh_DTS)
+	var $vl_lastRefresh_DTS : Integer
 	$vl_lastRefresh_DTS:=Num:C11(Pref_GetPrefString("InterProcessVars_LastScanDTS"; "0"))
 	
 	
 	// Compare our "last refresh DTS" against the compiler methods to determine if they have
 	// been updated or not
-	C_BOOLEAN:C305($vb_doUpdate)
+	var $vb_doUpdate : Boolean
 	$vb_doUpdate:=False:C215
 	If ($vl_maxDTS>$vl_lastRefresh_DTS)
 		$vb_doUpdate:=True:C214
@@ -45,8 +40,8 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 	
 	
 	
-	C_LONGINT:C283($vl_err)
-	C_TEXT:C284($vt_prefFolderPath)
+	var $vl_err : Integer
+	var $vt_prefFolderPath : Text
 	$vt_prefFolderPath:=File_GetFolderName(Pref__GetFile2PrefFile)
 	ARRAY TEXT:C222(at_PROCESS_VarNames; 0)
 	ARRAY TEXT:C222(at_PROCESS_VarTypes; 0)
@@ -61,8 +56,8 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		
 		ARRAY TEXT:C222($at_processVars_Names; 0)
 		ARRAY TEXT:C222($at_processVars_types; 0)
-		C_TEXT:C284($vt_theCode)
-		C_LONGINT:C283($vl_line; $vl_posOfMatchingCommand; $vl_posOfMatchingCommand2)
+		var $vt_theCode : Text
+		var $vl_line; $vl_posOfMatchingCommand; $vl_posOfMatchingCommand2 : Integer
 		For ($i; 1; Size of array:C274($at_methodNames))
 			If ($at_methodNames{$i}="Compiler_@")
 				$vt_theCode:=Method_GetNormalizedCode($at_methodNames{$i})
@@ -128,5 +123,5 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 0; Count parameters:C259))
 		
 	End if 
 	
-End if   // ASSERT
+End if 
 Logging_Method_STOP(Current method name:C684)

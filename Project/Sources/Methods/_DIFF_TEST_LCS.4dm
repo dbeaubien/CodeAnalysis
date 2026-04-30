@@ -1,5 +1,5 @@
 //%attributes = {"invisible":true}
-C_LONGINT:C283($Test_l; $TestCount_l)
+var $Test_l; $TestCount_l : Integer
 
 $TestCount_l:=5
 
@@ -10,14 +10,14 @@ APPEND TO ARRAY:C911($Expected; 5)
 APPEND TO ARRAY:C911($Expected; 5)
 APPEND TO ARRAY:C911($Expected; 2)
 
-C_BOOLEAN:C305($Pass)
+var $Pass : Boolean
 $Pass:=True:C214
 
 For ($Test_l; 1; $TestCount_l)
 	If ($Pass)
-		C_LONGINT:C283($SES)
+		var $SES : Integer
 		
-		C_TEXT:C284($A; $B)
+		var $A; $B : Text
 		ARRAY TEXT:C222($SMS; 0)
 		
 		Case of 

@@ -1,6 +1,6 @@
 
 If (Form event code:C388=On Load:K2:1)
-	C_TEXT:C284(vt_lastDIFFCheck_Folder)
+	var vt_lastDIFFCheck_Folder : Text
 	
 	// Task 2176
 	vt_lastDIFFCheck_FolderNameOnly:="DIFF Fldr: "+Pref_GetPrefString("DIFF.LastFolder_NameOnly")

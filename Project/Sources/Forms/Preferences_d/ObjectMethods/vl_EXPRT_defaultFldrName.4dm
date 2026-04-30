@@ -4,15 +4,15 @@ Case of
 		vl_EXPRT_defaultFldrName:=Pref_GetPrefString("EXPRT2File Default Folder Name"; "Methods Export")
 		
 	: (Form event code:C388=On Data Change:K2:15)
-		C_TEXT:C284($vt_msg)
-		C_BOOLEAN:C305($vb_saveValue)
+		var $vt_msg : Text
+		var $vb_saveValue : Boolean
 		$vb_saveValue:=False:C215
 		Case of 
 			: (vl_EXPRT_defaultFldrName="")
-				$vt_msg:=Get localized string:C991("Msg_MTHD_DfltFldNeeded")  // "A default folder name must be specified."
+				$vt_msg:=Localized string:C991("Msg_MTHD_DfltFldNeeded")  // "A default folder name must be specified."
 				
 			: (Position:C15(Folder separator:K24:12; vl_EXPRT_defaultFldrName)>0)
-				$vt_msg:=Replace string:C233(Get localized string:C991("Msg_MTHD_DfltFldBadChar"); "%1"; Folder separator:K24:12)  // "The default name cannot contain the folder separator \""+Folder separator +"\"."
+				$vt_msg:=Replace string:C233(Localized string:C991("Msg_MTHD_DfltFldBadChar"); "%1"; Folder separator:K24:12)  // "The default name cannot contain the folder separator \""+Folder separator +"\"."
 				
 			Else 
 				$vb_saveValue:=True:C214

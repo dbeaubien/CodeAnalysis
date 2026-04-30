@@ -1,25 +1,18 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 // MethodLines_CountCommentLines (methodLinesArr) : numCommentLines
-// MethodLines_CountCommentLines (arrayTextPtr) : longint
 // 
 // DESCRIPTION
 //   Returns the number of lines in the array that are 
 //   fully commented lines.
 //
-C_POINTER:C301($1; $methodLinesArr)
-C_LONGINT:C283($0; $numCommentLines)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (06/13/2017)
-//   Mod by: Dani Beaubien (03/07/2021) - Support /* .. */ comments
+#DECLARE($methodLinesArr : Pointer)->$numCommentLines : Integer
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-ASSERT:C1129(Type:C295($1->)=Text array:K8:16)
-$methodLinesArr:=$1
+ASSERT:C1129(Type:C295($methodLinesArr->)=Text array:K8:16)
 $numCommentLines:=0
 
-C_LONGINT:C283($i)
-C_BOOLEAN:C305($inComment)
+var $i : Integer
+var $inComment : Boolean
 For ($i; 1; Size of array:C274($methodLinesArr->))
 	
 	Case of 
@@ -51,5 +44,3 @@ For ($i; 1; Size of array:C274($methodLinesArr->))
 	End case 
 	
 End for 
-
-$0:=$numCommentLines

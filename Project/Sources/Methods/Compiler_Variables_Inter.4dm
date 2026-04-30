@@ -1,6 +1,5 @@
 //%attributes = {"invisible":true}
 
-C_DATE:C307(<>gDate)
 C_BOOLEAN:C305(<>LOG_CacheInitd)
 C_TEXT:C284(<>LOG_FolderPathForLogFiles)
 C_TEXT:C284(<>LOG_Frequency)
@@ -11,7 +10,6 @@ C_TEXT:C284(<>SYS_Version)
 C_BOOLEAN:C305(<>TrackPerformance)
 C_TEXT:C284(<>vt_ExportToResults)
 C_LONGINT:C283(<>_CA_QuickLauncher_ProcID)
-C_LONGINT:C283(<>_CodeAnalysisExplorer_ProcID)
 C_LONGINT:C283(<>_CODEANALYSIS_DOC_DEFAULTTABNO)
 C_TEXT:C284(<>_CODEANALYSIS_FLDR_SUFFIX)
 C_LONGINT:C283(<>_CodeAnalysis_ProcID)

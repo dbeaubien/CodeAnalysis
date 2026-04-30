@@ -1,17 +1,17 @@
 //   Mod: DB (05/14/2014)
 
 If (Form event code:C388=On Clicked:K2:4) & (_DIFF_NumDifferences>0)
-	C_LONGINT:C283($vl_vertPosition)
+	var $vl_vertPosition : Integer
 	OBJECT GET SCROLL POSITION:C1114(DEMO_FileDiff_ALT_lb; $vl_vertPosition)
 	
-	C_LONGINT:C283($vl_noChangeColour; $vl_curColour)
+	var $vl_noChangeColour; $vl_curColour : Integer
 	$vl_noChangeColour:=0x00FFFFFF
 	
 	If ($vl_vertPosition<Size of array:C274(DEMO_BackColors_ALT_al))
 		$vl_vertPosition:=$vl_vertPosition+1  // Force at least one scroll position of movement
 		
 		// Get to top of the next colour
-		C_BOOLEAN:C305($vb_done)
+		var $vb_done : Boolean
 		$vl_curColour:=DEMO_BackColors_ALT_al{$vl_vertPosition}
 		$vb_done:=False:C215
 		While ($vl_vertPosition<Size of array:C274(DEMO_BackColors_ALT_al)) & (Not:C34($vb_done))

@@ -14,21 +14,17 @@
 //   http://4d.1045681.n5.nabble.com/How-to-resize-PNG-images-for-button-icons-tt5747836.html#a5747886
 //   https://github.com/miyako/4d-component-generate-icon
 
+#DECLARE($normal : Picture; $target_image_size : Integer) : Picture
 
-C_PICTURE:C286($1; $0)
-C_LONGINT:C283($2; $width; $height)
-
-C_PICTURE:C286($normal; $click; $hover; $disabled)
-C_TEXT:C284($svg; $g; $image)
-C_REAL:C285($x; $y)
-
-// Original image 
-$normal:=$1
+var $width; $height : Integer
+var $click; $hover; $disabled : Picture
+var $svg; $g; $image : Text
+var $x; $y : Real
 
 If (Count parameters:C259>1)
 	PICTURE PROPERTIES:C457($normal; $width; $height)
-	$x:=$2/$width
-	$y:=$2/$height
+	$x:=$target_image_size/$width
+	$y:=$target_image_size/$height
 	TRANSFORM PICTURE:C988($normal; Scale:K61:2; $x; $y)
 End if 
 
@@ -53,4 +49,4 @@ TRANSFORM PICTURE:C988($disabled; Fade to grey scale:K61:6)
 
 SVG_CLEAR($svg)
 
-$0:=$normal/$click/$hover/$disabled
+return $normal/$click/$hover/$disabled

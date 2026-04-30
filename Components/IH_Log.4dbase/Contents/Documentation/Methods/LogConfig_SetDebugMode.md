@@ -1,0 +1,1 @@
+﻿   LogConfig_SetDebugMode (enableDebugMode)      LogConfig_SetDebugMode (boolean)           DESCRIPTION       When debug mode is turned on then any "DEBUG" log       message will be outputed to the main application log file.      

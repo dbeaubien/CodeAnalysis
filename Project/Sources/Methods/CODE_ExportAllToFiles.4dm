@@ -12,10 +12,10 @@
 //   Mod by: Dani Beaubien (04/13/2014) - Added exporting of extra folders
 // ----------------------------------------------------
 
-C_LONGINT:C283(<>_CodeAnalysis_ProcID; <>_CA_QuickLauncher_ProcID)
+var <>_CodeAnalysis_ProcID; <>_CA_QuickLauncher_ProcID : Integer
 
 If (Process_LaunchAsNew(Current method name:C684; Current method name:C684))
-	C_TEXT:C284(<>vt_ExportToResults)
+	var <>vt_ExportToResults : Text
 	<>vt_ExportToResults:="Preparing to Export all databse, project, object and form methods to text files.\rScanning Methods..."
 	
 	CA_SaveMethodsToTextFiles

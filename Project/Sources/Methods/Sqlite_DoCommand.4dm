@@ -1,28 +1,21 @@
 //%attributes = {"invisible":true}
 // Sqlite_DoCommand (PathToDatabase; command) : results
-// Sqlite_DoCommand (text; text) : results
 // 
 // DESCRIPTION
 //   Executes the command on the specified Sqlite database.
 //
-C_TEXT:C284($1; $vt_PathToDatabase)
-C_TEXT:C284($2; $vt_command)
-C_TEXT:C284($0; $vt_result)
-// ----------------------------------------------------
-// HISTORY
-//   Created by: Dani Beaubien (08/04/2013)
+#DECLARE($vt_PathToDatabase : Text; $vt_command : Text)->$vt_result : Text
 // ----------------------------------------------------
 
 $vt_result:=""
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
-	$vt_PathToDatabase:=$1
-	$vt_command:=Replace string:C233($2; "'"; "\\'")
+	$vt_command:=Replace string:C233($vt_command; "'"; "\\'")
 	
-	C_TEXT:C284($vt_commandToExecute)
+	var $vt_commandToExecute : Text
 	$vt_commandToExecute:="sqlite3 \""+POSIX_of_FilePath($vt_PathToDatabase)+"\" "
 	$vt_commandToExecute:=$vt_commandToExecute+"'"+$vt_command+"'"
 	
-	C_BLOB:C604($in; $out; $err)
+	var $in; $out; $err : Blob
 	LAUNCH EXTERNAL PROCESS:C811($vt_commandToExecute; $in; $out; $err)
 	
 	If (BLOB size:C605($out)>0)
@@ -36,5 +29,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 2; Count parameters:C259))
 		$vt_result:="ERROR: "+Convert to text:C1012($err; "utf-8")
 	End if 
 	
-End if   // ASSERT
-$0:=$vt_result
+End if 

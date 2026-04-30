@@ -2,17 +2,14 @@
 // (PM) UnitTest_Init
 // Initialises the variables used by the unittests
 // $1 = What (all, testcases, stats)
+#DECLARE($what : Text)
 
-C_TEXT:C284($1; $what)
-C_TEXT:C284(UnitTest_CurrentTestCase; UnitTest_Log)
-C_LONGINT:C283(UnitTest_StartTime; UnitTest_TotalTests; UnitTest_TotalPassed; UnitTest_TotalFailed)
-C_REAL:C285(UnitTest_TotalDuration)
+var UnitTest_CurrentTestCase; UnitTest_Log : Text
+var UnitTest_StartTime; UnitTest_TotalTests; UnitTest_TotalPassed; UnitTest_TotalFailed : Integer
+var UnitTest_TotalDuration : Real
+var UnitTest_hasInited : Boolean
 
-C_BOOLEAN:C305(UnitTest_hasInited)
-
-If (Count parameters:C259=1)
-	$what:=$1
-Else 
+If (Count parameters:C259#1)
 	$what:="all"
 End if 
 

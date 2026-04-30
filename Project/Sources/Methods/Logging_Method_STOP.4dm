@@ -1,34 +1,21 @@
 //%attributes = {"invisible":true}
 // Logging_Method_STOP (methodName {;optionalText})
-// Logging_Method_STOP (text {;text})
 // 
 // DESCRIPTION
 //   Used to log leaving a method.
 //
-C_TEXT:C284($1; $vt_callingMethod)  // method name
-C_TEXT:C284($2; $vt_extraText)  // Optional stuff
-// ----------------------------------------------------
-// HISTORY
-//   Created by: DB (11/23/07)
-//   Mod: DB (10/26/2010) - Make sure that we get the method name that we are expecting
-//   Mod: DB (11/22/2010) - support performance tracking switch
-//   Mod: DB (01/20/2011) - Improved Performance of this method, significantly faster
-//   Mod: DB (01/28/2014) - Add tracking globally
+#DECLARE($method_name : Text; $extra : Text)
 // ----------------------------------------------------
 
-C_TEXT:C284($vt_FullMethodName; <>vt_ExportToResults)
-$vt_callingMethod:=$1
-If (Count parameters:C259>=2)
-	$vt_extraText:=$2
-End if 
-$vt_FullMethodName:=$vt_callingMethod
-If ($vt_extraText#"")
-	$vt_FullMethodName:=$vt_FullMethodName+" ("+$vt_extraText+")"
+var $vt_FullMethodName; <>vt_ExportToResults : Text
+$vt_FullMethodName:=$method_name
+If ($extra#"")
+	$vt_FullMethodName+=" ("+$extra+")"
 End if 
 
 //   Mod by: Dani Beaubien (02/16/2015) - To support flame graphs
-C_TEXT:C284($vt_FullLocalMethodName)
-C_LONGINT:C283($i; $pos)
+var $vt_FullLocalMethodName : Text
+var $i; $pos : Integer
 $vt_FullLocalMethodName:=$vt_FullMethodName
 For ($i; Size of array:C274(_LOGMETHOD_CallingStack)-1; 1; -1)
 	$vt_FullLocalMethodName:=_LOGMETHOD_CallingStack{$i}+";"+$vt_FullLocalMethodName
@@ -36,19 +23,19 @@ End for
 
 Logging_Method__init
 
-C_LONGINT:C283($size)
+var $size : Integer
 $size:=Size of array:C274(_LOGMETHOD_CallingStack)
 
 If ($size>0)
 	
 	// # Make sure that the STOPPED method matches what is expected
-	If ($vt_callingMethod#_LOGMETHOD_CallingStack{$size}) | ($vt_extraText#_LOGMETHOD_ExtraText{$size})
+	If ($method_name#_LOGMETHOD_CallingStack{$size}) | ($extra#_LOGMETHOD_ExtraText{$size})
 		
 		//   Mod: DB (01/28/2014) - Improved error checks
-		C_TEXT:C284($vt_msg)
-		$vt_msg:=" called with $1 = '"+$vt_callingMethod+"'"
-		If ($vt_extraText#"")
-			$vt_msg:=$vt_msg+" and $2 = '"+$vt_extraText+"'"
+		var $vt_msg : Text
+		$vt_msg:=" called with $1 = '"+$method_name+"'"
+		If ($extra#"")
+			$vt_msg:=$vt_msg+" and $2 = '"+$extra+"'"
 		End if 
 		$vt_msg:=$vt_msg+" but expecting $1 = '"+_LOGMETHOD_CallingStack{$size}+"'"
 		If (_LOGMETHOD_ExtraText{$size}#"")
@@ -72,13 +59,13 @@ If ($size>0)
 	End if 
 	
 	
-	C_BOOLEAN:C305(<>TrackPerformance)
+	var <>TrackPerformance : Boolean
 	If (<>TrackPerformance)
-		C_LONGINT:C283($vl_msStop)
+		var $vl_msStop : Integer
 		$vl_msStop:=Milliseconds:C459
 		
 		// # Track the time
-		C_LONGINT:C283($vl_timeToExecute)
+		var $vl_timeToExecute : Integer
 		$vl_timeToExecute:=$vl_msStop-_LOGMETHOD_msStart{$size}  // time between start & end
 		$vl_timeToExecute:=$vl_timeToExecute-_LOGMETHOD_wasteTime{$size}  // remove the child method's time
 		If ($size>1)  // add our execute time to the calling parent method

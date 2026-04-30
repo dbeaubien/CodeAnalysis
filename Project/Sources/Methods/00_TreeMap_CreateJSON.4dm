@@ -1,15 +1,15 @@
 //%attributes = {}
 
-C_OBJECT:C1216(MethodStatsMasterObj)  // defined by MethodStats__Init
+var MethodStatsMasterObj : Object  // defined by MethodStats__Init
 ARRAY TEXT:C222($methodObjNames; 0)
 MethodStats__Init
 Method_GetMethodObjNames(->$methodObjNames)
 
-C_LONGINT:C283($i; $j)
-C_OBJECT:C1216($vo_treeMap)
+var $i; $j : Integer
+var $vo_treeMap : Object
 $vo_treeMap:=New object:C1471
 
-C_OBJECT:C1216($methodDetails)
+var $methodDetails : Object
 ARRAY TEXT:C222($parentModuleNamesArr; 0)
 For ($j; 1; Size of array:C274($methodObjNames))
 	$methodDetails:=MethodStatsMasterObj[$methodObjNames{$j}]
@@ -20,18 +20,18 @@ End for
 SORT ARRAY:C229($parentModuleNamesArr; >)
 
 ARRAY OBJECT:C1221($ao_modules; 0)
-C_TEXT:C284($vt_curModule)
+var $vt_curModule : Text
 For ($j; 1; Size of array:C274($parentModuleNamesArr))
 	$vt_curModule:=$parentModuleNamesArr{$j}
 	If ($vt_curModule="")
 		$vt_curModule:=" "
 	End if 
 	
-	C_OBJECT:C1216($vo_aModule)
+	var $vo_aModule : Object
 	$vo_aModule:=New object:C1471
 	
 	ARRAY OBJECT:C1221($ao_children; 0)
-	C_OBJECT:C1216($vo_method)
+	var $vo_method : Object
 	For ($i; 1; Size of array:C274($methodObjNames))
 		$methodDetails:=MethodStatsMasterObj[$methodObjNames{$i}]
 		If ($parentModuleNamesArr{$j}=$methodDetails.in_module)
@@ -50,7 +50,7 @@ End for
 OB SET:C1220($vo_treeMap; "name"; File_GetFileName(Structure file:C489))
 OB SET ARRAY:C1227($vo_treeMap; "children"; $ao_modules)
 
-C_TEXT:C284($vt_folder; $vt_file)
+var $vt_folder; $vt_file : Text
 $vt_folder:=Get 4D folder:C485(Current resources folder:K5:16)+"Graphs"+Folder separator:K24:12+"treemap"+Folder separator:K24:12
 $vt_file:=$vt_folder+"treemap.json"
 File_Delete($vt_file)

@@ -1,3 +1,8 @@
+
+property _raw_log : Text
+property _parsed_log : Collection
+property _project_folder_platformPath : Text
+
 Class constructor
 	This:C1470._project_folder_platformPath:=This:C1470._project_folder()
 	This:C1470._raw_log:=""
@@ -103,7 +108,7 @@ Function _parse_git_log($raw_log : Text)->$parsed_log : Collection
 	
 	
 Function _get_log_from_git()->$raw_log : Text
-	var $in; $raw_log : Text
+	var $in : Text
 	SET ENVIRONMENT VARIABLE:C812("_4D_OPTION_CURRENT_DIRECTORY"; This:C1470._project_folder_platformPath)
 	SET ENVIRONMENT VARIABLE:C812("_4D_OPTION_HIDE_CONSOLE"; "true")
 	LAUNCH EXTERNAL PROCESS:C811("git log --numstat"; $in; $raw_log)

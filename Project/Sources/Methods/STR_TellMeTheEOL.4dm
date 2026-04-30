@@ -1,22 +1,15 @@
 //%attributes = {"invisible":true}
 // STR_TellMeTheEOL (string) : theEOL
-// STR_TellMeTheEOL (texxt) : text
 // 
 // DESCRIPTION
 //   scans the text and returns what the EOLs are.
 //
-C_TEXT:C284($1; $vt_srcTxt)
-C_TEXT:C284($0; $vt_theEOL)
+#DECLARE($vt_srcTxt : Text)->$vt_theEOL : Text
 // ----------------------------------------------------
-// HISTORY
-//   Created by: DB (10/01/12)
-// ----------------------------------------------------
-
 $vt_theEOL:=""
+
 If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
-	$vt_srcTxt:=$1
-	
-	C_LONGINT:C283($vl_pos_CR; $vl_pos_LF)
+	var $vl_pos_CR; $vl_pos_LF : Integer
 	$vl_pos_CR:=Position:C15(Char:C90(Carriage return:K15:38); $vt_srcTxt; *)
 	$vl_pos_LF:=Position:C15(Char:C90(Line feed:K15:40); $vt_srcTxt; *)
 	
@@ -43,5 +36,4 @@ If (DEV_ASSERT_PARMCOUNT(Current method name:C684; 1; Count parameters:C259))
 			
 	End case 
 	
-End if   // ASSERT
-$0:=$vt_theEOL
+End if 
