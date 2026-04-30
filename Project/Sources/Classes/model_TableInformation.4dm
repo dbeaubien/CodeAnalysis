@@ -69,8 +69,8 @@ Function _init()
 	
 Function _load_catalog_info()
 	var $structure_xml : Text
-	If (Folder:C1567("/PROJECT").folder("Sources").file("catalog.4DCatalog").exists)
-		$structure_xml:=Folder:C1567("/PROJECT").folder("Sources").file("catalog.4DCatalog").getText()
+	If (Folder:C1567("/PROJECT"; *).folder("Sources").file("catalog.4DCatalog").exists)
+		$structure_xml:=Folder:C1567("/PROJECT"; *).folder("Sources").file("catalog.4DCatalog").getText()
 	Else 
 		EXPORT STRUCTURE:C1311($structure_xml)
 	End if 
@@ -100,6 +100,7 @@ Function _load_field_model()
 		If (Is table number valid:C999($table_no))
 			$table:=This:C1470._structure_catalog_tables_by_no[String:C10($table_no)]
 			$table_model:=This:C1470._table_model.query("tableNumber=:1"; $table_no)[0]
+			
 			
 			For ($field_no; 1; Last field number:C255($table_no))  // use classic since only tables with PKs are known to orda
 				If (Is field number valid:C1000($table_no; $field_no))
@@ -272,5 +273,5 @@ Function _structure_IndexType2Name($index_type : Integer)->$index_type_name : Te
 	
 	
 Function _log($message : Text)
-	//LogNamed_AppendToFile("cs.model_TableInformation"; Timestamp+": "+$message)
+	LogNamed_AppendToFile("cs.model_TableInformation"; Timestamp:C1445+": "+$message)
 	
