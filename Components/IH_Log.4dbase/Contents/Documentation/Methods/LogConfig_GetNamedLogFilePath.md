@@ -1,0 +1,1 @@
+﻿   LogConfig_GetNamedLogFilePath (logName) : filePath     LogConfig_GetNamedLogFilePath (text) : text         DESCRIPTION       Returns the path to the AppLog log file.           NOTE: The file will not exist if nothing has       been written to the log yet.      

@@ -1,0 +1,1 @@
+﻿   LogConfig_SetAppLogFileName (applicationLogFileName)     LogConfig_SetAppLogFileName (text)          DESCRIPTION       Sets the file name that is used for the main application log.       Providing a blank name returns the file name back to default.           Templated names are supported. The file name is passed through       Date2String on output.      

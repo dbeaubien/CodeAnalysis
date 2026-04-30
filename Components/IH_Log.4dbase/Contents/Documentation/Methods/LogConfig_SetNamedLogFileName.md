@@ -1,0 +1,1 @@
+﻿   LogConfig_SetNamedLogFileName (logName; logFileName)     LogConfig_SetNamedLogFileName (text; text)          DESCRIPTION       Sets the file name that is used for the named log.       Providing a blank name returns the file name back to default.           Templated names are supported. The file name is passed through       Date2String on output.      

@@ -1,0 +1,1 @@
+﻿   BuildNo_GetBuildNo_LogComp () : buildNoObj     BuildNo_GetBuildNo_LogComp () : object          DESCRIPTION       Returns a build no object or the component.       For example: {"releaseYear":"2017","releaseNo":"r1","buildNo":"20170529","versionShort":"2017.r1","versionLong":"2017.r1 (build 20170529)"}           NOTE: Cannot be run in a pre-emptive process.      

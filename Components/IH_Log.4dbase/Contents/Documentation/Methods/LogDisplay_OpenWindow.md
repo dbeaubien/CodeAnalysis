@@ -1,0 +1,1 @@
+﻿   LogDisplay_OpenWindow (FormLabel)          DESCRIPTION       Opens the main log window.       Called by the "Log_OpenDisplayWindow" method.      

@@ -1,0 +1,1 @@
+﻿   Log_OpenDisplayWindow ()          DESCRIPTION       Opens the main log window.         ----------------------------------------------------     HISTORY       Created by: DB (04/29/2017)     ----------------------------------------------------  

@@ -1,0 +1,1 @@
+﻿   Log_INFO_FORCED (infoText2Append; component)     Log_INFO_FORCED (text; text)          DESCRIPTION       Appends the supplied text as INFO information.       The information will always be sent to the log file       regardless of the logging level.      

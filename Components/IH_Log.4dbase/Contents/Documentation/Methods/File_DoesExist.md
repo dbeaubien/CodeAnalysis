@@ -1,0 +1,1 @@
+﻿   File_DoesExist (path to file) : does exist     File_DoesExist (text) : boolean          DESCRIPTION:       Returns true if the file exists. It will create any directories if       are missing.      

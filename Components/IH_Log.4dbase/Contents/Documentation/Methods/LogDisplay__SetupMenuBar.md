@@ -1,0 +1,1 @@
+﻿   LogDisplay__SetupMenuBar ()          DESCRIPTION       Creates and sets the menu bar.         ----------------------------------------------------     HISTORY       Created by: DB (04/29/2017)     ----------------------------------------------------  

@@ -1,0 +1,1 @@
+﻿   Worker_Init ()          DESCRIPTION       Handles the initalization of any process vars for       the log worker process.         ----------------------------------------------------     HISTORY       Created by: DB (04/26/2017)       Mod by: Dani Beaubien (02/03/2020) - Updated to use log config object     ----------------------------------------------------  

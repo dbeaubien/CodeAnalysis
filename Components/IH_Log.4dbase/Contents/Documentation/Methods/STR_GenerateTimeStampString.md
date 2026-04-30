@@ -1,0 +1,1 @@
+﻿   STR_GenerateTimeStampString (date; time) : TimeStampString     STR_GenerateTimeStampString (date; time) : text          DESCRIPTION       Generates a time stampstring.       Example "04/26/2017 17:54:49"      

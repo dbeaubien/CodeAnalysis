@@ -1,0 +1,1 @@
+﻿   LogNamed_ShowLogOnDisk (logName)     LogNamed_ShowLogOnDisk (text)          DESCRIPTION       Request the worker process do a Show On Disk of the       specified log file.      

@@ -1,0 +1,1 @@
+﻿   LogNamed_AppendToFile_Quiet (logName; text2Append{; cmd1{; cmd2}})     LogNamed_AppendToFile_Quiet (text; text{; text{; text}})          DESCRIPTION       Appends the provided text to the specified app log.       The information is not sent to the log display window.       Special Cmds can be one of the following:       - noTimeStamp       - noProc#      

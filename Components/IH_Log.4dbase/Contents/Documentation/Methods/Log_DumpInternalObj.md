@@ -1,0 +1,1 @@
+﻿   Log_DumpInternalObj ()         DESCRIPTION       Dumps to the app log the internal config object.         ----------------------------------------------------     HISTORY       Created by: Dani Beaubien (12/13/2018)       Mod by: Dani Beaubien (02/03/2020) - Updated to use log config object     ----------------------------------------------------  
