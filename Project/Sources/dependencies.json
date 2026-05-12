@@ -25,7 +25,7 @@
 			"github": "dbeaubien/CodeSnippets",
 			"version": "latest"
 		},
-		"Component IH_Profiler": {
+		"Component IH_Log": {
 			"github": "Infohandler-com/Component-IH_Log",
 			"version": "latest"
 		},
