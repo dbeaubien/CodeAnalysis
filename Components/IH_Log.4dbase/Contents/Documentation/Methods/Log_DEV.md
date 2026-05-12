@@ -1,1 +1,0 @@
-﻿   Log_DEV (debugText2Append; component)     Log_DEV (text; text)          DESCRIPTION       Appends the supplied text as DEV information.       The information will only output if the host app is       running uncompiled.      

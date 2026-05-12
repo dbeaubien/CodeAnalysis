@@ -1,1 +1,0 @@
-﻿   Log_DEBUG (debugText2Append; component)     Log_DEBUG (text; text)          DESCRIPTION       Appends the supplied text as DEBUG information.       The information will only output if the app is in       debug mode.      

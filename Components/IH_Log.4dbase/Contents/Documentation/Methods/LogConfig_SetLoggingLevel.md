@@ -1,1 +1,0 @@
-﻿   LogConfig_SetLoggingLevel (logType)     LogConfig_SetLoggingLevel (text)          DESCRIPTION       Sets the logging level that will be used to determine       which lock messages will be saved to the log file.       Levels in increasing restrictions are:          "INFO", "WARN", "ERR", "FORCED"/"DEBUG"/"DEV" and "CRITICALERR"      

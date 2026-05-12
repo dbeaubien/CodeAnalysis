@@ -1,1 +1,0 @@
-﻿   Worker_AppendToFile (logType; logLevel; text2Append)     Worker_AppendToFile (text; text; text)          DESCRIPTION       Appends the provided text to the specified app log.      

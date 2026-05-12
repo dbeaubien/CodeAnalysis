@@ -1,1 +1,0 @@
-﻿   Log_isWorkerShutdown () : isShutdown     Log_isWorkerShutdown () : boolean          DESCRIPTION       Returns true if the logging working process is       is currently not running      

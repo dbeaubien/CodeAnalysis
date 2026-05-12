@@ -1,1 +1,0 @@
-﻿   Log_FlushCache ()          DESCRIPTION       Forces any cached log items to be written to disk.      

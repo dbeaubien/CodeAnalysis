@@ -1,1 +1,0 @@
-﻿   Method: Array_Empty (array of values)     Method: Array_Empty (pointer to array)          DESCRIPTION       Removes any and all elements in the array         PARAMETERS:  

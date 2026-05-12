@@ -1,1 +1,0 @@
-﻿   Log_INFO (infoText2Append; component)     Log_INFO (text; text)          DESCRIPTION       Appends the supplied text as INFO information.      

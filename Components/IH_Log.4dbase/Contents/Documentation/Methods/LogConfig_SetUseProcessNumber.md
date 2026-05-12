@@ -1,1 +1,0 @@
-﻿   LogConfig_SetUseProcessNumber (useProcessNumber)     LogConfig_SetUseProcessNumber (boolean)          DESCRIPTION       If True, the log app messages will include the process number.      

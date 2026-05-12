@@ -1,1 +1,0 @@
-﻿   Worker_AddToLogCache (filePath; text2Append)     Worker_AddToLogCache (text; text)           DESCRIPTION       Appends the information to the cache of items to write to disk.      

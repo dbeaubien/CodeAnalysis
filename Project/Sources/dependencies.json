@@ -17,17 +17,21 @@
 			"github": "4d/4D-SVG",
 			"version": "4d"
 		},
-		"4D ViewPro": {
-			"github": "4d/4D-ViewPro",
-			"version": "4d"
-		},
 		"4D Widgets": {
 			"github": "4d/4D-Widgets",
 			"version": "4d"
 		},
-		"4D WritePro Interface": {
-			"github": "4d/4D-WritePro-Interface",
-			"version": "4d"
+		"CodeSnippets": {
+			"github": "dbeaubien/CodeSnippets",
+			"version": "latest"
+		},
+		"Component IH_Profiler": {
+			"github": "Infohandler-com/Component-IH_Log",
+			"version": "latest"
+		},
+		"Manifest-Generator-4D-Component": {
+			"github": "dbeaubien/Manifest-Generator-4D-Component",
+			"version": "latest"
 		}
 	}
 }

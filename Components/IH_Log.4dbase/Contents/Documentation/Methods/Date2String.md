@@ -1,1 +1,0 @@
-﻿   Method: Date2String ( date {; formatStr} ) : formated date as string     Method: Date2String ( date {; text} ) : text  

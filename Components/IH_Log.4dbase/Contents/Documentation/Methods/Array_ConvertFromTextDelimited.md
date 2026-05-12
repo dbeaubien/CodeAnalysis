@@ -1,1 +1,0 @@
-﻿   Array_ConvertFromTextDelimited (ArrayPtr, srcText{; delimiter})     Array_ConvertFromTextDelimited (pointer; text{; text})         DESCRIPTION       Converts a delimited text string into values       in the passed text array.  The delimiter defaults to "," if not supplied.      

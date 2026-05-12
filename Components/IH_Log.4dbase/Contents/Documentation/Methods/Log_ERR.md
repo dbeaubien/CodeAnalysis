@@ -1,1 +1,0 @@
-﻿   Log_ERR (errText2Append; component)     Log_ERR (text; text)          DESCRIPTION       Appends the supplied text as ERR information.      

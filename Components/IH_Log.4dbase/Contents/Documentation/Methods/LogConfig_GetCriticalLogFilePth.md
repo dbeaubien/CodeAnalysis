@@ -1,1 +1,0 @@
-﻿   LogConfig_GetCriticalLogFilePth () : filePath     LogConfig_GetCriticalLogFilePth () : txt         DESCRIPTION       Returns the path to the AppLog critical error log file.           NOTE: The file will not exist if nothing has       been written to the log yet.      

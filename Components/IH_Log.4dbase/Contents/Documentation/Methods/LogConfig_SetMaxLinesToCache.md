@@ -1,1 +1,0 @@
-﻿   LogConfig_SetMaxLinesToCache (numLinesToCache)     LogConfig_SetMaxLinesToCache (longint)          DESCRIPTION       Set the number of lines that the log component will       cache in memory before writing to disk.       A value of 0 will force the logs to write immediately.       The value must be between 0 and 5000.      

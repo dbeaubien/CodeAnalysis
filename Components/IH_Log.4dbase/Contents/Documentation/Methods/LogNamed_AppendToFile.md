@@ -1,1 +1,0 @@
-﻿   LogNamed_AppendToFile (logName; text2Append{; cmd1{; cmd2}})     LogNamed_AppendToFile (text; text{; text{; text}})          DESCRIPTION       Appends the provided text to the specified app log.       Special Cmds can be one of the following:       - noTimeStamp       - noProc#      

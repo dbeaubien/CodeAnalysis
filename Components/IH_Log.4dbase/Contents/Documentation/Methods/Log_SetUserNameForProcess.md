@@ -1,1 +1,0 @@
-﻿   Log_SetUserNameForProcess (userNameForProcess)     Log_SetUserNameForProcess (text)          DESCRIPTION       Sets the user name that will appear at the beginning       of each logged line.      

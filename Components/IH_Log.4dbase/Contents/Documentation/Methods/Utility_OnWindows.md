@@ -1,1 +1,0 @@
-﻿   Utility_OnWindows () : isWindows     Utility_OnWindows () : boolean         DESCRIPTION       Are we running on Windows?      

@@ -1,1 +1,0 @@
-﻿   Worker__GetLogFilePathByName (logName; logDate{; criticalErrFile}) : logFilePath     Worker__GetLogFilePathByName (text; date{; text}) : text          DESCRIPTION       Returns the path to the named log based on the       the passed date.      

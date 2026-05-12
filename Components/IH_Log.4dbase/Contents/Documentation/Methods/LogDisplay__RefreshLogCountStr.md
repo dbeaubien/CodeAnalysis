@@ -1,1 +1,0 @@
-﻿   LogDisplay__RefreshLogCountStr ()          DESCRIPTION       Refresh the log count on the log display dialog         ----------------------------------------------------     HISTORY       Created by: DB (06/09/2017)     ----------------------------------------------------  

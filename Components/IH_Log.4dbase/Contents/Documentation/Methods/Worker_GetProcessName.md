@@ -1,1 +1,0 @@
-﻿   Worker_GetProcessName () : WorkerProessName     Worker_GetProcessName () : text          DESCRIPTION       Returns the name of the worker process for this component.      
