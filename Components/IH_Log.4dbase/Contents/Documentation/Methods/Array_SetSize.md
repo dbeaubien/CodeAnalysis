@@ -1,1 +1,0 @@
-﻿   (PM) Array_SetSize     Changes the size of one or multiple arrays     $1 = Size     $2 etc. = Pointers to arrays  

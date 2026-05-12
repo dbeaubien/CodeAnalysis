@@ -1,1 +1,0 @@
-﻿   File_GetFolderName (filePath) : folderName     File_GetFolderName (text) : text          DESCRIPTION       Given the path to a document, returns the path       to the folder the document is in.      

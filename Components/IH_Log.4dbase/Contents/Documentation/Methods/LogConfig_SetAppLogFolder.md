@@ -1,1 +1,0 @@
-﻿   LogConfig_SetAppLogFolder (folderRootPath; {dynamicFolderPath})     LogConfig_SetAppLogFolder (text{; text})          DESCRIPTION       Sets the folder that the logs files are saved to.       Passing an empty string will reset it back to default.           Templated names are supported. The dynamicFolderPath is        passed through Date2String on output.      

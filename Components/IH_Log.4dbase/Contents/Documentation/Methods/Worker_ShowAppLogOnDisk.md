@@ -1,1 +1,0 @@
-﻿   Worker_ShowAppLogOnDisk ()           DESCRIPTION       Request the worker process do a Show On Disk of the       main app log file.      

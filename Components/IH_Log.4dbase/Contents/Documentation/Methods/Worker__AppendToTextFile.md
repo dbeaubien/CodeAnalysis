@@ -1,1 +1,0 @@
-﻿   Worker__AppendToTextFile (filePath; text2Append) : wasDone     Worker__AppendToTextFile (text; text) : boolean          DESCRIPTION       Appends the text to the file.      

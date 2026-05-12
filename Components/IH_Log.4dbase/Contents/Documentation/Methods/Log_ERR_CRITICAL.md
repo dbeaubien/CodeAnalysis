@@ -1,1 +1,0 @@
-﻿   Log_ERR_CRITICAL (errText2Append; component)     Log_ERR_CRITICAL (text; text)          DESCRIPTION       Appends the supplied text as CRITICAL ERR information.      

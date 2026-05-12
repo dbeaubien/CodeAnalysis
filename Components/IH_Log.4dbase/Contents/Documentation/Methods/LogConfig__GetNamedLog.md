@@ -1,1 +1,0 @@
-﻿   LogConfig__GetNamedLog (logName) : namedLogObj     LogConfig__GetNamedLog (text) : object         DESCRIPTION       Returns an named log object (not shared) for the       named log.      

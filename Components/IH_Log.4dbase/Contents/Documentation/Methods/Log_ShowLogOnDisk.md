@@ -1,1 +1,0 @@
-﻿   Log_ShowLogOnDisk (parm1; parm2; ...) : result     Log_ShowLogOnDisk (parm1; parm2; ...) : result          DESCRIPTION       Request the worker process do a Show On Disk of the       main app log file.         ----------------------------------------------------     HISTORY       Created by: DB (04/29/2017)     ----------------------------------------------------  
