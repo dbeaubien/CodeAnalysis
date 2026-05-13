@@ -1,8 +1,8 @@
 ﻿{
 	"author": "Dani Beaubien",
 	"copyrights": "Copyright 2012-2026 Open Road Development inc. All rights reserved.",
-	"version": "2026.r1 (build 20260430)",
-	"buildDate": "2026-04-30",
+	"version": "2026.r3 (build 20260513)",
+	"buildDate": "2026-05-13",
 	"url": "http://openroaddevelopment.com",
 	"manifestFormatVersion": "1.0",
 	"buildWith4DVersion": "v21 final (build 100422)",
@@ -29,7 +29,6 @@
 		"MethodStats_RecalculateAll",
 		"MethodStats_RecalculateModified",
 		"Structure_GetFieldIndexRatio",
-		"Structure_SaveStructDefn2Folder",
-		"UTL_structure2Object"
+		"Structure_SaveStructDefn2Folder"
 	]
 }

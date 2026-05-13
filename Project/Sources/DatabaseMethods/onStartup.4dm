@@ -16,14 +16,11 @@ If (Not:C34(Is compiled mode:C492))
 	DIALOG:C40("ReleaseBuildNo_d")
 	CLOSE WINDOW:C154
 	
-	If (Find in array:C230($at_components; "Mainfest Generator")>0)
-		EXECUTE METHOD:C1007("Manifest_SetAuthor"; *; "Dani Beaubien")
-		EXECUTE METHOD:C1007("Manifest_SetBuildDate"; *; Current date:C33)
-		EXECUTE METHOD:C1007("Manifest_SetURL"; *; "http://openroaddevelopment.com")
-		EXECUTE METHOD:C1007("Manifest_SetCopyright"; *; "Copyright 2012-"+String:C10(Year of:C25(Current date:C33))+" Open Road Development inc. All rights reserved.")
-		EXECUTE METHOD:C1007("Manifest_SetVersion"; *; BuildNo_GetBuildNo_CodeAnalysis.versionLong; True:C214)
-	End if 
-	
+	Manifest_SetAuthor("Dani Beaubien")
+	Manifest_SetBuildDate(Current date:C33)
+	Manifest_SetURL("http://openroaddevelopment.com")
+	Manifest_SetCopyright("Copyright 2012-"+String:C10(Year of:C25(Current date:C33))+" Open Road Development inc. All rights reserved.")
+	Manifest_SetVersion(BuildNo_GetBuildNo_CodeAnalysis.versionLong; True:C214)
 End if 
 
 If (Is compiled mode:C492)
