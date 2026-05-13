@@ -25,12 +25,12 @@
 			"github": "dbeaubien/CodeSnippets",
 			"version": "latest"
 		},
-		"Component IH_Profiler": {
-			"github": "Infohandler-com/Component-IH_Log",
-			"version": "latest"
-		},
 		"Manifest-Generator-4D-Component": {
 			"github": "dbeaubien/Manifest-Generator-4D-Component",
+			"version": "latest"
+		},
+		"Component IH_Log": {
+			"github": "Infohandler-com/Component-IH_Log",
 			"version": "latest"
 		}
 	}
